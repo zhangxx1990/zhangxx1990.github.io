@@ -9,17 +9,17 @@
   
   <title>小新的博客.一个文艺青年的前端小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Logo内容移除 推荐将logo作为a标签的背景图片使用 推荐在logo中要设置文字，但是还要将该文字移除（用户体验） 推荐使用text-indent 设置一个负值来移除logo中的内容 或者：12font-size:0px;color:transparent;       盒子阴影12box-shadow: 5px 5px 10px green,           -5px -5px 10px">
+  <meta name="description" content="离线缓存目标 理解构建离线应用  知识内容离线缓存使用 关联缓存清单   1&amp;lt;html manifest=&quot;demo.appcache&quot;&amp;gt;&amp;lt;/html&amp;gt;  配置缓存清单   123456789101112131415161718192021222324252627CACHE MANIFESTCACHE:#此部分写需要缓存的资源 （#是注释的意思）./images/img1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小新的博客.一个文艺青年的前端小站">
-<meta property="og:url" content="http://zhangxiuxin.top/2018/09/16/HTML/07-Logo内容移除/index.html">
+<meta property="og:url" content="http://zhangxiuxin.top/2018/09/17/H5C3/11-离线缓存/index.html">
 <meta property="og:site_name" content="小新的博客.一个文艺青年的前端小站">
-<meta property="og:description" content="Logo内容移除 推荐将logo作为a标签的背景图片使用 推荐在logo中要设置文字，但是还要将该文字移除（用户体验） 推荐使用text-indent 设置一个负值来移除logo中的内容 或者：12font-size:0px;color:transparent;       盒子阴影12box-shadow: 5px 5px 10px green,           -5px -5px 10px">
+<meta property="og:description" content="离线缓存目标 理解构建离线应用  知识内容离线缓存使用 关联缓存清单   1&amp;lt;html manifest=&quot;demo.appcache&quot;&amp;gt;&amp;lt;/html&amp;gt;  配置缓存清单   123456789101112131415161718192021222324252627CACHE MANIFESTCACHE:#此部分写需要缓存的资源 （#是注释的意思）./images/img1.">
 <meta property="og:locale" content="Zhang-Xiu-xin">
-<meta property="og:updated_time" content="2018-08-11T12:29:15.625Z">
+<meta property="og:updated_time" content="2018-03-22T09:16:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小新的博客.一个文艺青年的前端小站">
-<meta name="twitter:description" content="Logo内容移除 推荐将logo作为a标签的背景图片使用 推荐在logo中要设置文字，但是还要将该文字移除（用户体验） 推荐使用text-indent 设置一个负值来移除logo中的内容 或者：12font-size:0px;color:transparent;       盒子阴影12box-shadow: 5px 5px 10px green,           -5px -5px 10px">
+<meta name="twitter:description" content="离线缓存目标 理解构建离线应用  知识内容离线缓存使用 关联缓存清单   1&amp;lt;html manifest=&quot;demo.appcache&quot;&amp;gt;&amp;lt;/html&amp;gt;  配置缓存清单   123456789101112131415161718192021222324252627CACHE MANIFESTCACHE:#此部分写需要缓存的资源 （#是注释的意思）./images/img1.">
   
     <link rel="alternative" href="/atom.xml" title="小新的博客.一个文艺青年的前端小站" type="application/atom+xml">
   
@@ -264,11 +264,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-HTML/07-Logo内容移除" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-H5C3/11-离线缓存" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/09/16/HTML/07-Logo内容移除/" class="article-date">
-      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+      <a  href="/2018/09/17/H5C3/11-离线缓存/" class="article-date">
+      <time datetime="2018-09-16T16:08:20.370Z" itemprop="datePublished">2018-09-17</time>
 </a>
 
     </div>
@@ -281,33 +281,39 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Logo内容移除"><a href="#Logo内容移除" class="headerlink" title="Logo内容移除"></a>Logo内容移除</h1><ul>
-<li>推荐将logo作为a标签的背景图片使用<ul>
-<li>推荐在logo中要设置文字，但是还要将该文字移除（用户体验）</li>
-<li>推荐使用text-indent 设置一个负值来移除logo中的内容<ul>
-<li>或者：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">font-size:<span class="number">0</span>px;</span><br><span class="line">color:transparent;</span><br></pre></td></tr></table></figure>
+        <h1 id="离线缓存"><a href="#离线缓存" class="headerlink" title="离线缓存"></a>离线缓存</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>理解构建离线应用</li>
+</ul>
+<h2 id="知识内容"><a href="#知识内容" class="headerlink" title="知识内容"></a>知识内容</h2><h3 id="离线缓存使用"><a href="#离线缓存使用" class="headerlink" title="离线缓存使用"></a>离线缓存使用</h3><ul>
+<li><p>关联缓存清单</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">manifest</span>=<span class="string">"demo.appcache"</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
+<li><p>配置缓存清单</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">CACHE MANIFEST</span><br><span class="line"></span><br><span class="line">CACHE:</span><br><span class="line"></span><br><span class="line">#此部分写需要缓存的资源 （#是注释的意思）</span><br><span class="line"></span><br><span class="line">./images/img1.jpg</span><br><span class="line">./images/img2.jpg</span><br><span class="line">./images/img3.jpg</span><br><span class="line">./images/img4.jpg</span><br><span class="line">./images/img5.jpg</span><br><span class="line"></span><br><span class="line">NETWORK:</span><br><span class="line"></span><br><span class="line">#此部分要写需要有网络才可访问的资源，无网络刚不访问</span><br><span class="line"></span><br><span class="line">./js/main.js</span><br><span class="line"></span><br><span class="line">*</span><br><span class="line"></span><br><span class="line">FALLBACK:</span><br><span class="line"></span><br><span class="line">#当访问不到某个资源的情况下，自动由另一个资源替换</span><br><span class="line"></span><br><span class="line">./css/online.css ./css/offline.css</span><br><span class="line"></span><br><span class="line">./online.html ./offline.html</span><br></pre></td></tr></table></figure>
+<p>  ​<code>`</code></p>
+<h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3></li>
+<li>1、可配置需要缓存的资源</li>
+<li>2、网络无连接应用仍可用</li>
+<li>3、本地读取缓存资源，提升访问速度，增强用户体验</li>
+<li>4、减少请求，缓解服务器负担</li>
 </ul>
-</li>
+<h3 id="缓存清单"><a href="#缓存清单" class="headerlink" title="缓存清单"></a>缓存清单</h3><ul>
+<li>一个普通文本文件，其中列出了浏览器应缓存以供离线访问的资源，推荐使用.appcache为后缀名</li>
+<li>例如我们创建了一个名为demo.appcache的文件，然后在需要应用缓存在页面的根元素(html)添加属性manifest=”demo.appcache”，路径要保证正确。</li>
 </ul>
-</li>
+<h3 id="manifest文件格式"><a href="#manifest文件格式" class="headerlink" title="manifest文件格式"></a>manifest文件格式</h3><ul>
+<li>1、顶行写CACHE MANIFEST</li>
+<li>2、CACHE: 换行 指定我们需要缓存的静态资源，如.css、image、js等</li>
+<li>3、NETWORK: 换行 指定需要在线访问的资源，可使用通配符</li>
+<li>4、FALLBACK: 换行 当被缓存的文件找不到时的备用资源</li>
 </ul>
-<h1 id="盒子阴影"><a href="#盒子阴影" class="headerlink" title="盒子阴影"></a>盒子阴影</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: <span class="number">5</span>px <span class="number">5</span>px <span class="number">10</span>px green,</span><br><span class="line">           <span class="number">-5</span>px <span class="number">-5</span>px <span class="number">10</span>px red;</span><br></pre></td></tr></table></figure>
-<h2 id="设置盒子内阴影"><a href="#设置盒子内阴影" class="headerlink" title="设置盒子内阴影"></a>设置盒子内阴影</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:inset <span class="number">5</span>px <span class="number">5</span>px <span class="number">10</span>px green;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>注意：<ul>
-<li>盒子阴影不会改变盒子大小。</li>
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
+<li>1、CACHE: 可以省略，这种情况下将需要缓存的资源写在CACHE MANIFEST</li>
+<li>2、可以指定多个CACHE: NETWORK: FALLBACK:，无顺序限制</li>
+<li>3、#表示注释，只有当demo.appcache文件内容发生改变时或者手动清除缓存后，才会重新缓存。</li>
+<li>4、chrome 可以通过chrome://appcache-internals/工具和离线（offline）模式来调试管理应用缓存</li>
 </ul>
-</li>
-</ul>
-<h2 id="滑动门"><a href="#滑动门" class="headerlink" title="滑动门"></a>滑动门</h2><ul>
-<li>制作导航（使用背景图片制作）</li>
-<li>核心：<ul>
-<li>使用背景图片</li>
-<li>导航的内容区域不能设置固定宽度，一定要使用内容讲导航撑开</li>
-</ul>
-</li>
-</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>HTML5中我们可以轻松的构建一个离线（无网络状态）应用，只需要创建一个manifest文件。</p>
 
       
     </div>
@@ -316,13 +322,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2018/09/16/HTML/07-Logo内容移除/"></a></p>
+        <p><span>本文标题:</span><a  href="/2018/09/17/H5C3/11-离线缓存/"></a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Mr.张先生。 的个人博客">Mr.张先生。</a></p>
-        <p><span>发布时间:</span>2018年09月16日 - 20时55分</p>
-        <p><span>最后更新:</span>2018年08月11日 - 20时29分</p>
+        <p><span>发布时间:</span>2018年09月17日 - 00时08分</p>
+        <p><span>最后更新:</span>2018年03月22日 - 17时16分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/09/16/HTML/07-Logo内容移除/" title="">http://zhangxiuxin.top/2018/09/16/HTML/07-Logo内容移除/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://zhangxiuxin.top/2018/09/16/HTML/07-Logo内容移除/　　作者: Mr.张先生。" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/17/H5C3/11-离线缓存/" title="">http://zhangxiuxin.top/2018/09/17/H5C3/11-离线缓存/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://zhangxiuxin.top/2018/09/17/H5C3/11-离线缓存/　　作者: Mr.张先生。" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -333,7 +339,7 @@
 
 <nav id="article-nav">
   
-    <a  href="/2018/09/16/HTML/09-过渡/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2018/09/17/H5C3/10-本地存储/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
@@ -343,7 +349,7 @@
     </a>
   
   
-    <a  href="/2018/09/16/HTML/06-定位/" id="article-nav-older" class="article-nav-link-wrap">
+    <a  href="/2018/09/17/H5C3/09-历史浏览记录/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -356,7 +362,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Logo内容移除"><span class="toc-number">1.</span> <span class="toc-text">Logo内容移除</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#盒子阴影"><span class="toc-number">2.</span> <span class="toc-text">盒子阴影</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置盒子内阴影"><span class="toc-number">2.1.</span> <span class="toc-text">设置盒子内阴影</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滑动门"><span class="toc-number">2.2.</span> <span class="toc-text">滑动门</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#离线缓存"><span class="toc-number">1.</span> <span class="toc-text">离线缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number">1.1.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识内容"><span class="toc-number">1.2.</span> <span class="toc-text">知识内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#离线缓存使用"><span class="toc-number">1.2.1.</span> <span class="toc-text">离线缓存使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优势"><span class="toc-number">1.2.2.</span> <span class="toc-text">优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缓存清单"><span class="toc-number">1.2.3.</span> <span class="toc-text">缓存清单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#manifest文件格式"><span class="toc-number">1.2.4.</span> <span class="toc-text">manifest文件格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它"><span class="toc-number">1.2.5.</span> <span class="toc-text">其它</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -429,13 +435,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2018/09/16/HTML/09-过渡/" title="上一篇: ">
+            <a  href="/2018/09/17/H5C3/10-本地存储/" title="上一篇: ">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2018/09/16/HTML/06-定位/" title="下一篇: ">
+            <a  href="/2018/09/17/H5C3/09-历史浏览记录/" title="下一篇: ">
                 <i class="fa fa-angle-right"></i>
             </a>
         

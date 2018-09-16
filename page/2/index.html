@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>小新的博客.一个文艺青年的前端小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="分享web开发，为全栈开发努力，自我提高技术。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小新的博客.一个文艺青年的前端小站">
+<meta property="og:url" content="http://zhangxiuxin.top/page/2/index.html">
+<meta property="og:site_name" content="小新的博客.一个文艺青年的前端小站">
+<meta property="og:description" content="分享web开发，为全栈开发努力，自我提高技术。">
+<meta property="og:locale" content="Zhang-Xiu-xin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小新的博客.一个文艺青年的前端小站">
+<meta name="twitter:description" content="分享web开发，为全栈开发努力，自我提高技术。">
+  
+    <link rel="alternative" href="/atom.xml" title="小新的博客.一个文艺青年的前端小站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    
+    
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: true,
+          isPost: false,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Mr.张先生。</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱编程，爱运动，爱动漫，爱游戏！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mr.张先生。</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Mr.张先生。</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-H5C3/03-3d转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/09/17/H5C3/03-3d转换/" class="article-date">
+      <time datetime="2018-09-16T16:08:20.344Z" itemprop="datePublished">2018-09-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="3D转换"><a href="#3D转换" class="headerlink" title="3D转换"></a>3D转换</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>掌握使用CSS完成一些3d效果</li>
+<li>理解在网页平面内的3d效果</li>
+</ul>
+<h2 id="怎么在网页平面产生3d效果"><a href="#怎么在网页平面产生3d效果" class="headerlink" title="怎么在网页平面产生3d效果"></a>怎么在网页平面产生3d效果</h2><ul>
+<li>我们生活的环境是3d的，照片就是3d物体在2d平面呈现的例子</li>
+<li>有什么特点：<ul>
+<li>近大远小</li>
+<li>物体后面遮挡不可见</li>
+</ul>
+</li>
+<li>当我们在网页上构建3d效果的时候参考这些特点就能产出3d效果</li>
+<li>在现实生活当中 我们通过肉眼去物体的时候和照片的成像是相同的</li>
+<li>如果想要在网页产生3d效果需要透视（理解成3d物体投影在2d平面内）</li>
+</ul>
+<h2 id="透视和视距"><a href="#透视和视距" class="headerlink" title="透视和视距"></a>透视和视距</h2><ul>
+<li><p>透视（perspective）</p>
+<ul>
+<li>在2d平面产生近大远小视觉立体，但是只是效果二维的</li>
+<li>原理：<br><img src="/media/01.png"><br>a. 模拟人类的视觉位置，可认为安排一只眼睛去看<br>b. 距离电脑平面的距离为视距<br>c. 距离视觉点越近的在电脑平面成像越大，越远成像越远  </li>
+<li>特点：只是显示3d图像的近大远小效果，无法呈现3d的三维成像的特点，如遮挡</li>
+<li><p>使用场景：只是辅助性的帮助开发者检查3d效果</p>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3d转换"><a href="#3d转换" class="headerlink" title="3d转换"></a>3d转换</h2><ul>
+<li><code>translateX</code>  x轴方向的位移</li>
+<li><code>translateY</code>  y轴方向的位移</li>
+<li><code>translateZ</code> z轴方向的位移</li>
+<li><code>rotateX</code> 绕x轴旋转</li>
+<li><code>rotateY</code> 绕y轴旋转</li>
+<li><code>rotateZ</code> 绕z轴旋转 </li>
+</ul>
+<h2 id="3d呈现"><a href="#3d呈现" class="headerlink" title="3d呈现"></a>3d呈现</h2><ul>
+<li>3d呈现（transfrom-style）<ul>
+<li>在2d平面产生近大远小视觉立体，但是只是效果二维的</li>
+<li>原理：<br><img src="media/02.png"> <img src="media/03.png"><br>a. 第一张图是没有使用3d呈现的  无3d效果<br>b. 第二张图是使用了3d呈现的  出现遮挡三维立体效果</li>
+<li>特点：真正意义的3d呈现，三维立体,有遮挡</li>
+<li>使用场景：在3d立体图形的构建使用</li>
+</ul>
+</li>
+</ul>
+<h2 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .box&#123;</span></span><br><span class="line"><span class="undefined">            width: 200px;</span></span><br><span class="line"><span class="undefined">            height: 200px;</span></span><br><span class="line"><span class="undefined">            position: relative;</span></span><br><span class="line"><span class="undefined">            margin: 100px auto;</span></span><br><span class="line"><span class="undefined">            /*辅助3d效果开发  视觉效果 */</span></span><br><span class="line"><span class="undefined">            /*透视：理解成在屏幕外面安排一只眼睛帮我们开3d效果*/</span></span><br><span class="line"><span class="undefined">            /* 形成近大远小 效果  */</span></span><br><span class="line"><span class="undefined">            /*perspective: 300px;*/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            /*真正意义的3D呈现 */</span></span><br><span class="line"><span class="undefined">            transform-style: preserve-3d;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            transform: rotateX(30deg) rotateY(-30deg);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            animation: rotate 4s linear infinite;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box &gt; div&#123;</span></span><br><span class="line"><span class="undefined">            width: 100%;</span></span><br><span class="line"><span class="undefined">            height: 100%;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            left: 0;</span></span><br><span class="line"><span class="undefined">            top: 0;</span></span><br><span class="line"><span class="undefined">            text-align: center;</span></span><br><span class="line"><span class="undefined">            line-height: 200px;</span></span><br><span class="line"><span class="undefined">            font-size: 20px;</span></span><br><span class="line"><span class="undefined">            opacity: 0.4;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .front&#123;</span></span><br><span class="line"><span class="undefined">            background: red;</span></span><br><span class="line"><span class="undefined">            transform: translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .back&#123;</span></span><br><span class="line"><span class="undefined">            background: blue;</span></span><br><span class="line"><span class="undefined">            transform: rotateY(-180deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .left&#123;</span></span><br><span class="line"><span class="undefined">            background: green;</span></span><br><span class="line"><span class="undefined">            transform: rotateY(-90deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .right&#123;</span></span><br><span class="line"><span class="undefined">            background: yellow;</span></span><br><span class="line"><span class="undefined">            transform: rotateY(-270deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .top&#123;</span></span><br><span class="line"><span class="undefined">            background: pink;</span></span><br><span class="line"><span class="undefined">            transform: rotateX(90deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .bottom&#123;</span></span><br><span class="line"><span class="undefined">            background: hotpink;</span></span><br><span class="line"><span class="undefined">            transform: rotateX(-90deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        /* 立方体的中心在电脑平面上  */</span></span><br><span class="line"><span class="undefined">        /* 当你选择过后正面朝外 Z正方向也是朝外 */</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        @keyframes rotate &#123;</span></span><br><span class="line"><span class="undefined">            from&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            to&#123;</span></span><br><span class="line"><span class="undefined">                transform: rotateX(30deg) rotateY(-390deg);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"front"</span>&gt;</span>front<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"back"</span>&gt;</span>back<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"top"</span>&gt;</span>top<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bottom"</span>&gt;</span>bottom<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>怎么在2d的网页体现3d效果<ul>
+<li>拍照片  物体 呈现 近大远小</li>
+<li>在网页 也可以安排一只虚拟的眼睛  帮我们去观察 立体的物体</li>
+</ul>
+</li>
+<li>透视<ul>
+<li>perspective:100px;</li>
+<li>视距  距离越近 近大远小的效果 越明显</li>
+<li>作用：辅助观察3d效果，不能真正的呈现3d</li>
+</ul>
+</li>
+<li>3d转换<ul>
+<li>rotateX</li>
+<li>rotateY</li>
+<li>rotateZ</li>
+<li>translateX</li>
+<li>translateY</li>
+<li>translateZ</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-H5C3/02-选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/09/17/H5C3/02-选择器/" class="article-date">
+      <time datetime="2018-09-16T16:08:20.340Z" itemprop="datePublished">2018-09-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><ul>
+<li><code>E[attr=value]</code> 选中E元素中属性有attr的且属性值为value的元素 </li>
+<li><code>E[attr^=value]</code> 选中E元素中属性有attr的且属性值以value开头的元素 </li>
+<li><code>E[attr$=value]</code> 选中E元素中属性有attr的且属性值以value结尾的元素 </li>
+<li><code>E[attr*=value]</code> 选中E元素中属性有attr的且属性值包含value的元素 </li>
+</ul>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><ul>
+<li><code>E:first-child</code> 选中E元素的父元素下所有的子元素的第一个元素，如果类型为E选中否则无效</li>
+<li><code>E:last-child</code> 选中E元素的父元素下所有的子元素的最后一个元素，如果类型为E选中否则无效</li>
+<li><code>E:nth-child(n)</code> 选中E元素的父元素下所有的子元素的第n个元素，如果类型为E选中否则无效</li>
+<li><code>E:nth-last-child(n)</code> 选中E元素的父元素下所有的子元素的倒数第n个元素，如果类型为E选中否则无效</li>
+</ul>
+<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><ul>
+<li><code>E::before</code> 选中E元素的内容前伪元素 </li>
+<li><code>E::after</code>  选中E元素的内容前伪元素 </li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-H5C3/01-关于H5开发" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/09/17/H5C3/01-关于H5开发/" class="article-date">
+      <time datetime="2018-09-16T16:08:20.332Z" itemprop="datePublished">2018-09-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="关于H5开发"><a href="#关于H5开发" class="headerlink" title="关于H5开发"></a>关于H5开发</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>作为前端开发人员应该怎么去理解H5开发</li>
+<li>不能单纯认为H5仅仅只是H4的下一个版本</li>
+</ul>
+<h2 id="个人愚见"><a href="#个人愚见" class="headerlink" title="个人愚见"></a>个人愚见</h2><h3 id="HTML4-0-1"><a href="#HTML4-0-1" class="headerlink" title="HTML4.0.1"></a>HTML4.0.1</h3><ol>
+<li>html是HyperText Markup Language <code>超文本标记语言</code>的缩写，是一款描述网页的标记语言。</li>
+<li>HTML4.0.1简单的讲就是html的一个版，1999年12月发布的一直沿用至今，但是html5在慢慢代替它。</li>
+<li>总结一下它的作用是语言规范，开发网页用的。</li>
+</ol>
+<h3 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h3><ol>
+<li>狭义的讲html5的新的一个规范，你可以理解成H5仅仅只是H4的下一个版本。</li>
+<li>但是如果把现在的工作岗位前端-<code>H5开发工程师</code>中的H5那就没这么简单了。</li>
+</ol>
+<h3 id="理解H5开发"><a href="#理解H5开发" class="headerlink" title="理解H5开发"></a>理解H5开发</h3><ol>
+<li>在前端领域H5是一个技术集合（技术栈），而不是一个单纯的技术点，所有不能理解为是一个html规范。</li>
+<li>需要从三个方面去梳理一下常见会学习到技术（当然远不止这些）：<ul>
+<li>html<ul>
+<li>语义化标签</li>
+<li>新增表单类型</li>
+<li>新增表单属性</li>
+</ul>
+</li>
+<li>css<ul>
+<li>新增选择器</li>
+<li>属性的增强</li>
+<li>过渡</li>
+<li>转换</li>
+<li>动画</li>
+<li>媒体查询</li>
+</ul>
+</li>
+<li>javascript<ul>
+<li>新增应用API</li>
+<li>canvas绘图</li>
+<li>ES6</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>还可以从职能去理解H5开发是什么：<ul>
+<li>移动web开发</li>
+<li>响应式开发</li>
+<li>单页面应用开发</li>
+<li>混合APP开发</li>
+<li>微信小程序</li>
+<li>微信公众号</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>H5开发泛<strong>指对h5技术栈(html提升，css提升，javascript提升)的综合使用开发网页应用程序</strong></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/12-动画" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/09/16/HTML/12-动画/" class="article-date">
+      <time datetime="2018-09-16T12:55:40.914Z" itemprop="datePublished">2018-09-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="动画-animation"><a href="#动画-animation" class="headerlink" title="动画(animation)"></a>动画(animation)</h1><h2 id="animation复合属性"><a href="#animation复合属性" class="headerlink" title="animation复合属性"></a>animation复合属性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    width: <span class="number">200</span>px;</span><br><span class="line">    height: <span class="number">200</span>px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    <span class="comment">/* 要执行动画，要调用 */</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* 动画名称 */</span></span><br><span class="line">    animation-name: box_move;</span><br><span class="line">    <span class="comment">/* 动画执行的时间 */</span></span><br><span class="line">    animation-duration: <span class="number">1</span>s;</span><br><span class="line">    <span class="comment">/* 动画执行次数： 默认执行1次   infinite:无限循环*/</span></span><br><span class="line">    animation-iteration-count: infinite;</span><br><span class="line">    <span class="comment">/* 设置动画逆波 */</span></span><br><span class="line">    animation-direction: alternate;</span><br><span class="line">    <span class="comment">/* 设置动画的速度类型 */</span></span><br><span class="line">    animation-timing-<span class="function"><span class="keyword">function</span>: <span class="title">linear</span>;</span></span><br><span class="line"><span class="function">    /* 设置动画延时执行 */</span></span><br><span class="line"><span class="function">    <span class="title">animation</span>-<span class="title">delay</span>: 2<span class="title">s</span>;</span></span><br><span class="line"><span class="function">    /* 设置动画时间之外的状态 */</span></span><br><span class="line"><span class="function">    <span class="title">animation</span>-<span class="title">fill</span>-<span class="title">mode</span>: <span class="title">forwards</span>;</span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function">.<span class="title">box</span>:<span class="title">hover</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* 动画暂停 */</span></span><br><span class="line">    animation-play-state: paused;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义动画<ul>
+<li>通过@keyframes + 自定义动画名称 {}</li>
+<li>在动画集中通过from 和 to 设置动画的开始状态和结束状态。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">          <span class="comment">/* 第一步：先定义一个动画集（序列） */</span></span><br><span class="line">          @keyframes  box_move &#123;</span><br><span class="line">              </span><br><span class="line">              <span class="comment">/* 第二步：定义动画的开始状态 */</span></span><br><span class="line">              <span class="keyword">from</span> &#123;</span><br><span class="line">                  transform: translate(<span class="number">0</span>px);</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="comment">/* 第三步：定义动画的结束状态 */</span></span><br><span class="line">              to &#123;</span><br><span class="line">                  </span><br><span class="line">                  <span class="comment">/* 2d的方式移动 */</span></span><br><span class="line">                  transform: translate(<span class="number">400</span>px);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 注意：</span></span><br><span class="line"><span class="comment">// 动画集要单独定义，不能放到类样式中。</span></span><br></pre></td></tr></table></figure>
+<h3 id="动画联写方式"><a href="#动画联写方式" class="headerlink" title="动画联写方式"></a>动画联写方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animation: move <span class="number">1</span>s  linear infinite  alternate;</span><br></pre></td></tr></table></figure>
+<h3 id="或者可以同时调用多个动画集"><a href="#或者可以同时调用多个动画集" class="headerlink" title="或者可以同时调用多个动画集"></a>或者可以同时调用多个动画集</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;</span><br><span class="line">            background-color: red;</span><br><span class="line">            </span><br><span class="line">            animation: move <span class="number">1</span>s  linear infinite  alternate,</span><br><span class="line">                    chage1 <span class="number">1</span>s <span class="number">1</span>s linear; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="可以通过设置百分比的形式设置动画集中的不同状态"><a href="#可以通过设置百分比的形式设置动画集中的不同状态" class="headerlink" title="可以通过设置百分比的形式设置动画集中的不同状态"></a>可以通过设置百分比的形式设置动画集中的不同状态</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    @keyframes  change &#123;</span><br><span class="line">                <span class="comment">/*动画的开始状态*/</span></span><br><span class="line">            <span class="number">0</span>% &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">                <span class="comment">/*动画的结束状态*/</span></span><br><span class="line">            <span class="number">100</span>% &#123;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//百分比是相对动画执行时间。</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/13-伸缩布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/09/16/HTML/13-伸缩布局/" class="article-date">
+      <time datetime="2018-09-16T12:55:40.914Z" itemprop="datePublished">2018-09-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="伸缩布局【弹性布局】-display-flex"><a href="#伸缩布局【弹性布局】-display-flex" class="headerlink" title="伸缩布局【弹性布局】(display:flex;)"></a>伸缩布局【弹性布局】(display:flex;)</h1><ul>
+<li><p>首先给子元素的直接父元素设置为伸缩盒子.</p>
+<ul>
+<li><p>display:flex;</p>
+</li>
+<li><p>当父元素为伸缩盒子的时候，默认子元素在一行上显示。</p>
+<ul>
+<li>伸缩盒子特点：<pre><code>- 如果一个盒子变为伸缩盒子，那么该盒子就具有了两条轴，一条是主轴，一条是侧轴。主轴的默认方向是水平从左向右，侧轴始终要垂直于主轴。
+ - 子元素是按照主轴的方向显示的。
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="设置主轴的方向"><a href="#设置主轴的方向" class="headerlink" title="设置主轴的方向"></a>设置主轴的方向</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">            <span class="comment">// 设置主轴的方向</span></span><br><span class="line">            flex-direction:row;</span><br><span class="line">            flex-direction:row-reverse;</span><br><span class="line">            flex-direction:column;</span><br><span class="line">            flex-direction:column-reverse;</span><br><span class="line"><span class="string">``</span><span class="string">`	</span></span><br><span class="line"><span class="string">- 总结：</span></span><br><span class="line"><span class="string">	- 由于在伸缩和中子元素是按照主轴的方向显示的，所以当我们调整主轴的方向的时候，子元素随着发生位置的改变。</span></span><br><span class="line"><span class="string">	- 主轴方向发生了改变后，侧轴的方向也会发生改变。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">## 设置子元素在主轴的对齐方式</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line">            <span class="comment">// 设置子元素在主轴的对齐方式</span></span><br><span class="line">            justify-content:flex-start;</span><br><span class="line">            justify-content:flex-end;</span><br><span class="line">            justify-content:center;</span><br><span class="line">            justify-content:space-between;</span><br><span class="line">            justify-content:space-around;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：<ul>
+<li>通过设置该属性，只是改变了子元素在主轴方向的对齐显示位置，而元素自己本身的位置并没有改变。</li>
+</ul>
+</li>
+</ul>
+<h2 id="设置子元素在侧轴的对齐方式"><a href="#设置子元素在侧轴的对齐方式" class="headerlink" title="设置子元素在侧轴的对齐方式"></a>设置子元素在侧轴的对齐方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置子元素在侧轴的对齐方式</span></span><br><span class="line">align-items:flex-start;</span><br><span class="line">align-items:flex-end;</span><br><span class="line">align-items:center;</span><br><span class="line">align-items:streth;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：<ul>
+<li>在伸缩盒子中，子元素可以不用设置高度，如果不设置，那么该子元素的高度等于其父元素的高度，由于子元素是在侧轴的对齐方式是拉伸的效果。</li>
+</ul>
+</li>
+</ul>
+<h2 id="设置伸缩盒子是否允许子元素换行"><a href="#设置伸缩盒子是否允许子元素换行" class="headerlink" title="设置伸缩盒子是否允许子元素换行"></a>设置伸缩盒子是否允许子元素换行</h2><ul>
+<li>在伸缩盒子中，如果子元素的宽度超出父元素的宽度，那么子元素不会换行显示。</li>
+</ul>
+<h2 id="设置子元素是否换行显示"><a href="#设置子元素是否换行显示" class="headerlink" title="设置子元素是否换行显示"></a>设置子元素是否换行显示</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置子元素是否换行显示 默认不换行 nowrap</span></span><br><span class="line">flex-wrap:nowrap;</span><br><span class="line"><span class="comment">// 子元素可以换行显示</span></span><br><span class="line">flex-wrap:wrap;</span><br></pre></td></tr></table></figure>
+<h2 id="设置子元素换行后的对齐方式"><a href="#设置子元素换行后的对齐方式" class="headerlink" title="设置子元素换行后的对齐方式"></a>设置子元素换行后的对齐方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置子元素换行后的对齐方式 默认的对齐方式:stretch</span></span><br><span class="line">align-content:flex-start;</span><br><span class="line">align-content:flex-end;</span><br><span class="line">align-content:center;</span><br><span class="line">align-content:space-around;</span><br><span class="line">align-content:space-between;</span><br><span class="line">align-content:stretch;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：<ul>
+<li>该属性设置的前提必须要保证元素是换行后的元素。</li>
+</ul>
+</li>
+</ul>
+<h2 id="伸缩盒子中子元素的相关属性"><a href="#伸缩盒子中子元素的相关属性" class="headerlink" title="伸缩盒子中子元素的相关属性"></a>伸缩盒子中子元素的相关属性</h2><ul>
+<li>flex: 设置子元素占父元素剩余宽度的比例<ul>
+<li>order: 排序 <ul>
+<li>不需要改变html结构中的位置，就可以实现在页面中调换元素的显示位置。</li>
+<li>order的取值越大，那么该元素在页面中的显示位置越靠后。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/08-Web字体" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/09/16/HTML/08-Web字体/" class="article-date">
+      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Web字体"><a href="#Web字体" class="headerlink" title="Web字体"></a>Web字体</h1><ul>
+<li><p>开发人员可以为自已的网页指定特殊的字体，无需考虑用户电脑上是否安装了此特殊字体，从此把特殊字体处理成图片的时代便成为了过去。支持程度比较好，甚至IE低版本浏览器也能支持。</p>
+<p>  <a href="http://www.iconfont.cn/" target="_blank" rel="noopener">在线字体</a></p>
+<ul>
+<li>引用在线字体。（了解）</li>
+<li>下载到本地使用（推荐）</li>
+</ul>
+</li>
+<li><p><strong>字体格式</strong></p>
+<ul>
+<li><p>不同浏览器所支持的字体格式是不一样的，我们有必要了解一下有关字体格式的知识。</p>
+<ul>
+<li><p>1、TureType(.ttf)格式</p>
+<ul>
+<li>.ttf字体是Windows和Mac的最常见的字体，是一种RAW格式，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome4+、Safari3+、Opera10+、iOS Mobile、Safari4.2+；</li>
+</ul>
+</li>
+<li><p>2、OpenType(.otf)格式</p>
+<ul>
+<li>.otf字体被认为是一种原始的字体格式，其内置在TureType的基础上，支持这种字体的浏览器有Firefox3.5+、Chrome4.0+、Safari3.1+、Opera10.0+、iOS Mobile、Safari4.2+；</li>
+</ul>
+</li>
+<li><p>3、Web Open Font Format(.woff)格式</p>
+<ul>
+<li>woff字体是Web字体中最佳格式，他是一个开放的TrueType/OpenType的压缩版本，同时也支持元数据包的分离，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome6+、Safari3.6+、Opera11.1+；</li>
+</ul>
+</li>
+<li><p>4、Embedded Open Type(.eot)格式</p>
+<ul>
+<li>.eot字体是IE专用字体，可以从TrueType创建此格式字体，支持这种字体的浏览器有IE4+；</li>
+</ul>
+</li>
+<li><p>5、SVG(.svg)格式</p>
+<ul>
+<li>.svg字体是基于SVG字体渲染的一种格式，支持这种字体的浏览器有Chrome4+、Safari3.1+、Opera10.0+、iOS Mobile Safari3.2+；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/11-3D转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/09/16/HTML/11-3D转换/" class="article-date">
+      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="3D转换-transform-【变形】"><a href="#3D转换-transform-【变形】" class="headerlink" title="3D转换(transform)【变形】"></a>3D转换(transform)【变形】</h1><h2 id="位移"><a href="#位移" class="headerlink" title="位移"></a>位移</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 位移</span></span><br><span class="line">        transform: translateX(<span class="number">-400</span>px) translateY(<span class="number">-400</span>px) translateZ(<span class="number">-400</span>px);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结:<ul>
+<li>如果设置的是正数，那么就沿着对应坐标轴的正方向移动，反之沿着反方向移动</li>
+</ul>
+</li>
+</ul>
+<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 旋转</span></span><br><span class="line">        transform:rotateX(<span class="number">-90</span>deg);</span><br><span class="line">        transform:rotateY(<span class="number">-90</span>deg);</span><br><span class="line">        transform:rotateZ(<span class="number">90</span>deg);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>备注:<ul>
+<li>通过左手法则判断元素的旋转方向</li>
+<li>左手法则： 用左手握住坐标轴，大拇指指向坐标轴的方向，四个手指弯曲的方向就是旋转的方向</li>
+</ul>
+</li>
+</ul>
+<h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><p><code>transform:scaleX(2) scaleY(2);</code></p>
+<h2 id="透视"><a href="#透视" class="headerlink" title="透视"></a>透视</h2><ul>
+<li>perspective: 1000px;<ul>
+<li>总结：<ul>
+<li>该属性要设置给变形元素的父元素</li>
+<li>该属性不是一个必须要设置的属性</li>
+<li>该属性的取值不是唯一的，但是我们一般情况下将该属性的取值设置了800-1000之间。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/10-2D转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/09/16/HTML/10-2D转换/" class="article-date">
+      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="2D转换-transform-【变形】"><a href="#2D转换-transform-【变形】" class="headerlink" title="2D转换(transform)【变形】"></a>2D转换(transform)【变形】</h1><h2 id="位移"><a href="#位移" class="headerlink" title="位移"></a>位移</h2><ul>
+<li>transform: translate(400px,200px);</li>
+<li>总结：<ul>
+<li>如果在translate()中设置一个值，那么代表当前元素是沿着水平方向移动，如果是正数则向右移动，反之向左移动。</li>
+<li>如果在translate()中设置两个值，第一个值代表水平方向移动，第二个值代表垂直方向移动。</li>
+<li>translate()中可以设置百分比，百分比是相对元素自己的宽度或者高度</li>
+</ul>
+</li>
+</ul>
+<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><ul>
+<li>transform: rotate(360deg);</li>
+<li>总结：<ul>
+<li>如果设置的是一个正数，那么代表当前元素是按照顺时针方向旋转，反之逆时针</li>
+<li>如果我们希望一个元素既旋转又位移，推荐先写位移然后设置旋转<br><code>transform: translate(400px) rotate(360deg);</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="缩放（让元素放大或缩小）"><a href="#缩放（让元素放大或缩小）" class="headerlink" title="缩放（让元素放大或缩小）"></a>缩放（让元素放大或缩小）</h2><ul>
+<li>transform: scale(0.5,1)；<ul>
+<li>总结：<ul>
+<li>如果sacle()中设置的是一个值，那么代表该元素在水平方向和垂直方向同时放大或者缩小。<ul>
+<li>如果设置两个值，那么第一个值代表的是水平方向的放大或缩小。第二个值代表的是垂直方向的放大或者缩小</li>
+<li>如果要实现放大的效果，那么我们设置大于1的数字就可以了</li>
+<li>如果要实现缩小的效果，那么我们设置大于0小于1之间的小数就可以了。</li>
+<li>不能设置负数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="倾斜"><a href="#倾斜" class="headerlink" title="倾斜"></a>倾斜</h2><ul>
+<li>transform: skew(30deg);<ul>
+<li>总结：<ul>
+<li>如果skew设的是一个值，那么代表该元素是沿着水平方向让元素发生倾斜，如果设置两个值，第一个代表水平方向，第二值代表垂直方向</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="transform属性联写："><a href="#transform属性联写：" class="headerlink" title="transform属性联写："></a>transform属性联写：</h2><p> <code>transform:translate() rotate(angle) scale()skew(30deg,40deg);</code></p>
+<h2 id="旋转圆心位置改变（设置）"><a href="#旋转圆心位置改变（设置）" class="headerlink" title="旋转圆心位置改变（设置）"></a>旋转圆心位置改变（设置）</h2><ul>
+<li>transform-origin设置旋转圆心位置<ul>
+<li>可以通过关键字设置 left | right | top | bottom | center</li>
+<li>可以设置具体值设置</li>
+</ul>
+</li>
+</ul>
+<h2 id="定位盒子居中显示"><a href="#定位盒子居中显示" class="headerlink" title="定位盒子居中显示"></a>定位盒子居中显示</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2d转化实现绝对定位的盒子居中：</span></span><br><span class="line">    .box &#123;</span><br><span class="line">            width: <span class="number">123</span>px;</span><br><span class="line">            height: <span class="number">123</span>px;</span><br><span class="line">            background-color: pink;</span><br><span class="line">            position:absolute;</span><br><span class="line">            left:<span class="number">50</span>%;</span><br><span class="line">            transform: translate(<span class="number">-50</span>%);</span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">// 3d转化的方式实现绝对定位的盒子水平居中：</span></span><br><span class="line">            .one &#123;</span><br><span class="line">                width: <span class="number">123</span>px;</span><br><span class="line">                height: <span class="number">123</span>px;</span><br><span class="line">                background-color: pink;</span><br><span class="line">                position:absolute;</span><br><span class="line">                left:<span class="number">50</span>%;</span><br><span class="line">                transform: translateX(<span class="number">-50</span>%);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/09-过渡" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/09/16/HTML/09-过渡/" class="article-date">
+      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="过渡（transition）"><a href="#过渡（transition）" class="headerlink" title="过渡（transition）"></a>过渡（transition）</h1><ul>
+<li>过渡属于一种特殊的动画<ul>
+<li>通过一种状态向另外一种状态的改变<ul>
+<li>transition 复合属性：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">         <span class="comment">/* 设置参与过渡的属性 */</span></span><br><span class="line">transition-property: width,height,background-color;</span><br><span class="line">transition-property: all; </span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置过渡完成的时间 */</span></span><br><span class="line">transition-duration: <span class="number">1</span>s; </span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置过渡延时执行的时间 */</span></span><br><span class="line">transition-delay: <span class="number">1</span>s; </span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置过渡的类型（速度类型） */</span></span><br><span class="line">transition-timing-<span class="function"><span class="keyword">function</span>: <span class="title">ease</span>;</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">ease</span>-<span class="title">in</span>;</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">ease</span>-<span class="title">out</span>;</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">ease</span>-<span class="title">in</span>-<span class="title">out</span>; </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">/* 代表当前过渡的速度是匀速完成的。 */</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">linear</span>; </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">         // 属性联写:</span></span><br><span class="line"><span class="function"><span class="title">transition</span>: <span class="title">all</span>  1<span class="title">s</span>  <span class="title">linear</span>; </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">         //或者单独为每一个属性设置过渡的效果：</span></span><br><span class="line"><span class="function">         <span class="title">transition</span>: <span class="title">width</span> 1<span class="title">s</span> <span class="title">linear</span>,</span></span><br><span class="line"><span class="function">                     <span class="title">height</span> 1<span class="title">s</span>  1<span class="title">s</span> <span class="title">linear</span>,</span></span><br><span class="line"><span class="function">                     <span class="title">background</span>-<span class="title">color</span> 1<span class="title">s</span> 2<span class="title">s</span> <span class="title">linear</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="常用网"><a href="#常用网" class="headerlink" title="常用网"></a>常用网</h2><p>过渡调试网站：<a href="http://cubic-bezier.com/" target="_blank" rel="noopener">DiagramDesigner</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/07-Logo内容移除" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/09/16/HTML/07-Logo内容移除/" class="article-date">
+      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Logo内容移除"><a href="#Logo内容移除" class="headerlink" title="Logo内容移除"></a>Logo内容移除</h1><ul>
+<li>推荐将logo作为a标签的背景图片使用<ul>
+<li>推荐在logo中要设置文字，但是还要将该文字移除（用户体验）</li>
+<li>推荐使用text-indent 设置一个负值来移除logo中的内容<ul>
+<li>或者：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">font-size:<span class="number">0</span>px;</span><br><span class="line">color:transparent;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="盒子阴影"><a href="#盒子阴影" class="headerlink" title="盒子阴影"></a>盒子阴影</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: <span class="number">5</span>px <span class="number">5</span>px <span class="number">10</span>px green,</span><br><span class="line">           <span class="number">-5</span>px <span class="number">-5</span>px <span class="number">10</span>px red;</span><br></pre></td></tr></table></figure>
+<h2 id="设置盒子内阴影"><a href="#设置盒子内阴影" class="headerlink" title="设置盒子内阴影"></a>设置盒子内阴影</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:inset <span class="number">5</span>px <span class="number">5</span>px <span class="number">10</span>px green;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：<ul>
+<li>盒子阴影不会改变盒子大小。</li>
+</ul>
+</li>
+</ul>
+<h2 id="滑动门"><a href="#滑动门" class="headerlink" title="滑动门"></a>滑动门</h2><ul>
+<li>制作导航（使用背景图片制作）</li>
+<li>核心：<ul>
+<li>使用背景图片</li>
+<li>导航的内容区域不能设置固定宽度，一定要使用内容讲导航撑开</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    </nav>
+  
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mr.张先生。
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/zhangxx1990" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

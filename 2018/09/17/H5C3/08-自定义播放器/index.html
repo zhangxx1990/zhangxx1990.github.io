@@ -9,17 +9,17 @@
   
   <title>小新的博客.一个文艺青年的前端小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Logo内容移除 推荐将logo作为a标签的背景图片使用 推荐在logo中要设置文字，但是还要将该文字移除（用户体验） 推荐使用text-indent 设置一个负值来移除logo中的内容 或者：12font-size:0px;color:transparent;       盒子阴影12box-shadow: 5px 5px 10px green,           -5px -5px 10px">
+  <meta name="description" content="自定义播放器目标 独立完成自定义播放器处理浏览器表现不一致问题 独立查找API完成自定义播放器功能  知识内容api 音频和视频API一致  方法    方法 描述     addTextTrack() 向音频/视频添加新的文本轨道   canPlayType() 检测浏览器是否能播放指定的音频/视频类型   load() 重新加载音频/视频元素   play() 开始播放音频/视频   paus">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小新的博客.一个文艺青年的前端小站">
-<meta property="og:url" content="http://zhangxiuxin.top/2018/09/16/HTML/07-Logo内容移除/index.html">
+<meta property="og:url" content="http://zhangxiuxin.top/2018/09/17/H5C3/08-自定义播放器/index.html">
 <meta property="og:site_name" content="小新的博客.一个文艺青年的前端小站">
-<meta property="og:description" content="Logo内容移除 推荐将logo作为a标签的背景图片使用 推荐在logo中要设置文字，但是还要将该文字移除（用户体验） 推荐使用text-indent 设置一个负值来移除logo中的内容 或者：12font-size:0px;color:transparent;       盒子阴影12box-shadow: 5px 5px 10px green,           -5px -5px 10px">
+<meta property="og:description" content="自定义播放器目标 独立完成自定义播放器处理浏览器表现不一致问题 独立查找API完成自定义播放器功能  知识内容api 音频和视频API一致  方法    方法 描述     addTextTrack() 向音频/视频添加新的文本轨道   canPlayType() 检测浏览器是否能播放指定的音频/视频类型   load() 重新加载音频/视频元素   play() 开始播放音频/视频   paus">
 <meta property="og:locale" content="Zhang-Xiu-xin">
-<meta property="og:updated_time" content="2018-08-11T12:29:15.625Z">
+<meta property="og:updated_time" content="2018-03-07T03:40:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小新的博客.一个文艺青年的前端小站">
-<meta name="twitter:description" content="Logo内容移除 推荐将logo作为a标签的背景图片使用 推荐在logo中要设置文字，但是还要将该文字移除（用户体验） 推荐使用text-indent 设置一个负值来移除logo中的内容 或者：12font-size:0px;color:transparent;       盒子阴影12box-shadow: 5px 5px 10px green,           -5px -5px 10px">
+<meta name="twitter:description" content="自定义播放器目标 独立完成自定义播放器处理浏览器表现不一致问题 独立查找API完成自定义播放器功能  知识内容api 音频和视频API一致  方法    方法 描述     addTextTrack() 向音频/视频添加新的文本轨道   canPlayType() 检测浏览器是否能播放指定的音频/视频类型   load() 重新加载音频/视频元素   play() 开始播放音频/视频   paus">
   
     <link rel="alternative" href="/atom.xml" title="小新的博客.一个文艺青年的前端小站" type="application/atom+xml">
   
@@ -264,11 +264,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-HTML/07-Logo内容移除" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-H5C3/08-自定义播放器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/09/16/HTML/07-Logo内容移除/" class="article-date">
-      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+      <a  href="/2018/09/17/H5C3/08-自定义播放器/" class="article-date">
+      <time datetime="2018-09-16T16:08:20.365Z" itemprop="datePublished">2018-09-17</time>
 </a>
 
     </div>
@@ -281,33 +281,272 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Logo内容移除"><a href="#Logo内容移除" class="headerlink" title="Logo内容移除"></a>Logo内容移除</h1><ul>
-<li>推荐将logo作为a标签的背景图片使用<ul>
-<li>推荐在logo中要设置文字，但是还要将该文字移除（用户体验）</li>
-<li>推荐使用text-indent 设置一个负值来移除logo中的内容<ul>
-<li>或者：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">font-size:<span class="number">0</span>px;</span><br><span class="line">color:transparent;</span><br></pre></td></tr></table></figure>
-</li>
+        <h1 id="自定义播放器"><a href="#自定义播放器" class="headerlink" title="自定义播放器"></a>自定义播放器</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>独立完成自定义播放器处理浏览器表现不一致问题</li>
+<li>独立查找API完成自定义播放器功能</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="盒子阴影"><a href="#盒子阴影" class="headerlink" title="盒子阴影"></a>盒子阴影</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: <span class="number">5</span>px <span class="number">5</span>px <span class="number">10</span>px green,</span><br><span class="line">           <span class="number">-5</span>px <span class="number">-5</span>px <span class="number">10</span>px red;</span><br></pre></td></tr></table></figure>
-<h2 id="设置盒子内阴影"><a href="#设置盒子内阴影" class="headerlink" title="设置盒子内阴影"></a>设置盒子内阴影</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:inset <span class="number">5</span>px <span class="number">5</span>px <span class="number">10</span>px green;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>注意：<ul>
-<li>盒子阴影不会改变盒子大小。</li>
-</ul>
-</li>
-</ul>
-<h2 id="滑动门"><a href="#滑动门" class="headerlink" title="滑动门"></a>滑动门</h2><ul>
-<li>制作导航（使用背景图片制作）</li>
-<li>核心：<ul>
-<li>使用背景图片</li>
-<li>导航的内容区域不能设置固定宽度，一定要使用内容讲导航撑开</li>
-</ul>
-</li>
-</ul>
+<h2 id="知识内容"><a href="#知识内容" class="headerlink" title="知识内容"></a>知识内容</h2><h3 id="api"><a href="#api" class="headerlink" title="api"></a>api</h3><blockquote>
+<p>音频和视频API一致</p>
+</blockquote>
+<p>方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addTextTrack()</td>
+<td>向音频/视频添加新的文本轨道</td>
+</tr>
+<tr>
+<td>canPlayType()</td>
+<td>检测浏览器是否能播放指定的音频/视频类型</td>
+</tr>
+<tr>
+<td>load()</td>
+<td>重新加载音频/视频元素</td>
+</tr>
+<tr>
+<td>play()</td>
+<td>开始播放音频/视频</td>
+</tr>
+<tr>
+<td>pause()</td>
+<td>暂停当前播放的音频/视频</td>
+</tr>
+</tbody>
+</table>
+<p>属性</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>audioTracks</td>
+<td>返回表示可用音轨的 AudioTrackList 对象</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>设置或返回是否在加载完成后随即播放音频/视频</td>
+</tr>
+<tr>
+<td>buffered</td>
+<td>返回表示音频/视频已缓冲部分的 TimeRanges 对象</td>
+</tr>
+<tr>
+<td>controller</td>
+<td>返回表示音频/视频当前媒体控制器的 MediaController 对象</td>
+</tr>
+<tr>
+<td>controls</td>
+<td>设置或返回音频/视频是否显示控件（比如播放/暂停等）</td>
+</tr>
+<tr>
+<td>crossOrigin</td>
+<td>设置或返回音频/视频的 CORS 设置</td>
+</tr>
+<tr>
+<td>currentSrc</td>
+<td>返回当前音频/视频的 URL</td>
+</tr>
+<tr>
+<td>currentTime</td>
+<td>设置或返回音频/视频中的当前播放位置（以秒计）</td>
+</tr>
+<tr>
+<td>defaultMuted</td>
+<td>设置或返回音频/视频默认是否静音</td>
+</tr>
+<tr>
+<td>defaultPlaybackRate</td>
+<td>设置或返回音频/视频的默认播放速度</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>返回当前音频/视频的长度（以秒计）</td>
+</tr>
+<tr>
+<td>ended</td>
+<td>返回音频/视频的播放是否已结束</td>
+</tr>
+<tr>
+<td>error</td>
+<td>返回表示音频/视频错误状态的 MediaError 对象</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>设置或返回音频/视频是否应在结束时重新播放</td>
+</tr>
+<tr>
+<td>mediaGroup</td>
+<td>设置或返回音频/视频所属的组合（用于连接多个音频/视频元素）</td>
+</tr>
+<tr>
+<td>muted</td>
+<td>设置或返回音频/视频是否静音</td>
+</tr>
+<tr>
+<td>networkState</td>
+<td>返回音频/视频的当前网络状态</td>
+</tr>
+<tr>
+<td>paused</td>
+<td>设置或返回音频/视频是否暂停</td>
+</tr>
+<tr>
+<td>playbackRate</td>
+<td>设置或返回音频/视频播放的速度</td>
+</tr>
+<tr>
+<td>played</td>
+<td>返回表示音频/视频已播放部分的 TimeRanges 对象</td>
+</tr>
+<tr>
+<td>preload</td>
+<td>设置或返回音频/视频是否应该在页面加载后进行加载</td>
+</tr>
+<tr>
+<td>readyState</td>
+<td>返回音频/视频当前的就绪状态</td>
+</tr>
+<tr>
+<td>seekable</td>
+<td>返回表示音频/视频可寻址部分的 TimeRanges 对象</td>
+</tr>
+<tr>
+<td>seeking</td>
+<td>返回用户是否正在音频/视频中进行查找</td>
+</tr>
+<tr>
+<td>src</td>
+<td>设置或返回音频/视频元素的当前来源</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>返回表示当前时间偏移的 Date 对象</td>
+</tr>
+<tr>
+<td>textTracks</td>
+<td>返回表示可用文本轨道的 TextTrackList 对象</td>
+</tr>
+<tr>
+<td>videoTracks</td>
+<td>返回表示可用视频轨道的 VideoTrackList 对象</td>
+</tr>
+<tr>
+<td>volume</td>
+<td>设置或返回音频/视频的音量</td>
+</tr>
+</tbody>
+</table>
+<p>事件</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abort</td>
+<td>当音频/视频的加载已放弃时</td>
+</tr>
+<tr>
+<td>canplay</td>
+<td>当浏览器可以播放音频/视频时</td>
+</tr>
+<tr>
+<td>canplaythrough</td>
+<td>当浏览器可在不因缓冲而停顿的情况下进行播放时</td>
+</tr>
+<tr>
+<td>durationchange</td>
+<td>当音频/视频的时长已更改时</td>
+</tr>
+<tr>
+<td>emptied</td>
+<td>当目前的播放列表为空时</td>
+</tr>
+<tr>
+<td>ended</td>
+<td>当目前的播放列表已结束时</td>
+</tr>
+<tr>
+<td>error</td>
+<td>当在音频/视频加载期间发生错误时</td>
+</tr>
+<tr>
+<td>loadeddata</td>
+<td>当浏览器已加载音频/视频的当前帧时</td>
+</tr>
+<tr>
+<td>loadedmetadata</td>
+<td>当浏览器已加载音频/视频的元数据时</td>
+</tr>
+<tr>
+<td>loadstart</td>
+<td>当浏览器开始查找音频/视频时</td>
+</tr>
+<tr>
+<td>pause</td>
+<td>当音频/视频已暂停时</td>
+</tr>
+<tr>
+<td>play</td>
+<td>当音频/视频已开始或不再暂停时</td>
+</tr>
+<tr>
+<td>playing</td>
+<td>当音频/视频在已因缓冲而暂停或停止后已就绪时</td>
+</tr>
+<tr>
+<td>progress</td>
+<td>当浏览器正在下载音频/视频时</td>
+</tr>
+<tr>
+<td>ratechange</td>
+<td>当音频/视频的播放速度已更改时</td>
+</tr>
+<tr>
+<td>seeked</td>
+<td>当用户已移动/跳跃到音频/视频中的新位置时</td>
+</tr>
+<tr>
+<td>seeking</td>
+<td>当用户开始移动/跳跃到音频/视频中的新位置时</td>
+</tr>
+<tr>
+<td>stalled</td>
+<td>当浏览器尝试获取媒体数据，但数据不可用时</td>
+</tr>
+<tr>
+<td>suspend</td>
+<td>当浏览器刻意不获取媒体数据时</td>
+</tr>
+<tr>
+<td>timeupdate</td>
+<td>当目前的播放位置已更改时</td>
+</tr>
+<tr>
+<td>volumechange</td>
+<td>当音量已更改时</td>
+</tr>
+<tr>
+<td>waiting</td>
+<td>当视频由于需要缓冲下一帧而停止</td>
+</tr>
+</tbody>
+</table>
+<h3 id="细节注意"><a href="#细节注意" class="headerlink" title="细节注意"></a>细节注意</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*全屏操作后  自带的控制栏会显示  在显示的时候隐藏*/</span></span><br><span class="line"><span class="selector-tag">video</span><span class="selector-pseudo">::-webkit-media-controls</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.controls</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">700px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(255, 255, 255, 0.2);</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">350px</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="comment">/*比全屏的状态下的视频元素高*/</span></span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">100000000000</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>需求驱动开发者使用什么API</p>
 
       
     </div>
@@ -316,13 +555,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2018/09/16/HTML/07-Logo内容移除/"></a></p>
+        <p><span>本文标题:</span><a  href="/2018/09/17/H5C3/08-自定义播放器/"></a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Mr.张先生。 的个人博客">Mr.张先生。</a></p>
-        <p><span>发布时间:</span>2018年09月16日 - 20时55分</p>
-        <p><span>最后更新:</span>2018年08月11日 - 20时29分</p>
+        <p><span>发布时间:</span>2018年09月17日 - 00时08分</p>
+        <p><span>最后更新:</span>2018年03月07日 - 11时40分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/09/16/HTML/07-Logo内容移除/" title="">http://zhangxiuxin.top/2018/09/16/HTML/07-Logo内容移除/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://zhangxiuxin.top/2018/09/16/HTML/07-Logo内容移除/　　作者: Mr.张先生。" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/17/H5C3/08-自定义播放器/" title="">http://zhangxiuxin.top/2018/09/17/H5C3/08-自定义播放器/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://zhangxiuxin.top/2018/09/17/H5C3/08-自定义播放器/　　作者: Mr.张先生。" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -333,7 +572,7 @@
 
 <nav id="article-nav">
   
-    <a  href="/2018/09/16/HTML/09-过渡/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2018/09/17/H5C3/09-历史浏览记录/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
@@ -343,7 +582,7 @@
     </a>
   
   
-    <a  href="/2018/09/16/HTML/06-定位/" id="article-nav-older" class="article-nav-link-wrap">
+    <a  href="/2018/09/17/H5C3/07-全屏操作/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -356,7 +595,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Logo内容移除"><span class="toc-number">1.</span> <span class="toc-text">Logo内容移除</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#盒子阴影"><span class="toc-number">2.</span> <span class="toc-text">盒子阴影</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置盒子内阴影"><span class="toc-number">2.1.</span> <span class="toc-text">设置盒子内阴影</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滑动门"><span class="toc-number">2.2.</span> <span class="toc-text">滑动门</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#自定义播放器"><span class="toc-number">1.</span> <span class="toc-text">自定义播放器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number">1.1.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识内容"><span class="toc-number">1.2.</span> <span class="toc-text">知识内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#api"><span class="toc-number">1.2.1.</span> <span class="toc-text">api</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#细节注意"><span class="toc-number">1.2.2.</span> <span class="toc-text">细节注意</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -429,13 +668,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2018/09/16/HTML/09-过渡/" title="上一篇: ">
+            <a  href="/2018/09/17/H5C3/09-历史浏览记录/" title="上一篇: ">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2018/09/16/HTML/06-定位/" title="下一篇: ">
+            <a  href="/2018/09/17/H5C3/07-全屏操作/" title="下一篇: ">
                 <i class="fa fa-angle-right"></i>
             </a>
         
