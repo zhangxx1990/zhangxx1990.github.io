@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>02-Ajax入门 | 小新的博客.一个文艺青年的前端小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ajax入门（Ajax 开发）概述Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术。 Ajax = 异步 JavaScript 和 XML（标准通用标记语言的子集）。 Ajax 是一种用于创建快速动态网页的技术。 Ajax 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。">
+<meta name="keywords" content="Ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="02-Ajax入门">
+<meta property="og:url" content="http://zhangxiuxin.top/2017/05/02/ajax/02-Ajax入门/index.html">
+<meta property="og:site_name" content="小新的博客.一个文艺青年的前端小站">
+<meta property="og:description" content="Ajax入门（Ajax 开发）概述Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术。 Ajax = 异步 JavaScript 和 XML（标准通用标记语言的子集）。 Ajax 是一种用于创建快速动态网页的技术。 Ajax 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。">
+<meta property="og:locale" content="Zhang-Xiu-xin">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/1534562204874.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/1534562252947.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/1534563208094.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/1534563224252.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/1534563287777.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/1534564764184.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/1534564786499.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/12.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/13.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/1534566337714.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/1534566429341.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/ajax/1534566508821.png">
+<meta property="og:updated_time" content="2018-09-18T12:17:31.826Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="02-Ajax入门">
+<meta name="twitter:description" content="Ajax入门（Ajax 开发）概述Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术。 Ajax = 异步 JavaScript 和 XML（标准通用标记语言的子集）。 Ajax 是一种用于创建快速动态网页的技术。 Ajax 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。">
+<meta name="twitter:image" content="http://zhangxiuxin.top/images/ajax/1534562204874.png">
+  
+    <link rel="alternative" href="/atom.xml" title="小新的博客.一个文艺青年的前端小站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Mr.张</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/article/HTML">文章目录</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱编程，爱运动，爱动漫，爱游戏！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mr.张</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Mr.张</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/article/HTML">文章目录</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-ajax/02-Ajax入门" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/02/ajax/02-Ajax入门/" class="article-date">
+      <time datetime="2017-05-02T02:35:20.000Z" itemprop="datePublished">2017-05-02</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      02-Ajax入门
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Ajax入门"><a href="#Ajax入门" class="headerlink" title="Ajax入门"></a>Ajax入门</h1><h2 id="（Ajax-开发）概述"><a href="#（Ajax-开发）概述" class="headerlink" title="（Ajax 开发）概述"></a>（Ajax 开发）概述</h2><p>Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术。</p>
+<p>Ajax = 异步 JavaScript 和 XML（标准通用标记语言的子集）。</p>
+<p>Ajax 是一种用于创建快速动态网页的技术。</p>
+<p>Ajax 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。</p>
+<p>通过在后台与服务器进行少量数据交换，Ajax 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。<br>传统的网页（不使用 Ajax）如果需要更新内容，必须重载整个网页页面。</p>
+<p>  历史：</p>
+<p>1999年诞生，微软在IE5中集成了XMLHttpRequest对象，但是并没有受到人们重视。</p>
+<p>2005年，google在gtalk即时聊天工具中使用了该对象，从此之后Ajax技术开始受到人们的重视。</p>
+<h2 id="发送Ajax请求"><a href="#发送Ajax请求" class="headerlink" title="发送Ajax请求"></a>发送Ajax请求</h2><h3 id="ajax核心对象-—-XMLHttpRequest对象"><a href="#ajax核心对象-—-XMLHttpRequest对象" class="headerlink" title="ajax核心对象 — XMLHttpRequest对象"></a>ajax核心对象 — XMLHttpRequest对象</h3><p>创建XMLHTTPRequest对象要分为(低版本) IE和==非IE两种方式(主流)==：</p>
+<p>   IE浏览器（IE7之前） :  </p>
+<pre><code>var xhr = new ActiveXObject(&apos;Msxml2.XMLHTTP&apos;);
+</code></pre><p>   非IE浏览器（chrome、firefox、safair、搜狗等，包括IE7+之后） (主流浏览器):</p>
+<pre><code>var xhr = new XMLHttpRequest();
+</code></pre><p>案例：创建XMLhttpRequest对象，兼容IE7之前和主流浏览器</p>
+<pre><code>//创建XMLHttpRequest对象，兼容低版本IE和非IE浏览器
+function getXhr () {
+    var xmlhttp;
+
+    if (window.XMLHttpRequest) {
+        //IE7+ 和 非IE 中都有 XMLHttpRequest对象
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        xmlhttp = new ActiveXObject(&apos;Msxml2.XMLHTTP&apos;);
+    }
+
+    return xmlhttp;
+}
+
+alert(getXhr());
+</code></pre><p>chrome访问结果:</p>
+<p><img src="/images/ajax/1534562204874.png" alt="1534562204874"></p>
+<p>IE访问结果:</p>
+<p><img src="/images/ajax/1534562252947.png" alt="1534562252947"></p>
+<h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p>XMLHttpRequest对象有了，可以发送Ajax请求了。发送请求需要两个方法:</p>
+<p>open(var1, var2, var3): 准备Ajax请求</p>
+<pre><code>var1: 请求方式  get/post
+var2: 请求的后端程序地址
+var3: 异步(true)/同步(false)，可选参数，默认为true
+</code></pre><p>  示例: xhr.open(‘get’, ‘index.php’);   //准备以get方式请求后端的index.php文件</p>
+<p>   send(var): 发送Ajax请求</p>
+<pre><code>var: 分为两种情况。 如果是get请求，则填写null。 如果是post请求，则填写要发送到后端的数据。
+</code></pre><p> var: 分为两种情况。 如果是get请求，则填写null。 如果是post请求，则填写要发送到后端的数据。</p>
+<pre><code>示例: xhr.send(null); 
+</code></pre><h2 id="发送请求案例"><a href="#发送请求案例" class="headerlink" title="发送请求案例"></a>发送请求案例</h2><p> 在index.html页面上创建按钮，点击该按钮时使用get方式请求后端的index.php页面</p>
+<p> 发送Ajax请求流程:</p>
+<p>   1) 创建XMLHttpRequest对象</p>
+<p>   2) 调用open方法准备ajax请求</p>
+<p>   3) 调用send方法发送ajax请求</p>
+<p>代码实现</p>
+<p>   1) 创建按钮，绑定点击事件</p>
+<p>   2) 创建XMLHttpRequest对象</p>
+<p>   3) 调用open方法准备ajax请求</p>
+<p>   4) 调用send方法发送ajax请求</p>
+<p><img src="/images/ajax/1534563208094.png" alt="1534563208094"></p>
+<p><img src="/images/ajax/1534563224252.png" alt="1534563224252"></p>
+<p> 访问结果: — 通过newwork来确定请求是否发出</p>
+<p>点击”btn”时，又发送了请求，请求了 index.php文件，并且正常接收到结果</p>
+<p><img src="/images/ajax/1534563287777.png" alt="1534563287777"></p>
+<h2 id="接收后端响应结果"><a href="#接收后端响应结果" class="headerlink" title="接收后端响应结果"></a>接收后端响应结果</h2><h3 id="核心属性-—-readyState"><a href="#核心属性-—-readyState" class="headerlink" title="核心属性 — readyState"></a>核心属性 — readyState</h3><p>Ajax的整个过程有5个状态，对应readyState的5个值：0-4</p>
+<pre><code>《Pragmatic Ajax A Web 2.0 Primer 》 中对readyStae状态的介绍 
+</code></pre><p>   0: (Uninitialized) the send( ) method has not yet been invoked.  </p>
+<p>   1: (Loading) the send( ) method has been invoked, request in progress.  </p>
+<p>   2: (Loaded) the send( ) method has completed, entire response received. </p>
+<p>   3: (Interactive) the response is being parsed. </p>
+<p>   4: (Completed) the response has been parsed, is ready for harvesting.  </p>
+<p>   0 － （未初始化）还没有调用send()方法 </p>
+<p>   1 － （载入）已调用send()方法，正在发送请求 </p>
+<p>   2 － （载入完成）send()方法执行完成，已经接收到全部响应内容 </p>
+<p>   3 － （交互）正在解析响应内容 </p>
+<p>   4 － （完成）响应内容解析完成，可以在客户端调用了 </p>
+<p>百度百科: </p>
+<p>  0 （未初始化）     对象已建立，但是尚未初始化（尚未调用open方法）               </p>
+<p>  1 （初始化）      已调用send()方法，正在发送请求                      </p>
+<p>  2 （发送数据）     send方法调用完成，但是当前的状态及http头未知              </p>
+<p>  3 （数据传送中）  已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误，</p>
+<p>  4 （完成）       数据接收完毕，此时可以通过通过responseBody和responseText获取完整的回应数据</p>
+<ul>
+<li><strong>最核心的重点：   4 ,  后端返回的数据已经可以在浏览器中使用了。</strong></li>
+</ul>
+<h2 id="核心事件-—-onreadystatechange"><a href="#核心事件-—-onreadystatechange" class="headerlink" title="核心事件 — onreadystatechange"></a>核心事件 — onreadystatechange</h2><p> onreadystatechange事件:  readyState的值每次发生变化都会触发该事件。</p>
+<pre><code>0--&gt;1    1--&gt;2    2--&gt;3    3--&gt;4 总共触发4次
+</code></pre><h3 id="其他重要属性"><a href="#其他重要属性" class="headerlink" title="其他重要属性"></a>其他重要属性</h3><p> responseText：以字符串形式接收后端程序的返回值。</p>
+<pre><code>    以PHP为例: PHP程序最终会被解释程序一段字符串，responseText接收的就是这段字符串
+
+responseXML：以XML格式接收后端程序返回值
+</code></pre><h3 id="响应案例-—-index-php"><a href="#响应案例-—-index-php" class="headerlink" title="响应案例 — index.php"></a>响应案例 — index.php</h3><p>index.php：返回字符串“Hello Ajax”给前端 — 就是  echo “Hello Ajax”</p>
+<pre><code>index.html： 将Hello Wrold 显示在页面的div中
+</code></pre><p>1) index.php 返回一个字符串（Hello Ajax！！）</p>
+<p><img src="/images/ajax/1534564764184.png" alt="1534564764184"></p>
+<p>2) 在index.html中检测readyState的状态，当readyState状态等于4的时候，使用responseText来接收后端返回的数据</p>
+<p><img src="/images/ajax/1534564786499.png" alt="1534564786499"></p>
+<p>responseText本质是接收后端返回的字符串。</p>
+<p>Ajax程序总结</p>
+<p>一般我们编写Ajax程序时需要两个页面，三大步骤:</p>
+<p><img src="/images/ajax/12.png" alt="1525944330962"></p>
+<p>  两个页面:</p>
+<p>   前端静态html页面 (php页面也行)，用来发送ajax请求，将结果渲染到页面上</p>
+<p>   后端php页面 (jsp、asp也行)，用来接收前端请求，处理数据，并将结果返回给前端页面</p>
+<p>  三大步骤:</p>
+<p>  1) 前端静态页面发送ajax请求。</p>
+<p>  ① 创建 XMLHttpRequest 对象</p>
+<pre><code>② 调用open方法准备ajax请求
+
+③ 调用send方法发送ajax请求
+
+④ 调用onreadystatechange事件，判断readyState=4时，使用responseText接收后端返回数据
+
+ 2) 后端php页面，处理请求并返回结果
+
+ 3) 前端页面接收结果，显示在网页指定位置
+</code></pre><h3 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h3><p>点击按钮，从student表中随机取出一条学生信息，显示在网页上。</p>
+<p> 思路分析:</p>
+<p> 1) 两个页面</p>
+<p>   前端静态页面: student/index.html</p>
+<p>   后端php页面: student/index.php</p>
+<p><img src="/images/ajax/13.png" alt="1524658135608"></p>
+<p> 2) 三大步骤</p>
+<p>  ① index.html 页面设置一个按钮，用来触发ajax请求</p>
+<p>  ② index.php 随机取出一条学生数据，并返回给index.html页面</p>
+<pre><code>$sql = &quot;select * from student order by rand() limit 0,1&quot;;
+</code></pre><p>  ③ index.html 接收到后显示在页面上</p>
+<p>   代码实现:</p>
+<p>第一步骤:  index.html页面发送ajax请求</p>
+<p><img src="/images/ajax/1534566337714.png" alt="1534566337714"></p>
+<p>第二步骤: 后端php页面</p>
+<p><img src="/images/ajax/1534566429341.png" alt="1534566429341"></p>
+<p>第三步骤： index.html – 将接收到的数据渲染到页面</p>
+<p><img src="/images/ajax/1534566508821.png" alt="1534566508821"></p>
+<p> 关键点总结:</p>
+<p>1) index.html 通过点击事件发送ajax请求</p>
+<p> ① 创建XMLHttpRequest对象</p>
+<p> ② 调用open方法准备ajax请求</p>
+<p> ③ 调用send方法发送ajax请求</p>
+<p><strong>此时不要着急将数据渲染到网页上</strong></p>
+<p> 2) index.php 随机取出一条学生数据，并返回给index.html页面</p>
+<p>  ① mysqli操作MySQL服务器的6步骤</p>
+<p>  ② 核心SQL:  select * from student order by rand() limit 0,1 </p>
+<p>  ③ 将结果拼接成字符串再输出，因为前端是以字符串形式接收的</p>
+<p> 3) index.html接收到后显示在页面上</p>
+<p>  ① 创建一个div标签，用来显示接收到数据</p>
+<p>  ② 获取div对象，再将数据显示到该标签中</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/05/02/ajax/02-Ajax入门/">02-Ajax入门</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Mr.张 的个人博客">Mr.张</a></p>
+        <p><span>发布时间:</span>2017年05月02日 - 10时35分</p>
+        <p><span>最后更新:</span>2018年09月18日 - 20时17分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/05/02/ajax/02-Ajax入门/" title="02-Ajax入门">http://zhangxiuxin.top/2017/05/02/ajax/02-Ajax入门/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://zhangxiuxin.top/2017/05/02/ajax/02-Ajax入门/　　作者: Mr.张" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2017/05/02/ajax/03-POST和GET的区别/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          03-POST和GET的区别
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2017/05/02/ajax/01-Ajax技术/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">01-Ajax 技术</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ajax入门"><span class="toc-number">1.</span> <span class="toc-text">Ajax入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（Ajax-开发）概述"><span class="toc-number">1.1.</span> <span class="toc-text">（Ajax 开发）概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发送Ajax请求"><span class="toc-number">1.2.</span> <span class="toc-text">发送Ajax请求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax核心对象-—-XMLHttpRequest对象"><span class="toc-number">1.2.1.</span> <span class="toc-text">ajax核心对象 — XMLHttpRequest对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心方法"><span class="toc-number">1.3.</span> <span class="toc-text">核心方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发送请求案例"><span class="toc-number">1.4.</span> <span class="toc-text">发送请求案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接收后端响应结果"><span class="toc-number">1.5.</span> <span class="toc-text">接收后端响应结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#核心属性-—-readyState"><span class="toc-number">1.5.1.</span> <span class="toc-text">核心属性 — readyState</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心事件-—-onreadystatechange"><span class="toc-number">1.6.</span> <span class="toc-text">核心事件 — onreadystatechange</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#其他重要属性"><span class="toc-number">1.6.1.</span> <span class="toc-text">其他重要属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应案例-—-index-php"><span class="toc-number">1.6.2.</span> <span class="toc-text">响应案例 — index.php</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#综合案例"><span class="toc-number">1.6.3.</span> <span class="toc-text">综合案例</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2017/05/02/ajax/03-POST和GET的区别/" title="上一篇: 03-POST和GET的区别">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/05/02/ajax/01-Ajax技术/" title="下一篇: 01-Ajax 技术">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/13-Ajax跨域/">13-Ajax跨域</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/12-虚拟主机配置/">12-虚拟主机配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/11-模板引擎/">11-ArtTemplate模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/10-封装方法/">10-封装方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/09-jQuery提供的Ajax方法/">09-jQuery提供的Ajax方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/08-JSON/">08-JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/07-文件上传与进度条/">07-文件上传与进度条</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/06-XMLHttpRequest2.0新特性/">06-XMLHttpRequest2.0新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/05-同步和异步/">05-同步和异步</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/04-GET缓存/">04-GET缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/03-POST和GET的区别/">03-POST和GET的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/02-Ajax入门/">02-Ajax入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/01-Ajax技术/">01-Ajax 技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/28-cookie和session的联系/">28-session和cookie的联系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/27-session技术/">27-session技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/26-cookie技术/">26-cookie技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/25-PHP会话控制/">25-PHP会话控制概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/24-修改信息于登录/">24-学生信息管理系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/23-信息管理系统/">23-学生信息管理系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/22-PHP操作MySQL/">22-PHP操作MySQL</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/21-删除数据/">21-删除数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/20-修改数据/">20-修改数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/19-添加数据/">19-添加数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/jQuery/16-jquery操作DOM(节点)/">16-jquery操作DOM(节点)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/18-数据查询/">18-数据查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/17-关系型数据库介绍/">17-创建数据表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/16-创建数据表/">16-创建数据表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/15-创建、删除数据库/">15-创建/删除数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/14-MySQL数据库服务器/">14-MySQL数据库服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/jQuery/15-jquery动画/">15-jquery动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/jQuery/14-jQuery操作样式/">14-jQuery操作样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/13-Http协议/">13-Http协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/12-PHP文件读写/">12-PHP文件读写</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/11-PHP常用函数/">11-PHP函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/13-jQuery插件机制/">13-jQuery插件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/12-jQuery多库共存/">12-jQuery多库共存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/11-jQuery链式编程与隐式迭代/">11-jQuery链式编程与隐式迭代</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/10-PHP函数/">10-PHP函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/10-jQuery事件对象/">10-jQuery事件对象（）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/09-PHP文件上传/">09-PHP文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/09-jQuery的on事件绑定与解绑/">09-jQuery的on事件绑定与解绑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/08-PHP超全局变量/">08-PHP超全局变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/07-PHP数组/">07-PHP数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/jQuery/08-jQuery事件机制/">08-jQuery事件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/06-PHP流程控制/">06-PHP流程控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/jQuery/07-jQuery操作坐标值/">07-jQuery操作坐标值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/05-PHP变量、常量、运算符/">05-PHP变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/04-PHP运行原理/">04-PHP运行原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/03-PHP初识/">03-PHP介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/02-PHP安装环境/">02-PHP安装环境 （phpstudy）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/PHP/01-PHP介绍/">01-PHP介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/06-jQuery操作尺寸/">06-jQuery操作尺寸</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/05-jQuery操作值与内容/">05-jQuery操作值与内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/04-jQuery操作DOM/">04-jQuery操作DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/03-jQuery选择器/">03-jQuery选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/02-jQuery入口函数/">02-jQuery入口函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/01-jQuery简介/">01-jQuery简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/JS/40-伪数组和数组/">40-伪数组和数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/18/JS/39-正则表达式/">39-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/17/JS/38-函数递归/">38-函数递归</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/16/JS/37-闭包/">37-闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/JS/36-作用域、作用域链、预解析/">36-作用域、作用域链、预解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/JS/35-函数进阶/">35-函数进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/JS/34-继承与多态/">34-继承与多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/JS/33-原型/">33-原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/JS/32-构造函数/">32-构造函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/JS/31-创建对象/">31-创建对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/JS/30-面向对象/">30-面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/JS/29-回顾掌握/">29-回顾掌握</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/JS/28-轮播图/">28-js原生轮播图</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/JS/27-动画运动/">27-动画运动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/08/JS/26-定时器/">26-定时器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/JS/25-异步任务/">25-异步任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/JS/24-offset系列/">24-offset系列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/JS/23-location与navigator与history对象/">23-location与navigator与history对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/JS/22-BOM.window对象/">22-BOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/21-事件流/">21-事件流</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/20-注册事件/">20-注册事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/19-节点/">19-节点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/JS/18-表单属性与事件/">18-表单属性与事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/JS/17-兼容性/">17-兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/JS/16-事件/">16-事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/26/JS/15-Web API介绍/">15-Web API 简单介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/12-Date类型对象/">12-Date类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/14-String类型对象/">14-String类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/13-Array类型对象/">13-Array类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/JS/11-内置对象/">11-内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/JS/10-基本数据类型和引用数据类型/">10-基本数据类型和引用数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/JS/09-对象/">09-对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/JS/08-函数/">08-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/JS/07-数组/">07-数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/06-流程控制/">06-流程控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/05-数据类型转换/">05-数据类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/04-运算符/">04-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/03-数据类型/">03-数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/02-变量/">02-变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/01-Js组成、输出、书写方式、调试循序与规范  /">01-Js组成、输出、书写方式、调试循序与规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/HTML/13-伸缩布局/">11-伸缩布局【弹性布局】(display:flex;)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/HTML/12-动画/">10-动画(animation)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/HTML/11-3D转换/">09-3D转换(transform)【变形】</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/HTML/10-2D转换/">08-2D转换(transform)【变形】</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/13/HTML/09-过渡/">07-过渡（transition）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/08-Web字体/">06-Web字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/07-Logo内容移除/">05-Logo内容移除</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/06-定位/">04-定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/05-浮动/">03-浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/04-渐变与盒子模型/">02-渐变与盒模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/03-css基础/">01-CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/02-列表/">02-列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/01-HTML基础/">01-HTML基础</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mr.张
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/zhangxx1990" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

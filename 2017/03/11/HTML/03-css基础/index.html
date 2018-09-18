@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>01-CSS 基础 | 小新的博客.一个文艺青年的前端小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CSS基础CSS概念 作用：  美化网页（通过css控制标签的样式） 网页布局（通过css控制标签的位置）     概念：层叠样式表 (Cascading Style Sheets)或者级联样式表  层叠：css的特性。   注意：  css是以html为基础   书写方式：  内嵌式写法  先准备一个html页面  在html页面中，head标签中添加一个style标签 在style标签中写cs">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="01-CSS 基础">
+<meta property="og:url" content="http://zhangxiuxin.top/2017/03/11/HTML/03-css基础/index.html">
+<meta property="og:site_name" content="小新的博客.一个文艺青年的前端小站">
+<meta property="og:description" content="CSS基础CSS概念 作用：  美化网页（通过css控制标签的样式） 网页布局（通过css控制标签的位置）     概念：层叠样式表 (Cascading Style Sheets)或者级联样式表  层叠：css的特性。   注意：  css是以html为基础   书写方式：  内嵌式写法  先准备一个html页面  在html页面中，head标签中添加一个style标签 在style标签中写cs">
+<meta property="og:locale" content="Zhang-Xiu-xin">
+<meta property="og:updated_time" content="2018-09-18T07:33:11.118Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="01-CSS 基础">
+<meta name="twitter:description" content="CSS基础CSS概念 作用：  美化网页（通过css控制标签的样式） 网页布局（通过css控制标签的位置）     概念：层叠样式表 (Cascading Style Sheets)或者级联样式表  层叠：css的特性。   注意：  css是以html为基础   书写方式：  内嵌式写法  先准备一个html页面  在html页面中，head标签中添加一个style标签 在style标签中写cs">
+  
+    <link rel="alternative" href="/atom.xml" title="小新的博客.一个文艺青年的前端小站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Mr.张</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/article/HTML">文章目录</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱编程，爱运动，爱动漫，爱游戏！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mr.张</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Mr.张</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/article/HTML">文章目录</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-HTML/03-css基础" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/11/HTML/03-css基础/" class="article-date">
+      <time datetime="2017-03-11T01:32:10.000Z" itemprop="datePublished">2017-03-11</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      01-CSS 基础
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="CSS基础"><a href="#CSS基础" class="headerlink" title="CSS基础"></a>CSS基础</h1><h2 id="CSS概念"><a href="#CSS概念" class="headerlink" title="CSS概念"></a>CSS概念</h2><ul>
+<li><p>作用：</p>
+<ul>
+<li>美化网页（通过css控制标签的样式）<ul>
+<li>网页布局（通过css控制标签的位置）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>概念：层叠样式表 (Cascading Style Sheets)或者级联样式表</p>
+<ul>
+<li>层叠：css的特性。</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>css是以html为基础</li>
+</ul>
+</li>
+<li><p>书写方式：</p>
+<ul>
+<li><p>内嵌式写法</p>
+<ul>
+<li><p>先准备一个html页面</p>
+<ul>
+<li>在html页面中，head标签中添加一个style标签</li>
+<li><p>在style标签中写css代码</p>
+<ul>
+<li>外联式写法</li>
+</ul>
+</li>
+<li>首先新建一个单独的css文件（在该文件中不需要写style标签，直接写css代码就可以）</li>
+<li>通过link标签将该css文件引入到当前html页面中</li>
+</ul>
+</li>
+<li><p>注意：</p>
+</li>
+<li>一个页面中可以同时引用多个css文件</li>
+<li>行内式写法：将css代码写入到html标签内部</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h2><h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><ul>
+<li>选择器 {属性: 值; ……}<ul>
+<li>选择器分类    <ul>
+<li>基础选择器</li>
+<li>复合选择器</li>
+<li>标签选择器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h3><ul>
+<li>✔标签选择器（掌握）</li>
+<li>✔类选择器（掌握）</li>
+<li>✔ID选择器</li>
+<li>✔通配符选择器</li>
+</ul>
+<h3 id="复合选择器（交集选择器）"><a href="#复合选择器（交集选择器）" class="headerlink" title="复合选择器（交集选择器）"></a>复合选择器（交集选择器）</h3><ul>
+<li>✔标签指定式选择器</li>
+<li>✔后代选择器     </li>
+<li>✔子代选择器</li>
+<li>✔并集选择器</li>
+<li>✔属性选择器</li>
+<li>✔伪类选择器</li>
+</ul>
+<h4 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h4><ul>
+<li>html标签名 {属性: 值;}<ul>
+<li>作用：<ul>
+<li>通过html标签名选中需要设置样式的标签</li>
+</ul>
+</li>
+<li>注意：<ul>
+<li>代码中遇到特殊符号，都必须是英文输入法下的符号。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="类选择器-使用最多"><a href="#类选择器-使用最多" class="headerlink" title="类选择器(使用最多)"></a>类选择器(使用最多)</h4><ul>
+<li><p>.自定义类名 {属性: 值; ….}    定义</p>
+<ul>
+<li><p>类样式的调用：</p>
+<ul>
+<li>标签通过class属性去调用定义好的类样式</li>
+</ul>
+</li>
+<li><p>例如：<br>  <code>.test {color: red;}</code></p>
+<pre><code>`&lt;p  class=”test”&gt;文字&lt;/p&gt;`
+</code></pre><ul>
+<li>类样式的特点：</li>
+<li>一个标签可以同时调用多个类样式<ul>
+<li>一个类样式可以被多个标签同时调用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>类命名规范</strong></p>
+<ul>
+<li><p>自定义类名不能使用纯数字或以数字开头</p>
+</li>
+<li><p>不推荐使用汉字定义类名</p>
+</li>
+<li><p>不能使用特殊字符或者以特殊字符开头（$,#,@,%…）</p>
+</li>
+<li><p>建议不推荐使用标签名作为类名</p>
+</li>
+<li><p>一般我们用具有一定语义的单词或者汉语拼音去定义一个类名</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h4><ul>
+<li><p>定义：</p>
+<ul>
+<li>#自定义id名称 {属性: 值;  ….}</li>
+<li><p>调用：</p>
+<ul>
+<li>标签通过id属性调用id样式</li>
+<li><code>#test {color: red;}</code></li>
+<li><code>&lt;p   id=”test”&gt;&lt;/p&gt;</code></li>
+</ul>
+</li>
+<li><p>ID选择器与类选择器的区别：</p>
+<ul>
+<li>◆语法定义有区别  ( .   #)<ul>
+<li>◆在id选择器中，一个标签只能调用一个id样式。</li>
+<li>◆一个类样式可以被多个标签调用，但是一个id样式最好只能被一个标签调用（否则，不符合编程规则）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h4><ul>
+<li>语法：<ul>
+<li><code>* {属性: 值;...}</code></li>
+<li>特点：<ul>
+<li>将页面中所有的标签都选中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="复合选择器"><a href="#复合选择器" class="headerlink" title="复合选择器"></a>复合选择器</h3><h4 id="标签指定式选择器"><a href="#标签指定式选择器" class="headerlink" title="标签指定式选择器"></a>标签指定式选择器</h4><ul>
+<li>标签名.类名 {属性: 值;}<ul>
+<li>总结：<ul>
+<li>标签指定式选择器符合 ：既。。。。又。。。的关系</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h4><ul>
+<li>选择器  选择器 {属性: 值;}<ul>
+<li>总结：<ul>
+<li>后代选择器标签之间的结构关系必须是嵌套结构</li>
+<li>后代选择器中只能选中所有的后代元素（直接子元素和间接子元素）</li>
+<li>后代选择器中，选择器与选择器之间必须使用空格隔开</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="子代选择器"><a href="#子代选择器" class="headerlink" title="子代选择器"></a>子代选择器</h4><ul>
+<li>选择器&gt;选择器 {属性: 值；}<br>  <code>div&gt;span{color:red;}</code></li>
+<li>总结：<ul>
+<li>◆子代选择器只能选中直接子元素</li>
+<li>◆子代选择器不能选中父元素</li>
+<li>◆子代选择器标签的结构必须是嵌套结构</li>
+</ul>
+</li>
+</ul>
+<h4 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h4><ul>
+<li>选择器,选择器 {属性: 值;}<ul>
+<li>注意：<ul>
+<li>首先并集选择器可以选中所有符合条件的标签</li>
+<li>并集选择器与标签的结构无关.<pre><code>`div,p,li,span{color:red;}`
+</code></pre><ul>
+<li>并集选择器一般在css样式初始化的时候会使用。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="结构伪类选择器"><a href="#结构伪类选择器" class="headerlink" title="结构伪类选择器"></a>结构伪类选择器</h4><ul>
+<li>:first-child {属性: 值；}  选中父元素中的第一个子元素</li>
+<li><p>:last-child {属性: 值;} 选中父元素中最后一个子元素</p>
+<ul>
+<li>:nth-child(n) {属性: 值; }  选中父元素中第n个子元素</li>
+<li>n 可以取一个正整数 （取值可以去到数字0）</li>
+<li>n可以设置一个关键字  odd(奇数个数) | even（偶数个数）</li>
+<li>n可以是一个表达式    an+b   a和b可以设置正数和负数 </li>
+</ul>
+</li>
+<li><p>:nth-last-child(n){属性: 值;} 选中倒数第n个子元素</p>
+</li>
+</ul>
+<h4 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h4><ul>
+<li>[属性] {属性: 值;}</li>
+</ul>
+<h4 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h4><ul>
+<li><p><strong>选中标签中第一行文字。</strong>::first-line { }</p>
+<p>  <code>box::first-line {color:red};</code></p>
+</li>
+<li><p><strong>选中标签中第一个字母或者汉字</strong> ::first-letter {} { }<br>  ::first-letter { }</p>
+<p>  <code>.box::first-letter {color:red};</code></p>
+</li>
+<li><p><strong>设置鼠标选中区域的样式</strong>::selection {}</p>
+<p>  <code>.box::selection {color:red;background-color:pink;}</code></p>
+</li>
+</ul>
+<pre><code>- 注意：
+    - 该选择器中只能设置与颜色相关的属性。
+</code></pre><ul>
+<li><p><strong>补充属性</strong>     </p>
+<ul>
+<li><p>单位</p>
+<ul>
+<li>px: 像素</li>
+<li>em： 1em  ===1个文字的大小</li>
+</ul>
+</li>
+<li><p>颜色的表示方式：</p>
+<ul>
+<li>◆ red,  green….</li>
+<li>◆ 使用十六进制表示颜色（#000-fff）</li>
+<li><p>◆ rgb (三原色)   </p>
+<pre><code>- r  red   (0-255)
+</code></pre><ul>
+<li>g  green (0-255)</li>
+<li><p>b  blue  (0-255)</p>
+<p><code>background-color:rgb(100,255,20);</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>rgba:可以实现颜色半透明效果a ==&gt; alpha  (0-1)<br> <code>background-color:rgb(0,0,0,0.5);</code></p>
+</li>
+<li>opacity ==&gt; 实现半透明的效果<pre><code>取值： 0 -1之间
+</code></pre><code>background-color:#000;</code><br><code>opacity: .5;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="文本修饰"><a href="#文本修饰" class="headerlink" title="文本修饰"></a>文本修饰</h2><h3 id="text-shadow-设置文字阴影。"><a href="#text-shadow-设置文字阴影。" class="headerlink" title="text-shadow: 设置文字阴影。"></a>text-shadow: 设置文字阴影。</h3><p><code>text-shadow: 0px 0px 10px red;</code></p>
+<ul>
+<li>◆第一个值可以设置正数或者负数，设置文字阴影在水平方向的一个偏移量<ul>
+<li>◆第二个值可以设置正数或者负数，设置文字阴影在垂直方向的偏移量</li>
+</ul>
+</li>
+<li>◆第三个值代表的是文字阴影的模糊度， 不能设置负数</li>
+<li><p>◆第四个值代表文字阴影的颜色。</p>
+</li>
+<li><p>设置文字多个阴影.<br>  <code>text-shadow: 0px 0px 10px red,1px 1px 5px green;</code></p>
+</li>
+<li><p>总结：</p>
+<ul>
+<li>文字阴影使用text-shadow</li>
+<li>如果设置多个阴影，用逗号隔开</li>
+</ul>
+</li>
+</ul>
+<h2 id="font属性介绍"><a href="#font属性介绍" class="headerlink" title="font属性介绍"></a>font属性介绍</h2><ul>
+<li><p>font-size:”50px”;</p>
+<ul>
+<li>设置文字大小</li>
+</ul>
+</li>
+<li><p>font-family:”微软雅黑”；</p>
+<ul>
+<li>设置文字字体</li>
+</ul>
+</li>
+<li><p>文字字体的表示方式:</p>
+<ul>
+<li><p>使用具体的汉字（宋体，微软雅黑, 黑体。。。）</p>
+<ul>
+<li>也可以使用字体对应的单词表示</li>
+<li><p>也可以使用编码的方式表示字体</p>
+</li>
+<li><p>总结：</p>
+<ul>
+<li><p>◆通过font-family可以设置若干个字体</p>
+<p><code>font-family:&quot;微软雅黑&quot;,&quot;等等&quot;,&quot;等等&quot;,&quot;等等&quot;</code></p>
+<ul>
+<li>◆以后在设置字体的时候，我们要选择常用的字体设置</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>font-weight： 设置文字是否加粗显示</p>
+<ul>
+<li>normal==400   | bold(加粗)==700 不带单位<ul>
+<li>font-style: 设置文字是否斜体显示</li>
+</ul>
+</li>
+<li><p>normal |  italic </p>
+<ul>
+<li>line-height: 设置文字行高（暂时理解文字的高度）</li>
+<li>通过该属性可以改变文字的上下间距</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="font属性联写"><a href="#font属性联写" class="headerlink" title="font属性联写"></a>font属性联写</h3><p><code>font:700 italic 30px/20px &quot;微软雅黑&quot;;</code></p>
+<ul>
+<li>总结：<ul>
+<li>在font属性联写中 必须设置font-size 和 font-family</li>
+</ul>
+<ul>
+<li>在font属性联写中，font-size 必须 设置在font-family之前</li>
+<li>如果要设置行高，那么行高必须设置到font-size之后</li>
+</ul>
+</li>
+</ul>
+<h2 id="标签的显示方式"><a href="#标签的显示方式" class="headerlink" title="标签的显示方式"></a>标签的显示方式</h2><ul>
+<li>块级元素</li>
+<li>行内元素</li>
+<li>行内块元素</li>
+</ul>
+<h3 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h3><pre><code>- 代表：
+    - h1-h6,p，div,li,ul,ol,dd,dt....
+- 特点：
+    - 如果块级元素不设置宽度，那么该元素的宽度等于其父元素的宽度。
+    - 所有的块级元素都独占一行显示
+    - 可以为块级元素设置宽度和高度
+</code></pre><h3 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h3><pre><code>- 代表：
+    - span  a  b  font  strong.....
+- 特点：
+    - 所有的行内元素都在一行上显示
+    - 行内元素不能设置宽度和高度
+</code></pre><h3 id="行内块元素"><a href="#行内块元素" class="headerlink" title="行内块元素"></a>行内块元素</h3><pre><code>- 代表标签：
+    - input,  img
+- 特点：
+    - 元素可以设置宽度和高度
+    - 元素在一行上显示。
+</code></pre><h3 id="元素模式转换"><a href="#元素模式转换" class="headerlink" title="元素模式转换"></a>元素模式转换</h3><ul>
+<li>转换块级元素<ul>
+<li>display: block;</li>
+</ul>
+</li>
+<li>转行内块元素<ul>
+<li>display: inline-block;</li>
+</ul>
+</li>
+<li><p>转行内元素</p>
+<ul>
+<li><p>display: inline;</p>
+<ul>
+<li>总结：<ul>
+<li>一般情况下，如果我们希望页面中的行内元素设置宽度和高度，那么我考虑将行内元素转化为块级元素或行内块元素。    </li>
+</ul>
+</li>
+<li>不需要将行内块元素转化为行内元素或者块级元素</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h2><ul>
+<li>::before</li>
+<li>::after</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">        body::before&#123;</span><br><span class="line">            content:<span class="string">""</span>;</span><br><span class="line">            background-color:red;</span><br><span class="line">            width:<span class="number">200</span>px;</span><br><span class="line">            height:<span class="number">200</span>px;</span><br><span class="line">            display:inline-block;</span><br><span class="line">         </span><br><span class="line">        body::after&#123;</span><br><span class="line">            content:<span class="string">""</span>;</span><br><span class="line">            background-color:green;</span><br><span class="line">            width:<span class="number">200</span>px;</span><br><span class="line">            height:<span class="number">200</span>px;</span><br><span class="line">            display:inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：<pre><code>- 伪元素必须设置content属性
+</code></pre><ul>
+<li>伪元素属于行内元素</li>
+<li>伪元素中不能再创建伪元素</li>
+<li>一般是将伪元素要依附于某一个标签</li>
+</ul>
+</li>
+</ul>
+<h2 id="CSS特性"><a href="#CSS特性" class="headerlink" title="CSS特性"></a>CSS特性</h2><h3 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h3><ul>
+<li>在同一个标签中，如果优先级相同，如果定义的样式发生冲突，那么最后一次定义的样式会将前面定义的样式（冲突的那部分）覆盖掉。</li>
+</ul>
+<h3 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h3><ul>
+<li>首先只有在嵌套关系的标签中才会出现继承性。<ul>
+<li>如果子元素默认没有样式，同时该元素又受父元素的样式影响<ul>
+<li>color ， font属性 ，text-align…都可以被子元素继承</li>
+<li>注意： </li>
+<li>✔width 和 height 不能被继承</li>
+<li>✔a标签在默认情况下，不能受父元素的文字颜色影响</li>
+<li>✔标题标签在默认情况下，不能直接等于父元素设置的文字大小</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><ul>
+<li><p>标签选择器&lt;类选择器&lt;ID选择器&lt;行内样式&lt;!important</p>
+<ul>
+<li><p>10       100       1000      10000   10000以上</p>
+<ul>
+<li>继承的权重为0</li>
+<li>权重可以叠加</li>
+</ul>
+</li>
+<li><p>总结：</p>
+</li>
+<li>一般我们通过css设置样式的时候，不要把选择器的优先级设置的太高或者太低。</li>
+</ul>
+</li>
+</ul>
+<h3 id="伪类-也是一种选择器"><a href="#伪类-也是一种选择器" class="headerlink" title="伪类(也是一种选择器)"></a>伪类(也是一种选择器)</h3><ul>
+<li><p>a:link {属性: 值;}  与 a {属性： 值；}<br>  或者a:-webkit-any-link</p>
+<pre><code>- 设置a标签的默认样式
+- 推荐直接通过a标签设置样式
+</code></pre><ul>
+<li><p>a:visited {属性: 值;}  设置a标签被访问过后的样式</p>
+<ul>
+<li>该选择器会让浏览器有缓存的问题</li>
+<li>该选择器中只能设置与颜色相关的属性</li>
+</ul>
+</li>
+<li><p>a:hover {属性: 值;} 设置当鼠标悬停到a标签上的样式</p>
+</li>
+<li>a:active {属性: 值;} 当a标签被激活的时候的样式</li>
+<li>input:focus {属性: 值;}  当input标签获取光标焦点的时候的样式</li>
+</ul>
+</li>
+</ul>
+<h2 id="背景-background"><a href="#背景-background" class="headerlink" title="背景(background)"></a>背景(background)</h2><ul>
+<li>background-color: 设置背景颜色<br>   默认值： transparent (透明色)</li>
+<li>background-image: 设置背景图片</li>
+<li>background-repeat: 设置背景图片的平铺方式<ul>
+<li>repeat | no-repeat | repeat-x| repeat-y</li>
+</ul>
+</li>
+<li><p>background-position: 设置背景图片位置</p>
+<p>  <code>background-position:left bottom;</code></p>
+<ul>
+<li>或者<br><code>background-position:100px 30px;</code></li>
+</ul>
+<ul>
+<li>注意：</li>
+<li>如果该属性设置一个值，那么另一个默认值代表center</li>
+<li>如果设置具体数字，那么第一个值代表水平方向，第二值代表垂直方向<ul>
+<li>可以设置负数，正数代表沿着坐标轴正方向移动，负数沿着反方向移动</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Background属性联写"><a href="#Background属性联写" class="headerlink" title="Background属性联写"></a>Background属性联写</h3><p> <code>background:red url(&quot;2_1.png) no-repeat&quot;</code></p>
+<ul>
+<li>总结：<ul>
+<li>该属性联写没有个数的限制</li>
+<li>没有顺序的限制</li>
+<li>一般情况下 在网页中设置小图标的时候，考虑使用背景图片（装饰的效果）</li>
+<li>一般情况下，在网页中如果是对某一件商品的展示，或者描述（插入图片）</li>
+</ul>
+</li>
+</ul>
+<h3 id="目标伪类"><a href="#目标伪类" class="headerlink" title="目标伪类"></a>目标伪类</h3><ul>
+<li><p>：target{属性: 值；}</p>
+<pre><code>`div:target{background-color:red};`   
+</code></pre></li>
+<li><p>注意：</p>
+<ul>
+<li>目标伪类与锚链接配合使用</li>
+<li>只有当被锚链接指向该标签的时候才会执行目标伪类中的css代码。</li>
+</ul>
+</li>
+</ul>
+<h3 id="background-size-C3"><a href="#background-size-C3" class="headerlink" title="background-size(C3)"></a>background-size(C3)</h3><ul>
+<li><p>通过该属性可以改变背景图片的显示大小。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">	width:<span class="number">300</span>px;</span><br><span class="line">	height:<span class="number">300</span>px;</span><br><span class="line">	border:<span class="number">1</span>px solid red;</span><br><span class="line">	background: url(<span class="string">"2.jpg"</span>) no-repeat;</span><br><span class="line">	background-size:<span class="number">300</span>px <span class="number">300</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>background-size的取值：</p>
+<ul>
+<li>设置具体值</li>
+<li>cover<ul>
+<li>将背景图片按照自己原来的缩放比，始终沾满整个父元素</li>
+</ul>
+</li>
+<li>contain<ul>
+<li>将背景图片按照自己原来的缩放比，始终要将自己完整的显示到父容器中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="多背景"><a href="#多背景" class="headerlink" title="多背景"></a>多背景</h3><pre><code>- 可以给一个容器同时设置多张背景图片
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.img&#123;</span><br><span class="line">	width:<span class="number">300</span>px;</span><br><span class="line">	height:<span class="number">300</span>px;</span><br><span class="line">	<span class="comment">/*让容器（标签）整体居中*/</span></span><br><span class="line">	margin:<span class="number">0</span> auto;</span><br><span class="line">	background: url(<span class="string">"img/bg1.png"</span>) no-repeat left top,</span><br><span class="line">		    url(<span class="string">"img/bg2.png"</span>) no-repeat right top,</span><br><span class="line">		    url(<span class="string">"img/bg3.png"</span>) no-repeat left bottom,</span><br><span class="line">		    url(<span class="string">"img/bg4.png"</span>) no-repeat right bottom,</span><br><span class="line">		    #fff url("img/bg5.png")no-repeat center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/03/11/HTML/03-css基础/">01-CSS 基础</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Mr.张 的个人博客">Mr.张</a></p>
+        <p><span>发布时间:</span>2017年03月11日 - 09时32分</p>
+        <p><span>最后更新:</span>2018年09月18日 - 15时33分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/11/HTML/03-css基础/" title="01-CSS 基础">http://zhangxiuxin.top/2017/03/11/HTML/03-css基础/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://zhangxiuxin.top/2017/03/11/HTML/03-css基础/　　作者: Mr.张" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2017/03/11/HTML/04-渐变与盒子模型/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          02-渐变与盒模型
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2017/03/11/HTML/02-列表/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">02-列表</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS基础"><span class="toc-number">1.</span> <span class="toc-text">CSS基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS概念"><span class="toc-number">1.1.</span> <span class="toc-text">CSS概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS语法"><span class="toc-number">1.2.</span> <span class="toc-text">CSS语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器"><span class="toc-number">1.3.</span> <span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础选择器"><span class="toc-number">1.3.1.</span> <span class="toc-text">基础选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复合选择器（交集选择器）"><span class="toc-number">1.3.2.</span> <span class="toc-text">复合选择器（交集选择器）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标签选择器"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">标签选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类选择器-使用最多"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">类选择器(使用最多)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ID选择器"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">ID选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通配符选择器"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">通配符选择器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复合选择器"><span class="toc-number">1.3.3.</span> <span class="toc-text">复合选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标签指定式选择器"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">标签指定式选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#后代选择器"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">后代选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#子代选择器"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">子代选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并集选择器"><span class="toc-number">1.3.3.4.</span> <span class="toc-text">并集选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结构伪类选择器"><span class="toc-number">1.3.3.5.</span> <span class="toc-text">结构伪类选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#属性选择器"><span class="toc-number">1.3.3.6.</span> <span class="toc-text">属性选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#伪元素选择器"><span class="toc-number">1.3.3.7.</span> <span class="toc-text">伪元素选择器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本修饰"><span class="toc-number">1.4.</span> <span class="toc-text">文本修饰</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#text-shadow-设置文字阴影。"><span class="toc-number">1.4.1.</span> <span class="toc-text">text-shadow: 设置文字阴影。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#font属性介绍"><span class="toc-number">1.5.</span> <span class="toc-text">font属性介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#font属性联写"><span class="toc-number">1.5.1.</span> <span class="toc-text">font属性联写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签的显示方式"><span class="toc-number">1.6.</span> <span class="toc-text">标签的显示方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#块级元素"><span class="toc-number">1.6.1.</span> <span class="toc-text">块级元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行内元素"><span class="toc-number">1.6.2.</span> <span class="toc-text">行内元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行内块元素"><span class="toc-number">1.6.3.</span> <span class="toc-text">行内块元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元素模式转换"><span class="toc-number">1.6.4.</span> <span class="toc-text">元素模式转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪元素"><span class="toc-number">1.7.</span> <span class="toc-text">伪元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS特性"><span class="toc-number">1.8.</span> <span class="toc-text">CSS特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#层叠性"><span class="toc-number">1.8.1.</span> <span class="toc-text">层叠性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承性"><span class="toc-number">1.8.2.</span> <span class="toc-text">继承性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优先级"><span class="toc-number">1.8.3.</span> <span class="toc-text">优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#伪类-也是一种选择器"><span class="toc-number">1.8.4.</span> <span class="toc-text">伪类(也是一种选择器)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景-background"><span class="toc-number">1.9.</span> <span class="toc-text">背景(background)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Background属性联写"><span class="toc-number">1.9.1.</span> <span class="toc-text">Background属性联写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目标伪类"><span class="toc-number">1.9.2.</span> <span class="toc-text">目标伪类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-size-C3"><span class="toc-number">1.9.3.</span> <span class="toc-text">background-size(C3)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多背景"><span class="toc-number">1.9.4.</span> <span class="toc-text">多背景</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2017/03/11/HTML/04-渐变与盒子模型/" title="上一篇: 02-渐变与盒模型">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/03/11/HTML/02-列表/" title="下一篇: 02-列表">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/13-Ajax跨域/">13-Ajax跨域</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/12-虚拟主机配置/">12-虚拟主机配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/11-模板引擎/">11-ArtTemplate模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/10-封装方法/">10-封装方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/09-jQuery提供的Ajax方法/">09-jQuery提供的Ajax方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/08-JSON/">08-JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/07-文件上传与进度条/">07-文件上传与进度条</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/06-XMLHttpRequest2.0新特性/">06-XMLHttpRequest2.0新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/05-同步和异步/">05-同步和异步</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/04-GET缓存/">04-GET缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/03-POST和GET的区别/">03-POST和GET的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/02-Ajax入门/">02-Ajax入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/01-Ajax技术/">01-Ajax 技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/28-cookie和session的联系/">28-session和cookie的联系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/27-session技术/">27-session技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/26-cookie技术/">26-cookie技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/25-PHP会话控制/">25-PHP会话控制概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/24-修改信息于登录/">24-学生信息管理系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/23-信息管理系统/">23-学生信息管理系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/22-PHP操作MySQL/">22-PHP操作MySQL</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/21-删除数据/">21-删除数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/20-修改数据/">20-修改数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/19-添加数据/">19-添加数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/jQuery/16-jquery操作DOM(节点)/">16-jquery操作DOM(节点)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/18-数据查询/">18-数据查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/17-关系型数据库介绍/">17-创建数据表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/16-创建数据表/">16-创建数据表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/15-创建、删除数据库/">15-创建/删除数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/14-MySQL数据库服务器/">14-MySQL数据库服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/jQuery/15-jquery动画/">15-jquery动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/jQuery/14-jQuery操作样式/">14-jQuery操作样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/13-Http协议/">13-Http协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/12-PHP文件读写/">12-PHP文件读写</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/11-PHP常用函数/">11-PHP函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/13-jQuery插件机制/">13-jQuery插件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/12-jQuery多库共存/">12-jQuery多库共存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/11-jQuery链式编程与隐式迭代/">11-jQuery链式编程与隐式迭代</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/10-PHP函数/">10-PHP函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/10-jQuery事件对象/">10-jQuery事件对象（）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/09-PHP文件上传/">09-PHP文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/09-jQuery的on事件绑定与解绑/">09-jQuery的on事件绑定与解绑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/08-PHP超全局变量/">08-PHP超全局变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/07-PHP数组/">07-PHP数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/jQuery/08-jQuery事件机制/">08-jQuery事件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/06-PHP流程控制/">06-PHP流程控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/jQuery/07-jQuery操作坐标值/">07-jQuery操作坐标值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/05-PHP变量、常量、运算符/">05-PHP变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/04-PHP运行原理/">04-PHP运行原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/03-PHP初识/">03-PHP介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/02-PHP安装环境/">02-PHP安装环境 （phpstudy）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/PHP/01-PHP介绍/">01-PHP介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/06-jQuery操作尺寸/">06-jQuery操作尺寸</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/05-jQuery操作值与内容/">05-jQuery操作值与内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/04-jQuery操作DOM/">04-jQuery操作DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/03-jQuery选择器/">03-jQuery选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/02-jQuery入口函数/">02-jQuery入口函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/01-jQuery简介/">01-jQuery简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/JS/40-伪数组和数组/">40-伪数组和数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/18/JS/39-正则表达式/">39-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/17/JS/38-函数递归/">38-函数递归</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/16/JS/37-闭包/">37-闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/JS/36-作用域、作用域链、预解析/">36-作用域、作用域链、预解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/JS/35-函数进阶/">35-函数进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/JS/34-继承与多态/">34-继承与多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/JS/33-原型/">33-原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/JS/32-构造函数/">32-构造函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/JS/31-创建对象/">31-创建对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/JS/30-面向对象/">30-面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/JS/29-回顾掌握/">29-回顾掌握</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/JS/28-轮播图/">28-js原生轮播图</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/JS/27-动画运动/">27-动画运动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/08/JS/26-定时器/">26-定时器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/JS/25-异步任务/">25-异步任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/JS/24-offset系列/">24-offset系列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/JS/23-location与navigator与history对象/">23-location与navigator与history对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/JS/22-BOM.window对象/">22-BOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/21-事件流/">21-事件流</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/20-注册事件/">20-注册事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/19-节点/">19-节点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/JS/18-表单属性与事件/">18-表单属性与事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/JS/17-兼容性/">17-兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/JS/16-事件/">16-事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/26/JS/15-Web API介绍/">15-Web API 简单介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/12-Date类型对象/">12-Date类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/14-String类型对象/">14-String类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/13-Array类型对象/">13-Array类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/JS/11-内置对象/">11-内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/JS/10-基本数据类型和引用数据类型/">10-基本数据类型和引用数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/JS/09-对象/">09-对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/JS/08-函数/">08-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/JS/07-数组/">07-数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/06-流程控制/">06-流程控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/05-数据类型转换/">05-数据类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/04-运算符/">04-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/03-数据类型/">03-数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/02-变量/">02-变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/01-Js组成、输出、书写方式、调试循序与规范  /">01-Js组成、输出、书写方式、调试循序与规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/HTML/13-伸缩布局/">11-伸缩布局【弹性布局】(display:flex;)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/HTML/12-动画/">10-动画(animation)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/HTML/11-3D转换/">09-3D转换(transform)【变形】</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/HTML/10-2D转换/">08-2D转换(transform)【变形】</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/13/HTML/09-过渡/">07-过渡（transition）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/08-Web字体/">06-Web字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/07-Logo内容移除/">05-Logo内容移除</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/06-定位/">04-定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/05-浮动/">03-浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/04-渐变与盒子模型/">02-渐变与盒模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/03-css基础/">01-CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/02-列表/">02-列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/01-HTML基础/">01-HTML基础</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mr.张
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/zhangxx1990" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

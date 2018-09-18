@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>小新的博客.一个文艺青年的前端小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="分享web开发，为全栈开发努力，自我提高技术。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小新的博客.一个文艺青年的前端小站">
+<meta property="og:url" content="http://zhangxiuxin.top/page/4/index.html">
+<meta property="og:site_name" content="小新的博客.一个文艺青年的前端小站">
+<meta property="og:description" content="分享web开发，为全栈开发努力，自我提高技术。">
+<meta property="og:locale" content="Zhang-Xiu-xin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小新的博客.一个文艺青年的前端小站">
+<meta name="twitter:description" content="分享web开发，为全栈开发努力，自我提高技术。">
+  
+    <link rel="alternative" href="/atom.xml" title="小新的博客.一个文艺青年的前端小站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    
+    
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: true,
+          isPost: false,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Mr.张</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/article/HTML">文章目录</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱编程，爱运动，爱动漫，爱游戏！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mr.张</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Mr.张</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/article/HTML">文章目录</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-jQuery/14-jQuery操作样式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/25/jQuery/14-jQuery操作样式/" class="article-date">
+      <time datetime="2017-04-25T01:11:45.000Z" itemprop="datePublished">2017-04-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/25/jQuery/14-jQuery操作样式/">14-jQuery操作样式</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="jQuery操作样式"><a href="#jQuery操作样式" class="headerlink" title="jQuery操作样式"></a>jQuery操作样式</h1><h2 id="css操作"><a href="#css操作" class="headerlink" title="css操作"></a>css操作</h2><ul>
+<li>功能：设置或者修改样式，操作的是style属性</li>
+</ul>
+<h3 id="设置单个样式"><a href="#设置单个样式" class="headerlink" title="设置单个样式"></a>设置单个样式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name：需要设置的样式名称</span></span><br><span class="line"><span class="comment">//value：对应的样式值</span></span><br><span class="line">css(name, value);</span><br><span class="line"><span class="comment">//使用案例</span></span><br><span class="line">$(<span class="string">"#one"</span>).css(<span class="string">"background"</span>,<span class="string">"gray"</span>);<span class="comment">//将背景色修改为灰色</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置多个样式"><a href="#设置多个样式" class="headerlink" title="设置多个样式"></a>设置多个样式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参数是一个对象，对象中包含了需要设置的样式名和样式值</span></span><br><span class="line">css(obj);</span><br><span class="line"><span class="comment">//使用案例</span></span><br><span class="line">$(<span class="string">"#one"</span>).css(&#123;</span><br><span class="line">    <span class="string">"background"</span>:<span class="string">"gray"</span>,</span><br><span class="line">    <span class="string">"width"</span>:<span class="string">"400px"</span>,</span><br><span class="line">    <span class="string">"height"</span>:<span class="string">"200px"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="获取样式"><a href="#获取样式" class="headerlink" title="获取样式"></a>获取样式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:需要获取的样式名称</span></span><br><span class="line">css(name);</span><br><span class="line"><span class="comment">//案例</span></span><br><span class="line">$(<span class="string">"div"</span>).css(<span class="string">"background-color"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：获取样式操作只会返回第一个元素对应的样式值。</li>
+</ul>
+<h2 id="class操作"><a href="#class操作" class="headerlink" title="class操作"></a>class操作</h2><h3 id="添加样式类"><a href="#添加样式类" class="headerlink" title="添加样式类"></a>添加样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name：需要添加的样式类名，注意参数不要带点.</span></span><br><span class="line">addClass(name);</span><br><span class="line"><span class="comment">//例子,给所有的div添加one的样式。</span></span><br><span class="line">$(<span class="string">"div"</span>).addClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="移除所有样式类"><a href="#移除所有样式类" class="headerlink" title="移除所有样式类"></a>移除所有样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不带参数，移除所有的样式类</span></span><br><span class="line">removeClass()</span><br><span class="line"><span class="comment">//例子，移除div所有的样式类</span></span><br><span class="line">$(<span class="string">"div"</span>).removeClass();</span><br></pre></td></tr></table></figure>
+<h3 id="移除单个样式类"><a href="#移除单个样式类" class="headerlink" title="移除单个样式类"></a>移除单个样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:需要移除的样式类名</span></span><br><span class="line">removeClass(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">//例子，移除div中one的样式类名</span></span><br><span class="line">$(<span class="string">"div"</span>).removeClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="判断是否有样式类"><a href="#判断是否有样式类" class="headerlink" title="判断是否有样式类"></a>判断是否有样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:用于判断的样式类名，返回值为true false</span></span><br><span class="line">hasClass(name)</span><br><span class="line"><span class="comment">//例子，判断第一个div是否有one的样式类</span></span><br><span class="line">$(<span class="string">"div"</span>).hasClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="切换样式类"><a href="#切换样式类" class="headerlink" title="切换样式类"></a>切换样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:需要切换的样式类名，如果有，移除该样式，如果没有，添加该样式。</span></span><br><span class="line">toggleClass(name);</span><br><span class="line"><span class="comment">//例子</span></span><br><span class="line">$(<span class="string">"div"</span>).toggleClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>经验总结：</li>
+</ul>
+<p>1.如果操作到的样式非常少，可以考虑css方法</p>
+<p>2.如果操作到的样式非常多，那么可以通过class方法来操作，将样式写到一个class类里面。</p>
+<p>3.如果考虑到后期维护方便，将css从js中分离出来，那么推荐使用class的方式来操作。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/13-Http协议" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/25/PHP/13-Http协议/" class="article-date">
+      <time datetime="2017-04-25T01:06:21.000Z" itemprop="datePublished">2017-04-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/25/PHP/13-Http协议/">13-Http协议</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Http协议"><a href="#Http协议" class="headerlink" title="Http协议"></a>Http协议</h1><h2 id="Http协议概述"><a href="#Http协议概述" class="headerlink" title="Http协议概述"></a>Http协议概述</h2><p>协议: 就是事先的一种约定、规则、规范、标准。（租房合同、工作合同）。</p>
+<pre><code>HTTP协议：HyperText Transfer Protocol 超文本传输协议，客户端（浏览器端）与WEB服务器端之间的交互协议。当浏览器和服务器进行数据交换时，html文件、图片、CSS、JS等都是基于HTTP协议进行传输的。
+</code></pre><p>  HTTP协议有两个版本: 1.0 和 1.1，目前使用的基本都是1.1</p>
+<p>  特点: </p>
+<pre><code>通常是基于 B/S 结构软件的。
+无连接: 浏览器向服务器发送一次请求，服务器响应一次，链接即结束。
+无状态: 无记忆。 服务器不能记住哪个浏览器访问过。 
+</code></pre><h2 id="无连接-–-没有持久化链接"><a href="#无连接-–-没有持久化链接" class="headerlink" title="无连接 – 没有持久化链接"></a>无连接 – 没有持久化链接</h2><pre><code>当浏览器地址栏输入 www.baidu.com/index.html，按下回车时。浏览器向服务器发送请求。
+服务器找到index.html文件返回给浏览器之后，本次链接断开。
+</code></pre><p>如果在点击该页面中任何一个链接，则重新建立一次链接。客户端发送请求，服务器响应。之后又断开链接。 </p>
+<p><img src="/images/php/1528123196860.png" alt=""></p>
+<h2 id="请求和响应"><a href="#请求和响应" class="headerlink" title="请求和响应"></a>请求和响应</h2><p>HTTP协议主要分为两大部分: </p>
+<pre><code>请求:  访问服务器的任何一个文件都是一次请求
+响应:  服务器处理请求，将结果返回给浏览器。
+</code></pre><h2 id="请求-request-http-request-请求报文"><a href="#请求-request-http-request-请求报文" class="headerlink" title="请求( request / http request)(请求报文)"></a>请求( <strong>request</strong> / http request)(请求报文)</h2><p>客户端(浏览器)向服务器索要数据时遵循的协议</p>
+<blockquote>
+<p>请求分为3个部分:  请求行   请求头   请求主体<br>请求行:  请求方式、请求URL地址、协议版本号</p>
+</blockquote>
+<pre><code>请求头:  主机域名，客户端(浏览器)的信息等
+
+请求主体:  发送给服务器的数据，get和post都会通过请求主体将数据发送给服务器
+</code></pre><p>可以使用Chrome tools 或者 firebug 来查看请求和响应的信息（F12）</p>
+<pre><code>    主要请求项:
+
+  host： 
+
+        主机名和端口号，80端口默认不显示
+
+accept：          可接受的程序类型
+accept-encoding： 可接受的压缩类型
+accept-language： 可接受的语言类型
+cache-control：   缓存控制
+</code></pre><hr>
+<p>案例1:  访问 localhost/php4/code/http/index.html 文件    </p>
+<p><img src="/images/php/1534037686331.png" alt=""></p>
+<p>通过F12进行查看</p>
+<p><img src="/images/php/1534037719460.png" alt=""></p>
+<p>点击 index.html就能看到右侧的三个信息</p>
+<p><img src="/images/php/1534037758865.png" alt=""></p>
+<p><img src="/images/php/1534037865601.png" alt=""></p>
+<p>案例2:  index.html表单数据提交到index.php文件</p>
+<p><img src="/images/php/1534038374457.png" alt=""></p>
+<p><img src="/images/php/1534038385472.png" alt=""></p>
+<p>post方式提交的数据叫  FormData，以字符串形式将数据进传递</p>
+<p><img src="/images/php/1534038450547.png" alt="1534038450547"></p>
+<p>案例3:  index.html页面中a标签跳转到get.php文件</p>
+<p><img src="/images/php/1534038586471.png" alt="1534038586471"></p>
+<p><img src="/images/php/1534038596860.png" alt="1534038596860"></p>
+<p><img src="/images/php/1534038629048.png" alt="1534038629048"></p>
+<p>get传值叫做  Query String Parameters</p>
+<p><img src="/images/php/1534038670110.png" alt=""></p>
+<h2 id="响应-response-http-response-响应报文"><a href="#响应-response-http-response-响应报文" class="headerlink" title="响应( response / http response)(响应报文)"></a>响应( <strong>response</strong> / http response)(响应报文)</h2><pre><code>响应也分为3部分: 
+
+    响应行   
+    响应头   
+    响应主体
+
+响应行: 协议版本号、响应结果
+</code></pre><p>  <strong>状态码</strong></p>
+<pre><code>响应头: 主要是服务器端的信息
+响应主体: 就是从服务器返回给客户端的数据
+</code></pre><p>   主要响应项：</p>
+<pre><code>content-type： 响应内容类型， 
+content-type:text/html，服务器告诉浏览器，返回的这部分数据是文本类型，使用html方式来解析即可。
+content-length： 响应内容的长度 ，content-length:336, 从服务器返回给浏览器的数据总长度为336字节
+</code></pre><hr>
+<p>案例1: 访问 localhost/php4/code/http/index.html 文件时的响应信息</p>
+<p><img src="/images/php/1534038956636.png" alt=""></p>
+<p><img src="/images/php/1534039173890.png" alt=""></p>
+<p>案例2: index.html表单数据提交到index.php文件的响应信息</p>
+<p>案例3: index.html页面中a标签跳转到get.php文件的响应信息</p>
+<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p>常见的状态码如下: </p>
+<pre><code>200 ok   -----   请求成功
+
+302 redirect|Found  ----- 重定向
+
+304 not modified ----- 缓存文件
+
+403 forbidden   -----  禁止访问 （没有权限访问）
+
+404 Not Found  -----  未找到页面
+
+500 internal server error  ----- 服务器内部错误 (可能是服务器本身有问题，或者代码错的太离谱)
+</code></pre><h2 id="header响应头设置"><a href="#header响应头设置" class="headerlink" title="header响应头设置"></a>header响应头设置</h2><h2 id="设置响应类型"><a href="#设置响应类型" class="headerlink" title="设置响应类型"></a>设置响应类型</h2><pre><code>浏览器发起请求的方式是多样的，当发起请求后服务端会有对应的内容响应过来，浏览器会根据响应头==Content-Type==来对响应的内容进行解析
+
+content-type主要的响应类型是  text/html   
+</code></pre><p>其他常见类型 :  text/css   text/javascript   image/png  image/jpeg  image/gif</p>
+<p>注意: </p>
+<pre><code>所有的响应类型都是  大范围/小类型， 千万不能写反
+</code></pre><hr>
+<p>案例1: php绘制的验证码 verify.php</p>
+<p><img src="/images/php/1534040061590.png" alt=""></p>
+<p><img src="/images/php/1534040079302.png" alt=""></p>
+<p>如果改为 text/html</p>
+<p><img src="/images/php/1534040111085.png" alt=""></p>
+<p><img src="/images/php/1534040123921.png" alt=""></p>
+<hr>
+<p>案例2: link标签发送请求 </p>
+<p>① 创建html文件，使用link标签引入一个php文件</p>
+<p><img src="/images/php/1534040360466.png" alt=""></p>
+<p>② 在h1.php文件中，设置响应类型（content-type为css）</p>
+<p><img src="/images/php/1534040405398.png" alt=""></p>
+<p>访问结果:</p>
+<p><img src="/images/php/1534040433662.png" alt=""></p>
+<h2 id="指定字符集"><a href="#指定字符集" class="headerlink" title="指定字符集"></a>指定字符集</h2><p>   中文字符集: utf-8  gb2312  gbk</p>
+<pre><code>header(&apos;Content-Type:text/html;charset=utf-8&apos;);
+
+header(&apos;Content-Type:text/html;charset=gb2312&apos;);
+</code></pre><p>页面乱码问题处理方式：</p>
+<p> 页面乱码是因为 <strong>文件编码</strong> 和 <strong>页面指定编码</strong> 不一致，所以解决该问题就是要 <strong>统一文件编码和页面指定编码</strong></p>
+<pre><code>① 在页面中设置 header ，编码指定为 utf-8
+
+② 将文件的编码格式，指定为utf-8 (使用sublime，将保存格式设置为 utf-8 或者 使用editplus另存为文件时，设置utf-8)
+
+
+如果 header设置为 utf-8，则文件编码格式也要设置为 utf-8
+
+如果 header设置为 gbk，则文件编码格式要设置为 ANSI 
+</code></pre><p>① 在sublime创建charset_utf8.php</p>
+<p><img src="/images/php/1534041680058.png" alt=""></p>
+<p>访问结果:</p>
+<p><img src="/images/php/1534041704258.png" alt=""></p>
+<p>② 在windows中直接创建 charset_gbk.php</p>
+<p><img src="/images/php/1534041740929.png" alt=""></p>
+<p>访问结果:</p>
+<p><img src="/images/php/1534041755891.png" alt=""></p>
+<p>原因:</p>
+<pre><code>sublime创建的文件是utf-8编码的，和页面中header设置的字符集一致，所以能正常显示。
+
+windows创建的文件是ANSI编码的, 而页面中header设置的字符集是utf-8，两者不一致，所以乱码了。
+</code></pre><p>解决方案:</p>
+<pre><code>① windows创建的文件，header要设置为 gb2312或者gbk
+
+② 将windows创建的文件，改为utf-8编码
+</code></pre><p>修改文件编码可以使用editplus或者sublime都行</p>
+<p><img src="/images/php/1534042040846.png" alt=""></p>
+<p><img src="/images/php/1534042064418.png" alt=""></p>
+<p>现在我们常用的sublime和vs，创建的都是utf-8编码格式的文件，所以，header要设置为 utf-8</p>
+<h2 id="页面重定向"><a href="#页面重定向" class="headerlink" title="页面重定向"></a>页面重定向</h2><pre><code>header(&apos;location:页面地址&apos;);
+
+header(&apos;refresh:2;url=页面地址&apos;);
+</code></pre><p><img src="/images/php/1534042530403.png" alt=""></p>
+<p>扩展内容:</p>
+<p><img src="/images/php/1534042923833.png" alt=""></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/12-PHP文件读写" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/25/PHP/12-PHP文件读写/" class="article-date">
+      <time datetime="2017-04-25T00:15:01.000Z" itemprop="datePublished">2017-04-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/25/PHP/12-PHP文件读写/">12-PHP文件读写</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h1><h2 id="读取文件内容"><a href="#读取文件内容" class="headerlink" title="读取文件内容"></a>读取文件内容</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string  file_get_contents(string $file);</span><br><span class="line">参数: 文件路径，可以是本地文件的路径，也可以是网络地址</span><br><span class="line">返回值: 文件内容</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取文件内容</span></span><br><span class="line"><span class="comment"> * 参数: 要获取的文件的路径，该路径可以是本地文件路径，</span></span><br><span class="line"><span class="comment"> *       也可以是网络文件路径</span></span><br><span class="line"><span class="comment"> * 返回值: 文件内容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">echo</span> file_get_contents(<span class="string">'./data.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> file_get_contents(<span class="string">'http://s1.bdstatic.com/r/www/cache/static/home/css/index.css'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="向文件中写入内容"><a href="#向文件中写入内容" class="headerlink" title="向文件中写入内容"></a>向文件中写入内容</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int file_put_contents(string $file, string $data[, constants flag]);</span><br><span class="line">参数<span class="number">1</span>: 文件路径</span><br><span class="line">参数<span class="number">2</span>: 要写入文件的字符串</span><br><span class="line">参数<span class="number">3</span>: 可选参数，默认不写，新内容覆盖原文件中的内容；FILE_APPEND是向文件中追加内容</span><br><span class="line">返回值: 写入文件的字符串长度</span><br></pre></td></tr></table></figure>
+<h2 id="序列化-和-反序列化"><a href="#序列化-和-反序列化" class="headerlink" title="序列化 和 反序列化"></a>序列化 和 反序列化</h2><p>file_put_contents函数不能将数组直接写入文件，因为数组不能直接转化为字符串。</p>
+<p>   string  ==serialize==($arr):   将数组转为字符串，该字符串是一种特殊结构的字符串。</p>
+<p>   array  unserialize(string):   将序列化的字符串转为数组</p>
+<h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化:"></a>序列化:</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$arr = [</span><br><span class="line">    [<span class="string">'name'</span>=&gt;<span class="string">'张飞'</span>, <span class="string">'size'</span>=&gt;<span class="string">'1920*1200'</span>, <span class="string">'path'</span>=&gt;<span class="string">'./pic/11.jpg'</span>],</span><br><span class="line">    [<span class="string">'name'</span>=&gt;<span class="string">'吕布'</span>, <span class="string">'size'</span>=&gt;<span class="string">'1920*1200'</span>, <span class="string">'path'</span>=&gt;<span class="string">'./pic/10.jpg'</span>],</span><br><span class="line">    [<span class="string">'name'</span>=&gt;<span class="string">'安琪拉'</span>, <span class="string">'size'</span>=&gt;<span class="string">'1920*1200'</span>, <span class="string">'path'</span>=&gt;<span class="string">'./pic/6.jpg'</span>],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 能将数组转为带有数组结构的字符串</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">echo</span> serialize($arr);</span><br></pre></td></tr></table></figure>
+<p>结果:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">a:<span class="number">3</span>:&#123;</span><br><span class="line">    i:<span class="number">0</span>;a:<span class="number">3</span>:&#123;</span><br><span class="line">        s:<span class="number">4</span>:<span class="string">"name"</span>;s:<span class="number">6</span>:<span class="string">"张飞"</span>;</span><br><span class="line">        s:<span class="number">4</span>:<span class="string">"size"</span>;s:<span class="number">9</span>:<span class="string">"1920*1200"</span>;</span><br><span class="line">        s:<span class="number">4</span>:<span class="string">"path"</span>;s:<span class="number">12</span>:<span class="string">"./pic/11.jpg"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    i:<span class="number">1</span>;a:<span class="number">3</span>:&#123;</span><br><span class="line">        s:<span class="number">4</span>:<span class="string">"name"</span>;s:<span class="number">6</span>:<span class="string">"吕布"</span>;</span><br><span class="line">        s:<span class="number">4</span>:<span class="string">"size"</span>;s:<span class="number">9</span>:<span class="string">"1920*1200"</span>;</span><br><span class="line">        s:<span class="number">4</span>:<span class="string">"path"</span>;s:<span class="number">12</span>:<span class="string">"./pic/10.jpg"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    i:<span class="number">2</span>;a:<span class="number">3</span>:&#123;</span><br><span class="line">        s:<span class="number">4</span>:<span class="string">"name"</span>;s:<span class="number">9</span>:<span class="string">"安琪拉"</span>;</span><br><span class="line">        s:<span class="number">4</span>:<span class="string">"size"</span>;s:<span class="number">9</span>:<span class="string">"1920*1200"</span>;</span><br><span class="line">        s:<span class="number">4</span>:<span class="string">"path"</span>;s:<span class="number">11</span>:<span class="string">"./pic/6.jpg"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化:"></a>反序列化:</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$str = file_get_contents(<span class="string">'./data.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 将结构化好的字符串转回成数组</span></span><br><span class="line"><span class="comment">* 参数: 结构化好的字符串</span></span><br><span class="line"><span class="comment">* 返回值: 数组</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">$arr = unserialize($str);</span><br><span class="line">print_r($arr);</span><br></pre></td></tr></table></figure>
+<p><img src="/images/php/1533959168968.png" alt=""></p>
+<hr>
+<h2 id="综合案例–壁纸管理"><a href="#综合案例–壁纸管理" class="headerlink" title="综合案例–壁纸管理"></a>综合案例–壁纸管理</h2><p>目标：以表格形式将data.txt文件中所有的数据展示出来</p>
+<p><img src="/images/php/1533895818621.png" alt=""></p>
+<p>思路分析：  </p>
+<p>  1) 从文件中读取数据 — 字符串</p>
+<p>  2) 将字符串恢复成数组结构(unserialize) — 二维数组  </p>
+<p>  3) 循环将数据进行输出</p>
+<p>代码实现:</p>
+<p><img src="/images/php/1533960011212.png" alt=""></p>
+<h3 id="添加新壁纸"><a href="#添加新壁纸" class="headerlink" title="添加新壁纸"></a>添加新壁纸</h3><p><img src="/images/php/1533892050303.png" alt=""></p>
+<p>思路分析:  三个文件完成该功能    表单页 、 数据处理页 、 数据保存文件</p>
+<pre><code>1) 表单页（upload.html）
+
+     保证数据能够正常提交，文件能够正常上传
+
+2) 数据处理页 (upload.php)
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">① 文件上传</span><br><span class="line">② 接收表单数据</span><br><span class="line">③ 将数据写入data.txt文件</span><br></pre></td></tr></table></figure>
+<p>  i.  将接收到的数据构造成一个一维数组 ($info)</p>
+<pre><code>         ii. 将data.txt文件中原有的数据取出，反序列化成二维数组 （$list）
+
+         iii. 将$info 追加到 $list中
+
+     iv. 将$list序列化后，再写回data.txt文件（覆盖）
+
+3) 数据保存页 (data.txt)
+
+    在该文件中保存的数据必须是被序列化过的数组
+</code></pre><p> 代码实现:</p>
+<p>   add.html</p>
+<p><img src="/images/php/1533961868828.png" alt=""></p>
+<p>add_deal.php</p>
+<p><img src="/images/php/1533961912216.png" alt=""></p>
+<p><img src="/images/php/1533961954758.png" alt=""></p>
+<p><img src="/images/php/1533961997564.png" alt=""></p>
+<p>关键点总结：</p>
+<p>  1) 表单页（upload.html）</p>
+<pre><code>表单要上传文件，所以必须有  enctype属性，必须使用post进行数据提交
+</code></pre><p>  2) 数据处理页（upload.php）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">① 因为上传的必须是图片，所以要做检测上传文件类型，还要重命名文件防止覆盖</span><br><span class="line">② 创建数组用来保存表单接收的数据，数组应该有三个单元 (name  size  url)</span><br><span class="line">③ 要先将data.txt文件中的数据读出来。如果文件为空，则创建一个空数组，再将表单提交的数据追加到数组中；如果文件不为空，则反序列化成一个数组，再将表单数据追加到数组中。</span><br><span class="line">④ 将追加后的新数组序列化，再写入data.txt文件中</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/11-PHP常用函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/24/PHP/11-PHP常用函数/" class="article-date">
+      <time datetime="2017-04-24T07:20:11.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/24/PHP/11-PHP常用函数/">11-PHP函数</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h1><h2 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int time():  获取当前时间点的时间戳 -- <span class="number">1970.1</span><span class="number">.1</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> 到现在的秒数</span><br><span class="line">string date(format $str, timestamp $int): 可以将时间戳转为年月日时分秒的形式</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">date函数说明：</span><br><span class="line"></span><br><span class="line">参数<span class="number">1</span>: 要显示的时间格式</span><br><span class="line">参数<span class="number">2</span>: 时间戳, 可选参数, 如果不指定则为当前时间戳</span><br><span class="line">返回值: 指定的时间格式</span><br><span class="line"></span><br><span class="line">时间格式参数:</span><br><span class="line">Y: <span class="number">4</span>位年</span><br><span class="line">m: 带前导<span class="number">0</span>的<span class="number">2</span>位月</span><br><span class="line">d: 带前导<span class="number">0</span>的<span class="number">2</span>位日</span><br><span class="line">H: 带前导<span class="number">0</span>的<span class="number">2</span>位时</span><br><span class="line">i: 带前导<span class="number">0</span>的<span class="number">2</span>位分</span><br><span class="line">s: 带前导<span class="number">0</span>的<span class="number">2</span>位秒</span><br><span class="line"></span><br><span class="line">修改时区有两种方法:</span><br><span class="line"><span class="number">1</span>)  使用函数 ---- date_default_timezone_set();      临时修改</span><br><span class="line"><span class="number">2</span>)  修改php配置文件 php.ini                         永久修改</span><br><span class="line">北京时间: PRC (中国人民共和国)  或者  asia/shanghai (亚洲/上海)</span><br></pre></td></tr></table></figure>
+<p>在php.ini文件中永久修改时区的配置项</p>
+<p><img src="/images/php/1533953422928.png" alt=""></p>
+<p>重启apache服务器，才能使最新的配置项生效。 （只要修改过Apache或者php的配置文件，就都需要重启Apache服务器才能生效。Apache配置文件 httpd.conf）</p>
+<p><img src="/images/php/1533953606233.png" alt=""></p>
+<h2 id="变量函数"><a href="#变量函数" class="headerlink" title="变量函数"></a>变量函数</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bool <span class="keyword">empty</span>($var): 判断变量是否为空。如果为空返回 <span class="keyword">true</span>；反之，则返回<span class="keyword">false</span></span><br><span class="line">bool <span class="keyword">isset</span>($var): 判断一个变量是否被设置。 如果已设置返回<span class="keyword">true</span>，反之，返回<span class="keyword">false</span></span><br><span class="line">void <span class="keyword">unset</span>($var): 删除变量，无返回值</span><br></pre></td></tr></table></figure>
+<h2 id="数组函数"><a href="#数组函数" class="headerlink" title="数组函数"></a>数组函数</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bool in_array(mixed, arr):  检查一个值是否存在于一个数组当中</span><br><span class="line"><span class="keyword">array</span> explode(delimiter, str): 使用一个字符串将另一个字符串分割为数组</span><br><span class="line">string implode(str, arr):  使用一个字符串将一个数组链接为字符串</span><br></pre></td></tr></table></figure>
+<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int strlen(str):  获取字符串长度</span><br><span class="line">int strpos/strrpos($str, $char): 查询$char字符串在$str字符串中的第一次/最后一次出现的下标</span><br><span class="line">string substr（str, start[, length]）:  字符串截取</span><br><span class="line">string str_replace（search, replace, str）:  字符串替换</span><br><span class="line">string trim（str）:  删除字符串左右两边的空格</span><br><span class="line">void <span class="keyword">die</span>/<span class="keyword">exit</span>([str]): 结束当前脚本</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-jQuery/13-jQuery插件机制" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/24/jQuery/13-jQuery插件机制/" class="article-date">
+      <time datetime="2017-04-24T07:02:12.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/24/jQuery/13-jQuery插件机制/">13-jQuery插件机制</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="jQuery插件机制"><a href="#jQuery插件机制" class="headerlink" title="jQuery插件机制"></a>jQuery插件机制</h1><h2 id="第三方插件"><a href="#第三方插件" class="headerlink" title="第三方插件"></a>第三方插件</h2><p>jQuery有着丰富的插件，使用这些插件能给jQuery提供一些额外的功能。</p>
+<p>jquery.color.js</p>
+<pre><code>animate不支持颜色的渐变，但是使用了jquery.color.js后，就可以支持颜色的渐变了。
+</code></pre><p>如何使用第三方插件：</p>
+<p>1.引入jQuery文件</p>
+<p>2.引入插件</p>
+<p>3.使用插件</p>
+<h2 id="制作插件"><a href="#制作插件" class="headerlink" title="制作插件"></a>制作插件</h2><ul>
+<li>jQuery对象扩展方法<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.fn. pluginName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="jQuery-UI"><a href="#jQuery-UI" class="headerlink" title="jQuery UI"></a>jQuery UI</h2><ul>
+<li>jQueryUI专指由jQuery官方维护的UI方向的插件。</li>
+</ul>
+<p>官方API：<br><a href="http://api.jqueryui.com/category/all/" target="_blank" rel="noopener">http://api.jqueryui.com/category/all/</a></p>
+<p>其他教程：jQueryUI教程</p>
+<p>基本使用:</p>
+<p>1.引入jQueryUI的样式文件</p>
+<p>2.引入jQuery</p>
+<p>3.引入jQueryUI的js文件</p>
+<p>4.使用jQueryUI功能</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-jQuery/12-jQuery多库共存" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/24/jQuery/12-jQuery多库共存/" class="article-date">
+      <time datetime="2017-04-24T05:20:02.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/24/jQuery/12-jQuery多库共存/">12-jQuery多库共存</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="多库共存"><a href="#多库共存" class="headerlink" title="多库共存"></a>多库共存</h1><p>我们知道jQuery占用了$这个标识符，如果引用的其他库也用到$这个标识符，这时候为了保证每个库都能正常使用，这时候就存在了多库共存的问题。</p>
+<p>后引入的$的会覆盖掉先引入的库中的$。</p>
+<p>$ === jQuery</p>
+<p>解决办法：</p>
+<p>jQuery的$和jQuery是两个相同的变量，因此遇到多库共存的时候，可以让jquery交出$符的控制权，这个时候还是可以使用$.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($);<span class="comment">//function(selector, context)&#123;&#125;</span></span><br><span class="line"><span class="comment">//$.noConflict();//释放$的控制权</span></span><br><span class="line"><span class="built_in">console</span>.log($);&#123;<span class="attr">name</span>:<span class="string">"zhangsan"</span>,<span class="attr">age</span>:<span class="number">12</span>&#125;</span><br><span class="line">jQuery(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    jQuery(<span class="string">"div"</span>).html(<span class="string">"我不是div的内容"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-jQuery/11-jQuery链式编程与隐式迭代" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/24/jQuery/11-jQuery链式编程与隐式迭代/" class="article-date">
+      <time datetime="2017-04-24T03:08:33.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/24/jQuery/11-jQuery链式编程与隐式迭代/">11-jQuery链式编程与隐式迭代</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="链式编程"><a href="#链式编程" class="headerlink" title="链式编程"></a>链式编程</h1><ul>
+<li><p>链式编程原理：return this;<br>通常情况下，只有设置操作才能把链式编程延续下去。因为获取操作的时候，会返回获取到的相应的值，无法返回 this。</p>
+</li>
+<li><p>end(); // 筛选选择器会改变jQuery对象的DOM对象，想要回复到上一次的状态，并且返回匹配元素之前的状态。</p>
+</li>
+</ul>
+<h1 id="隐式迭代"><a href="#隐式迭代" class="headerlink" title="隐式迭代"></a>隐式迭代</h1><ul>
+<li>隐式迭代的意思是：在方法的内部会为匹配到的所有元素进行循环遍历，执行相应的方法；而不用我们再进行循环，简化我们的操作，方便我们调用。<br>如果获取的是多元素的值，大部分情况下返回的是第一个元素的值。<br>设置性操作的时候：设置的是所有的元素<br>获取性操作：获取的是第一个元素。</li>
+</ul>
+<h1 id="each方法"><a href="#each方法" class="headerlink" title="each方法"></a>each方法</h1><ul>
+<li>有了隐式迭代，为什么还要使用each函数遍历？</li>
+</ul>
+<p>大部分情况下是不需要使用each方法的，因为jQuery的隐式迭代特性。<br>如果要对每个元素做不同的处理，这时候就用到了each方法</p>
+<p> 作用：遍历jQuery对象集合，为每个匹配的元素执行一个函数</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数一表示当前元素在所有匹配元素中的索引号</span></span><br><span class="line"><span class="comment">// 参数二表示当前元素（DOM对象）</span></span><br><span class="line">$(selector).each(<span class="function"><span class="keyword">function</span>(<span class="params">index,element</span>)</span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/10-PHP函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/24/PHP/10-PHP函数/" class="article-date">
+      <time datetime="2017-04-24T03:03:41.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/24/PHP/10-PHP函数/">10-PHP函数</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="什么是函数"><a href="#什么是函数" class="headerlink" title="什么是函数"></a>什么是函数</h2><p>函数(function) 是一段完成指定任务的已经命名的代码块。</p>
+<p>PHP函数包括内置函数（系统函数）和自定义函数两类</p>
+<h2 id="函数的格式"><a href="#函数的格式" class="headerlink" title="函数的格式"></a>函数的格式</h2><p>PHP声明函数的方式和Javascript一致。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">    function  函数名称（[参数1 [,参数2 [,…]]]）</span><br><span class="line">    &#123;</span><br><span class="line">        函数体;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//如需函数有返回值时使用</span></span><br><span class="line">        [<span class="keyword">return</span> 返回值;]</span><br><span class="line">    &#125; </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 变量的作用域</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 核心概念: 在函数体外定义的变量，在函数体内无效</span><br><span class="line"></span><br><span class="line"> 	  	   在函数体内定义的变量，在函数体外无效</span><br><span class="line"></span><br><span class="line">![](/images/php/<span class="number">1533949815695.</span>png)</span><br><span class="line"></span><br><span class="line">- 全局变量 和 局部变量:</span><br><span class="line">    - 局部变量:  函数体内的变量，该变量只在函数范围内有效。</span><br><span class="line">    - 全局变量:  函数体外的变量，在整个php文件中都有效（除了函数）。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 文件包含</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件包含一共有<span class="number">4</span>个函数:   <span class="keyword">include</span>、<span class="keyword">include_once</span>、<span class="keyword">require</span>、<span class="keyword">require_once</span></span><br><span class="line"></span><br><span class="line">  **文件A中包含文件B，那么文件B就相当于文件A的一部分。**</span><br><span class="line"></span><br><span class="line">  注意事项: </span><br><span class="line">```php</span><br><span class="line">    如果文件A和文件B定义了相同的变量，则会发生覆盖。</span><br><span class="line">    如果文件A和文件B定义了相同的函数，则会发生致命错误。</span><br></pre></td></tr></table></figure></p>
+<pre><code>include        require
+
+include_once   require_once
+</code></pre><p>四个语句的区别：</p>
+<p>1) include在包含一个不存在的文件时，会产生一个Warning错误，程序不会中断继续执行；而require会产生Fatal错误，中断执行。</p>
+<p>2) include_once和require_once的区别：include_once只会加载一次相同的文件，而inlcude会加载多次。</p>
+<p>3) 在实际开发中基本使用 include_once或者require_once</p>
+<h2 id="static静态变量"><a href="#static静态变量" class="headerlink" title="static静态变量"></a>static静态变量</h2><p>   当一个变量使用static进行修饰时，该变量在整个php页面运行过程中只有一份。</p>
+<p>  <img src="/images/php/1533888584603.png" alt=""></p>
+<pre><code>  每次调用 aaa() 函数时，都会去静态内存区寻找是否有 $i。如果没有，则创建$i并进行赋值；如果有，则直接使用，跳过赋值过程。
+
+static在递归操作中非常有用。
+</code></pre><h2 id="global全局变量"><a href="#global全局变量" class="headerlink" title="global全局变量"></a>global全局变量</h2><p> 如果在一个函数体内想强行使用函数体外定义的变量，可以使用global关键词来声明。</p>
+<p> <img src="/images/php/1533952559547.png" alt=""></p>
+<pre><code>$GLOBALS的功能和global差不多，都不推荐使用。
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-jQuery/10-jQuery事件对象" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/24/jQuery/10-jQuery事件对象/" class="article-date">
+      <time datetime="2017-04-24T02:11:15.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/24/jQuery/10-jQuery事件对象/">10-jQuery事件对象（）</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="jQuery事件对象（）"><a href="#jQuery事件对象（）" class="headerlink" title="jQuery事件对象（）"></a>jQuery事件对象（）</h1><table>
+<thead>
+<tr>
+<th><strong>对象属性</strong></th>
+<th><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>event.type</strong></td>
+<td>事件类型</td>
+</tr>
+<tr>
+<td><strong>event.data</strong></td>
+<td>存储绑定事件时传递的附加数据</td>
+</tr>
+<tr>
+<td><strong>event.target</strong></td>
+<td>点了谁就是谁</td>
+</tr>
+<tr>
+<td><strong>event.currentTarget</strong></td>
+<td>当前DOM元素，等同于this</td>
+</tr>
+<tr>
+<td><strong>event.delegateTarget</strong></td>
+<td>代理对象</td>
+</tr>
+<tr>
+<td><strong>screenX和screenY</strong></td>
+<td>对应屏幕最左上角的值</td>
+</tr>
+<tr>
+<td><strong>offsetX和offsetY</strong></td>
+<td>点击的位置距离元素的左上角的位置</td>
+</tr>
+<tr>
+<td><strong>clientX和clientY</strong></td>
+<td>距离页面左上角的位置（忽视滚动条）</td>
+</tr>
+<tr>
+<td><strong>ageX和pageY</strong></td>
+<td>距离页面最顶部的左上角的位置（会计算滚动条的距离）</td>
+</tr>
+<tr>
+<td><strong>event.witch</strong></td>
+<td>鼠标按键类型，1=鼠标左键 2=鼠标中键 3=鼠标右键”</td>
+</tr>
+<tr>
+<td><strong>event.keyCode</strong></td>
+<td>按下的键盘代码,</td>
+</tr>
+<tr>
+<td><strong>event.stopPropagation()</strong></td>
+<td>阻止事件冒泡行为</td>
+</tr>
+<tr>
+<td><strong>event.preventDefault()</strong></td>
+<td>阻止浏览器默认行为</td>
+</tr>
+<tr>
+<td><strong>return false；</strong></td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/09-PHP文件上传" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/24/PHP/09-PHP文件上传/" class="article-date">
+      <time datetime="2017-04-24T02:05:37.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/24/PHP/09-PHP文件上传/">09-PHP文件上传</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p> 文件上传属于一种特殊的表单提交，也需要两个页面 —  表单页  和   数据处理页。<br><img src="/images/php/1525424869723.png" alt=""></p>
+<p>upload.html表单页</p>
+<p><img src="/images/php/1533787848965.png" alt=""></p>
+<p>upload.php 上传文件处理页</p>
+<p><img src="/images/php/1533788030706.png" alt=""></p>
+<p>文件上传核心点总结:</p>
+<h2 id="核心点一：表单设计"><a href="#核心点一：表单设计" class="headerlink" title="核心点一：表单设计"></a>核心点一：表单设计</h2><pre><code>表单标签form中必须额外增加 enctype属性，必须使用post提交表单
+
+文件域必须有name属性和值
+</code></pre><h2 id="核心点二-—-FILES"><a href="#核心点二-—-FILES" class="headerlink" title="核心点二  —  $_FILES"></a>核心点二  —  $_FILES</h2><p>$_FILES是一个二维数组，保存了上传文件的相关信息：</p>
+<p> 第一维下标是 文件域的name值</p>
+<p> 第二维有5个固定单元</p>
+<p>   name: 上传的文件名</p>
+<p>   type: 上传的文件类型</p>
+<p>   tmp_name: 上传文件在服务器临时存储的路径</p>
+<p>   error:  错误码，错误码有0-4  5个值。 等于0时，代表文件正常上传</p>
+<pre><code>0：代表正常上传，没有错误
+
+1：代表上传文件大小超过了 php.ini中 upload_max_filesize 定义的大小
+
+2：代表上传文件大小超过了 php.ini中 post_max_size 定义的表单最大值
+
+3：文件只有部分被上传 
+
+4：没有文件被上传 
+</code></pre><p>   size: 上传文件的大小  bit</p>
+<p><img src="/images/php/1533545384816.png" alt=""></p>
+<h2 id="核心点三-—-move-uploaded-file"><a href="#核心点三-—-move-uploaded-file" class="headerlink" title="核心点三  —  move_uploaded_file**"></a>核心点三  —  move_uploaded_file**</h2><p>从$_FILES中我们可以知道，文件已经正常上传到服务器了。</p>
+<p>所以，接下来就需要将文件从临时保存路径，移动到我们希望保存的路径中。</p>
+<p>move_uploaded_file (参数1， 参数2)；</p>
+<p> 参数1: 临时路径  —&gt;  $_FILES[‘pic’][‘tmp_name’]</p>
+<p> 参数2: 目标路径  —&gt;  使用相对路径移动到当前目录下   ./ </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    </nav>
+  
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mr.张
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/zhangxx1990" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

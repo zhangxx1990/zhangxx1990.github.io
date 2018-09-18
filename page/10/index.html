@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>小新的博客.一个文艺青年的前端小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="分享web开发，为全栈开发努力，自我提高技术。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小新的博客.一个文艺青年的前端小站">
+<meta property="og:url" content="http://zhangxiuxin.top/page/10/index.html">
+<meta property="og:site_name" content="小新的博客.一个文艺青年的前端小站">
+<meta property="og:description" content="分享web开发，为全栈开发努力，自我提高技术。">
+<meta property="og:locale" content="Zhang-Xiu-xin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小新的博客.一个文艺青年的前端小站">
+<meta name="twitter:description" content="分享web开发，为全栈开发努力，自我提高技术。">
+  
+    <link rel="alternative" href="/atom.xml" title="小新的博客.一个文艺青年的前端小站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    
+    
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: true,
+          isPost: false,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Mr.张</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/article/HTML">文章目录</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱编程，爱运动，爱动漫，爱游戏！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mr.张</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Mr.张</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/article/HTML">文章目录</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-JS/07-数组" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/20/JS/07-数组/" class="article-date">
+      <time datetime="2017-03-20T02:20:15.000Z" itemprop="datePublished">2017-03-20</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/20/JS/07-数组/">07-数组</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>数组是一组有序的数据集合</li>
+<li>有序是：下标（索引值）是有序的（从0开始）</li>
+<li>数组也是一种数据，是属于引用类型的数据。</li>
+<li>数组的优点：可以存储一组数据交给一个变量统一管理，并且可以方便的维护和操作。</li>
+<li>概念：数组是一组 有序的 数据的集合</li>
+</ul>
+<h2 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h2><ul>
+<li><p>方式1：通过构造函数</p>
+<blockquote>
+<p>var 变量名 = new Array(); </p>
+</blockquote>
+<ul>
+<li>空的数组   相当于  var 变量名 = []; <blockquote>
+<p>var 变量名 = new Array(数据,数据,数据,数据); </p>
+</blockquote>
+</li>
+<li><p>相当于 var 变量名 = [数据,数据,数据,数据]</p>
+<ul>
+<li>代码：<blockquote>
+<p><code>var userNames = new Array();</code></p>
+<p><code>var userNames = new Array(&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;)</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>方式2：数组字面量【推荐使用】<blockquote>
+<p> var 变量名 = [];  </p>
+<p>空的数组</p>
+<p>var 变量名 = [数据,数据,数据,数据];</p>
+<p>有数据 的数组</p>
+<ul>
+<li>代码：<br><code>var userNames = [];</code></li>
+</ul>
+<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;]</code></p>
+</blockquote>
+</li>
+<li>小细节<ul>
+<li>若小括号中只有一个数字时，表示数组在内存中连续申请了n个空间，每个空间的默认值是 undefined。<blockquote>
+<p>var 变量 = new Array(数字); </p>
+</blockquote>
+</li>
+<li>如：代码：<blockquote>
+<p><code>var userNames = new Array(4)</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="访问和设置数组的元素"><a href="#访问和设置数组的元素" class="headerlink" title="访问和设置数组的元素"></a>访问和设置数组的元素</h2><ul>
+<li><p>访问数组中的元素</p>
+</li>
+<li><p>语法：数组名[下标];    下标 也叫 索引.下标是从 0    1     2      3   …</p>
+</li>
+<li><p>获取数组中的元素。</p>
+<ul>
+<li>代码：<blockquote>
+<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;];</code></p>
+<p><code>console.log(userNames[1]);</code>//获取李四</p>
+<p><code>console.log(userNames[4]);</code></p>
+<p> ↑  undefined</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>设置（修改）数组中的元素</p>
+<ul>
+<li>代码：<blockquote>
+<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;];</code>// 修改李四 为 LiSi</p>
+<p><code>userNames[1] = &#39;LiSi&#39;;</code></p>
+<p><code>console.log(userNames);</code><br>// [‘张三’,’LiSi’,’王五’,’赵六’]</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="数组的length属性"><a href="#数组的length属性" class="headerlink" title="数组的length属性"></a>数组的length属性</h2><ul>
+<li>通过 length 获取数组中元素的个数 【重点】</li>
+<li>语法：数组名.length;<ul>
+<li>代码：<blockquote>
+<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;];</code></p>
+<p><code>console.log(userNames.length);</code>// 4</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>通过length 设定数组的长度</li>
+<li><p>语法：数组名.length = 数字;</p>
+<ul>
+<li>代码1：<blockquote>
+<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;];</code></p>
+<p><code>userNames.length = 6;</code>// 因为数组长度为6，所以新增了两个空间.</p>
+</blockquote>
+</li>
+<li>代码2：<blockquote>
+<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;];</code></p>
+<p><code>userNames.length = 4;</code>// 因为数组长度为4，所以减了两个空间.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>通过length清空数组</p>
+<blockquote>
+<p><code>var userNames = [&#39;张三&#39;, &#39;李四&#39;, &#39;王五&#39;, &#39;赵六&#39;];</code></p>
+<p><code>console.log(userNames);</code>// 清空之前 [‘张三’, ‘李四’, ‘王五’, ‘赵六’]</p>
+<p><code>userNames.length = 0;</code></p>
+<p><code>console.log(userNames);</code>// 清空之后 []</p>
+</blockquote>
+</li>
+<li><p>向数组最后追加新元素</p>
+</li>
+<li>语法： 数组名[数组名.length] = 数据;<blockquote>
+<p><code>var userNames = [&#39;张三&#39;, &#39;李四&#39;, &#39;王五&#39;, &#39;赵六&#39;];</code></p>
+<p><code>userNames[数组名.length] = &#39;陈七&#39;;</code></p>
+<p><code>console.log(userNames);</code>//[‘张三’, ‘李四’, ‘王五’, ‘赵六’,’陈七’]</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>赋值：</p>
+<blockquote>
+<p>​    1.    var arr = [];</p>
+<p>​        arr[0] = “张三”；    </p>
+<p>​        arr[1] = “李四”；</p>
+<p>​    2.     var arr = [“张三”,”李四”]；</p>
+<p>​    3.    var arr = new Arrary[“张三”,”李四”];</p>
+</blockquote>
+</li>
+<li><p>获取数组中的数据                数组名[下标];</p>
+</li>
+<li><p>长度=数组中数据的个数     数组名.length；</p>
+</li>
+<li><p>添加数据                                数组名[数组名.length]=值；</p>
+</li>
+<li><p>修改数据                                数组名[下标]=值;</p>
+<p>​</p>
+</li>
+</ul>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><ul>
+<li>冒泡排序：<ul>
+<li>比较的趟数：数据的个数 - 1； （多趟）</li>
+<li>每趟比较的次数：数据的个数 - 当前趟数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nums = [<span class="number">40</span>,<span class="number">8</span>,<span class="number">15</span>,<span class="number">18</span>,<span class="number">12</span>];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">1</span>;i&lt;nums.length;i++ )&#123;  <span class="comment">//描述重复的趟数</span></span><br><span class="line">    <span class="comment">//console.log(i);</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>;j&lt;nums.length-i;j++)&#123; <span class="comment">//每趟比较的次数</span></span><br><span class="line">        <span class="keyword">if</span>(nums[j]&gt;nums[j+<span class="number">1</span>])&#123;<span class="comment">//比较大小，是否交换位置</span></span><br><span class="line">        <span class="keyword">var</span> temp = nums[j];</span><br><span class="line">          </span><br><span class="line">          nums[j] = nums[j+<span class="number">1</span>];</span><br><span class="line">          </span><br><span class="line">          nums[j+<span class="number">1</span>] = temp;</span><br><span class="line">          </span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(nums);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JS/06-流程控制" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/19/JS/06-流程控制/" class="article-date">
+      <time datetime="2017-03-19T02:31:45.000Z" itemprop="datePublished">2017-03-19</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/19/JS/06-流程控制/">06-流程控制</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="表达式和语句"><a href="#表达式和语句" class="headerlink" title="表达式和语句"></a>表达式和语句</h2><ul>
+<li><p>表达式<br>一个表达式可以产生一个值，有可能是运算、函数调用、有可能是字面量。表达式可以放在任何需要值的地方。<br>表达式是程序最基本的组部分，每个表达式具有一个结果（也就是有一个返回值）</p>
+<ul>
+<li>语句<br>语句可以理解为一个行为，循环语句和判断语句就是典型的语句。一个程序有很多个语句组成，一般情况下;分割一个一个的语句</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>表达式种类：</p>
+<ul>
+<li>一元表达式：var num = 100<ul>
+<li>num++;</li>
+<li>!”asd”;</li>
+<li>typeof22;</li>
+</ul>
+</li>
+<li>二元表达式:  1+1;<ul>
+<li>2&gt;3;</li>
+<li>“a”==”b”;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>语句是完整的行为：一个程序是由多个语句组成的，语句通常没有返回值。</p>
+<ul>
+<li>例如：alert(“我是弹出提示框”)；</li>
+</ul>
+</li>
+</ul>
+<h2 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h2><p>  顺序结构就是程序默认的执行循序（自上而下，从内到外）。程序默认就是由上到下顺序执行的</p>
+<h2 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h2><ul>
+<li><p>根据不同的情况，执行对应代码</p>
+<ul>
+<li>1.单if语句</li>
+</ul>
+<p>​    if条件当为布尔表达式</p>
+<p>​    if(布尔表达式){}；</p>
+<ul>
+<li><p>如果没有设置条件为布尔表达式，会对结果进行隐式转换为布尔类型。</p>
+<blockquote>
+<p> <code>if (条件表达式) {</code></p>
+<p> <code>执行语句</code></p>
+<p> <code>}</code></p>
+</blockquote>
+</li>
+<li><p>2.if…else…语句</p>
+<blockquote>
+<p> <code>if (条件表达式){</code></p>
+<p> <code>成立执行语句</code></p>
+<p> <code>} else {</code></p>
+<p> <code>否则执行语句</code></p>
+<p> <code>}</code></p>
+</blockquote>
+</li>
+<li><p>3.if…else   if…ele   if…else</p>
+<blockquote>
+<p> <code>if (条件表达式1) {</code></p>
+<p> <code>成立执行语句</code></p>
+<p> <code>}else if (条件表达式2) {</code></p>
+<p> <code>成立执行语句</code></p>
+<p> <code>}else if (条件表达式3) {</code></p>
+<p> <code>否则执行语句</code></p>
+<p> <code>}else{</code></p>
+<p> <code>最后默认执行语句</code></p>
+<p> <code>}</code></p>
+</blockquote>
+</li>
+</ul>
+<p>4.switch 语句</p>
+<ul>
+<li><p>通常switch语句用于对一个变量的值进行检测使用。</p>
+</li>
+<li><p>判断方式：条件值和某个case后的值全等（注意.是全等比较），才可以执行对应代码。</p>
+</li>
+<li><p>不需要默认的执行顺序，执行一种情况后就结束程序则在每个case后添加break；</p>
+<blockquote>
+<p><code>switch(条件值){</code></p>
+<p>​    <code>case 值 1；</code></p>
+<p>​        <code>代码段1；</code></p>
+<p>​        <code>break；</code></p>
+<p>​        <code>case 值 2；</code></p>
+<p>​        <code>代码段2；</code></p>
+<p>​        <code>break；</code></p>
+<p>​    <code>default：</code></p>
+<p>​        <code>default的代码；</code></p>
+<p><code>}；</code></p>
+</blockquote>
+</li>
+<li><p>break关键字和continue的区别</p>
+<ul>
+<li>break：终止当前整个循环；</li>
+<li>continue：结束当前这一次的循环，并开始下一下循环。</li>
+</ul>
+</li>
+<li><p>break可以省略，如果省略，代码会继续执行下一个case<br>switch 语句在比较值时使用的是全等操作符, 因此不会发生类型转换（例如，字符串’10’ 不等于数值 10）</p>
+</li>
+<li><p>5.三元运算符</p>
+</li>
+<li><p>表达式1（比较运算符）表达式2？表达式：表达式2；</p>
+</li>
+<li>三元表达式是对if……else语句的一种简化写法</li>
+</ul>
+</li>
+</ul>
+<h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><ul>
+<li><p>1.while循环</p>
+<ul>
+<li>语法结构：（注意：当while的条件值为true时，会重    复的执行内部代码段，直到条件值为false时不再执行内部代码）</li>
+</ul>
+<blockquote>
+<p><code>while(条件表达式){</code></p>
+<p>​    <code>代码段；</code></p>
+<p><code>}</code></p>
+<p>如果一个while循环的条件值为true，是一个死循环</p>
+</blockquote>
+<p>​</p>
+</li>
+</ul>
+<ul>
+<li><p>2.do…while循环</p>
+<ul>
+<li>语法结构：（注意：执行方式为，先执行循环内的代码，然后进行第一次判断）与while循环的区别：while是先判断，在执行，do…while是无论如何都会先执行一次，再判断。</li>
+</ul>
+<blockquote>
+<p><code>do{</code></p>
+<p>​    <code>代码段；</code></p>
+<p><code>} while(条件表达式)</code></p>
+<p>如果一个do…while循环的条件值恒为true，是一个死循环</p>
+</blockquote>
+<p>​</p>
+<p>3.for 循环</p>
+<blockquote>
+<p><code>for(var i = 1; i &lt; n ; i++){</code></p>
+<p>​    <code>代码段；</code></p>
+<p><code>};</code></p>
+<p>① i=1;② i&lt;n; ③ i++; ④ 代码段； </p>
+<p>执行顺序为：①→②→④→③→②→④→③循环</p>
+</blockquote>
+<ul>
+<li><p>for嵌套循环：将多个循环套在一起使用的结构</p>
+<ul>
+<li>注意：多个循环变量的命名不能相同。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><code>for (var i=1;i&lt;n;i++){</code></p>
+<p>​    代码段；这个循环执行n次</p>
+<p>​    <code>for (var j=0;j&lt;m;j++){</code></p>
+<p>​    内循环单独可以执行m次，放在外循环中可以执行n*m次</p>
+<p>​    内部的循环执行次数=外循环的执行次数*内部循环单独执行的次数</p>
+<p>​        <code>代码段；</code></p>
+<p>​    <code>}</code></p>
+<p><code>}</code></p>
+</blockquote>
+<p> <strong>布尔类型的隐式转换</strong></p>
+<ul>
+<li><p>流程控制语句会把后面的值隐式转换成布尔类型</p>
+<ul>
+<li>转换为true   非空字符串  非0数字  true 任何对象<br>转换成false  空字符串  0  false  null  undefined</li>
+</ul>
+<p>思考：</p>
+<blockquote>
+<p><code>var a = !!&#39;123&#39;;</code></p>
+<p><code>结果是什么？</code></p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JS/05-数据类型转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/19/JS/05-数据类型转换/" class="article-date">
+      <time datetime="2017-03-19T01:20:35.000Z" itemprop="datePublished">2017-03-19</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/19/JS/05-数据类型转换/">05-数据类型转换</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h1><ul>
+<li><p>介绍：在程序中，任何类型的数据之间都可以参与运算符的。比如数字可以和字符串参与运算，字符串可以和布尔值参与参数等等。</p>
+<p>总而言之，任何不同类型的数据之间可以参与任何不同的运算。</p>
+<ul>
+<li>如：案例，接收用户说输入的年龄，在用户年龄原有的基础之上加5.<br><code>var age = prompt(&#39;请输入你的年龄&#39;); //加入用户输入的是10</code><br><code>age = age + 5;</code><br><code>console.log(age);  //结果是 105，为什么？如何解决？</code></li>
+</ul>
+<p>注意：基本数据类型进行转换，只能通过功能获取到转换后的结果，但是原值不会发生改变的。</p>
+</li>
+</ul>
+<h2 id="将数据类型转换成字符串"><a href="#将数据类型转换成字符串" class="headerlink" title="将数据类型转换成字符串"></a>将数据类型转换成字符串</h2><p>  注意：其他数据转字符串，实质就是给其他数据两边加上字符串的特性（单引号或双引号）</p>
+<h3 id="1-强制转换"><a href="#1-强制转换" class="headerlink" title="1.强制转换"></a>1.强制转换</h3><p>明确告诉程序，要进行数据类型转换</p>
+<ul>
+<li><p><strong>变量tostring();方法</strong></p>
+<p><code>var num = 100；</code></p>
+<p><code>console.log(num.toString());//100</code></p>
+<p><code>console.log(num);//100</code></p>
+<p>​</p>
+</li>
+<li><p><strong>String(数据)方法</strong></p>
+<p><code>var num = 100;</code></p>
+<p><code>console.log(string(num));</code></p>
+<p><code>console.log(num);</code></p>
+<p>String()功能存在的目的是为了弥补tostring()的不足（null和undefined不能作为变量调用toString()方法进行字符串的强制转换）</p>
+<p>​</p>
+</li>
+</ul>
+<h2 id="2-隐式转换"><a href="#2-隐式转换" class="headerlink" title="2.隐式转换"></a>2.隐式转换</h2><p>偷偷的对数据进行类型转换</p>
+<p>  任何数据和字符串相加，其他非字符串类型的数据会自动转换为字符串。</p>
+<p>  其实就是看不见的用String(数据)转换。</p>
+<h3 id="什么叫做隐式转换？"><a href="#什么叫做隐式转换？" class="headerlink" title="什么叫做隐式转换？"></a>什么叫做隐式转换？</h3><pre><code>隐式转换，也被称为自动转换。就是在程序运行过程中，不需要我们手动转换，数据会根据运算情况自动的转换为其他类型的数据。
+</code></pre><h3 id="将数据的类型转换伪数组类型"><a href="#将数据的类型转换伪数组类型" class="headerlink" title="将数据的类型转换伪数组类型"></a>将数据的类型转换伪数组类型</h3><p>  对数值类型的转换规则，从左往右检测。遇到不是数就停止。</p>
+<p>  <strong>1.强制转换</strong></p>
+<p>  <strong>Number(数据)</strong></p>
+<p>  <code>console.log(Number(&quot;100&quot;));</code>            // 100</p>
+<p>  <code>console.log(Number(&quot;&quot;));</code>            // 0 为空，不加空格</p>
+<p>  <code>console.log(Number(“ ”));</code>            // 0        为空，加空格</p>
+<p>  <code>console.log(Number(“true”));</code>        // 1</p>
+<p>  <code>console.log(Number(“false”));</code>        // 0</p>
+<p>  <code>console.log(Number(“null”));</code>        // 0</p>
+<p>  <code>console.log(Number(“undefined”));</code>  // NaN</p>
+<p>  如果进行数值类型转换，出现了NaN时表示转换失败。</p>
+<p>  <strong>parseInt(数据)</strong></p>
+<p>  <code>console.log(parseInt (“100”));</code>            // 100</p>
+<p>  <code>console.log(parseInt (“100a1d2d2”));</code>    // 100   </p>
+<p>  <code>console.log(parseInt (“100.1”));</code>        // 100  取整</p>
+<p>  <code>console.log(parseInt (“d100”));</code>            // NaN</p>
+<p>  <code>console.log(parseInt (“”));</code>                // 0   为空，不加空格</p>
+<p>  <code>console.log(parseInt (“ ”));</code>            //NaN</p>
+<p>  <code>console.log(parseInt (“true”));</code>            // NaN</p>
+<p>  <code>console.log(parseInt (“false”));</code>        // NaN</p>
+<p>  <code>console.log(parseInt (“null”));</code>            // NaN</p>
+<p>  <code>console.log(parseInt (“undefined”));</code>    // NaN</p>
+<p>  <strong>parseFloat(数据)  （与parseInt的区别在于可以取出小数的部分）</strong></p>
+<p>  <code>console.log(parseFloat (“100”));</code>        // 100</p>
+<p>  <code>console.log(parseFloat (“100a1d2d2”));</code>    // 100   </p>
+<p>  <code>console.log(parseFloat (“100.1”));</code>        // 100.1 </p>
+<p>  <code>console.log(parseFloat (“d100.12”));</code>    // NaN</p>
+<h3 id="其他数据转字符串-String"><a href="#其他数据转字符串-String" class="headerlink" title="其他数据转字符串 String"></a>其他数据转字符串 String</h3><p>  任何数据和字符串做相加运算时，其他非字符串数据会自动的转换为String类型的数据。就相当于悄悄的，看不见的用String(其他数据)转换为字符串。<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result1 = <span class="literal">true</span> + <span class="string">'我'</span>; <span class="comment">// 布尔值 true 自动转换为字符串 'true'</span></span><br><span class="line"><span class="built_in">console</span>.log(result1); <span class="comment">// 'true我'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="其他数据转数字-Number"><a href="#其他数据转数字-Number" class="headerlink" title="其他数据转数字 Number"></a>其他数据转数字 Number</h3><p>  ​    在做算术运算时（除了和字符串做相加操作外）其他非数字类型的数据会自动转换为Number类型，其实就是看不见的用Number(数据)转换；<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result1 = <span class="string">'2'</span> - <span class="number">1</span>; <span class="comment">//字符串 '2' 自动转换为数字 2</span></span><br><span class="line"><span class="built_in">console</span>.log(result1); <span class="comment">// 1;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result2 = <span class="string">'3a'</span> - <span class="number">1</span>;  <span class="comment">//字符串 '3a' 自动转换为数字 NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(result2); <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure></p>
+<p>  ​    在任何数据和NaN做算术运，结果是在都是NaN（除了和字符串相加操作外），包括NaN和本身运算。</p>
+<h3 id="其他数据转布尔-Boolean"><a href="#其他数据转布尔-Boolean" class="headerlink" title="其他数据转布尔 Boolean"></a>其他数据转布尔 Boolean</h3><p>  在取反、选择语句 和 循环语句中的条件表达式中，其他数据会自动的转换为布尔值。就相当于悄悄的，看不见的用Boolean(其他数据)转换为布尔值。<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(!<span class="number">1</span>);  <span class="comment">//false ; 数字1 转换为boolean值为 true,对true取反就是false</span></span><br><span class="line">consoel.log(!(<span class="number">1</span>&gt;=<span class="number">2</span>)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="使用-可以实现隐式转换"><a href="#使用-可以实现隐式转换" class="headerlink" title="使用 + - * / % 可以实现隐式转换"></a>使用 + - * / % 可以实现隐式转换</h3><p>  <code>console.log(“100” – 0 );</code></p>
+<p>  <code>console.log(“100” * 1 );</code></p>
+<p>  <code>console.log(“100” / 1 );</code></p>
+<p>  <code>console.log(“100” % Infinity);</code></p>
+<p>  <code>console.log(+ “100” );</code></p>
+<p>  **注意：使用（+加操作进行赋值的转换：需要将+前至于数据，前面不能有其他数据，否则会转换成字符串）。</p>
+<h3 id="将数据的数据类型转换为布尔类型"><a href="#将数据的数据类型转换为布尔类型" class="headerlink" title="将数据的数据类型转换为布尔类型"></a>将数据的数据类型转换为布尔类型</h3><p>  <strong>1.强制转换</strong></p>
+<p>  Boolean(数据)</p>
+<p>  <code>console.log(Boolean(“1233”));</code>        // true</p>
+<p>  <code>console.log(Boolean(100));</code>            // true </p>
+<p>  <strong>将“”、0、NaN、null、undefined转换层布尔类型为false，其他数据的转换结果均为true。</strong></p>
+<p>  <code>console.log(Boolean(“0”));</code>            //true</p>
+<p>  <code>console.log(Boolean(0));</code>            // false</p>
+<p>  <code>console.log(Boolean(“”));</code>            // false</p>
+<p>  <code>console.log(Boolean(NaN));</code>            // false</p>
+<p>  <code>console.log(Boolean(null));</code>            // false</p>
+<p>  <code>console.log(Boolean(undefined));</code>    // false</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JS/04-运算符" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/19/JS/04-运算符/" class="article-date">
+      <time datetime="2017-03-19T00:11:00.000Z" itemprop="datePublished">2017-03-19</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/19/JS/04-运算符/">04-运算符</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><p> （ + - * / % ）先乘除取余数，在加减</p>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><p>（针对的是变量，改变的也是变量）</p>
+<p>  简单赋值： ” = “</p>
+<p>  复合赋值运算符： “ += ”、“ -= ”、 “ *= ”、“ /= ”、” %= “</p>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><p>  比较大小：&gt;、&lt;、&gt;=、&lt;=</p>
+<p>  比较相等：</p>
+<p>  ​        ==、!= （相等）</p>
+<p>  ​        ===、!==（全等）</p>
+<p>  相等于全等的区别；相等运算符之比较数值大小；</p>
+<p>  全等运算符既比较数值大小也比较数值类型。</p>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>  &amp;&amp; 与运算</p>
+<p>  两个条件都为真时，结果为真，其余都为假。 </p>
+<p>  || 或运算</p>
+<p>  两个条件只要有一个真，结果就是真，只有都为假时，结果为假。</p>
+<p>  ！ 非运算</p>
+<p>  取反 ，非假，既为真。非真，既为假。</p>
+<h2 id="amp-amp-和-运算符的短路问题"><a href="#amp-amp-和-运算符的短路问题" class="headerlink" title="&amp;&amp;和||运算符的短路问题"></a>&amp;&amp;和||运算符的短路问题</h2><ul>
+<li>对于&amp;&amp;运算符和||运算符的短路操作。最重要的一点是表达式的结果是由哪一个操作数决定的就返回这个操作数。</li>
+<li>&amp;&amp;运算符（原则：都为真时表达式结果即为真，否则第一个为假结果就为假。也就是说整个表达式为真的情况是由最后一个为真的操作数决定的，则返回最后一个为真的操作数；为假的情况是由第一个出现假的操作数决定的，则返回第一个为假的操作数）。</li>
+<li>||运算符 （原则：有一个为真即为真，所有的都为假结果才为假。也就是说整个表达式为真的情况是由第一个出现真的操作数决定的，则返回第一个为真的操作数；为假的情况是由最后一个为假的操作数决定的，则返回最后一个为假的操作数）。</li>
+</ul>
+<h2 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h2><p>  操作数只有一个：！、+、-、++、–</p>
+<p>  N++：后自增：先运算，后自增。</p>
+<p>  ++N：前自增：先自增，后运算。</p>
+<p>  N-   ：后自减：先运算，后自减。</p>
+<p>  -N   ：前自减：先自减，后运算。</p>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>  1.小括号( );</p>
+<p>  2.一元运算符：</p>
+<p>  3.算术运算符：</p>
+<p>  4.关系运算符：（先比较大小、在比较相等）</p>
+<p>  5.逻辑运算符：</p>
+<p>  6.赋值运算符：</p>
+<h2 id="补充弱类型：强类型和弱类型。"><a href="#补充弱类型：强类型和弱类型。" class="headerlink" title="补充弱类型：强类型和弱类型。"></a>补充弱类型：强类型和弱类型。</h2><p>   强类型：在创建变量时，就必须确定其数据类型。</p>
+<p>   弱类型：在创建变量时，变量内部可以保存的数类型是不定的。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JS/03-数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/18/JS/03-数据类型/" class="article-date">
+      <time datetime="2017-03-18T03:21:51.000Z" itemprop="datePublished">2017-03-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/18/JS/03-数据类型/">03-数据类型</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><ul>
+<li><p>数据类型的分类</p>
+<ul>
+<li>数据类型分为 <strong>基本数据类型</strong> 和 <strong>引用数据类型</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><ul>
+<li><p>1.Number类型：</p>
+<p>意义：表示生活中的数值、价格、年龄、大小等…</p>
+<p>Number类型的数值：</p>
+<p>①正数、负数、0（用十进制、八进制用0开头、十六进制用0x开头都可表示）；</p>
+<p>②小数既浮点数</p>
+<p>③无穷大和无穷小（infinity、-infinity）</p>
+<p>④Number.MAM_VALUE和Number.MIN_VALUE</p>
+<p>⑤NaN（not a number）（不是数值类型的数）</p>
+<p>​    检测；IsNaN（数据）；返回布尔类型<br>进制</p>
+</li>
+</ul>
+<h2 id="十进制-【常用】"><a href="#十进制-【常用】" class="headerlink" title="十进制 【常用】"></a>十进制 【常用】</h2><ul>
+<li>序列范围      0-9</li>
+<li>十进制数字： 0;1;2;3;4;5;6;7;8;9;10;11;12;13;100;200;-100等</li>
+</ul>
+<h2 id="八进制-【了解】"><a href="#八进制-【了解】" class="headerlink" title="八进制 【了解】"></a>八进制 【了解】</h2><ul>
+<li>序列范围     0-7</li>
+<li>八进制数字：<br>八进制数字表示必须以0为前缀表示<br>如：01; 02; 03; 04; 05; 06; 07; 等</li>
+<li>注意：在参与运算或使用时，八进制会自动转成十进制来运算。</li>
+</ul>
+<h2 id="十六进制-【了解】"><a href="#十六进制-【了解】" class="headerlink" title="十六进制 【了解】"></a>十六进制 【了解】</h2><ul>
+<li>序列范围：0-9及a-f</li>
+<li>十六进制数字:<br>十六进制数字表示必须以0x为前缀表示<br>如：0x0; 0x1; 0x2; 0x3 0x4; 0x5; 0xa;等</li>
+<li>注意：在参与运算或使用时，十六进制会自动转成十进制来运算。</li>
+</ul>
+<ul>
+<li><p>2.String类型</p>
+</li>
+<li><p>意义：描述一段内容。</p>
+</li>
+<li><p>特点：用电影好或双引号包裹起来的字符。（单双引号嵌套使用）；</p>
+</li>
+<li><p>转义符： \’       将单引号转化成普通字符</p>
+<p>​        \”       将双引号转化成普通字符</p>
+<p>​        \n      换行</p>
+<p>​        \t       制表符</p>
+<p>​        拼接符：+    ，    和字符串相加</p>
+<p>3.Boolean 类型</p>
+<p>​    取值：true 和 false 两种值。</p>
+<p>​    意义：用程序来表示肯定或者否定。</p>
+<p>4.Undefined 类型</p>
+<p>​    意义：声明的变量没有赋值时，默认变量值是undefined。</p>
+<p>​    该类型只有一个值，undefined。</p>
+<p>5.Null 类型</p>
+<p>意义：在垃圾回收机制中，没有用的数据会被清除掉（没有被变量引用的）。所以如果一个变量不在使用        原先赋的值时Null赋给该变量，内存中的垃圾回收机制就可以清除数据。</p>
+<p>Null的作用就是断开变量与内存  中数据的联系。                               </p>
+<p>Null只有一个值，null</p>
+<p>类型被称为Null，但是用 typeof 检测 出 Object</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JS/02-变量" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/18/JS/02-变量/" class="article-date">
+      <time datetime="2017-03-18T02:00:01.000Z" itemprop="datePublished">2017-03-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/18/JS/02-变量/">02-变量</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul>
+<li><p>var 变量名 = 数据；（意思是；把内存中的空间地址赋值给变量）</p>
+</li>
+<li><p><strong>字面量</strong></p>
+<ul>
+<li>直接被使用的数据（直接量）</li>
+</ul>
+</li>
+<li><p><strong>关于数据</strong></p>
+<ul>
+<li><p>1.计算机要进行运输，计算的就是数据</p>
+</li>
+<li><p>2.程序运行时，数据会临时存在内存中并占据移动空间和大小</p>
+</li>
+<li><p>3.数据的定义：从输出角度点讲，能够正常输出的内容就是数据。</p>
+<p>​              数据类型角度讲，数据是有类型的。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><ul>
+<li><p><strong>1.先声明，再赋值</strong></p>
+<p>  var a；</p>
+<p>  a = 2；</p>
+<ul>
+<li><p><strong>2.批量声明，后赋值</strong></p>
+</li>
+<li><p>var a,b,c,d,;</p>
+<p>a = 1,b = 2, c = 3, d = 4;</p>
+</li>
+<li><p><strong>3.声明时赋值（既初始化）</strong></p>
+<p>var a = 1,</p>
+<p>​       b = 2;</p>
+</li>
+<li><p><strong>4.重复赋值</strong></p>
+<p>var a = 1;</p>
+<p>​      a = 2;（但是不推荐使用，会破坏程序功能）</p>
+</li>
+<li><p><strong>5.把一个变量赋值给另一个变量</strong></p>
+<p> var a = 1;</p>
+<p> var b = a;    （当把a赋值给b时，内存中是两个1；并不是同一个1）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="规则和规范"><a href="#规则和规范" class="headerlink" title="规则和规范"></a>规则和规范</h2><p>  <strong>规则：</strong> 使用字母、数字、下划线、$组成，不能以数字开头；</p>
+<p>  ​         不能使用关键字和保留字当做变量名（变量名就是一个标识符）；</p>
+<p>  ​          严格区分大小写；</p>
+<p>  <strong>规范：</strong> 驼峰命名法（几个单词连着的变量名第一个单词小写后的首字母大写）</p>
+<p>  ​        例：var userName = “小张”；（顾名思义）</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JS/01-Js组成、输出、书写方式、调试循序与规范  " class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/18/JS/01-Js组成、输出、书写方式、调试循序与规范  /" class="article-date">
+      <time datetime="2017-03-18T01:12:56.000Z" itemprop="datePublished">2017-03-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/18/JS/01-Js组成、输出、书写方式、调试循序与规范  /">01-Js组成、输出、书写方式、调试循序与规范</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Javascript的三大组成部分"><a href="#Javascript的三大组成部分" class="headerlink" title="Javascript的三大组成部分"></a>Javascript的三大组成部分</h1><ul>
+<li><p><strong>1.ECMAScript（标准语法）</strong></p>
+</li>
+<li><p><strong>2.DOM（文档模型）</strong></p>
+</li>
+<li><p><strong>3.BOM（浏览器模型）</strong></p>
+</li>
+</ul>
+<h2 id="Jacascript四种输出内容方式"><a href="#Jacascript四种输出内容方式" class="headerlink" title="Jacascript四种输出内容方式"></a>Jacascript四种输出内容方式</h2><ul>
+<li><p><strong>1.alert(“内容”)</strong>；                         警示框</p>
+</li>
+<li><p><strong>2.documen.write(“内容”)；</strong>     网页里面输出内容</p>
+</li>
+<li><p><strong>3.console.log(“内容”) ；</strong>           在控制台输出</p>
+</li>
+<li><p><strong>4.prompt(“内容”)；</strong>                    提示用户信息</p>
+</li>
+</ul>
+<h2 id="Javascript的三种书写方式"><a href="#Javascript的三种书写方式" class="headerlink" title="Javascript的三种书写方式"></a>Javascript的三种书写方式</h2><ul>
+<li><p><strong>1.行内式</strong>：（不推荐）</p>
+</li>
+<li><p><strong>2.内部</strong>：      使用script标签，标签属性type当使用html。</p>
+</li>
+<li><p><strong>3.外联式</strong>：   使用script标签，标签中属性src中属性值为js文件的路径。</p>
+</li>
+</ul>
+<h2 id="Javascript的执行和调试循序"><a href="#Javascript的执行和调试循序" class="headerlink" title="Javascript的执行和调试循序"></a>Javascript的执行和调试循序</h2><ul>
+<li><p><strong>1.js的循序是代码自上而下执行。</strong></p>
+</li>
+<li><p><strong>2.代码调试：</strong>在网页中检查→选择sources→点击文件→设置断点→刷新页面→控制断点向下移动。</p>
+</li>
+</ul>
+<h2 id="Javascript的代码规范"><a href="#Javascript的代码规范" class="headerlink" title="Javascript的代码规范"></a>Javascript的代码规范</h2><ul>
+<li><p><strong>1.缩进两个空格</strong></p>
+</li>
+<li><p><strong>2.每条语句后加分号    ；</strong> （分号代表每一句代码结束，由于代码最后要压缩合并空格，所以必须由分号隔开）</p>
+</li>
+<li><p><strong>3.语句独占一行</strong></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/13-伸缩布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/16/HTML/13-伸缩布局/" class="article-date">
+      <time datetime="2017-03-16T02:02:42.000Z" itemprop="datePublished">2017-03-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/16/HTML/13-伸缩布局/">11-伸缩布局【弹性布局】(display:flex;)</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="伸缩布局【弹性布局】-display-flex"><a href="#伸缩布局【弹性布局】-display-flex" class="headerlink" title="伸缩布局【弹性布局】(display:flex;)"></a>伸缩布局【弹性布局】(display:flex;)</h1><ul>
+<li><p>首先给子元素的直接父元素设置为伸缩盒子.</p>
+<ul>
+<li><p>display:flex;</p>
+<ul>
+<li>当父元素为伸缩盒子的时候，默认子元素在一行上显示。</li>
+<li>伸缩盒子特点：<ul>
+<li>如果一个盒子变为伸缩盒子，那么该盒子就具有了两条轴，一条是主轴，一条是侧轴。主轴的默认方向是水平从左向右，侧轴始终要垂直于主轴。<ul>
+<li>子元素是按照主轴的方向显示的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="设置主轴的方向"><a href="#设置主轴的方向" class="headerlink" title="设置主轴的方向"></a>设置主轴的方向</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置主轴的方向</span></span><br><span class="line">flex-direction:row;</span><br><span class="line">flex-direction:row-reverse;</span><br><span class="line">flex-direction:column;</span><br><span class="line">flex-direction:column-reverse;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：<ul>
+<li>由于在伸缩和中子元素是按照主轴的方向显示的，所以当我们调整主轴的方向的时候，子元素随着发生位置的改变。</li>
+<li>主轴方向发生了改变后，侧轴的方向也会发生改变。</li>
+</ul>
+</li>
+</ul>
+<h2 id="设置子元素在主轴的对齐方式"><a href="#设置子元素在主轴的对齐方式" class="headerlink" title="设置子元素在主轴的对齐方式"></a>设置子元素在主轴的对齐方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置子元素在主轴的对齐方式</span></span><br><span class="line">justify-content:flex-start;</span><br><span class="line">justify-content:flex-end;</span><br><span class="line">justify-content:center;</span><br><span class="line">justify-content:space-between;</span><br><span class="line">justify-content:space-around;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：<ul>
+<li>通过设置该属性，只是改变了子元素在主轴方向的对齐显示位置，而元素自己本身的位置并没有改变。</li>
+</ul>
+</li>
+</ul>
+<h2 id="设置子元素在侧轴的对齐方式"><a href="#设置子元素在侧轴的对齐方式" class="headerlink" title="设置子元素在侧轴的对齐方式"></a>设置子元素在侧轴的对齐方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置子元素在侧轴的对齐方式</span></span><br><span class="line">align-items:flex-start;</span><br><span class="line">align-items:flex-end;</span><br><span class="line">align-items:center;</span><br><span class="line">align-items:streth;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：<ul>
+<li>在伸缩盒子中，子元素可以不用设置高度，如果不设置，那么该子元素的高度等于其父元素的高度，由于子元素是在侧轴的对齐方式是拉伸的效果。</li>
+</ul>
+</li>
+</ul>
+<h2 id="设置伸缩盒子是否允许子元素换行"><a href="#设置伸缩盒子是否允许子元素换行" class="headerlink" title="设置伸缩盒子是否允许子元素换行"></a>设置伸缩盒子是否允许子元素换行</h2><ul>
+<li>在伸缩盒子中，如果子元素的宽度超出父元素的宽度，那么子元素不会换行显示。</li>
+</ul>
+<h2 id="设置子元素是否换行显示"><a href="#设置子元素是否换行显示" class="headerlink" title="设置子元素是否换行显示"></a>设置子元素是否换行显示</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置子元素是否换行显示 默认不换行 nowrap</span></span><br><span class="line">flex-wrap:nowrap;</span><br><span class="line"><span class="comment">// 子元素可以换行显示</span></span><br><span class="line">flex-wrap:wrap;</span><br></pre></td></tr></table></figure>
+<h2 id="设置子元素换行后的对齐方式"><a href="#设置子元素换行后的对齐方式" class="headerlink" title="设置子元素换行后的对齐方式"></a>设置子元素换行后的对齐方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置子元素换行后的对齐方式 默认的对齐方式:stretch</span></span><br><span class="line">align-content:flex-start;</span><br><span class="line">align-content:flex-end;</span><br><span class="line">align-content:center;</span><br><span class="line">align-content:space-around;</span><br><span class="line">align-content:space-between;</span><br><span class="line">align-content:stretch;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：<ul>
+<li>该属性设置的前提必须要保证元素是换行后的元素。</li>
+</ul>
+</li>
+</ul>
+<h2 id="伸缩盒子中子元素的相关属性"><a href="#伸缩盒子中子元素的相关属性" class="headerlink" title="伸缩盒子中子元素的相关属性"></a>伸缩盒子中子元素的相关属性</h2><ul>
+<li>flex: 设置子元素占父元素剩余宽度的比例<ul>
+<li>order: 排序 <ul>
+<li>不需要改变html结构中的位置，就可以实现在页面中调换元素的显示位置。</li>
+<li>order的取值越大，那么该元素在页面中的显示位置越靠后。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/12-动画" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/15/HTML/12-动画/" class="article-date">
+      <time datetime="2017-03-15T00:12:20.000Z" itemprop="datePublished">2017-03-15</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/15/HTML/12-动画/">10-动画(animation)</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="动画-animation"><a href="#动画-animation" class="headerlink" title="动画(animation)"></a>动画(animation)</h1><h2 id="animation复合属性"><a href="#animation复合属性" class="headerlink" title="animation复合属性"></a>animation复合属性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    width: <span class="number">200</span>px;</span><br><span class="line">    height: <span class="number">200</span>px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    <span class="comment">/* 要执行动画，要调用 */</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* 动画名称 */</span></span><br><span class="line">    animation-name: box_move;</span><br><span class="line">    <span class="comment">/* 动画执行的时间 */</span></span><br><span class="line">    animation-duration: <span class="number">1</span>s;</span><br><span class="line">    <span class="comment">/* 动画执行次数： 默认执行1次   infinite:无限循环*/</span></span><br><span class="line">    animation-iteration-count: infinite;</span><br><span class="line">    <span class="comment">/* 设置动画逆波 */</span></span><br><span class="line">    animation-direction: alternate;</span><br><span class="line">    <span class="comment">/* 设置动画的速度类型 */</span></span><br><span class="line">    animation-timing-<span class="function"><span class="keyword">function</span>: <span class="title">linear</span>;</span></span><br><span class="line"><span class="function">    /* 设置动画延时执行 */</span></span><br><span class="line"><span class="function">    <span class="title">animation</span>-<span class="title">delay</span>: 2<span class="title">s</span>;</span></span><br><span class="line"><span class="function">    /* 设置动画时间之外的状态 */</span></span><br><span class="line"><span class="function">    <span class="title">animation</span>-<span class="title">fill</span>-<span class="title">mode</span>: <span class="title">forwards</span>;</span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function">.<span class="title">box</span>:<span class="title">hover</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* 动画暂停 */</span></span><br><span class="line">    animation-play-state: paused;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义动画<ul>
+<li>通过@keyframes + 自定义动画名称 {}</li>
+<li>在动画集中通过from 和 to 设置动画的开始状态和结束状态。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">          <span class="comment">/* 第一步：先定义一个动画集（序列） */</span></span><br><span class="line">          @keyframes  box_move &#123;</span><br><span class="line">              </span><br><span class="line">              <span class="comment">/* 第二步：定义动画的开始状态 */</span></span><br><span class="line">              <span class="keyword">from</span> &#123;</span><br><span class="line">                  transform: translate(<span class="number">0</span>px);</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="comment">/* 第三步：定义动画的结束状态 */</span></span><br><span class="line">              to &#123;</span><br><span class="line">                  </span><br><span class="line">                  <span class="comment">/* 2d的方式移动 */</span></span><br><span class="line">                  transform: translate(<span class="number">400</span>px);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 注意：</span></span><br><span class="line"><span class="comment">// 动画集要单独定义，不能放到类样式中。</span></span><br></pre></td></tr></table></figure>
+<h3 id="动画联写方式"><a href="#动画联写方式" class="headerlink" title="动画联写方式"></a>动画联写方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animation: move <span class="number">1</span>s  linear infinite  alternate;</span><br></pre></td></tr></table></figure>
+<h3 id="或者可以同时调用多个动画集"><a href="#或者可以同时调用多个动画集" class="headerlink" title="或者可以同时调用多个动画集"></a>或者可以同时调用多个动画集</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;</span><br><span class="line">            background-color: red;</span><br><span class="line">            </span><br><span class="line">            animation: move <span class="number">1</span>s  linear infinite  alternate,</span><br><span class="line">                    chage1 <span class="number">1</span>s <span class="number">1</span>s linear; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="可以通过设置百分比的形式设置动画集中的不同状态"><a href="#可以通过设置百分比的形式设置动画集中的不同状态" class="headerlink" title="可以通过设置百分比的形式设置动画集中的不同状态"></a>可以通过设置百分比的形式设置动画集中的不同状态</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    @keyframes  change &#123;</span><br><span class="line">                <span class="comment">/*动画的开始状态*/</span></span><br><span class="line">            <span class="number">0</span>% &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">                <span class="comment">/*动画的结束状态*/</span></span><br><span class="line">            <span class="number">100</span>% &#123;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//百分比是相对动画执行时间。</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/11-3D转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/14/HTML/11-3D转换/" class="article-date">
+      <time datetime="2017-03-14T04:30:50.000Z" itemprop="datePublished">2017-03-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/14/HTML/11-3D转换/">09-3D转换(transform)【变形】</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="3D转换-transform-【变形】"><a href="#3D转换-transform-【变形】" class="headerlink" title="3D转换(transform)【变形】"></a>3D转换(transform)【变形】</h1><h2 id="位移"><a href="#位移" class="headerlink" title="位移"></a>位移</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 位移</span></span><br><span class="line">        transform: translateX(<span class="number">-400</span>px) translateY(<span class="number">-400</span>px) translateZ(<span class="number">-400</span>px);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结:<ul>
+<li>如果设置的是正数，那么就沿着对应坐标轴的正方向移动，反之沿着反方向移动</li>
+</ul>
+</li>
+</ul>
+<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 旋转</span></span><br><span class="line">        transform:rotateX(<span class="number">-90</span>deg);</span><br><span class="line">        transform:rotateY(<span class="number">-90</span>deg);</span><br><span class="line">        transform:rotateZ(<span class="number">90</span>deg);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>备注:<ul>
+<li>通过左手法则判断元素的旋转方向</li>
+<li>左手法则： 用左手握住坐标轴，大拇指指向坐标轴的方向，四个手指弯曲的方向就是旋转的方向</li>
+</ul>
+</li>
+</ul>
+<h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><p><code>transform:scaleX(2) scaleY(2);</code></p>
+<h2 id="透视"><a href="#透视" class="headerlink" title="透视"></a>透视</h2><ul>
+<li>perspective: 1000px;<ul>
+<li>总结：<ul>
+<li>该属性要设置给变形元素的父元素</li>
+<li>该属性不是一个必须要设置的属性</li>
+<li>该属性的取值不是唯一的，但是我们一般情况下将该属性的取值设置了800-1000之间。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
+    </nav>
+  
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mr.张
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/zhangxx1990" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

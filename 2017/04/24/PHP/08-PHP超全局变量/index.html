@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>08-PHP超全局变量 | 小新的博客.一个文艺青年的前端小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="超全局变量(预定义数组)什么是超全局变量超全局变量是PHP内置的变量，在每一个php文件中都可以直接使用。  特点:  在每个页面都能直接使用 内部都是**关联数组**结构  非常重要: $_GET、$_POST、$_SESSION、$_COOKIE、$_FILES知道: $_SERVER、$_REQUEST、$GLOBALS  $_SERVER$_SERVER记录了服务器和客户端的主要信息，和当">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="08-PHP超全局变量">
+<meta property="og:url" content="http://zhangxiuxin.top/2017/04/24/PHP/08-PHP超全局变量/index.html">
+<meta property="og:site_name" content="小新的博客.一个文艺青年的前端小站">
+<meta property="og:description" content="超全局变量(预定义数组)什么是超全局变量超全局变量是PHP内置的变量，在每一个php文件中都可以直接使用。  特点:  在每个页面都能直接使用 内部都是**关联数组**结构  非常重要: $_GET、$_POST、$_SESSION、$_COOKIE、$_FILES知道: $_SERVER、$_REQUEST、$GLOBALS  $_SERVER$_SERVER记录了服务器和客户端的主要信息，和当">
+<meta property="og:locale" content="Zhang-Xiu-xin">
+<meta property="og:image" content="http://zhangxiuxin.top/images/php/1533782283446.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/php/1525418662232.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/php/1533783297322.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/php/1533783312171.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/php/1533784655977.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/php/1525423939656.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/php/1525423862000.png">
+<meta property="og:image" content="http://zhangxiuxin.top/images/php/1533786580917.png">
+<meta property="og:updated_time" content="2018-09-18T09:40:44.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="08-PHP超全局变量">
+<meta name="twitter:description" content="超全局变量(预定义数组)什么是超全局变量超全局变量是PHP内置的变量，在每一个php文件中都可以直接使用。  特点:  在每个页面都能直接使用 内部都是**关联数组**结构  非常重要: $_GET、$_POST、$_SESSION、$_COOKIE、$_FILES知道: $_SERVER、$_REQUEST、$GLOBALS  $_SERVER$_SERVER记录了服务器和客户端的主要信息，和当">
+<meta name="twitter:image" content="http://zhangxiuxin.top/images/php/1533782283446.png">
+  
+    <link rel="alternative" href="/atom.xml" title="小新的博客.一个文艺青年的前端小站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Mr.张</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/article/HTML">文章目录</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱编程，爱运动，爱动漫，爱游戏！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mr.张</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Mr.张</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/article/HTML">文章目录</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-PHP/08-PHP超全局变量" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/24/PHP/08-PHP超全局变量/" class="article-date">
+      <time datetime="2017-04-24T01:08:07.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      08-PHP超全局变量
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="超全局变量-预定义数组"><a href="#超全局变量-预定义数组" class="headerlink" title="超全局变量(预定义数组)"></a>超全局变量(预定义数组)</h1><h2 id="什么是超全局变量"><a href="#什么是超全局变量" class="headerlink" title="什么是超全局变量"></a>什么是超全局变量</h2><pre><code>超全局变量是PHP内置的变量，在每一个php文件中都可以直接使用。
+
+特点: 
+在每个页面都能直接使用
+内部都是**关联数组**结构
+</code></pre><blockquote>
+<p>非常重要: $_GET、$_POST、$_SESSION、$_COOKIE、$_FILES<br>知道: $_SERVER、$_REQUEST、$GLOBALS</p>
+</blockquote>
+<h2 id="SERVER"><a href="#SERVER" class="headerlink" title="$_SERVER"></a>$_SERVER</h2><p>$_SERVER记录了服务器和客户端的主要信息，和当前页面的信息<br><img src="/images/php/1533782283446.png" alt=""></p>
+<p>重点记住的内容:</p>
+<p>  REQURES_URI ： 访问的文件地址</p>
+<p>  SCRIPT_NAME： 脚本名称（路径）</p>
+<p>  PHP_SELF： 自身文件名</p>
+<p>  访问的文件的绝对路径。 此处的绝对路径是和域名绝对</p>
+<p>   /php2/code/server.php –&gt;  localhost/php2/code/server.php</p>
+<h2 id="get-post方式接收表单数据"><a href="#get-post方式接收表单数据" class="headerlink" title="get/post方式接收表单数据"></a>get/post方式接收表单数据</h2><pre><code>表单处理通常需要两个页面：
+
+  1)  form.html，表单页，用户可以在表单页上填写相关数据
+
+  2)  form.php ,  数据接收处理页， 接收用户在表单填写的数据，然后做进一步处理
+</code></pre><p><img src="/images/php/1525418662232.png" alt=""></p>
+<p>代码实现：</p>
+<p>form.html</p>
+<p><img src="/images/php/1533783297322.png" alt=""></p>
+<p>form.php<br><img src="/images/php/1533783312171.png" alt=""><br>注意:  表单中每个域的name值，会作为$_POST的下标</p>
+<p>表单提交关键点总结:</p>
+<p>  表单页: form.html</p>
+<pre><code>1) 必须有form表单标签，form必须有action 和 method 两个属性
+</code></pre><ul>
+<li>action: 指定表单数据提交的位置 —  php/jsp/asp文件的路径</li>
+<li><p>method: 表单提交的方式， post 、get(默认)</p>
+<p>  2) 每个表单域都要有name属性    input   select   textarea</p>
+<p>  3) 必须有submit类型的按钮</p>
+</li>
+</ul>
+<p>   数据接收处理页： form.php</p>
+<pre><code>1) method=post时，使用$_POST接收数据    
+
+2) method=get时，使用$_GET接收数据
+
+3) 不管是$_POST还是$_GET，都是一个关联数组，数组的下标就是表单域中 name 属性的值
+</code></pre><h2 id="每种域和类型的提交方式"><a href="#每种域和类型的提交方式" class="headerlink" title="每种域和类型的提交方式"></a>每种域和类型的提交方式</h2><p> 表单标签： form 、 <strong>input 、 select 、 textarea</strong></p>
+<p>  <strong>表单提交的实际上是每个域的value值</strong></p>
+<p>  1) input  type= text/password/hidden/email  提交的就是value属性中的值</p>
+<p>  2) input  type=radio  提交的是选中项的value值。<strong>value必须设置，否则后端会接收 on</strong></p>
+<p>  3) input  type=checkbox  <strong>在name的值后增加[] 转换成数组结构</strong>，后端才能接收到所有的已勾选项</p>
+<p>  4) select  name值需要定义在select标签中； value定义在option中，每条option都有自己的value</p>
+<pre><code>如果不定义option中的value，则会将option中间的内容发送到后端页面中
+</code></pre><p>  5) textarea  name值定义在textarea标签中，value没有显式的表示出来，就是开始标签和结束标签之间的内容</p>
+<p><img src="/images/php/1533784655977.png" alt=""></p>
+<h1 id="post和get的区别-非常重要"><a href="#post和get的区别-非常重要" class="headerlink" title="post和get的区别 (非常重要)"></a>post和get的区别 (非常重要)</h1><h2 id="通过URL地址栏来区分post和get"><a href="#通过URL地址栏来区分post和get" class="headerlink" title="通过URL地址栏来区分post和get"></a>通过URL地址栏来区分post和get</h2><p>get将提交数据拼接成字符串显示在URL地址栏中<br><img src="/images/php/1525423939656.png" alt=""><br>post不显示<br><img src="/images/php/1525423862000.png" alt=""></p>
+<p>1) 提交方式</p>
+<ul>
+<li><p>get会将数据显式的拼接到url地址栏中  (字符串)<br>例如： form.php?id=10001&amp;username=heiheihei&amp;passwd=123456&amp;key=value….<br>key=value方式传参，多个参数之间使用&amp;符号隔开</p>
+<pre><code>id、username、passwd等等（键/key）都是表单域的name值
+
+1、heiheihei、123456等等（值/value）都是表单域的value值
+</code></pre></li>
+<li><p>post不会显示出来</p>
+</li>
+</ul>
+<p>2) 传递数据量大小</p>
+<ul>
+<li>post最小值是2M，默认8M，可以通过修改php配置(php.ini)文件来修改大小，理论上没有上限的。</li>
+<li>get会受到浏览器的地址栏的限制。有的是2k，有的是8K(chrome)</li>
+</ul>
+<p>3) 应用范围不一样</p>
+<ul>
+<li>post在绝大多数情况下都使用在表单提交中。</li>
+<li>get的应用范围比较广。在a标签的href中，location.href中等都能使用get方式。<br><img src="/images/php/1533786580917.png" alt=""></li>
+</ul>
+<h2 id="REQUEST"><a href="#REQUEST" class="headerlink" title="$_REQUEST"></a>$_REQUEST</h2><p>   $_REQUEST 即可以接收get方式提交的表单，也能接收post方式提交的表单。但是因为速度比较慢，所以现在被弃用。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/04/24/PHP/08-PHP超全局变量/">08-PHP超全局变量</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Mr.张 的个人博客">Mr.张</a></p>
+        <p><span>发布时间:</span>2017年04月24日 - 09时08分</p>
+        <p><span>最后更新:</span>2018年09月18日 - 17时40分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/24/PHP/08-PHP超全局变量/" title="08-PHP超全局变量">http://zhangxiuxin.top/2017/04/24/PHP/08-PHP超全局变量/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://zhangxiuxin.top/2017/04/24/PHP/08-PHP超全局变量/　　作者: Mr.张" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2017/04/24/jQuery/09-jQuery的on事件绑定与解绑/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          09-jQuery的on事件绑定与解绑
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2017/04/23/PHP/07-PHP数组/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">07-PHP数组</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#超全局变量-预定义数组"><span class="toc-number">1.</span> <span class="toc-text">超全局变量(预定义数组)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是超全局变量"><span class="toc-number">1.1.</span> <span class="toc-text">什么是超全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SERVER"><span class="toc-number">1.2.</span> <span class="toc-text">$_SERVER</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#get-post方式接收表单数据"><span class="toc-number">1.3.</span> <span class="toc-text">get/post方式接收表单数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#每种域和类型的提交方式"><span class="toc-number">1.4.</span> <span class="toc-text">每种域和类型的提交方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#post和get的区别-非常重要"><span class="toc-number">2.</span> <span class="toc-text">post和get的区别 (非常重要)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通过URL地址栏来区分post和get"><span class="toc-number">2.1.</span> <span class="toc-text">通过URL地址栏来区分post和get</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#REQUEST"><span class="toc-number">2.2.</span> <span class="toc-text">$_REQUEST</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2017/04/24/jQuery/09-jQuery的on事件绑定与解绑/" title="上一篇: 09-jQuery的on事件绑定与解绑">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/04/23/PHP/07-PHP数组/" title="下一篇: 07-PHP数组">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/13-Ajax跨域/">13-Ajax跨域</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/12-虚拟主机配置/">12-虚拟主机配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/11-模板引擎/">11-ArtTemplate模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/10-封装方法/">10-封装方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/09-jQuery提供的Ajax方法/">09-jQuery提供的Ajax方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/08-JSON/">08-JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/07-文件上传与进度条/">07-文件上传与进度条</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/06-XMLHttpRequest2.0新特性/">06-XMLHttpRequest2.0新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/05-同步和异步/">05-同步和异步</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/04-GET缓存/">04-GET缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/03-POST和GET的区别/">03-POST和GET的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/02-Ajax入门/">02-Ajax入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/01-Ajax技术/">01-Ajax 技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/28-cookie和session的联系/">28-session和cookie的联系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/27-session技术/">27-session技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/26-cookie技术/">26-cookie技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/25-PHP会话控制/">25-PHP会话控制概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/24-修改信息于登录/">24-学生信息管理系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/23-信息管理系统/">23-学生信息管理系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/22-PHP操作MySQL/">22-PHP操作MySQL</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/21-删除数据/">21-删除数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/20-修改数据/">20-修改数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/19-添加数据/">19-添加数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/jQuery/16-jquery操作DOM(节点)/">16-jquery操作DOM(节点)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/18-数据查询/">18-数据查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/17-关系型数据库介绍/">17-创建数据表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/16-创建数据表/">16-创建数据表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/15-创建、删除数据库/">15-创建/删除数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/14-MySQL数据库服务器/">14-MySQL数据库服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/jQuery/15-jquery动画/">15-jquery动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/jQuery/14-jQuery操作样式/">14-jQuery操作样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/13-Http协议/">13-Http协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/12-PHP文件读写/">12-PHP文件读写</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/11-PHP常用函数/">11-PHP函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/13-jQuery插件机制/">13-jQuery插件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/12-jQuery多库共存/">12-jQuery多库共存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/11-jQuery链式编程与隐式迭代/">11-jQuery链式编程与隐式迭代</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/10-PHP函数/">10-PHP函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/10-jQuery事件对象/">10-jQuery事件对象（）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/09-PHP文件上传/">09-PHP文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/09-jQuery的on事件绑定与解绑/">09-jQuery的on事件绑定与解绑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/08-PHP超全局变量/">08-PHP超全局变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/07-PHP数组/">07-PHP数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/jQuery/08-jQuery事件机制/">08-jQuery事件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/06-PHP流程控制/">06-PHP流程控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/jQuery/07-jQuery操作坐标值/">07-jQuery操作坐标值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/05-PHP变量、常量、运算符/">05-PHP变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/04-PHP运行原理/">04-PHP运行原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/03-PHP初识/">03-PHP介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/02-PHP安装环境/">02-PHP安装环境 （phpstudy）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/PHP/01-PHP介绍/">01-PHP介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/06-jQuery操作尺寸/">06-jQuery操作尺寸</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/05-jQuery操作值与内容/">05-jQuery操作值与内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/04-jQuery操作DOM/">04-jQuery操作DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/03-jQuery选择器/">03-jQuery选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/02-jQuery入口函数/">02-jQuery入口函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/01-jQuery简介/">01-jQuery简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/JS/40-伪数组和数组/">40-伪数组和数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/18/JS/39-正则表达式/">39-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/17/JS/38-函数递归/">38-函数递归</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/16/JS/37-闭包/">37-闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/JS/36-作用域、作用域链、预解析/">36-作用域、作用域链、预解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/JS/35-函数进阶/">35-函数进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/JS/34-继承与多态/">34-继承与多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/JS/33-原型/">33-原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/JS/32-构造函数/">32-构造函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/JS/31-创建对象/">31-创建对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/JS/30-面向对象/">30-面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/JS/29-回顾掌握/">29-回顾掌握</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/JS/28-轮播图/">28-js原生轮播图</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/JS/27-动画运动/">27-动画运动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/08/JS/26-定时器/">26-定时器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/JS/25-异步任务/">25-异步任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/JS/24-offset系列/">24-offset系列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/JS/23-location与navigator与history对象/">23-location与navigator与history对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/JS/22-BOM.window对象/">22-BOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/21-事件流/">21-事件流</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/20-注册事件/">20-注册事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/19-节点/">19-节点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/JS/18-表单属性与事件/">18-表单属性与事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/JS/17-兼容性/">17-兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/JS/16-事件/">16-事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/26/JS/15-Web API介绍/">15-Web API 简单介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/12-Date类型对象/">12-Date类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/14-String类型对象/">14-String类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/13-Array类型对象/">13-Array类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/JS/11-内置对象/">11-内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/JS/10-基本数据类型和引用数据类型/">10-基本数据类型和引用数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/JS/09-对象/">09-对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/JS/08-函数/">08-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/JS/07-数组/">07-数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/06-流程控制/">06-流程控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/05-数据类型转换/">05-数据类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/04-运算符/">04-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/03-数据类型/">03-数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/02-变量/">02-变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/01-Js组成、输出、书写方式、调试循序与规范  /">01-Js组成、输出、书写方式、调试循序与规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/HTML/13-伸缩布局/">11-伸缩布局【弹性布局】(display:flex;)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/HTML/12-动画/">10-动画(animation)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/HTML/11-3D转换/">09-3D转换(transform)【变形】</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/HTML/10-2D转换/">08-2D转换(transform)【变形】</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/13/HTML/09-过渡/">07-过渡（transition）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/08-Web字体/">06-Web字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/07-Logo内容移除/">05-Logo内容移除</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/06-定位/">04-定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/05-浮动/">03-浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/04-渐变与盒子模型/">02-渐变与盒模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/03-css基础/">01-CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/02-列表/">02-列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/01-HTML基础/">01-HTML基础</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mr.张
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/zhangxx1990" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -69,7 +69,7 @@
             
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">Mr.张先生。</a></h1>
+          <h1 class="header-author"><a href="/">Mr.张</a></h1>
         </hgroup>
         
         <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
@@ -174,6 +174,8 @@
                         
                             <li><a  href="/archives/">所有文章</a></li>
                         
+                            <li><a  href="/article/HTML">文章目录</a></li>
+                        
                             <li><a  href="/about/">关于我</a></li>
                         
                         </ul>
@@ -193,7 +195,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -227,7 +229,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mr.张先生。</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mr.张</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -237,7 +239,7 @@
                 
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">Mr.张先生。</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">Mr.张</a></h1>
             </hgroup>
             
             <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
@@ -246,6 +248,8 @@
                 <ul>
                 
                     <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/article/HTML">文章目录</a></li>
                 
                     <li><a href="/about/">关于我</a></li>
                 
@@ -268,11 +272,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-H5C3/03-3d转换" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ajax/03-POST和GET的区别" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/09/17/H5C3/03-3d转换/" class="article-date">
-      <time datetime="2018-09-16T16:08:20.344Z" itemprop="datePublished">2018-09-17</time>
+      <a  href="/2017/05/02/ajax/03-POST和GET的区别/" class="article-date">
+      <time datetime="2017-05-02T03:05:02.000Z" itemprop="datePublished">2017-05-02</time>
 </a>
 
     </div>
@@ -282,384 +286,113 @@
       <input type="hidden" class="isFancy" />
     
     
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="3D转换"><a href="#3D转换" class="headerlink" title="3D转换"></a>3D转换</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>掌握使用CSS完成一些3d效果</li>
-<li>理解在网页平面内的3d效果</li>
-</ul>
-<h2 id="怎么在网页平面产生3d效果"><a href="#怎么在网页平面产生3d效果" class="headerlink" title="怎么在网页平面产生3d效果"></a>怎么在网页平面产生3d效果</h2><ul>
-<li>我们生活的环境是3d的，照片就是3d物体在2d平面呈现的例子</li>
-<li>有什么特点：<ul>
-<li>近大远小</li>
-<li>物体后面遮挡不可见</li>
-</ul>
-</li>
-<li>当我们在网页上构建3d效果的时候参考这些特点就能产出3d效果</li>
-<li>在现实生活当中 我们通过肉眼去物体的时候和照片的成像是相同的</li>
-<li>如果想要在网页产生3d效果需要透视（理解成3d物体投影在2d平面内）</li>
-</ul>
-<h2 id="透视和视距"><a href="#透视和视距" class="headerlink" title="透视和视距"></a>透视和视距</h2><ul>
-<li><p>透视（perspective）</p>
-<ul>
-<li>在2d平面产生近大远小视觉立体，但是只是效果二维的</li>
-<li>原理：<br><img src="/media/01.png"><br>a. 模拟人类的视觉位置，可认为安排一只眼睛去看<br>b. 距离电脑平面的距离为视距<br>c. 距离视觉点越近的在电脑平面成像越大，越远成像越远  </li>
-<li>特点：只是显示3d图像的近大远小效果，无法呈现3d的三维成像的特点，如遮挡</li>
-<li><p>使用场景：只是辅助性的帮助开发者检查3d效果</p>
-<p>​</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="3d转换"><a href="#3d转换" class="headerlink" title="3d转换"></a>3d转换</h2><ul>
-<li><code>translateX</code>  x轴方向的位移</li>
-<li><code>translateY</code>  y轴方向的位移</li>
-<li><code>translateZ</code> z轴方向的位移</li>
-<li><code>rotateX</code> 绕x轴旋转</li>
-<li><code>rotateY</code> 绕y轴旋转</li>
-<li><code>rotateZ</code> 绕z轴旋转 </li>
-</ul>
-<h2 id="3d呈现"><a href="#3d呈现" class="headerlink" title="3d呈现"></a>3d呈现</h2><ul>
-<li>3d呈现（transfrom-style）<ul>
-<li>在2d平面产生近大远小视觉立体，但是只是效果二维的</li>
-<li>原理：<br><img src="media/02.png"> <img src="media/03.png"><br>a. 第一张图是没有使用3d呈现的  无3d效果<br>b. 第二张图是使用了3d呈现的  出现遮挡三维立体效果</li>
-<li>特点：真正意义的3d呈现，三维立体,有遮挡</li>
-<li>使用场景：在3d立体图形的构建使用</li>
-</ul>
-</li>
-</ul>
-<h2 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .box&#123;</span></span><br><span class="line"><span class="undefined">            width: 200px;</span></span><br><span class="line"><span class="undefined">            height: 200px;</span></span><br><span class="line"><span class="undefined">            position: relative;</span></span><br><span class="line"><span class="undefined">            margin: 100px auto;</span></span><br><span class="line"><span class="undefined">            /*辅助3d效果开发  视觉效果 */</span></span><br><span class="line"><span class="undefined">            /*透视：理解成在屏幕外面安排一只眼睛帮我们开3d效果*/</span></span><br><span class="line"><span class="undefined">            /* 形成近大远小 效果  */</span></span><br><span class="line"><span class="undefined">            /*perspective: 300px;*/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            /*真正意义的3D呈现 */</span></span><br><span class="line"><span class="undefined">            transform-style: preserve-3d;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            transform: rotateX(30deg) rotateY(-30deg);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            animation: rotate 4s linear infinite;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box &gt; div&#123;</span></span><br><span class="line"><span class="undefined">            width: 100%;</span></span><br><span class="line"><span class="undefined">            height: 100%;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            left: 0;</span></span><br><span class="line"><span class="undefined">            top: 0;</span></span><br><span class="line"><span class="undefined">            text-align: center;</span></span><br><span class="line"><span class="undefined">            line-height: 200px;</span></span><br><span class="line"><span class="undefined">            font-size: 20px;</span></span><br><span class="line"><span class="undefined">            opacity: 0.4;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .front&#123;</span></span><br><span class="line"><span class="undefined">            background: red;</span></span><br><span class="line"><span class="undefined">            transform: translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .back&#123;</span></span><br><span class="line"><span class="undefined">            background: blue;</span></span><br><span class="line"><span class="undefined">            transform: rotateY(-180deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .left&#123;</span></span><br><span class="line"><span class="undefined">            background: green;</span></span><br><span class="line"><span class="undefined">            transform: rotateY(-90deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .right&#123;</span></span><br><span class="line"><span class="undefined">            background: yellow;</span></span><br><span class="line"><span class="undefined">            transform: rotateY(-270deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .top&#123;</span></span><br><span class="line"><span class="undefined">            background: pink;</span></span><br><span class="line"><span class="undefined">            transform: rotateX(90deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .bottom&#123;</span></span><br><span class="line"><span class="undefined">            background: hotpink;</span></span><br><span class="line"><span class="undefined">            transform: rotateX(-90deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        /* 立方体的中心在电脑平面上  */</span></span><br><span class="line"><span class="undefined">        /* 当你选择过后正面朝外 Z正方向也是朝外 */</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        @keyframes rotate &#123;</span></span><br><span class="line"><span class="undefined">            from&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            to&#123;</span></span><br><span class="line"><span class="undefined">                transform: rotateX(30deg) rotateY(-390deg);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"front"</span>&gt;</span>front<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"back"</span>&gt;</span>back<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"top"</span>&gt;</span>top<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bottom"</span>&gt;</span>bottom<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>怎么在2d的网页体现3d效果<ul>
-<li>拍照片  物体 呈现 近大远小</li>
-<li>在网页 也可以安排一只虚拟的眼睛  帮我们去观察 立体的物体</li>
-</ul>
-</li>
-<li>透视<ul>
-<li>perspective:100px;</li>
-<li>视距  距离越近 近大远小的效果 越明显</li>
-<li>作用：辅助观察3d效果，不能真正的呈现3d</li>
-</ul>
-</li>
-<li>3d转换<ul>
-<li>rotateX</li>
-<li>rotateY</li>
-<li>rotateZ</li>
-<li>translateX</li>
-<li>translateY</li>
-<li>translateZ</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
+      <header class="article-header">
+        
   
-</article>
-
-
-
-
-
-
-
-
-
-
-
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/02/ajax/03-POST和GET的区别/">03-POST和GET的区别</a>
+    </h1>
   
-    <article id="post-H5C3/02-选择器" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2018/09/17/H5C3/02-选择器/" class="article-date">
-      <time datetime="2018-09-16T16:08:20.340Z" itemprop="datePublished">2018-09-17</time>
-</a>
 
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
+
+      </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><ul>
-<li><code>E[attr=value]</code> 选中E元素中属性有attr的且属性值为value的元素 </li>
-<li><code>E[attr^=value]</code> 选中E元素中属性有attr的且属性值以value开头的元素 </li>
-<li><code>E[attr$=value]</code> 选中E元素中属性有attr的且属性值以value结尾的元素 </li>
-<li><code>E[attr*=value]</code> 选中E元素中属性有attr的且属性值包含value的元素 </li>
-</ul>
-<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><ul>
-<li><code>E:first-child</code> 选中E元素的父元素下所有的子元素的第一个元素，如果类型为E选中否则无效</li>
-<li><code>E:last-child</code> 选中E元素的父元素下所有的子元素的最后一个元素，如果类型为E选中否则无效</li>
-<li><code>E:nth-child(n)</code> 选中E元素的父元素下所有的子元素的第n个元素，如果类型为E选中否则无效</li>
-<li><code>E:nth-last-child(n)</code> 选中E元素的父元素下所有的子元素的倒数第n个元素，如果类型为E选中否则无效</li>
-</ul>
-<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><ul>
-<li><code>E::before</code> 选中E元素的内容前伪元素 </li>
-<li><code>E::after</code>  选中E元素的内容前伪元素 </li>
-</ul>
+        <h1 id="POST和GET的区别"><a href="#POST和GET的区别" class="headerlink" title="POST和GET的区别"></a>POST和GET的区别</h1><h2 id="GET方式实现新用户注册—用户名检"><a href="#GET方式实现新用户注册—用户名检" class="headerlink" title="GET方式实现新用户注册—用户名检"></a>GET方式实现新用户注册—用户名检</h2><p><img src="/images/ajax/1534727628005.png" alt="1534727628005"></p>
+<p> 步骤:</p>
+<ol>
+<li><p>get.html</p>
+<pre><code>1) 在用户名文本框上绑定失焦事件(onblur)
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
+2) 失焦事件函数
 
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+     ① 获取用户名文本框内已填写的用户名
 
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-H5C3/01-关于H5开发" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2018/09/17/H5C3/01-关于H5开发/" class="article-date">
-      <time datetime="2018-09-16T16:08:20.332Z" itemprop="datePublished">2018-09-17</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="关于H5开发"><a href="#关于H5开发" class="headerlink" title="关于H5开发"></a>关于H5开发</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>作为前端开发人员应该怎么去理解H5开发</li>
-<li>不能单纯认为H5仅仅只是H4的下一个版本</li>
-</ul>
-<h2 id="个人愚见"><a href="#个人愚见" class="headerlink" title="个人愚见"></a>个人愚见</h2><h3 id="HTML4-0-1"><a href="#HTML4-0-1" class="headerlink" title="HTML4.0.1"></a>HTML4.0.1</h3><ol>
-<li>html是HyperText Markup Language <code>超文本标记语言</code>的缩写，是一款描述网页的标记语言。</li>
-<li>HTML4.0.1简单的讲就是html的一个版，1999年12月发布的一直沿用至今，但是html5在慢慢代替它。</li>
-<li>总结一下它的作用是语言规范，开发网页用的。</li>
-</ol>
-<h3 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h3><ol>
-<li>狭义的讲html5的新的一个规范，你可以理解成H5仅仅只是H4的下一个版本。</li>
-<li>但是如果把现在的工作岗位前端-<code>H5开发工程师</code>中的H5那就没这么简单了。</li>
-</ol>
-<h3 id="理解H5开发"><a href="#理解H5开发" class="headerlink" title="理解H5开发"></a>理解H5开发</h3><ol>
-<li>在前端领域H5是一个技术集合（技术栈），而不是一个单纯的技术点，所有不能理解为是一个html规范。</li>
-<li>需要从三个方面去梳理一下常见会学习到技术（当然远不止这些）：<ul>
-<li>html<ul>
-<li>语义化标签</li>
-<li>新增表单类型</li>
-<li>新增表单属性</li>
-</ul>
-</li>
-<li>css<ul>
-<li>新增选择器</li>
-<li>属性的增强</li>
-<li>过渡</li>
-<li>转换</li>
-<li>动画</li>
-<li>媒体查询</li>
-</ul>
-</li>
-<li>javascript<ul>
-<li>新增应用API</li>
-<li>canvas绘图</li>
-<li>ES6</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>还可以从职能去理解H5开发是什么：<ul>
-<li>移动web开发</li>
-<li>响应式开发</li>
-<li>单页面应用开发</li>
-<li>混合APP开发</li>
-<li>微信小程序</li>
-<li>微信公众号</li>
-</ul>
-</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>H5开发泛<strong>指对h5技术栈(html提升，css提升，javascript提升)的综合使用开发网页应用程序</strong></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-HTML/12-动画" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2018/09/16/HTML/12-动画/" class="article-date">
-      <time datetime="2018-09-16T12:55:40.914Z" itemprop="datePublished">2018-09-16</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="动画-animation"><a href="#动画-animation" class="headerlink" title="动画(animation)"></a>动画(animation)</h1><h2 id="animation复合属性"><a href="#animation复合属性" class="headerlink" title="animation复合属性"></a>animation复合属性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    width: <span class="number">200</span>px;</span><br><span class="line">    height: <span class="number">200</span>px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    <span class="comment">/* 要执行动画，要调用 */</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* 动画名称 */</span></span><br><span class="line">    animation-name: box_move;</span><br><span class="line">    <span class="comment">/* 动画执行的时间 */</span></span><br><span class="line">    animation-duration: <span class="number">1</span>s;</span><br><span class="line">    <span class="comment">/* 动画执行次数： 默认执行1次   infinite:无限循环*/</span></span><br><span class="line">    animation-iteration-count: infinite;</span><br><span class="line">    <span class="comment">/* 设置动画逆波 */</span></span><br><span class="line">    animation-direction: alternate;</span><br><span class="line">    <span class="comment">/* 设置动画的速度类型 */</span></span><br><span class="line">    animation-timing-<span class="function"><span class="keyword">function</span>: <span class="title">linear</span>;</span></span><br><span class="line"><span class="function">    /* 设置动画延时执行 */</span></span><br><span class="line"><span class="function">    <span class="title">animation</span>-<span class="title">delay</span>: 2<span class="title">s</span>;</span></span><br><span class="line"><span class="function">    /* 设置动画时间之外的状态 */</span></span><br><span class="line"><span class="function">    <span class="title">animation</span>-<span class="title">fill</span>-<span class="title">mode</span>: <span class="title">forwards</span>;</span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function">.<span class="title">box</span>:<span class="title">hover</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* 动画暂停 */</span></span><br><span class="line">    animation-play-state: paused;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>定义动画<ul>
-<li>通过@keyframes + 自定义动画名称 {}</li>
-<li>在动画集中通过from 和 to 设置动画的开始状态和结束状态。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">          <span class="comment">/* 第一步：先定义一个动画集（序列） */</span></span><br><span class="line">          @keyframes  box_move &#123;</span><br><span class="line">              </span><br><span class="line">              <span class="comment">/* 第二步：定义动画的开始状态 */</span></span><br><span class="line">              <span class="keyword">from</span> &#123;</span><br><span class="line">                  transform: translate(<span class="number">0</span>px);</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="comment">/* 第三步：定义动画的结束状态 */</span></span><br><span class="line">              to &#123;</span><br><span class="line">                  </span><br><span class="line">                  <span class="comment">/* 2d的方式移动 */</span></span><br><span class="line">                  transform: translate(<span class="number">400</span>px);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 注意：</span></span><br><span class="line"><span class="comment">// 动画集要单独定义，不能放到类样式中。</span></span><br></pre></td></tr></table></figure>
-<h3 id="动画联写方式"><a href="#动画联写方式" class="headerlink" title="动画联写方式"></a>动画联写方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animation: move <span class="number">1</span>s  linear infinite  alternate;</span><br></pre></td></tr></table></figure>
-<h3 id="或者可以同时调用多个动画集"><a href="#或者可以同时调用多个动画集" class="headerlink" title="或者可以同时调用多个动画集"></a>或者可以同时调用多个动画集</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;</span><br><span class="line">            background-color: red;</span><br><span class="line">            </span><br><span class="line">            animation: move <span class="number">1</span>s  linear infinite  alternate,</span><br><span class="line">                    chage1 <span class="number">1</span>s <span class="number">1</span>s linear; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="可以通过设置百分比的形式设置动画集中的不同状态"><a href="#可以通过设置百分比的形式设置动画集中的不同状态" class="headerlink" title="可以通过设置百分比的形式设置动画集中的不同状态"></a>可以通过设置百分比的形式设置动画集中的不同状态</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    @keyframes  change &#123;</span><br><span class="line">                <span class="comment">/*动画的开始状态*/</span></span><br><span class="line">            <span class="number">0</span>% &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">                <span class="comment">/*动画的结束状态*/</span></span><br><span class="line">            <span class="number">100</span>% &#123;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//百分比是相对动画执行时间。</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-HTML/13-伸缩布局" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2018/09/16/HTML/13-伸缩布局/" class="article-date">
-      <time datetime="2018-09-16T12:55:40.914Z" itemprop="datePublished">2018-09-16</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="伸缩布局【弹性布局】-display-flex"><a href="#伸缩布局【弹性布局】-display-flex" class="headerlink" title="伸缩布局【弹性布局】(display:flex;)"></a>伸缩布局【弹性布局】(display:flex;)</h1><ul>
-<li><p>首先给子元素的直接父元素设置为伸缩盒子.</p>
-<ul>
-<li><p>display:flex;</p>
-</li>
-<li><p>当父元素为伸缩盒子的时候，默认子元素在一行上显示。</p>
-<ul>
-<li>伸缩盒子特点：<pre><code>- 如果一个盒子变为伸缩盒子，那么该盒子就具有了两条轴，一条是主轴，一条是侧轴。主轴的默认方向是水平从左向右，侧轴始终要垂直于主轴。
- - 子元素是按照主轴的方向显示的。
+     ② 发送ajax请求，并将已填写的用户名一起发送给后端php页面
 </code></pre></li>
-</ul>
+<li><p>get.html</p>
+<pre><code>1) 接收后端返回的数据，判断是1还是2。
+
+2) 如果等于1，则提示用户名可用；如果等于2，提示用户名被占用
+</code></pre></li>
+</ol>
+<p>代码实现:</p>
+<ol>
+<li><p>get.html</p>
+<pre><code>1) 在用户名文本框上绑定失焦事件(onblur)
+
+2) 失焦事件函数
+
+        ① 获取用户名文本框内已填写的用户名
+
+        ② 发送ajax请求，并将已填写的用户名一起发送给后端php页面
+</code></pre></li>
+</ol>
+<p><img src="/images/ajax/1534728234170.png" alt="1534728234170"></p>
+<p><img src="/images/ajax/1534728252209.png" alt="1534728252209"></p>
+<p> 先测试一下前后端的连通性:</p>
+<p> <img src="/images/ajax/1534728362391.png" alt="1534728362391"></p>
+<ol start="2">
+<li><p>get.php</p>
+<pre><code>1) 接收前端发送过来的用户名
+2) 模拟用户被占用的情况 
+3) 将结果返回给前端（1用户名可用   2用户名被占用）
+</code></pre></li>
+</ol>
+<p><img src="/images/ajax/1534729661714.png" alt="1534729661714">       </p>
+<ol start="3">
+<li><p>get.html</p>
+<pre><code>1) 接收后端返回的数据，判断是1还是2。
+
+2) 如果等于1，则提示用户名可用；如果等于2，提示用户名被占用
+</code></pre></li>
+</ol>
+<p><img src="/images/ajax/1534729897469.png" alt="1534729897469"></p>
+<p>关键点总结:</p>
+<ol>
+<li><p>用户名文本框绑定失焦事件</p>
 </li>
-</ul>
+<li><p>发送ajax请求基本属于流程化操作<br>1) 实例化XMLHttpRequest对象<br>2) 调用open方法准备请求，<strong>get方式发送将数据拼接在url地址之后即可</strong><br>  xhr.open(‘get’,  ‘get.php?<strong>n=’+name</strong>);<br>3) 调用send方法发送请求，<strong>get方式只需要将 null  作为参数传入即可</strong><br>4) 调用onreadystatechange事件，在readyState=4时使用responseText接收返回值。此步使用alert或者console.log先输出接收的结果即可，<strong>不要着急将结果显示在网页上</strong>。</p>
 </li>
-</ul>
-<h2 id="设置主轴的方向"><a href="#设置主轴的方向" class="headerlink" title="设置主轴的方向"></a>设置主轴的方向</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">            <span class="comment">// 设置主轴的方向</span></span><br><span class="line">            flex-direction:row;</span><br><span class="line">            flex-direction:row-reverse;</span><br><span class="line">            flex-direction:column;</span><br><span class="line">            flex-direction:column-reverse;</span><br><span class="line"><span class="string">``</span><span class="string">`	</span></span><br><span class="line"><span class="string">- 总结：</span></span><br><span class="line"><span class="string">	- 由于在伸缩和中子元素是按照主轴的方向显示的，所以当我们调整主轴的方向的时候，子元素随着发生位置的改变。</span></span><br><span class="line"><span class="string">	- 主轴方向发生了改变后，侧轴的方向也会发生改变。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">## 设置子元素在主轴的对齐方式</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line">            <span class="comment">// 设置子元素在主轴的对齐方式</span></span><br><span class="line">            justify-content:flex-start;</span><br><span class="line">            justify-content:flex-end;</span><br><span class="line">            justify-content:center;</span><br><span class="line">            justify-content:space-between;</span><br><span class="line">            justify-content:space-around;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>总结：<ul>
-<li>通过设置该属性，只是改变了子元素在主轴方向的对齐显示位置，而元素自己本身的位置并没有改变。</li>
-</ul>
+</ol>
+<ol start="3">
+<li><p>创建后端php程序，接收用户名进行验证<br>核心SQL:  select * from ali_admin where admin_email = ‘$name’;<br>该SQL语句的执行结果只可能是两种： 0条数据    1条数据(因为admin_email字段唯一)<br>  0条数据: 说明没有该用户名 （没有被占用）<br>  1条数据: 说明已存在该用户名 （已被占用）<br>根据SQL执行结果返回1或者2，1代表未被占用，2代表已被占用</p>
 </li>
-</ul>
-<h2 id="设置子元素在侧轴的对齐方式"><a href="#设置子元素在侧轴的对齐方式" class="headerlink" title="设置子元素在侧轴的对齐方式"></a>设置子元素在侧轴的对齐方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置子元素在侧轴的对齐方式</span></span><br><span class="line">align-items:flex-start;</span><br><span class="line">align-items:flex-end;</span><br><span class="line">align-items:center;</span><br><span class="line">align-items:streth;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>总结：<ul>
-<li>在伸缩盒子中，子元素可以不用设置高度，如果不设置，那么该子元素的高度等于其父元素的高度，由于子元素是在侧轴的对齐方式是拉伸的效果。</li>
-</ul>
+<li><p>修改get.html文件，将结果显示在网页上<br>获取用来显示结果的span标签，判断接收的结果为1还是2。如果为1，则将用户名可用写入span标签；反之，则将用户名已被占用写入span标签</p>
 </li>
-</ul>
-<h2 id="设置伸缩盒子是否允许子元素换行"><a href="#设置伸缩盒子是否允许子元素换行" class="headerlink" title="设置伸缩盒子是否允许子元素换行"></a>设置伸缩盒子是否允许子元素换行</h2><ul>
-<li>在伸缩盒子中，如果子元素的宽度超出父元素的宽度，那么子元素不会换行显示。</li>
-</ul>
-<h2 id="设置子元素是否换行显示"><a href="#设置子元素是否换行显示" class="headerlink" title="设置子元素是否换行显示"></a>设置子元素是否换行显示</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置子元素是否换行显示 默认不换行 nowrap</span></span><br><span class="line">flex-wrap:nowrap;</span><br><span class="line"><span class="comment">// 子元素可以换行显示</span></span><br><span class="line">flex-wrap:wrap;</span><br></pre></td></tr></table></figure>
-<h2 id="设置子元素换行后的对齐方式"><a href="#设置子元素换行后的对齐方式" class="headerlink" title="设置子元素换行后的对齐方式"></a>设置子元素换行后的对齐方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置子元素换行后的对齐方式 默认的对齐方式:stretch</span></span><br><span class="line">align-content:flex-start;</span><br><span class="line">align-content:flex-end;</span><br><span class="line">align-content:center;</span><br><span class="line">align-content:space-around;</span><br><span class="line">align-content:space-between;</span><br><span class="line">align-content:stretch;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>总结：<ul>
-<li>该属性设置的前提必须要保证元素是换行后的元素。</li>
-</ul>
-</li>
-</ul>
-<h2 id="伸缩盒子中子元素的相关属性"><a href="#伸缩盒子中子元素的相关属性" class="headerlink" title="伸缩盒子中子元素的相关属性"></a>伸缩盒子中子元素的相关属性</h2><ul>
-<li>flex: 设置子元素占父元素剩余宽度的比例<ul>
-<li>order: 排序 <ul>
-<li>不需要改变html结构中的位置，就可以实现在页面中调换元素的显示位置。</li>
-<li>order的取值越大，那么该元素在页面中的显示位置越靠后。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+</ol>
+<h2 id="POST方式实现新用户注册—用户名检测"><a href="#POST方式实现新用户注册—用户名检测" class="headerlink" title="POST方式实现新用户注册—用户名检测"></a>POST方式实现新用户注册—用户名检测</h2><p>post和get两种方式的整体思路一致，只是细节上有所差别</p>
+<p> 1) 使用open准备请求时，参数1需要设置为post，参数2只需要设置后端程序地址。</p>
+<p> 2) 将需要传递到后端的数据拼接成一个独立的字符串，字符串的格式为</p>
+<pre><code>var str = ‘key=value&amp;key=value&amp;....’;    （内部结构跟get传参时的结构一致）
+</code></pre><p> 3) 调用setRequestHeader方法将数据格式转为 application/x-www-form-urlencoded</p>
+<p> 4) 将拼接好的数据字符串作为参数传入send方法</p>
+<p> 5) 后端的php程序需要使用 $_POST来接收数据</p>
+<p>前端的区别:</p>
+<p><img src="/images/ajax/1534730851993.png" alt="1534730851993"></p>
+<p>后端的区别:</p>
+<p><img src="/images/ajax/1534730967099.png" alt="1534730967099"></p>
+<blockquote>
+<p>关键点总结:</p>
+</blockquote>
+<p> 1) 发送程序时，参数1设置为post，参数2只用设置请求的后端文件路径</p>
+<pre><code>xhr.open(&apos;post&apos;, &apos;post.php&apos;);
+</code></pre><p> 2) 将需要传递到后端的数据拼接成一个独立的字符串</p>
+<p>  var str = ‘name=’+name; </p>
+<p> 3) 调用setRequestHeader方法将数据格式转为 application/x-www-form-urlencoded</p>
+<pre><code>xhr.setRequestHeader(&apos;content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);
+</code></pre><p> 4) 发送请求时，要将之前拼接好的字符串作为参数放入send方法中</p>
+<pre><code>xhr.send(str);
+</code></pre><blockquote>
+<p>补充说明 — 实际验证用户名是否存在的方法</p>
+</blockquote>
+<p>核心：  $sql = “select * from ali_admin where admin_email=’$username’”;</p>
+<p>该SQL语句要么查询出1条数据，要么查询出0条数据</p>
+<p>  1条数据说明: 用户名已被占用</p>
+<p>  0条数据说明: 用户名未被占用 – 用户名可用</p>
 
       
     </div>
@@ -669,6 +402,10 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -688,11 +425,11 @@
 
 
   
-    <article id="post-HTML/08-Web字体" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ajax/02-Ajax入门" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/09/16/HTML/08-Web字体/" class="article-date">
-      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+      <a  href="/2017/05/02/ajax/02-Ajax入门/" class="article-date">
+      <time datetime="2017-05-02T02:35:20.000Z" itemprop="datePublished">2017-05-02</time>
 </a>
 
     </div>
@@ -702,51 +439,162 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/02/ajax/02-Ajax入门/">02-Ajax入门</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Web字体"><a href="#Web字体" class="headerlink" title="Web字体"></a>Web字体</h1><ul>
-<li><p>开发人员可以为自已的网页指定特殊的字体，无需考虑用户电脑上是否安装了此特殊字体，从此把特殊字体处理成图片的时代便成为了过去。支持程度比较好，甚至IE低版本浏览器也能支持。</p>
-<p>  <a href="http://www.iconfont.cn/" target="_blank" rel="noopener">在线字体</a></p>
+        <h1 id="Ajax入门"><a href="#Ajax入门" class="headerlink" title="Ajax入门"></a>Ajax入门</h1><h2 id="（Ajax-开发）概述"><a href="#（Ajax-开发）概述" class="headerlink" title="（Ajax 开发）概述"></a>（Ajax 开发）概述</h2><p>Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术。</p>
+<p>Ajax = 异步 JavaScript 和 XML（标准通用标记语言的子集）。</p>
+<p>Ajax 是一种用于创建快速动态网页的技术。</p>
+<p>Ajax 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。</p>
+<p>通过在后台与服务器进行少量数据交换，Ajax 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。<br>传统的网页（不使用 Ajax）如果需要更新内容，必须重载整个网页页面。</p>
+<p>  历史：</p>
+<p>1999年诞生，微软在IE5中集成了XMLHttpRequest对象，但是并没有受到人们重视。</p>
+<p>2005年，google在gtalk即时聊天工具中使用了该对象，从此之后Ajax技术开始受到人们的重视。</p>
+<h2 id="发送Ajax请求"><a href="#发送Ajax请求" class="headerlink" title="发送Ajax请求"></a>发送Ajax请求</h2><h3 id="ajax核心对象-—-XMLHttpRequest对象"><a href="#ajax核心对象-—-XMLHttpRequest对象" class="headerlink" title="ajax核心对象 — XMLHttpRequest对象"></a>ajax核心对象 — XMLHttpRequest对象</h3><p>创建XMLHTTPRequest对象要分为(低版本) IE和==非IE两种方式(主流)==：</p>
+<p>   IE浏览器（IE7之前） :  </p>
+<pre><code>var xhr = new ActiveXObject(&apos;Msxml2.XMLHTTP&apos;);
+</code></pre><p>   非IE浏览器（chrome、firefox、safair、搜狗等，包括IE7+之后） (主流浏览器):</p>
+<pre><code>var xhr = new XMLHttpRequest();
+</code></pre><p>案例：创建XMLhttpRequest对象，兼容IE7之前和主流浏览器</p>
+<pre><code>//创建XMLHttpRequest对象，兼容低版本IE和非IE浏览器
+function getXhr () {
+    var xmlhttp;
+
+    if (window.XMLHttpRequest) {
+        //IE7+ 和 非IE 中都有 XMLHttpRequest对象
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        xmlhttp = new ActiveXObject(&apos;Msxml2.XMLHTTP&apos;);
+    }
+
+    return xmlhttp;
+}
+
+alert(getXhr());
+</code></pre><p>chrome访问结果:</p>
+<p><img src="/images/ajax/1534562204874.png" alt="1534562204874"></p>
+<p>IE访问结果:</p>
+<p><img src="/images/ajax/1534562252947.png" alt="1534562252947"></p>
+<h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p>XMLHttpRequest对象有了，可以发送Ajax请求了。发送请求需要两个方法:</p>
+<p>open(var1, var2, var3): 准备Ajax请求</p>
+<pre><code>var1: 请求方式  get/post
+var2: 请求的后端程序地址
+var3: 异步(true)/同步(false)，可选参数，默认为true
+</code></pre><p>  示例: xhr.open(‘get’, ‘index.php’);   //准备以get方式请求后端的index.php文件</p>
+<p>   send(var): 发送Ajax请求</p>
+<pre><code>var: 分为两种情况。 如果是get请求，则填写null。 如果是post请求，则填写要发送到后端的数据。
+</code></pre><p> var: 分为两种情况。 如果是get请求，则填写null。 如果是post请求，则填写要发送到后端的数据。</p>
+<pre><code>示例: xhr.send(null); 
+</code></pre><h2 id="发送请求案例"><a href="#发送请求案例" class="headerlink" title="发送请求案例"></a>发送请求案例</h2><p> 在index.html页面上创建按钮，点击该按钮时使用get方式请求后端的index.php页面</p>
+<p> 发送Ajax请求流程:</p>
+<p>   1) 创建XMLHttpRequest对象</p>
+<p>   2) 调用open方法准备ajax请求</p>
+<p>   3) 调用send方法发送ajax请求</p>
+<p>代码实现</p>
+<p>   1) 创建按钮，绑定点击事件</p>
+<p>   2) 创建XMLHttpRequest对象</p>
+<p>   3) 调用open方法准备ajax请求</p>
+<p>   4) 调用send方法发送ajax请求</p>
+<p><img src="/images/ajax/1534563208094.png" alt="1534563208094"></p>
+<p><img src="/images/ajax/1534563224252.png" alt="1534563224252"></p>
+<p> 访问结果: — 通过newwork来确定请求是否发出</p>
+<p>点击”btn”时，又发送了请求，请求了 index.php文件，并且正常接收到结果</p>
+<p><img src="/images/ajax/1534563287777.png" alt="1534563287777"></p>
+<h2 id="接收后端响应结果"><a href="#接收后端响应结果" class="headerlink" title="接收后端响应结果"></a>接收后端响应结果</h2><h3 id="核心属性-—-readyState"><a href="#核心属性-—-readyState" class="headerlink" title="核心属性 — readyState"></a>核心属性 — readyState</h3><p>Ajax的整个过程有5个状态，对应readyState的5个值：0-4</p>
+<pre><code>《Pragmatic Ajax A Web 2.0 Primer 》 中对readyStae状态的介绍 
+</code></pre><p>   0: (Uninitialized) the send( ) method has not yet been invoked.  </p>
+<p>   1: (Loading) the send( ) method has been invoked, request in progress.  </p>
+<p>   2: (Loaded) the send( ) method has completed, entire response received. </p>
+<p>   3: (Interactive) the response is being parsed. </p>
+<p>   4: (Completed) the response has been parsed, is ready for harvesting.  </p>
+<p>   0 － （未初始化）还没有调用send()方法 </p>
+<p>   1 － （载入）已调用send()方法，正在发送请求 </p>
+<p>   2 － （载入完成）send()方法执行完成，已经接收到全部响应内容 </p>
+<p>   3 － （交互）正在解析响应内容 </p>
+<p>   4 － （完成）响应内容解析完成，可以在客户端调用了 </p>
+<p>百度百科: </p>
+<p>  0 （未初始化）     对象已建立，但是尚未初始化（尚未调用open方法）               </p>
+<p>  1 （初始化）      已调用send()方法，正在发送请求                      </p>
+<p>  2 （发送数据）     send方法调用完成，但是当前的状态及http头未知              </p>
+<p>  3 （数据传送中）  已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误，</p>
+<p>  4 （完成）       数据接收完毕，此时可以通过通过responseBody和responseText获取完整的回应数据</p>
 <ul>
-<li>引用在线字体。（了解）</li>
-<li>下载到本地使用（推荐）</li>
+<li><strong>最核心的重点：   4 ,  后端返回的数据已经可以在浏览器中使用了。</strong></li>
 </ul>
-</li>
-<li><p><strong>字体格式</strong></p>
-<ul>
-<li><p>不同浏览器所支持的字体格式是不一样的，我们有必要了解一下有关字体格式的知识。</p>
-<ul>
-<li><p>1、TureType(.ttf)格式</p>
-<ul>
-<li>.ttf字体是Windows和Mac的最常见的字体，是一种RAW格式，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome4+、Safari3+、Opera10+、iOS Mobile、Safari4.2+；</li>
-</ul>
-</li>
-<li><p>2、OpenType(.otf)格式</p>
-<ul>
-<li>.otf字体被认为是一种原始的字体格式，其内置在TureType的基础上，支持这种字体的浏览器有Firefox3.5+、Chrome4.0+、Safari3.1+、Opera10.0+、iOS Mobile、Safari4.2+；</li>
-</ul>
-</li>
-<li><p>3、Web Open Font Format(.woff)格式</p>
-<ul>
-<li>woff字体是Web字体中最佳格式，他是一个开放的TrueType/OpenType的压缩版本，同时也支持元数据包的分离，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome6+、Safari3.6+、Opera11.1+；</li>
-</ul>
-</li>
-<li><p>4、Embedded Open Type(.eot)格式</p>
-<ul>
-<li>.eot字体是IE专用字体，可以从TrueType创建此格式字体，支持这种字体的浏览器有IE4+；</li>
-</ul>
-</li>
-<li><p>5、SVG(.svg)格式</p>
-<ul>
-<li>.svg字体是基于SVG字体渲染的一种格式，支持这种字体的浏览器有Chrome4+、Safari3.1+、Opera10.0+、iOS Mobile Safari3.2+；</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<h2 id="核心事件-—-onreadystatechange"><a href="#核心事件-—-onreadystatechange" class="headerlink" title="核心事件 — onreadystatechange"></a>核心事件 — onreadystatechange</h2><p> onreadystatechange事件:  readyState的值每次发生变化都会触发该事件。</p>
+<pre><code>0--&gt;1    1--&gt;2    2--&gt;3    3--&gt;4 总共触发4次
+</code></pre><h3 id="其他重要属性"><a href="#其他重要属性" class="headerlink" title="其他重要属性"></a>其他重要属性</h3><p> responseText：以字符串形式接收后端程序的返回值。</p>
+<pre><code>    以PHP为例: PHP程序最终会被解释程序一段字符串，responseText接收的就是这段字符串
+
+responseXML：以XML格式接收后端程序返回值
+</code></pre><h3 id="响应案例-—-index-php"><a href="#响应案例-—-index-php" class="headerlink" title="响应案例 — index.php"></a>响应案例 — index.php</h3><p>index.php：返回字符串“Hello Ajax”给前端 — 就是  echo “Hello Ajax”</p>
+<pre><code>index.html： 将Hello Wrold 显示在页面的div中
+</code></pre><p>1) index.php 返回一个字符串（Hello Ajax！！）</p>
+<p><img src="/images/ajax/1534564764184.png" alt="1534564764184"></p>
+<p>2) 在index.html中检测readyState的状态，当readyState状态等于4的时候，使用responseText来接收后端返回的数据</p>
+<p><img src="/images/ajax/1534564786499.png" alt="1534564786499"></p>
+<p>responseText本质是接收后端返回的字符串。</p>
+<p>Ajax程序总结</p>
+<p>一般我们编写Ajax程序时需要两个页面，三大步骤:</p>
+<p><img src="/images/ajax/12.png" alt="1525944330962"></p>
+<p>  两个页面:</p>
+<p>   前端静态html页面 (php页面也行)，用来发送ajax请求，将结果渲染到页面上</p>
+<p>   后端php页面 (jsp、asp也行)，用来接收前端请求，处理数据，并将结果返回给前端页面</p>
+<p>  三大步骤:</p>
+<p>  1) 前端静态页面发送ajax请求。</p>
+<p>  ① 创建 XMLHttpRequest 对象</p>
+<pre><code>② 调用open方法准备ajax请求
+
+③ 调用send方法发送ajax请求
+
+④ 调用onreadystatechange事件，判断readyState=4时，使用responseText接收后端返回数据
+
+ 2) 后端php页面，处理请求并返回结果
+
+ 3) 前端页面接收结果，显示在网页指定位置
+</code></pre><h3 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h3><p>点击按钮，从student表中随机取出一条学生信息，显示在网页上。</p>
+<p> 思路分析:</p>
+<p> 1) 两个页面</p>
+<p>   前端静态页面: student/index.html</p>
+<p>   后端php页面: student/index.php</p>
+<p><img src="/images/ajax/13.png" alt="1524658135608"></p>
+<p> 2) 三大步骤</p>
+<p>  ① index.html 页面设置一个按钮，用来触发ajax请求</p>
+<p>  ② index.php 随机取出一条学生数据，并返回给index.html页面</p>
+<pre><code>$sql = &quot;select * from student order by rand() limit 0,1&quot;;
+</code></pre><p>  ③ index.html 接收到后显示在页面上</p>
+<p>   代码实现:</p>
+<p>第一步骤:  index.html页面发送ajax请求</p>
+<p><img src="/images/ajax/1534566337714.png" alt="1534566337714"></p>
+<p>第二步骤: 后端php页面</p>
+<p><img src="/images/ajax/1534566429341.png" alt="1534566429341"></p>
+<p>第三步骤： index.html – 将接收到的数据渲染到页面</p>
+<p><img src="/images/ajax/1534566508821.png" alt="1534566508821"></p>
+<p> 关键点总结:</p>
+<p>1) index.html 通过点击事件发送ajax请求</p>
+<p> ① 创建XMLHttpRequest对象</p>
+<p> ② 调用open方法准备ajax请求</p>
+<p> ③ 调用send方法发送ajax请求</p>
+<p><strong>此时不要着急将数据渲染到网页上</strong></p>
+<p> 2) index.php 随机取出一条学生数据，并返回给index.html页面</p>
+<p>  ① mysqli操作MySQL服务器的6步骤</p>
+<p>  ② 核心SQL:  select * from student order by rand() limit 0,1 </p>
+<p>  ③ 将结果拼接成字符串再输出，因为前端是以字符串形式接收的</p>
+<p> 3) index.html接收到后显示在页面上</p>
+<p>  ① 创建一个div标签，用来显示接收到数据</p>
+<p>  ② 获取div对象，再将数据显示到该标签中</p>
 
       
     </div>
@@ -756,6 +604,10 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -775,11 +627,11 @@
 
 
   
-    <article id="post-HTML/11-3D转换" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ajax/01-Ajax技术" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/09/16/HTML/11-3D转换/" class="article-date">
-      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+      <a  href="/2017/05/02/ajax/01-Ajax技术/" class="article-date">
+      <time datetime="2017-05-02T01:11:39.000Z" itemprop="datePublished">2017-05-02</time>
 </a>
 
     </div>
@@ -789,36 +641,43 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/02/ajax/01-Ajax技术/">01-Ajax 技术</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="3D转换-transform-【变形】"><a href="#3D转换-transform-【变形】" class="headerlink" title="3D转换(transform)【变形】"></a>3D转换(transform)【变形】</h1><h2 id="位移"><a href="#位移" class="headerlink" title="位移"></a>位移</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 位移</span></span><br><span class="line">        transform: translateX(<span class="number">-400</span>px) translateY(<span class="number">-400</span>px) translateZ(<span class="number">-400</span>px);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>总结:<ul>
-<li>如果设置的是正数，那么就沿着对应坐标轴的正方向移动，反之沿着反方向移动</li>
-</ul>
-</li>
-</ul>
-<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 旋转</span></span><br><span class="line">        transform:rotateX(<span class="number">-90</span>deg);</span><br><span class="line">        transform:rotateY(<span class="number">-90</span>deg);</span><br><span class="line">        transform:rotateZ(<span class="number">90</span>deg);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>备注:<ul>
-<li>通过左手法则判断元素的旋转方向</li>
-<li>左手法则： 用左手握住坐标轴，大拇指指向坐标轴的方向，四个手指弯曲的方向就是旋转的方向</li>
-</ul>
-</li>
-</ul>
-<h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><p><code>transform:scaleX(2) scaleY(2);</code></p>
-<h2 id="透视"><a href="#透视" class="headerlink" title="透视"></a>透视</h2><ul>
-<li>perspective: 1000px;<ul>
-<li>总结：<ul>
-<li>该属性要设置给变形元素的父元素</li>
-<li>该属性不是一个必须要设置的属性</li>
-<li>该属性的取值不是唯一的，但是我们一般情况下将该属性的取值设置了800-1000之间。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+        <h1 id="Ajax-技术"><a href="#Ajax-技术" class="headerlink" title="Ajax 技术"></a>Ajax 技术</h1><h2 id="案例—新用户注册时用户名冲突问题"><a href="#案例—新用户注册时用户名冲突问题" class="headerlink" title="案例—新用户注册时用户名冲突问题"></a>案例—新用户注册时用户名冲突问题</h2><h2 id="传统模式解决方案"><a href="#传统模式解决方案" class="headerlink" title="传统模式解决方案"></a>传统模式解决方案</h2><p>1) 在注册页面中输入用户名和密码，点击“注册”时，要将表单数据提交给后台</p>
+<p><img src="/images/ajax/05.png" alt="1523691565801"></p>
+<p>2) 后台PHP页面，接收用户名和密码之后，要去验证用户名是否存在，如果存在则提示用户名存在，再跳转回注册页面，重新输入。</p>
+<p>  当用户名存在时，提示用户名已被占用，再跳转回登录页</p>
+<p><img src="/images/ajax/06.png" alt="1523691637131"></p>
+<p><img src="/images/ajax/07.png" alt="1523691696235"></p>
+<h2 id="ajax解决方案"><a href="#ajax解决方案" class="headerlink" title="ajax解决方案"></a>ajax解决方案</h2><p>当光标离开用户名文本框时，就已经验证了用户名是否存在，并给予提示了。</p>
+<p>  用户名被占用： </p>
+<p><img src="/images/ajax/08.png" alt="1523691892998"></p>
+<p>用户名可用 :</p>
+<p><img src="/images/ajax/09.png" alt="1523691866761"></p>
+<blockquote>
+<p>两种模式对比</p>
+</blockquote>
+<p>传统模式： </p>
+<p>  两个页面 —  前端注册表单页（index.html）  和  后端数据验证页（index.php）</p>
+<p><img src="/images/ajax/10.png" alt="1524655686232"></p>
+<p>Ajax模式 :</p>
+<p>  两个页面 — 前端注册表单页（index.html）  和  后端数据验证页（index.php）</p>
+<p><img src="/images/ajax/11.png" alt="1524656343611"></p>
+<p>Ajax的优势：没有页面跳转，刷新页面内容，用户体验提升。</p>
+<p>ajax就是在页面没有刷新或者没有跳转的情况下还能更新页面的某一部分数据</p>
 
       
     </div>
@@ -828,6 +687,10 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -847,11 +710,11 @@
 
 
   
-    <article id="post-HTML/10-2D转换" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-PHP/28-cookie和session的联系" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/09/16/HTML/10-2D转换/" class="article-date">
-      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+      <a  href="/2017/04/27/PHP/28-cookie和session的联系/" class="article-date">
+      <time datetime="2017-04-27T08:04:36.000Z" itemprop="datePublished">2017-04-27</time>
 </a>
 
     </div>
@@ -861,60 +724,59 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/27/PHP/28-cookie和session的联系/">28-session和cookie的联系</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="2D转换-transform-【变形】"><a href="#2D转换-transform-【变形】" class="headerlink" title="2D转换(transform)【变形】"></a>2D转换(transform)【变形】</h1><h2 id="位移"><a href="#位移" class="headerlink" title="位移"></a>位移</h2><ul>
-<li>transform: translate(400px,200px);</li>
-<li>总结：<ul>
-<li>如果在translate()中设置一个值，那么代表当前元素是沿着水平方向移动，如果是正数则向右移动，反之向左移动。</li>
-<li>如果在translate()中设置两个值，第一个值代表水平方向移动，第二个值代表垂直方向移动。</li>
-<li>translate()中可以设置百分比，百分比是相对元素自己的宽度或者高度</li>
-</ul>
-</li>
-</ul>
-<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><ul>
-<li>transform: rotate(360deg);</li>
-<li>总结：<ul>
-<li>如果设置的是一个正数，那么代表当前元素是按照顺时针方向旋转，反之逆时针</li>
-<li>如果我们希望一个元素既旋转又位移，推荐先写位移然后设置旋转<br><code>transform: translate(400px) rotate(360deg);</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="缩放（让元素放大或缩小）"><a href="#缩放（让元素放大或缩小）" class="headerlink" title="缩放（让元素放大或缩小）"></a>缩放（让元素放大或缩小）</h2><ul>
-<li>transform: scale(0.5,1)；<ul>
-<li>总结：<ul>
-<li>如果sacle()中设置的是一个值，那么代表该元素在水平方向和垂直方向同时放大或者缩小。<ul>
-<li>如果设置两个值，那么第一个值代表的是水平方向的放大或缩小。第二个值代表的是垂直方向的放大或者缩小</li>
-<li>如果要实现放大的效果，那么我们设置大于1的数字就可以了</li>
-<li>如果要实现缩小的效果，那么我们设置大于0小于1之间的小数就可以了。</li>
-<li>不能设置负数</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="倾斜"><a href="#倾斜" class="headerlink" title="倾斜"></a>倾斜</h2><ul>
-<li>transform: skew(30deg);<ul>
-<li>总结：<ul>
-<li>如果skew设的是一个值，那么代表该元素是沿着水平方向让元素发生倾斜，如果设置两个值，第一个代表水平方向，第二值代表垂直方向</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="transform属性联写："><a href="#transform属性联写：" class="headerlink" title="transform属性联写："></a>transform属性联写：</h2><p> <code>transform:translate() rotate(angle) scale()skew(30deg,40deg);</code></p>
-<h2 id="旋转圆心位置改变（设置）"><a href="#旋转圆心位置改变（设置）" class="headerlink" title="旋转圆心位置改变（设置）"></a>旋转圆心位置改变（设置）</h2><ul>
-<li>transform-origin设置旋转圆心位置<ul>
-<li>可以通过关键字设置 left | right | top | bottom | center</li>
-<li>可以设置具体值设置</li>
-</ul>
-</li>
-</ul>
-<h2 id="定位盒子居中显示"><a href="#定位盒子居中显示" class="headerlink" title="定位盒子居中显示"></a>定位盒子居中显示</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2d转化实现绝对定位的盒子居中：</span></span><br><span class="line">    .box &#123;</span><br><span class="line">            width: <span class="number">123</span>px;</span><br><span class="line">            height: <span class="number">123</span>px;</span><br><span class="line">            background-color: pink;</span><br><span class="line">            position:absolute;</span><br><span class="line">            left:<span class="number">50</span>%;</span><br><span class="line">            transform: translate(<span class="number">-50</span>%);</span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">// 3d转化的方式实现绝对定位的盒子水平居中：</span></span><br><span class="line">            .one &#123;</span><br><span class="line">                width: <span class="number">123</span>px;</span><br><span class="line">                height: <span class="number">123</span>px;</span><br><span class="line">                background-color: pink;</span><br><span class="line">                position:absolute;</span><br><span class="line">                left:<span class="number">50</span>%;</span><br><span class="line">                transform: translateX(<span class="number">-50</span>%);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="session和cookie的联系"><a href="#session和cookie的联系" class="headerlink" title="session和cookie的联系"></a>session和cookie的联系</h1><h2 id="session原理"><a href="#session原理" class="headerlink" title="session原理"></a>session原理</h2><pre><code>session默认是保存在服务器的文件当中的。
 
+    windows默认存放在 c:/windows/temp目录下， phpstudy存放在 phpstudy/tmp/tmp目录下
+</code></pre><p><img src="/images/php/1534557997292.png" alt="1534557997292"></p>
+<h2 id="cookie和session的联系"><a href="#cookie和session的联系" class="headerlink" title="cookie和session的联系"></a>cookie和session的联系</h2><p>当浏览器访问一个设置session的页面时，服务器会随机自动生成一个session_id（字符串）。通过响应头的set-cookie返回给浏览器，并保存在浏览器的cookie当中，同时服务器中也会生成一个以该session_id为名称的文件，用来记录信息。</p>
+<pre><code>浏览器之后每次访问该网站时，都会携带cookie中的session_id，来和服务器中的session文件名进行比对。当文件名和cookie中的session_id一致时，则说明使用的是该session文件，可以从该session文件中读取数据。
+</code></pre><p>案例: 访问 sets.php文件 和  gets.php</p>
+<p>sets.php</p>
+<p><img src="/images/php/1534558764734.png" alt="1534558764734"></p>
+<p>gets.php</p>
+<p><img src="/images/php/1534558776347.png" alt="1534558776347"></p>
+<p>访问 sets.php文件时，完成两件事情</p>
+<p>1) 将session_id随着响应头返回给浏览器，并保存在浏览器中</p>
+<p><img src="/images/php/1534558189499.png" alt="1534558189499"></p>
+<p>2) 在服务器端创建一个session文件   sess_958ur7nh1djufrs9aqkia40im1， 将$_SESSION中已保存的数据，存储到该文件中。</p>
+<p><img src="/images/php/1534558225267.png" alt="1534558225267"></p>
+<p>gets.php文件</p>
+<p><img src="/images/php/1534558307932.png" alt="1534558307932"></p>
+<p>服务器在tmp目录下找到 sess_958ur7nh1djufrs9aqkia40im1 文件，并将文件中的数据取出，返回给浏览器</p>
+<h1 id="session和cookie总结"><a href="#session和cookie总结" class="headerlink" title="session和cookie总结"></a>session和cookie总结</h1><h2 id="cookie小结"><a href="#cookie小结" class="headerlink" title="cookie小结:"></a>cookie小结:</h2><p>  1） 将数据保存在客户端，安全性不好，但是可以保存的数据量较大。</p>
+<pre><code>一个网站能向一个浏览器写 20 个cookie
+
+一个浏览器最多保存300个cookie，每个cookie最大4kb
+</code></pre><p>  2） 设置cookie使用  setcookie(var1, var2, var3)；</p>
+<pre><code>var1： cookie名称
+var2： 名称对应的值
+var3： 有效期。 可选参数，如果不设置该值或者设置为-1，浏览器关闭则cookie消失
+</code></pre><p>  3） 使用$_COOKIE 预定义数组来读取cookie</p>
+<p>  4） cookie的有效范围： 当前目录及子目录；上级目录无效</p>
+<p>  5） 删除cookie:  setcookie(‘name’, null);</p>
+<h2 id="session小结"><a href="#session小结" class="headerlink" title="session小结:"></a>session小结:</h2><p>  1) 将数据保存在服务器端，安全性高，但是不能保存大量的数据。一般来讲session当中保存的都是用户信息。</p>
+<p>  2) 使用session时，首先要使用 session_start函数开启session</p>
+<p>  3) 设置和读取session时，都是用$_SESSION[‘name’] = ‘zs’;  $_SESSION[‘name’];</p>
+<p>  4) session的有效范围，在一个域名下设置session，在整个域名范围内都有效</p>
+<p>  5) 删除session</p>
+<pre><code>unset($_SESSION[‘name’]);    //删除单个session
+session_destroy();                   //删除所有session
+</code></pre>
       
     </div>
     
@@ -923,6 +785,10 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -942,11 +808,11 @@
 
 
   
-    <article id="post-HTML/09-过渡" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-PHP/27-session技术" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/09/16/HTML/09-过渡/" class="article-date">
-      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+      <a  href="/2017/04/27/PHP/27-session技术/" class="article-date">
+      <time datetime="2017-04-27T06:34:16.000Z" itemprop="datePublished">2017-04-27</time>
 </a>
 
     </div>
@@ -956,20 +822,39 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/27/PHP/27-session技术/">27-session技术</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="过渡（transition）"><a href="#过渡（transition）" class="headerlink" title="过渡（transition）"></a>过渡（transition）</h1><ul>
-<li>过渡属于一种特殊的动画<ul>
-<li>通过一种状态向另外一种状态的改变<ul>
-<li>transition 复合属性：</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">         <span class="comment">/* 设置参与过渡的属性 */</span></span><br><span class="line">transition-property: width,height,background-color;</span><br><span class="line">transition-property: all; </span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置过渡完成的时间 */</span></span><br><span class="line">transition-duration: <span class="number">1</span>s; </span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置过渡延时执行的时间 */</span></span><br><span class="line">transition-delay: <span class="number">1</span>s; </span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置过渡的类型（速度类型） */</span></span><br><span class="line">transition-timing-<span class="function"><span class="keyword">function</span>: <span class="title">ease</span>;</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">ease</span>-<span class="title">in</span>;</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">ease</span>-<span class="title">out</span>;</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">ease</span>-<span class="title">in</span>-<span class="title">out</span>; </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">/* 代表当前过渡的速度是匀速完成的。 */</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">linear</span>; </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">         // 属性联写:</span></span><br><span class="line"><span class="function"><span class="title">transition</span>: <span class="title">all</span>  1<span class="title">s</span>  <span class="title">linear</span>; </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">         //或者单独为每一个属性设置过渡的效果：</span></span><br><span class="line"><span class="function">         <span class="title">transition</span>: <span class="title">width</span> 1<span class="title">s</span> <span class="title">linear</span>,</span></span><br><span class="line"><span class="function">                     <span class="title">height</span> 1<span class="title">s</span>  1<span class="title">s</span> <span class="title">linear</span>,</span></span><br><span class="line"><span class="function">                     <span class="title">background</span>-<span class="title">color</span> 1<span class="title">s</span> 2<span class="title">s</span> <span class="title">linear</span>;</span></span><br></pre></td></tr></table></figure>
-<h2 id="常用网"><a href="#常用网" class="headerlink" title="常用网"></a>常用网</h2><p>过渡调试网站：<a href="http://cubic-bezier.com/" target="_blank" rel="noopener">DiagramDesigner</a></p>
+        <h1 id="session技术"><a href="#session技术" class="headerlink" title="session技术"></a>session技术</h1><h2 id="session介绍"><a href="#session介绍" class="headerlink" title="session介绍"></a>session介绍</h2><p>因为cookie是保存在客户端的数据，不够安全，所以出现了session。</p>
+<p>session会将数据保存到服务器端（保存在 <strong>文件</strong>、内存服务器或数据表中），安全性就可以得到保证。</p>
+<h2 id="设置-读取session"><a href="#设置-读取session" class="headerlink" title="设置/读取session"></a>设置/读取session</h2><p>重点:</p>
+<pre><code>php使用session时，首先要使用session_start()函数来开启session。
+$_SESSION 超全局变量就能设置和读取session中的内容
+</code></pre><p>1) 设置session</p>
+<p>   将session作为数组操作就可以。</p>
+<p><img src="/images/php/1534479772737.png" alt="1534479772737"></p>
+<p>2) 读取session</p>
+<p><img src="/images/php/1534479789250.png" alt="1534479789250"></p>
+<h2 id="session作用范围"><a href="#session作用范围" class="headerlink" title="session作用范围"></a>session作用范围</h2><p>   在当前网站的任何一个页面设置过session，则该网站的所有页面都能得到该session的数据</p>
+<p>   例如: 在 <a href="http://www.jd.com" target="_blank" rel="noopener">www.jd.com</a> 的某个页面中设置session，那么在jd网站的任何一个页面都能找到该session</p>
+<p>   同理，在localhost的某个页面中设置session，那么在localhost的任何一个php页面都能找到</p>
+<p><img src="/images/php/1534480032772.png" alt="1534480032772"></p>
+<h2 id="session的有效期"><a href="#session的有效期" class="headerlink" title="session的有效期"></a>session的有效期</h2><pre><code>浏览器关闭时，session消失
+</code></pre><h2 id="删除session"><a href="#删除session" class="headerlink" title="删除session"></a>删除session</h2><p> unset($_SESSION[‘name’]);    //删除单个session</p>
+<p>   session_destroy();                   //删除所有session</p>
+<p><img src="/images/php/1534480227294.png" alt="1534480227294"></p>
 
       
     </div>
@@ -979,6 +864,10 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -998,11 +887,11 @@
 
 
   
-    <article id="post-HTML/07-Logo内容移除" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-PHP/26-cookie技术" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/09/16/HTML/07-Logo内容移除/" class="article-date">
-      <time datetime="2018-09-16T12:55:40.899Z" itemprop="datePublished">2018-09-16</time>
+      <a  href="/2017/04/27/PHP/26-cookie技术/" class="article-date">
+      <time datetime="2017-04-27T05:20:09.000Z" itemprop="datePublished">2017-04-27</time>
 </a>
 
     </div>
@@ -1012,36 +901,61 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/27/PHP/26-cookie技术/">26-cookie技术</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Logo内容移除"><a href="#Logo内容移除" class="headerlink" title="Logo内容移除"></a>Logo内容移除</h1><ul>
-<li>推荐将logo作为a标签的背景图片使用<ul>
-<li>推荐在logo中要设置文字，但是还要将该文字移除（用户体验）</li>
-<li>推荐使用text-indent 设置一个负值来移除logo中的内容<ul>
-<li>或者：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">font-size:<span class="number">0</span>px;</span><br><span class="line">color:transparent;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="盒子阴影"><a href="#盒子阴影" class="headerlink" title="盒子阴影"></a>盒子阴影</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: <span class="number">5</span>px <span class="number">5</span>px <span class="number">10</span>px green,</span><br><span class="line">           <span class="number">-5</span>px <span class="number">-5</span>px <span class="number">10</span>px red;</span><br></pre></td></tr></table></figure>
-<h2 id="设置盒子内阴影"><a href="#设置盒子内阴影" class="headerlink" title="设置盒子内阴影"></a>设置盒子内阴影</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:inset <span class="number">5</span>px <span class="number">5</span>px <span class="number">10</span>px green;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>注意：<ul>
-<li>盒子阴影不会改变盒子大小。</li>
-</ul>
-</li>
-</ul>
-<h2 id="滑动门"><a href="#滑动门" class="headerlink" title="滑动门"></a>滑动门</h2><ul>
-<li>制作导航（使用背景图片制作）</li>
-<li>核心：<ul>
-<li>使用背景图片</li>
-<li>导航的内容区域不能设置固定宽度，一定要使用内容讲导航撑开</li>
-</ul>
-</li>
-</ul>
+        <h1 id="cookie技术"><a href="#cookie技术" class="headerlink" title="cookie技术"></a>cookie技术</h1><h2 id="什么是cookie？"><a href="#什么是cookie？" class="headerlink" title="什么是cookie？"></a>什么是cookie？</h2><p>  cookie是将数据持久化存储到客户端的一种技术。</p>
+<p>   网站可以将数据写到浏览器中， 一个网站最多能在一个浏览器写20个cookie。</p>
+<p>   一个浏览器能够设置的总cookie数最多为300个，每个不能超过4kb。</p>
+<p>   cookie既能保存在文件中，也能保存在内存中。</p>
+<h2 id="设置-读取cookie"><a href="#设置-读取cookie" class="headerlink" title="设置/读取cookie"></a>设置/读取cookie</h2><p>1) 设置cookie</p>
+<p>   setcookie(var1 , var2, var3);</p>
+<p>   var1: cookie的名称</p>
+<p>   var2: 名称对应的值， 可选参数</p>
+<p>   var3: cookie的有效期， 可选参数</p>
+<p>   <img src="/images/php/1534478105079.png" alt="1534478105079"></p>
+<p>2) 读取cookie信息</p>
+<p>   使用php的超全局变量 $_COOKIE进行读取</p>
+<p>   <img src="/images/php/1534478123739.png" alt="1534478123739"></p>
+<p>   通过浏览器查看cookie信息:</p>
+<p>   <img src="/images/php/1534478176053.png" alt="1534478176053"></p>
+<p>   <img src="/images/php/1534478276084.png" alt="1534478276084"></p>
+<h2 id="cookie有效期"><a href="#cookie有效期" class="headerlink" title="cookie有效期"></a>cookie有效期</h2><p>  setcookie函数的参数3可以控制cookie有效期</p>
+<pre><code>参数3设置为-1 或者 不设置，关闭浏览器即失效
+参数3设置为 time()+秒数，则在当前时间点的多少秒之后失效
+</code></pre><p>  设置cookie时，如果设置了有效期，则cookie会保存在文件中；如果没有设置有效期，则cookie保存在内存中。</p>
+<h2 id="cookie的有效范围"><a href="#cookie的有效范围" class="headerlink" title="cookie的有效范围"></a>cookie的有效范围</h2><p>  <strong>setcookie函数还有参数4、5，可以用来控制cookie的有效访问，但是一般不用。</strong></p>
+<p>只需要记住下面的情况即可：   </p>
+<pre><code>在不使用参数4和5的情况下，cookie在当前目录及子目录中有效，在上层目录中无效。
+</code></pre><p><img src="/images/php/1534478631803.png" alt="1534478631803"></p>
+<h2 id="cookie删除"><a href="#cookie删除" class="headerlink" title="cookie删除"></a>cookie删除</h2><p> setcookie函数第二个参数设置为null，就可以删除cookie</p>
+<pre><code>setcookie(&apos;name&apos;, null);
+</code></pre><p><img src="/images/php/1534478730006.png" alt="1534478730006"></p>
+<h2 id="js控制cookie"><a href="#js控制cookie" class="headerlink" title="js控制cookie"></a>js控制cookie</h2><p> cookie是将数据保存在客户端的，所以可以使用javascript来读取/设置cookie。 </p>
+<p>   设置cookie:   document.cookie = “名称=值;expires=时间”</p>
+<p>   读取cookie:   document.cookie</p>
+<p>读取cookie:</p>
+<p><img src="/images/php/1534479056017.png" alt="1534479056017"></p>
+<p><img src="/images/php/1534479028505.png" alt="1534479028505"></p>
+<p>设置cookie:</p>
+<p>  expires: 用来指定cookie有效期的</p>
+<p><img src="/images/php/1534479410042.png" alt="1534479410042"></p>
+<h2 id="cookie原理"><a href="#cookie原理" class="headerlink" title="cookie原理"></a>cookie原理</h2><p>当浏览器访问一个带cookie的页面时，cookie会随着响应头返回给浏览器。</p>
+<p>  当再次访问该网站的页面时，cookie会随着请求头一起发送给服务器。</p>
+<p><img src="/images/php/1534556304079.png" alt="1534556304079"></p>
+<p><img src="/images/php/1534556836082.png" alt="1534556836082"></p>
 
       
     </div>
@@ -1051,6 +965,427 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/25-PHP会话控制" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/27/PHP/25-PHP会话控制/" class="article-date">
+      <time datetime="2017-04-27T02:01:32.000Z" itemprop="datePublished">2017-04-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/27/PHP/25-PHP会话控制/">25-PHP会话控制概述</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="会话控制概述"><a href="#会话控制概述" class="headerlink" title="会话控制概述"></a>会话控制概述</h1><p>1) http协议的缺陷</p>
+<pre><code>无状态，就是无记忆，不能让同一浏览器和服务器进行多次数据交换时，产生业务的连续性。
+</code></pre><p>2) 什么是会话控制</p>
+<pre><code>会话控制就是解决http无记忆的缺陷的。能够==将数据持久化的保存在客户端(浏览器)或者服务器端==，从而让浏览器和服务器进行多次数据交换时，产生连续性。
+</code></pre><p>3) 会话控制的分类</p>
+<pre><code>分为两种: cookie（客户端）  和  session（服务器端）
+</code></pre><p>cookie应用实例 — 千人千面（猜你喜欢）</p>
+<p><img src="/images/php/0002.png" alt="1534424615529"></p>
+<p>不同的用户访问优酷服务器所看的视频类型不一样。 服务器会将浏览器观看过的视频的关键词保存到浏览器的cookie中（文件、内存）。当浏览器再次访问优酷服务器时，服务器会从cookie中读取关键词，再根据关键词推荐视频。</p>
+<p>session应用实例 — 支付宝</p>
+<p><img src="/images/php/1534426142105.png" alt="1534426142105"></p>
+<p>每个用户访问支付宝进行登录时，用的是同一套程序。服务器会为每一个浏览器进行编号(sessionid)，当用户登录成功后，服务器会创建一个区域(文件、内存服务器)用来保存用户信息。等浏览器下一次访问服务器时，服务器先拿到浏览器的编号，再和已有的编号进行比较，找到相同的区域（文件、内存服务器）。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/24-修改信息于登录" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/27/PHP/24-修改信息于登录/" class="article-date">
+      <time datetime="2017-04-27T01:21:32.000Z" itemprop="datePublished">2017-04-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/27/PHP/24-修改信息于登录/">24-学生信息管理系统</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="修改学生信息"><a href="#修改学生信息" class="headerlink" title="修改学生信息"></a>修改学生信息</h1><p>核心：构造一条修改数据的SQL语句   </p>
+<p>   <strong>update student set sname=’’, sage=’’..  where sno=6</strong></p>
+<p><img src="/images/php/0004.png" alt="1525931034561"></p>
+<p>步骤:</p>
+<p> 1) 在学生列表页(list.php)为每一行都添加一个“编辑”按钮，跳转到编辑表单页(edit.php)，并且要将当前行的sno一起传递到edit.php页面。</p>
+<p> <img src="/images/php/1534470480931.png" alt="1534470480931"></p>
+<p> 2) 创建edit.php页面(和add.html页面结构一样)，接收sno，拼接SQL语句并执行，得到一个一维数组，将该数组的值填充到表单中。</p>
+<p>  ① 接收sno</p>
+<p>  ② 根据sno 查询学生信息</p>
+<p>  ③ 将学生信息显示到表单中  – 将add.html中的表单复制过来，稍作修改即可</p>
+<p>  ④ 保证表单能够提交到modify.php页面即可</p>
+<p><img src="/images/php/1534472770097.png" alt="1534472770097"></p>
+<p><img src="/images/php/1534472786290.png" alt="1534472786290"></p>
+<p>3) 创建一个修改页面(modify.php)，接收edit.php页面表单中的值，拼接一个修改的SQL语句，执行该SQL语句。根据修改结果提示修改成功/修改失败，再跳转</p>
+<p> ① 接收表单提交的数据</p>
+<p> ② 编写修改的SQL语句 — update</p>
+<p> ③ 链接MySQL服务器并执行SQL语句</p>
+<p><img src="/images/php/1534472861491.png" alt="1534472861491"></p>
+<p><img src="/images/php/1534472871239.png" alt="1534472871239"></p>
+<p>关于排错: </p>
+<pre><code>核心思想: 如果一个程序中有SQL语句执行，那么该程序出现错误，第一反应去检查SQL语句。
+
+检查方法:
+
+     1) 在php页面中使用echo 将sql语句进行输出
+
+      2) 在页面上复制SQL语句到navicat中进行测试
+</code></pre><p>   第一步:</p>
+<p><img src="/images/php/1534471889871.png" alt="1534471889871"></p>
+<p><img src="/images/php/1534471933626.png" alt="1534471933626"></p>
+<p><img src="/images/php/1534472010096.png" alt="1534472010096"></p>
+<p>将SQL语句复制到navicat中执行，获取错误信息。</p>
+<p><img src="/images/php/1534472183035.png" alt="1534472183035"></p>
+<h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><p><img src="/images/php/0001.png" alt="1534422493447"></p>
+<p>验证逻辑:</p>
+<p> 1) 根据用户名从ali_admin表中查询数据。如果有结果，则说明用户名正确；反之，说明用户名错误。</p>
+<p> 2) 登录表单提交密码和上一步查询出的密码进行比对，两者相等说明密码正确；反之，密码错误。</p>
+<p>代码实现:</p>
+<p>1) 创建login.html 登录表单页</p>
+<p><img src="/images/php/1534475186781.png" alt="1534475186781"></p>
+<p>2)  创建check.php文件</p>
+<p>  ① 接收表单提交的数据</p>
+<p>  ② 验证用户名是否正确</p>
+<pre><code>核心思路:  根据接收的用户名查询ali_admin表，如果能够查询到数据，说明用户名正确；反之，查询不到数据说明用户名错误。
+
+ 核心SQL: ==select * from ali_admin where admin_email=&apos;$email&apos;==
+
+ 该SQL语句的执行结果，只能是0条数据 或者 1条数据
+</code></pre><p>  ③ 验证密码是否正确</p>
+<p>   核心思路:  验证从数据表中查询出的数据中的密码和表单提交的密码是否一致。如果一致，则说明密码正确，可以正常登录；反之，说明密码错误，跳转到login.html页面</p>
+<p><img src="/images/php/1534475375825.png" alt="1534475375825"></p>
+<p><img src="/images/php/1534475387591.png" alt="1534475387591"></p>
+<p>测试: 直接访问 list.php页面，依然可以看到页面结果。 因为http协议是无记忆协议，不知道哪个浏览器来过，所以没办法限制是否能够正常访问到哪个页面。</p>
+<p>要实现限制的功能，必须配合 <strong>会话控制</strong>技术</p>
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想:"></a>核心思想:</h2><pre><code>1) 登录成功时将用户重要信息写入session
+
+2) 在其他每个页面中都进行session是否存在的验证
+</code></pre><p>1) 登录成功时，设置session</p>
+<p><img src="/images/php/1534555270715.png" alt="1534555270715"></p>
+<p>2) 在其他页面中检测session是否存在</p>
+<p><img src="/images/php/1534555378519.png" alt="1534555378519"></p>
+<p>3) 将检测session 的代码复制到每个页面中，除了 login.html 和 check.php</p>
+<p><img src="/images/php/1534555451516.png" alt="1534555451516"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL-PHP/">MySQL PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/23-信息管理系统" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/26/PHP/23-信息管理系统/" class="article-date">
+      <time datetime="2017-04-26T08:14:32.000Z" itemprop="datePublished">2017-04-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/26/PHP/23-信息管理系统/">23-学生信息管理系统</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="学生信息管理系统"><a href="#学生信息管理系统" class="headerlink" title="学生信息管理系统"></a>学生信息管理系统</h1><p><strong>目标: 通过PHP网页来管理数据库，对数据表的数据进行增删改查</strong></p>
+<p>数据表设计:</p>
+<pre><code>sno： 学号  整型  无符号  主键  自增长
+sname： 姓名  字符串
+sage： 年龄 无符号 微整型
+sgender： 性别 枚举
+semail： 邮箱
+stel： 电话
+
+
+create table student(
+sno int UNSIGNED auto_increment PRIMARY key,
+sname VARCHAR(30) not null,
+sage tinyint UNSIGNED not null,
+sgender enum(&apos;男&apos;, &apos;女&apos;) DEFAULT &apos;男&apos;,
+semail varchar(30),
+stel   char(11)
+) engine=myisam DEFAULT charset=utf8;
+</code></pre><p>测试数据:</p>
+<p>INSERT INTO student VALUES (‘1’, ‘赵老四’, ‘30’, ‘男’, <a href="mailto:&#39;zls@a.com" target="_blank" rel="noopener">&#39;zls@a.com</a>‘, ‘13512345678’);</p>
+<p>INSERT INTO student VALUES (‘2’, ‘王翠花’, ‘28’, ‘女’, <a href="mailto:&#39;wch@b.com" target="_blank" rel="noopener">&#39;wch@b.com</a>‘, ‘13612345678’);</p>
+<p>INSERT INTO student VALUES (‘3’, ‘孙狗剩’, ‘32’, ‘男’, <a href="mailto:&#39;sgs@c.com" target="_blank" rel="noopener">&#39;sgs@c.com</a>‘, ‘13712345678’);</p>
+<h2 id="学生信息列表"><a href="#学生信息列表" class="headerlink" title="学生信息列表"></a>学生信息列表</h2><p>核心SQL:  select  *  from  student</p>
+<p> 将student表的数据以表格形式显示在网页上</p>
+<p><img src="/images/php/01.png" alt="1534258428616"></p>
+<p> 1) 从student表中获取数据</p>
+<p> <img src="/images/php/1534303266774.png" alt="1534303266774"></p>
+<p> 2) 将获取的数据显示表格</p>
+<p> <img src="/images/php/1534303304520.png" alt="1534303304520"></p>
+<p> 3) 释放资源</p>
+<p> <img src="/images/php/1534303325933.png" alt="1534303325933"></p>
+<h2 id="添加学生信息"><a href="#添加学生信息" class="headerlink" title="添加学生信息"></a>添加学生信息</h2><p> 核心SQL:  insert into student values(null, ‘路飞’, 10, ‘男’, <a href="mailto:&#39;lf@dasd.com" target="_blank" rel="noopener">&#39;lf@dasd.com</a>‘, 18012345678);</p>
+<p> <img src="/images/php/4564646546545646.png" alt="1528439313954"></p>
+<p> 代码实现:</p>
+<p>add.html  —-   提供一个可以填写的表单</p>
+<p><img src="/images/php/1534305511046.png" alt="1534305511046"></p>
+<p>add_deal.php</p>
+<p>  1) 接收表单数据</p>
+<p>  2) 拼接SQL语句</p>
+<p>  3) 链接MySQL服务器并执行SQL语句</p>
+<p>  4) 处理SQL执行结果： 判断结果，如果是true说明添加成功，如果是false说明添加失败</p>
+<p>  5) 关闭数据库链接</p>
+<p><img src="/images/php/1534305668178.png" alt="1534305668178"></p>
+<p><img src="/images/php/1534305682999.png" alt="1534305682999"></p>
+<h2 id="删除学生"><a href="#删除学生" class="headerlink" title="删除学生"></a>删除学生</h2><p>核心SQL:  <strong>delete from student where sno=5</strong></p>
+<p><img src="/images/php/03.png" alt="1525930130559"></p>
+<p>步骤: </p>
+<p>   1) 在学生信息列表页(index.php)，为每一行都添加一个删除按钮，删除按钮可以跳转到另一个php(del.php)页面，在跳转时，将当前行的sno一起传递到del.php页面。</p>
+<p><img src="/images/php/1534306751175.png" alt="1534306751175"></p>
+<p>   2) del.php页面，接收sno，拼接删除的sql语句，再执行该SQL。再根据删除结果提示删除成功/删除失败。跳转回学生列表页。</p>
+<p>  ① 接收学号 sno</p>
+<p>  ② 拼接删除的SQL语句</p>
+<p>  ③ 链接MySQL服务器并执行SQL语句</p>
+<p><img src="/images/php/1534306776699.png" alt="1534306776699"></p>
+<p><img src="/images/php/1534306790027.png" alt="1534306790027"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL-PHP/">MySQL PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/22-PHP操作MySQL" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/26/PHP/22-PHP操作MySQL/" class="article-date">
+      <time datetime="2017-04-26T06:34:42.000Z" itemprop="datePublished">2017-04-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/26/PHP/22-PHP操作MySQL/">22-PHP操作MySQL</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="PHP操作MySQL"><a href="#PHP操作MySQL" class="headerlink" title="PHP操作MySQL"></a>PHP操作MySQL</h1><p>PHP当中一共有三组函数可以用来操作MySQL服务器： mysql    mysqli   pdo</p>
+<p>   PHP操作数据库是固定流程，一共6步:</p>
+<p>   1) 链接MySQL服务器  </p>
+<p>   2) 选择要操作的数据库</p>
+<p>   3) 设置字符集 （不设置字符集可能会出现乱码问题）</p>
+<p>   4) 执行SQL语句</p>
+<p>   5) 处理SQL执行结果</p>
+<p>   6) 关闭MySQL链接</p>
+<p>   除了第五步，其他每一步都是固定的，对应一个mysql的函数</p>
+<p> 1) 链接MySQL服务器 — mysql_connect(var1, var2, var3)</p>
+<p>  参数1: MySQL数据库的主机地址</p>
+<p>  参数2: MySQL用户名  （root）</p>
+<p>  参数3: 用户名对应的密码</p>
+<p>  返回值: 数据库链接资源</p>
+<p>  <code>$conn = mysql_connect(&#39;localhost&#39;, &#39;root&#39;, &#39;root&#39;);</code></p>
+<p>  2) 选择要操作的数据库  — mysql_select_db(var)</p>
+<p>  参数1: 数据库名称</p>
+<p> <code>mysql_select_db(&#39;demo&#39;);</code></p>
+<p>   3) 设置字符集 — mysql_query(var);</p>
+<p>  参数1: sql 语句 —-  set names utf8  (设置字符集的sql语句)</p>
+<p>  <code>mysql_query(&#39;set names utf8&#39;);</code></p>
+<p>   4) 执行SQL语句 — mysql_query(var);</p>
+<p>  参数: sql 语句 —-  增删改查SQL语句</p>
+<p>  返回值: 如果是查询，则返回结果集（资源），该资源里面包含了从数据表中取出的数据</p>
+<pre><code>如果是增删改，则返回布尔值，执行成功返回true，失败返回false
+</code></pre><p>  <code>$result = mysql_query($conn, $sql);</code></p>
+<p>5) 处理 <strong>查询结果</strong></p>
+<p> <strong>mysql_fetch_assoc(var);</strong></p>
+<p>  参数: 查询结果集（资源）</p>
+<p>  返回值: 一维数组，下标是数据表字段</p>
+<p>  将当前行的数据取出并返回成一维数组，同时将指针向下移动一行。</p>
+<p>  如果已经无法返回一维数组时，则返回false </p>
+<p>   6) 关闭MySQL链接资源 — mysql_close(var)</p>
+<p>   参数: 数据库链接资源</p>
+<p>案例: 向test库中的student表中，增加一条数据</p>
+<p><img src="/images/php/1534299226350.png" alt="1534299226350"></p>
+<p><img src="/images/php/1534299257926.png" alt="1534299257926"></p>
+<p> 案例: 查询student表，并将数据以表格形式显示在网页上</p>
+<p> <img src="/images/php/1534302509227.png" alt="1534302509227"></p>
+<p> <img src="/images/php/1534302540798.png" alt="1534302540798"></p>
+<p> <img src="/images/php/1534302553169.png" alt="1534302553169"></p>
+<p> 核心: mysql_fetch_assoc的执行原理</p>
+<p> <img src="/images/php/1534302580309.png" alt="1534302580309"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL-PHP/">MySQL PHP</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -1072,7 +1407,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1081,7 +1416,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2018 Mr.张先生。
+                &copy; 2018 Mr.张
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/zhangxx1990" target="_blank">Blog</a> by tommy

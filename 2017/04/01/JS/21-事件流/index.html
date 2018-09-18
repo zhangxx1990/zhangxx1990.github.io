@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>21-事件流 | 小新的博客.一个文艺青年的前端小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="事件流事件冒泡当一个元素的事件被触发时，同样的 事件将会在该元素的所有祖先元素中依次被触发。这一过程被称为 事件冒泡。 传递的顺序为由内向外。 1.事件冒泡是默认的事件传递方式   2.执行顺序   说白了就是：当我们触发了子元素的某个事件后，父元素对应的事件也会触发。  通常情况，事件冒泡对于我们来说是没有问题的，我们直接不管就行了，但是如果当事件冒泡给我们带来影响的时候，我们需要阻止事件冒泡。">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="21-事件流">
+<meta property="og:url" content="http://zhangxiuxin.top/2017/04/01/JS/21-事件流/index.html">
+<meta property="og:site_name" content="小新的博客.一个文艺青年的前端小站">
+<meta property="og:description" content="事件流事件冒泡当一个元素的事件被触发时，同样的 事件将会在该元素的所有祖先元素中依次被触发。这一过程被称为 事件冒泡。 传递的顺序为由内向外。 1.事件冒泡是默认的事件传递方式   2.执行顺序   说白了就是：当我们触发了子元素的某个事件后，父元素对应的事件也会触发。  通常情况，事件冒泡对于我们来说是没有问题的，我们直接不管就行了，但是如果当事件冒泡给我们带来影响的时候，我们需要阻止事件冒泡。">
+<meta property="og:locale" content="Zhang-Xiu-xin">
+<meta property="og:updated_time" content="2018-09-18T07:53:29.985Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="21-事件流">
+<meta name="twitter:description" content="事件流事件冒泡当一个元素的事件被触发时，同样的 事件将会在该元素的所有祖先元素中依次被触发。这一过程被称为 事件冒泡。 传递的顺序为由内向外。 1.事件冒泡是默认的事件传递方式   2.执行顺序   说白了就是：当我们触发了子元素的某个事件后，父元素对应的事件也会触发。  通常情况，事件冒泡对于我们来说是没有问题的，我们直接不管就行了，但是如果当事件冒泡给我们带来影响的时候，我们需要阻止事件冒泡。">
+  
+    <link rel="alternative" href="/atom.xml" title="小新的博客.一个文艺青年的前端小站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Mr.张</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/article/HTML">文章目录</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱编程，爱运动，爱动漫，爱游戏！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mr.张</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Mr.张</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/article/HTML">文章目录</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-JS/21-事件流" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/01/JS/21-事件流/" class="article-date">
+      <time datetime="2017-04-01T02:05:02.000Z" itemprop="datePublished">2017-04-01</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      21-事件流
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h1><h2 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h2><p>当一个元素的事件被触发时，同样的 <strong>事件将会在该元素的所有祖先元素中依次被触发</strong>。这一过程被称为 <strong>事件冒泡</strong>。</p>
+<h3 id="传递的顺序为由内向外。"><a href="#传递的顺序为由内向外。" class="headerlink" title="传递的顺序为由内向外。"></a>传递的顺序为由内向外。</h3><ul>
+<li>1.事件冒泡是默认的事件传递方式  </li>
+<li>2.执行顺序</li>
+</ul>
+<ul>
+<li>说白了就是：当我们触发了子元素的某个事件后，父元素对应的事件也会触发。</li>
+</ul>
+<p>通常情况，<strong>事件冒泡</strong>对于我们来说是没有问题的，我们直接不管就行了，但是如果当事件冒泡给我们带来影响的时候，我们需要阻止事件冒泡。</p>
+<h3 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h3><ul>
+<li><p><strong>阻止事件冒泡</strong>有浏览器兼容性问题</p>
+</li>
+<li><p>正常浏览器</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    link.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    	event = event || <span class="built_in">window</span>.event;</span><br><span class="line">    	<span class="comment">//stop :停止  propagation：传播</span></span><br><span class="line">    	event.stopPropagation();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="阻止事件传播"><a href="#阻止事件传播" class="headerlink" title="阻止事件传播"></a>阻止事件传播</h3><blockquote>
+<p><strong>stopPropagation()</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">box.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">'box'</span>);</span><br><span class="line">          &#125;;</span><br><span class="line">          text.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">              e.stopPropagation();</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">'text'</span>);</span><br><span class="line">          &#125;;</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="取消标签的默认事件效果"><a href="#取消标签的默认事件效果" class="headerlink" title="取消标签的默认事件效果"></a>取消标签的默认事件效果</h2><h3 id="方式有两种"><a href="#方式有两种" class="headerlink" title="方式有两种:"></a>方式有两种:</h3><ul>
+<li>return false;</li>
+<li>e.preventDefault()</li>
+</ul>
+<p>推荐使用return false;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> link = <span class="built_in">document</span>.getElementById(<span class="string">'link'</span>);</span><br><span class="line">link.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'这是a标签的事件'</span>);</span><br><span class="line">    <span class="comment">//取消标签的默认事件效果方式有两种，推荐使用return false;</span></span><br><span class="line">    <span class="comment">//return false;</span></span><br><span class="line">    e.preventDefault()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h2><p><strong>事件捕获</strong>是火狐浏览器提出来的，IE678不支持事件捕获（基本上，我们都是用事件冒泡）</p>
+<p>事件的处理将从DOM层次的根开始，而不是从触发事件的目标元素开始，<strong>事件被从目标元素的所有祖先元素依次往下传递</strong> 。这种事件的传递方式称为事件捕获。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当addEventListener第三个参数为true时，表示事件捕获</span></span><br><span class="line">arr[i].addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>由于事件捕获不是默认的方式，需要采addEventListener进行设置</li>
+<li>使用参数3 表示事件采用事件冒泡或事件捕获的形式执行</li>
+<li>true 表示捕获，false表示事件冒泡，默认为false</li>
+</ul>
+<p><strong>事件捕获的执行顺序：</strong></p>
+<ul>
+<li>与事件冒泡相反,由内向外。</li>
+</ul>
+<h2 id="事件的三个阶段"><a href="#事件的三个阶段" class="headerlink" title="事件的三个阶段"></a>事件的三个阶段</h2><ul>
+<li>js中进行事件执行监听的‘人’只有一个，这个人是js中的事件机制</li>
+</ul>
+<ul>
+<li>任意的元素触发事件后都会经历3个阶段.依次为</li>
+</ul>
+<ul>
+<li>我们设置的事件冒泡或事件捕获只是决定了某个事件在哪个阶段会被执行<ul>
+<li>事件的捕获阶段   （人过来了）</li>
+<li>事件的目标阶段   （触发自己的事件）<ul>
+<li>当前目标阶段  (人在做事情)</li>
+</ul>
+</li>
+<li>事件的冒泡阶段 (人走了)</li>
+</ul>
+</li>
+</ul>
+<p>事件有三个阶段，首先发生的是捕获阶段，然后是目标阶段，最后才是冒泡阶段，对于捕获和冒泡，我们只能干预其中的一个，通常来说，我们可能会干预事件冒泡阶段，而不去干预事件捕获阶段。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//true表示事件捕获， false表示事件冒泡，默认为false</span></span><br><span class="line">box1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'box1'</span>);</span><br><span class="line">        &#125;,<span class="literal">true</span>);</span><br><span class="line">        </span><br><span class="line">        box2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'box2'</span>);</span><br><span class="line">        &#125;,<span class="literal">true</span>);</span><br><span class="line">        </span><br><span class="line">        box3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'box3'</span>);</span><br><span class="line">        &#125;,<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h2><p>​<strong>概念：</strong> 将内部元素的事件设置给父级元素(将内部元素的事件委托给父级元素设置)</p>
+<ul>
+<li><strong>作用：</strong><ul>
+<li>1.可以减少事件的设置个数，对内部元素的事件进行统一管理</li>
+<li>2.可以解决动态创建的元素没有事件的问题</li>
+</ul>
+</li>
+</ul>
+<h2 id="常见的事件"><a href="#常见的事件" class="headerlink" title="常见的事件"></a>常见的事件</h2><ul>
+<li><p>常见的鼠标事件</p>
+<pre><code>onmousedown: 鼠标按下事件
+
+onmouseup:   鼠标弹起事件
+
+onclick:     单击事件
+
+ondblclick： 双击事件
+
+onmouseover：鼠标经过事件
+
+onmouseout： 鼠标离开事件
+
+onmousemove：鼠标移动事件
+
+onfocus：    鼠标获得焦点事件
+
+onblur：     鼠标失去焦点事件
+</code></pre></li>
+<li><p>常见的键盘事件</p>
+<pre><code>onkeydown:   键盘按下时触发
+
+onkeyup:     键盘弹起时触发
+</code></pre></li>
+</ul>
+<p>对于鼠标事件，事件对象中有一系列的XY记录了鼠标的位置信息。而键盘事件中，事件对象有一个event.keyCode属性，记录了按下去的键的键盘码。</p>
+<h1 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h1><h2 id="事件对象的概述"><a href="#事件对象的概述" class="headerlink" title="事件对象的概述"></a>事件对象的概述</h2><blockquote>
+<p>在触发某个事件的时候，都会产生一个事件对象Event，这个对象中包含所有与事件相关的一些信息，包括触发事件的元素，事件的类型以及其他与事件相关的信息。</p>
+</blockquote>
+<p>当我们进行事件触发后，某些特殊的信息是我们自己无法得到的（坐标等信息…）</p>
+<p>js的事件会给我们提供这些信息，我们只需要利用某些方式得到后进行使用即可。</p>
+<p>由于得到的数据是一组值，为对象结果，所以也称为<strong>事件对象。</strong></p>
+<ul>
+<li><p>鼠标事件触发时，事件对象中会包含鼠标的位置信息。</p>
+</li>
+<li><p>键盘事件触发时，事件对象中会包含按下的键相关的信息。</p>
+<p>​</p>
+</li>
+</ul>
+<blockquote>
+<pre><code>每一个事件在触发时，都会产生一个事件对象。
+
+你见或者不见，我就在那里，不悲不喜。
+
+你爱或者不爱，爱就在那里，不增不减。
+
+你用或者不用，我都会给你，不离不弃。 
+</code></pre></blockquote>
+<ul>
+<li>接收的方式：<ul>
+<li>1.在事件处理程序的形参位置接收一个参数，这种方式ie9以下不支持</li>
+<li>2.在ie以下可以使用一个window.event对象进行操作</li>
+</ul>
+</li>
+</ul>
+<h2 id="获取事件对象"><a href="#获取事件对象" class="headerlink" title="获取事件对象"></a>获取事件对象</h2><blockquote>
+<p>既然事件对象中存储了这么多的信息，我们首先需要做的就是获取到这个事件对象。获取事件对象的时候，存在浏览器的兼容问题。</p>
+</blockquote>
+<p>对于现代浏览器，获取事件对象非常的简单，只需要在注册事件的时候，指定一个形参即可。这个形参就是我们想要获取到的事件对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//event就是事件对象，里面包含了事件触发时的一些信息。</span></span><br><span class="line">    <span class="built_in">console</span>.log(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对于IE678来说，获取事件对象则是另一种方式，在事件里面，通过window.event来获取事件对象</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//IE678通过window.event获取事件对象</span></span><br><span class="line">    <span class="keyword">var</span> event = <span class="built_in">window</span>.event;</span><br><span class="line">    <span class="built_in">console</span>.log(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>兼容性封装<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//只要用到了事件对象，就要记得处理浏览器兼容性</span></span><br><span class="line">    event = event || <span class="built_in">window</span>.event;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="事件对象的常用属性"><a href="#事件对象的常用属性" class="headerlink" title="事件对象的常用属性"></a>事件对象的常用属性</h2><p>事件对象中有很多很多的属性，但是很多属性并不常用。我们经常用到的是<strong>鼠标位置信息</strong>和<strong>键盘码</strong>相关的信息。</p>
+<ul>
+<li>记录了鼠标位置信息的相关属性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">clientX与clientY：光标相对于可视区左上角的水平位置和垂直位置。</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</span><br><span class="line">        <span class="comment">//在页面任意位置点击鼠标时，获取鼠标坐标，将元素box移动到点击位置</span></span><br><span class="line">        <span class="comment">//mousemove   鼠标移动时触发事件</span></span><br><span class="line">        <span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">            <span class="comment">//clientX   针对页面可视区域的横坐标</span></span><br><span class="line">            <span class="comment">//clientY   针对页面可视区域的纵坐标</span></span><br><span class="line">            <span class="built_in">console</span>.log(e.clientX,e.clientY);</span><br><span class="line">            box.style.left = e.clientX + <span class="string">'px'</span>;</span><br><span class="line">            box.style.top = e.clientY + <span class="string">'px'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>记录了键盘码的属性</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.keyCode:键盘按下的那个键的键盘码</span><br></pre></td></tr></table></figure>
+<h2 id="放大镜效果（练习）"><a href="#放大镜效果（练习）" class="headerlink" title="放大镜效果（练习）"></a>放大镜效果（练习）</h2><p>放大镜在开发中是一个很常见的特效，但是所有的放大镜的实现效果都是一样</p>
+<p>mousemove事件：鼠标移动时会触发这个事件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"鼠标移动事件在触发"</span>);  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>获取鼠标在盒子中的位置：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> spaceX = getPage(event).x - box.offsetLeft;</span><br><span class="line"><span class="keyword">var</span> spaceY = getPage(event).y - box.offsetTop;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/04/01/JS/21-事件流/">21-事件流</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Mr.张 的个人博客">Mr.张</a></p>
+        <p><span>发布时间:</span>2017年04月01日 - 10时05分</p>
+        <p><span>最后更新:</span>2018年09月18日 - 15时53分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/01/JS/21-事件流/" title="21-事件流">http://zhangxiuxin.top/2017/04/01/JS/21-事件流/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://zhangxiuxin.top/2017/04/01/JS/21-事件流/　　作者: Mr.张" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2017/04/02/JS/22-BOM.window对象/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          22-BOM
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2017/04/01/JS/20-注册事件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">20-注册事件</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#事件流"><span class="toc-number">1.</span> <span class="toc-text">事件流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件冒泡"><span class="toc-number">1.1.</span> <span class="toc-text">事件冒泡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传递的顺序为由内向外。"><span class="toc-number">1.1.1.</span> <span class="toc-text">传递的顺序为由内向外。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阻止事件冒泡"><span class="toc-number">1.1.2.</span> <span class="toc-text">阻止事件冒泡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阻止事件传播"><span class="toc-number">1.1.3.</span> <span class="toc-text">阻止事件传播</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#取消标签的默认事件效果"><span class="toc-number">1.2.</span> <span class="toc-text">取消标签的默认事件效果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方式有两种"><span class="toc-number">1.2.1.</span> <span class="toc-text">方式有两种:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件捕获"><span class="toc-number">1.3.</span> <span class="toc-text">事件捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的三个阶段"><span class="toc-number">1.4.</span> <span class="toc-text">事件的三个阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件委托"><span class="toc-number">1.5.</span> <span class="toc-text">事件委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见的事件"><span class="toc-number">1.6.</span> <span class="toc-text">常见的事件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件对象"><span class="toc-number">2.</span> <span class="toc-text">事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件对象的概述"><span class="toc-number">2.1.</span> <span class="toc-text">事件对象的概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取事件对象"><span class="toc-number">2.2.</span> <span class="toc-text">获取事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件对象的常用属性"><span class="toc-number">2.3.</span> <span class="toc-text">事件对象的常用属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#放大镜效果（练习）"><span class="toc-number">2.4.</span> <span class="toc-text">放大镜效果（练习）</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2017/04/02/JS/22-BOM.window对象/" title="上一篇: 22-BOM">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/04/01/JS/20-注册事件/" title="下一篇: 20-注册事件">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/13-Ajax跨域/">13-Ajax跨域</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/12-虚拟主机配置/">12-虚拟主机配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/11-模板引擎/">11-ArtTemplate模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/10-封装方法/">10-封装方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/09-jQuery提供的Ajax方法/">09-jQuery提供的Ajax方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/08-JSON/">08-JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/07-文件上传与进度条/">07-文件上传与进度条</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/06-XMLHttpRequest2.0新特性/">06-XMLHttpRequest2.0新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/05-同步和异步/">05-同步和异步</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/04-GET缓存/">04-GET缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/03-POST和GET的区别/">03-POST和GET的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/02-Ajax入门/">02-Ajax入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/01-Ajax技术/">01-Ajax 技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/28-cookie和session的联系/">28-session和cookie的联系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/27-session技术/">27-session技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/26-cookie技术/">26-cookie技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/25-PHP会话控制/">25-PHP会话控制概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/24-修改信息于登录/">24-学生信息管理系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/23-信息管理系统/">23-学生信息管理系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/22-PHP操作MySQL/">22-PHP操作MySQL</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/21-删除数据/">21-删除数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/20-修改数据/">20-修改数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/19-添加数据/">19-添加数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/jQuery/16-jquery操作DOM(节点)/">16-jquery操作DOM(节点)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/18-数据查询/">18-数据查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/17-关系型数据库介绍/">17-创建数据表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/16-创建数据表/">16-创建数据表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/15-创建、删除数据库/">15-创建/删除数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/14-MySQL数据库服务器/">14-MySQL数据库服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/jQuery/15-jquery动画/">15-jquery动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/jQuery/14-jQuery操作样式/">14-jQuery操作样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/13-Http协议/">13-Http协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/12-PHP文件读写/">12-PHP文件读写</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/11-PHP常用函数/">11-PHP函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/13-jQuery插件机制/">13-jQuery插件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/12-jQuery多库共存/">12-jQuery多库共存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/11-jQuery链式编程与隐式迭代/">11-jQuery链式编程与隐式迭代</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/10-PHP函数/">10-PHP函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/10-jQuery事件对象/">10-jQuery事件对象（）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/09-PHP文件上传/">09-PHP文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jQuery/09-jQuery的on事件绑定与解绑/">09-jQuery的on事件绑定与解绑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/08-PHP超全局变量/">08-PHP超全局变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/07-PHP数组/">07-PHP数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/jQuery/08-jQuery事件机制/">08-jQuery事件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/06-PHP流程控制/">06-PHP流程控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/jQuery/07-jQuery操作坐标值/">07-jQuery操作坐标值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/05-PHP变量、常量、运算符/">05-PHP变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/04-PHP运行原理/">04-PHP运行原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/03-PHP初识/">03-PHP介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/02-PHP安装环境/">02-PHP安装环境 （phpstudy）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/PHP/01-PHP介绍/">01-PHP介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/06-jQuery操作尺寸/">06-jQuery操作尺寸</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/05-jQuery操作值与内容/">05-jQuery操作值与内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery/04-jQuery操作DOM/">04-jQuery操作DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/03-jQuery选择器/">03-jQuery选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/02-jQuery入口函数/">02-jQuery入口函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/jQuery/01-jQuery简介/">01-jQuery简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/JS/40-伪数组和数组/">40-伪数组和数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/18/JS/39-正则表达式/">39-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/17/JS/38-函数递归/">38-函数递归</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/16/JS/37-闭包/">37-闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/JS/36-作用域、作用域链、预解析/">36-作用域、作用域链、预解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/JS/35-函数进阶/">35-函数进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/JS/34-继承与多态/">34-继承与多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/JS/33-原型/">33-原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/JS/32-构造函数/">32-构造函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/JS/31-创建对象/">31-创建对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/JS/30-面向对象/">30-面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/JS/29-回顾掌握/">29-回顾掌握</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/JS/28-轮播图/">28-js原生轮播图</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/JS/27-动画运动/">27-动画运动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/08/JS/26-定时器/">26-定时器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/JS/25-异步任务/">25-异步任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/JS/24-offset系列/">24-offset系列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/JS/23-location与navigator与history对象/">23-location与navigator与history对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/JS/22-BOM.window对象/">22-BOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/21-事件流/">21-事件流</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/20-注册事件/">20-注册事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/JS/19-节点/">19-节点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/JS/18-表单属性与事件/">18-表单属性与事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/JS/17-兼容性/">17-兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/JS/16-事件/">16-事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/26/JS/15-Web API介绍/">15-Web API 简单介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/12-Date类型对象/">12-Date类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/14-String类型对象/">14-String类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/JS/13-Array类型对象/">13-Array类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/JS/11-内置对象/">11-内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/JS/10-基本数据类型和引用数据类型/">10-基本数据类型和引用数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/JS/09-对象/">09-对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/JS/08-函数/">08-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/JS/07-数组/">07-数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/06-流程控制/">06-流程控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/05-数据类型转换/">05-数据类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/04-运算符/">04-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/03-数据类型/">03-数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/02-变量/">02-变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/01-Js组成、输出、书写方式、调试循序与规范  /">01-Js组成、输出、书写方式、调试循序与规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/HTML/13-伸缩布局/">11-伸缩布局【弹性布局】(display:flex;)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/HTML/12-动画/">10-动画(animation)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/HTML/11-3D转换/">09-3D转换(transform)【变形】</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/HTML/10-2D转换/">08-2D转换(transform)【变形】</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/13/HTML/09-过渡/">07-过渡（transition）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/08-Web字体/">06-Web字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/07-Logo内容移除/">05-Logo内容移除</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/HTML/06-定位/">04-定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/05-浮动/">03-浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/04-渐变与盒子模型/">02-渐变与盒模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/03-css基础/">01-CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/02-列表/">02-列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HTML/01-HTML基础/">01-HTML基础</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mr.张
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/zhangxx1990" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
