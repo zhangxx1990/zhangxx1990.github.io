@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>08-函数 | 小新的博客.一个文艺青年的前端小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="函数概念 函数就是功能，也是引用类型的数据。简单理解就是一个 功能，功能可以反复调用。 函数的作用   封装性，将执行代码封闭在一个独立的执行环境中。可以反复调用，减少代码冗余  类型 function  函数创建 函数创建有两种方式  函数表达式；  var 函数名 = function( ){};   函数声明  function 函数名( ){ 函数名和变量名的命名规则规范一样 ​">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="08-函数">
+<meta property="og:url" content="http://zhangxiuxin.top/2017/02/21/JS/08-函数/index.html">
+<meta property="og:site_name" content="小新的博客.一个文艺青年的前端小站">
+<meta property="og:description" content="函数概念 函数就是功能，也是引用类型的数据。简单理解就是一个 功能，功能可以反复调用。 函数的作用   封装性，将执行代码封闭在一个独立的执行环境中。可以反复调用，减少代码冗余  类型 function  函数创建 函数创建有两种方式  函数表达式；  var 函数名 = function( ){};   函数声明  function 函数名( ){ 函数名和变量名的命名规则规范一样 ​">
+<meta property="og:locale" content="Zhang-Xiu-xin">
+<meta property="og:updated_time" content="2018-09-19T07:54:59.933Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="08-函数">
+<meta name="twitter:description" content="函数概念 函数就是功能，也是引用类型的数据。简单理解就是一个 功能，功能可以反复调用。 函数的作用   封装性，将执行代码封闭在一个独立的执行环境中。可以反复调用，减少代码冗余  类型 function  函数创建 函数创建有两种方式  函数表达式；  var 函数名 = function( ){};   函数声明  function 函数名( ){ 函数名和变量名的命名规则规范一样 ​">
+  
+    <link rel="alternative" href="/atom.xml" title="小新的博客.一个文艺青年的前端小站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Mr.张</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">主页</a></li>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/article/catalog">文章目录</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱编程，爱运动，爱动漫，爱游戏！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mr.张</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Mr.张</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">愿我的只言片语，为你的成长带来帮助！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/article/catalog">文章目录</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/zhangxx1990" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/u/2270567121?refer_flag=1001030101_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-JS/08-函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/02/21/JS/08-函数/" class="article-date">
+      <time datetime="2017-02-21T01:20:55.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      08-函数
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>函数就是功能，也是引用类型的数据。<br>简单理解就是一个 功能，功能可以反复调用。<ul>
+<li>函数的作用</li>
+</ul>
+</li>
+<li>封装性，将执行代码封闭在一个独立的执行环境中。可以反复调用，减少代码冗余</li>
+</ul>
+<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><ul>
+<li>function</li>
+</ul>
+<h3 id="函数创建"><a href="#函数创建" class="headerlink" title="函数创建"></a>函数创建</h3><ul>
+<li><p>函数创建有两种方式</p>
+</li>
+<li><p>函数表达式；</p>
+<blockquote>
+<p>var 函数名 = function( ){};</p>
+</blockquote>
+</li>
+<li><p>函数声明</p>
+<blockquote>
+<p>function 函数名( ){</p>
+<p>函数名和变量名的命名规则规范一样</p>
+<p>​        函数体；</p>
+<p>}</p>
+<ul>
+<li>【注意】：函数创建完后，函数体中的代码不会执行，只用调用时才会执行<br>调用函数 ↓ </li>
+</ul>
+<p>函数名(); </p>
+</blockquote>
+<ul>
+<li>代码：<blockquote>
+<p>创建</p>
+<p><code>function getEven() {</code></p>
+<p><code>for (var i = 1; i &lt;= 100; i++) {</code></p>
+<p><code>if (i % 2 == 0) {</code></p>
+<p><code>console.log(i);</code></p>
+<p><code>}</code></p>
+<p><code>}</code></p>
+<p><code>}</code></p>
+<p><code>cosnole.log(&#39;地方1&#39;);</code></p>
+<p><code>getEven();</code> // 调用</p>
+<p><code>cosnole.log(&#39;地方2&#39;);</code></p>
+<p><code>getEven();</code>// 调用</p>
+<p><code>cosnole.log(&#39;地方3&#39;);</code></p>
+<p><code>getEven();</code> // 调用</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h3><ul>
+<li>函数名( );或 函数名(数据，数据…);</li>
+</ul>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
+<li><p>参数可用分为形参和实参</p>
+<ul>
+<li>形参：创建函数时小括号( )中定义的标识符。就是形参。</li>
+<li>实参：调用函数时小括号( )中传入的实际的数据就是实参。</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<blockquote>
+<p><code>function 函数名(形参,形参,形参...) {</code>//形参，就是一个占位符，命名规则和规范和变量一样.</p>
+<p><code>函数体</code></p>
+<p><code>}</code></p>
+<p><code>函数名(数据,数据,数据...);</code></p>
+<p>//实参，就是实际的数据</p>
+</blockquote>
+<ul>
+<li>代码: <blockquote>
+<p>创建函数</p>
+<p><code>function getSum(n,m) {</code></p>
+<p><code>var sum = 0;</code></p>
+<p><code>for (var i = n; n&lt;=m; n++) {</code></p>
+<p><code>sum = sum + n;</code></p>
+<p><code>}</code></p>
+<p><code>console.log(sum);</code></p>
+<p><code>}</code></p>
+<p>// 调用</p>
+<p><code>getSum(1,100);</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><ul>
+<li><p>关键字：    return</p>
+<ul>
+<li>作用：    可以终止函数的执行,可以将数据返回给调用者.<ul>
+<li>调用者  可以用变量接收函数返回的结果</li>
+</ul>
+</li>
+<li><p>语法：      </p>
+<blockquote>
+<p>// return 关键字，要在函数体内使用</p>
+<p>function 函数名(形参,形参,形参) {</p>
+<p>//① 函数体内没有return时; 函数默认返回undefined</p>
+<p>//② return 数据;  //终止函数，并返回数据。</p>
+<p>//③ return;   //终止函数，并返回undefined</p>
+<p>}</p>
+</blockquote>
+</li>
+<li><p>代码：</p>
+<blockquote>
+<p><code>function getSum(n,m) {</code></p>
+<p><code>var sum = 0;</code></p>
+<p><code>for (var i = n; n&lt;=m; n++) {</code></p>
+<p><code>sum = sum + n;</code></p>
+<p><code>}</code></p>
+<p><code>return sum;</code></p>
+<p><code>}</code></p>
+<p>// 调用函数</p>
+<p><code>var r1 = getSum(100,200);</code>// 函数把结果给了 r1<br>// 用户可以任意使用函数的结果 </p>
+<p><code>document.write(&#39;&lt;h1&gt;&#39; + r1 + &#39;&lt;/h1&gt;&#39;);</code></p>
+<p><code>document.write(&#39;&lt;h2&gt;&#39; + r1 + &#39;&lt;/h2&gt;&#39;);</code></p>
+<p><code>document.write(&#39;&lt;h3&gt;&#39; + r1 + &#39;&lt;/h3&gt;&#39;);</code></p>
+<p><code>console.log(r1);</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="函数体中arguments"><a href="#函数体中arguments" class="headerlink" title="函数体中arguments"></a>函数体中arguments</h1><ul>
+<li>函数体内的一个数组，存放了所有实参。（就是调用函数时，当实参是一个数组，函数体可以直接用arguments来存放实参，不需要定义形参）。</li>
+<li>aruments，函数体内提供的一个伪数组。aruments中存放了所有的实参</li>
+<li><p>aruments的使用：</p>
+<blockquote>
+<p><code>function 函数名(){</code></p>
+<p><code>//arguments.length;  参数的个数</code></p>
+<p><code>//arguments[索引];   //获取一个实参</code></p>
+<p><code>}</code></p>
+</blockquote>
+</li>
+<li><p>全局变量的特殊情况</p>
+<blockquote>
+<p><code>function fn() {</code></p>
+<p><code>a = 123;//隐式全局变量</code></p>
+<p><code>}</code></p>
+<p><code>fn();</code></p>
+<p><code>alert(a);</code>// ?</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="函数创建方式2"><a href="#函数创建方式2" class="headerlink" title="函数创建方式2"></a>函数创建方式2</h2><ul>
+<li><p>①函数声明</p>
+<blockquote>
+<p><code>function 函数名() {</code>     </p>
+<p><code>// 函数体</code></p>
+<p><code>}</code></p>
+</blockquote>
+</li>
+<li>②函数表达式<blockquote>
+<p><code>var 变量名 = function() {</code></p>
+<p><code>//函数体</code></p>
+<p><code>}</code></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="函数声明-和-函数表达式的区别？"><a href="#函数声明-和-函数表达式的区别？" class="headerlink" title="函数声明 和 函数表达式的区别？"></a>函数声明 和 函数表达式的区别？</h3><blockquote>
+<p><code>fn();</code>// ?  答案：打印1</p>
+<p><code>function fn () {</code></p>
+<p><code>alert(&#39;1&#39;);</code></p>
+<p><code>}</code></p>
+</blockquote>
+<blockquote>
+<p><code>fn();</code>// ?  报错 不是一个函数</p>
+<p><code>var fn = function() {</code></p>
+<p><code>alert(&#39;你好&#39;);</code></p>
+<p><code>}</code></p>
+</blockquote>
+<h3 id="匿名函数-和-自调用函数"><a href="#匿名函数-和-自调用函数" class="headerlink" title="匿名函数 和 自调用函数"></a>匿名函数 和 自调用函数</h3><ul>
+<li>函数也是一种数据类型。属于引用数据类型（Function）</li>
+<li>匿名函数就是 没有名字的函数。在js中匿名函数需要 配合运算符使用</li>
+</ul>
+<ul>
+<li>函数创建的第二种方式：函数表达式<blockquote>
+<p><code>var 变量名 = function() {</code></p>
+<p><code>//函数体;</code></p>
+<p><code>}</code></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="自调用函数（自调用函数）"><a href="#自调用函数（自调用函数）" class="headerlink" title="自调用函数（自调用函数）"></a>自调用函数（自调用函数）</h3><ul>
+<li><p>自执行函数就是匿名函数 创建后马上调用执行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//匿名函数 【常用的方式】 </span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="comment">//函数体</span></span><br><span class="line">  &#125;)();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//匿名函数 【常用的方式】</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">形参,形参</span>)</span>&#123;</span><br><span class="line"><span class="comment">//函数体</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自调用函数的优点   </p>
+<ul>
+<li><p>①模拟块级作用域；</p>
+</li>
+<li><p>②避免全局变量污染（命名冲突） </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数作为函数的参数"><a href="#函数作为函数的参数" class="headerlink" title="函数作为函数的参数"></a>函数作为函数的参数</h3><ul>
+<li>回调函数的参数<ul>
+<li>形参，函数定义时的标识符。</li>
+<li>实参，函数调用时传入的实际的数据。</li>
+<li>函数也是一种数据类型，类型是 Function<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">  f();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">'执行'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>自我总结</strong></p>
+<ul>
+<li>本质归根结底是还是形参和实参的关系。 无非是把一个函数当做实参传递给了一个形参！</li>
+</ul>
+<h1 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h1><h2 id="预解析→执行之前的预备过程"><a href="#预解析→执行之前的预备过程" class="headerlink" title="预解析→执行之前的预备过程"></a>预解析→执行之前的预备过程</h2><ul>
+<li><p>什么是预解析?</p>
+<blockquote>
+<p>程序准备→执行。程序在执行之前，有个预备过程。 预备过程要做的事就是预解析。预备过程要做两件事，分别是：</p>
+<ul>
+<li>把用 var关键字所声明的变量名（ 仅仅是变量名），提升到当前执行环境（作用域）的顶部。</li>
+</ul>
+</blockquote>
+<ul>
+<li>把用 函数声明所创建的函数（ 函数整体），提升到当前执行环境（作用域）的顶部。</li>
+</ul>
+</li>
+<li><p>预解析有两步；</p>
+<p>①把var关键字创建的变量名（仅仅是变量名）提升到当前作用域的顶部。</p>
+<p>②把函数声明方式创建的整个函数体提升到当前作用域的顶部。</p>
+</li>
+</ul>
+<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><ul>
+<li>什么是作用域？<ul>
+<li>变量可访问的范围。</li>
+</ul>
+</li>
+</ul>
+<h2 id="全局作用域—函数之外的环境。"><a href="#全局作用域—函数之外的环境。" class="headerlink" title="全局作用域—函数之外的环境。"></a>全局作用域—函数之外的环境。</h2><ul>
+<li><p>什么全局作用域</p>
+<ul>
+<li>函数之外的执行环境。</li>
+</ul>
+</li>
+<li><p>全局变量：</p>
+<ul>
+<li>在全局作用域中用var关键字创建的变量.</li>
+<li>访问范围：程序的任何地方</li>
+</ul>
+</li>
+</ul>
+<h3 id="局部作用域—函数体内的环境。"><a href="#局部作用域—函数体内的环境。" class="headerlink" title="局部作用域—函数体内的环境。"></a>局部作用域—函数体内的环境。</h3><ul>
+<li><p>什么是局部作用域</p>
+<ul>
+<li>函数体内的执行环境</li>
+</ul>
+<ul>
+<li>局部变量:  <ul>
+<li>在局部作用域中定义的变量称为局部变量。函数定义的形参,以及     在 函数体中用var关键字定义的变量</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>局部变量只能在本函数体中使用。</li>
+</ul>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><ul>
+<li>js中没有块级作用域（我们用匿名函数和自执行函数模拟块级作用域）在分支结构或循环结构中创建的变量，仅仅只能在本分支或循环结构中使用。</li>
+</ul>
+<h1 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h1><ul>
+<li>指的是访问一个变量时，会先从本作用域中去找，若没找到，则向上一层作用域中去找，以此类推就构成了作用域链.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="string">'2b'</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> a = <span class="number">4</span>;</span><br><span class="line">      <span class="built_in">console</span>.log(a);   <span class="comment">//a的值 ?4</span></span><br><span class="line">      <span class="built_in">console</span>.log(b);    <span class="comment">//b的值 ?'2b'</span></span><br><span class="line">    &#125;</span><br><span class="line">    fn3();</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  fn2();</span><br><span class="line">&#125;</span><br><span class="line">fn1();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/02/21/JS/08-函数/">08-函数</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Mr.张 的个人博客">Mr.张</a></p>
+        <p><span>发布时间:</span>2017年02月21日 - 09时20分</p>
+        <!-- <p><span>最后更新:</span>2018年09月19日 - 15时54分</p> -->
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/21/JS/08-函数/" title="08-函数">http://zhangxiuxin.top/2017/02/21/JS/08-函数/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://zhangxiuxin.top/2017/02/21/JS/08-函数/　　作者: Mr.张" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2017/02/22/JS/09-对象/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          09-对象
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2017/02/20/JS/07-数组/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">07-数组</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-number">1.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.1.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类型"><span class="toc-number">1.1.1.</span> <span class="toc-text">类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数创建"><span class="toc-number">1.1.2.</span> <span class="toc-text">函数创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调用"><span class="toc-number">1.1.3.</span> <span class="toc-text">调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参数"><span class="toc-number">1.1.4.</span> <span class="toc-text">参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#返回值"><span class="toc-number">1.1.5.</span> <span class="toc-text">返回值</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数体中arguments"><span class="toc-number">2.</span> <span class="toc-text">函数体中arguments</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数创建方式2"><span class="toc-number">2.1.</span> <span class="toc-text">函数创建方式2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数声明-和-函数表达式的区别？"><span class="toc-number">2.1.1.</span> <span class="toc-text">函数声明 和 函数表达式的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匿名函数-和-自调用函数"><span class="toc-number">2.1.2.</span> <span class="toc-text">匿名函数 和 自调用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自调用函数（自调用函数）"><span class="toc-number">2.1.3.</span> <span class="toc-text">自调用函数（自调用函数）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数作为函数的参数"><span class="toc-number">2.1.4.</span> <span class="toc-text">函数作为函数的参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#预解析"><span class="toc-number">3.</span> <span class="toc-text">预解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#预解析→执行之前的预备过程"><span class="toc-number">3.1.</span> <span class="toc-text">预解析→执行之前的预备过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#作用域"><span class="toc-number">4.</span> <span class="toc-text">作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#全局作用域—函数之外的环境。"><span class="toc-number">4.1.</span> <span class="toc-text">全局作用域—函数之外的环境。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#局部作用域—函数体内的环境。"><span class="toc-number">4.1.1.</span> <span class="toc-text">局部作用域—函数体内的环境。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#块级作用域"><span class="toc-number">4.1.2.</span> <span class="toc-text">块级作用域</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#作用域链"><span class="toc-number">5.</span> <span class="toc-text">作用域链</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2017/02/22/JS/09-对象/" title="上一篇: 09-对象">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/02/20/JS/07-数组/" title="下一篇: 07-数组">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/22/H5C3/13-视差滚动/">13-视差滚动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/21/H5C3/12-拖拽上传/">12-拖拽上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/20/H5C3/11-离线缓存/">11-离线缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/19/H5C3/10-本地存储/">10-本地存储</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/19/H5C3/09-历史浏览记录/">09-历史浏览记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/19/H5C3/08-自定义播放器/">08-自定义播放器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/H5C3/07-全屏操作/">07-全屏操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/H5C3/06-dom扩展/">06-dom扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/17/H5C3/05-fullpage/">05-fullpage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/16/H5C3/04-边框图片/">04-边框图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/16/H5C3/03-3d转换/">03-3D转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/15/H5C3/02-选择器/">02-选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/15/H5C3/01-关于H5开发/">01-关于H5开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/13-Ajax跨域/">13-Ajax跨域</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/12-虚拟主机配置/">12-虚拟主机配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/ajax/11-模板引擎/">11-ArtTemplate模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/10-封装方法/">10-封装方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/09-jQuery提供的Ajax方法/">09-jQuery提供的Ajax方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/08-JSON/">08-JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/07-文件上传与进度条/">07-文件上传与进度条</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/ajax/06-XMLHttpRequest2.0新特性/">06-XMLHttpRequest2.0新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/05-同步和异步/">05-同步和异步</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/04-GET缓存/">04-GET缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/03-POST和GET的区别/">03-POST和GET的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/02-Ajax入门/">02-Ajax入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/01-Ajax技术/">01-Ajax 技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/28-cookie和session的联系/">28-session和cookie的联系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/27-session技术/">27-session技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/26-cookie技术/">26-cookie技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/25-PHP会话控制/">25-PHP会话控制概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/PHP/24-修改信息于登录/">24-学生信息管理系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/23-信息管理系统/">23-学生信息管理系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/22-PHP操作MySQL/">22-PHP操作MySQL</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/21-删除数据/">21-删除数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/20-修改数据/">20-修改数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/19-添加数据/">19-添加数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/PHP/18-数据查询/">18-数据查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/17-关系型数据库介绍/">17-创建数据表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/16-创建数据表/">16-创建数据表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/15-创建、删除数据库/">15-创建/删除数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/14-MySQL数据库服务器/">14-MySQL数据库服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/13-Http协议/">13-Http协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/PHP/12-PHP文件读写/">12-PHP文件读写</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/11-PHP常用函数/">11-PHP函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/10-PHP函数/">10-PHP函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/09-PHP文件上传/">09-PHP文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/PHP/08-PHP超全局变量/">08-PHP超全局变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/07-PHP数组/">07-PHP数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/06-PHP流程控制/">06-PHP流程控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/05-PHP变量、常量、运算符/">05-PHP变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/04-PHP运行原理/">04-PHP运行原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/03-PHP初识/">03-PHP介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/PHP/02-PHP安装环境/">02-PHP安装环境 （phpstudy）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/PHP/01-PHP介绍/">01-PHP介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/26/jQuery/16-jQuery操作DOM节点/">16-jquery操作DOM(节点)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/25/jQuery/15-jQuery动画/">15-jquery动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/25/jQuery/14-jQuery操作样式/">14-jQuery操作样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/jQuery/13-jQuery插件机制/">13-jQuery插件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/jQuery/12-jQuery多库共存/">12-jQuery多库共存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/jQuery/11-jQuery链式编程与隐式迭代/">11-jQuery链式编程与隐式迭代</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/jQuery/10-jQuery事件对象/">10-jQuery事件对象（）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/jQuery/09-jQuery的on事件绑定与解绑/">09-jQuery的on事件绑定与解绑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/jQuery/08-jQuery事件机制/">08-jQuery事件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/jQuery/07-jQuery操作坐标值/">07-jQuery操作坐标值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/jQuery/06-jQuery操作尺寸/">06-jQuery操作尺寸</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/jQuery/05-jQuery操作值与内容/">05-jQuery操作值与内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/jQuery/04-jQuery操作DOM/">04-jQuery操作DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/jQuery/03-jQuery选择器/">03-jQuery选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/jQuery/02-jQuery入口函数/">02-jQuery入口函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/jQuery/01-jQuery简介/">01-jQuery简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/JS/40-伪数组和数组/">40-伪数组和数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/JS/39-正则表达式/">39-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/JS/38-函数递归/">38-函数递归</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/JS/37-闭包/">37-闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/JS/36-作用域、作用域链、预解析/">36-作用域、作用域链、预解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/JS/35-函数进阶/">35-函数进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/JS/34-继承与多态/">34-继承与多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/13/JS/33-原型/">33-原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/13/JS/32-构造函数/">32-构造函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/JS/31-创建对象/">31-创建对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/JS/30-面向对象/">30-面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/JS/29-回顾掌握/">29-回顾掌握</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/JS/28-轮播图/">28-js原生轮播图</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/JS/27-动画运动/">27-动画运动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/JS/26-定时器/">26-定时器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/JS/25-异步任务/">25-异步任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/JS/24-offset系列/">24-offset系列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/JS/23-location与navigator与history对象/">23-location与navigator与history对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/JS/22-BOM.window对象/">22-BOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/01/JS/21-事件流/">21-事件流</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/01/JS/20-注册事件/">20-注册事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/01/JS/19-节点/">19-节点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/27/JS/18-表单属性与事件/">18-表单属性与事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/27/JS/17-兼容性/">17-兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/27/JS/16-事件/">16-事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/26/JS/15-Web API介绍/">15-Web API 简单介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/JS/12-Date类型对象/">12-Date类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/JS/14-String类型对象/">14-String类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/JS/13-Array类型对象/">13-Array类型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/JS/11-内置对象/">11-内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/JS/10-基本数据类型和引用数据类型/">10-基本数据类型和引用数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/JS/09-对象/">09-对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/JS/08-函数/">08-函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/20/JS/07-数组/">07-数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/JS/06-流程控制/">06-流程控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/JS/05-数据类型转换/">05-数据类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/JS/04-运算符/">04-运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/JS/03-数据类型/">03-数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/JS/02-变量/">02-变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/JS/01-Js组成、输出、书写方式、调试循序与规范  /">01-Js组成、输出、书写方式、调试循序与规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/16/HTML/13-伸缩布局/">11-伸缩布局【弹性布局】(display:flex;)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/HTML/12-动画/">10-动画(animation)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/14/HTML/11-3D转换/">09-3D转换(transform)【变形】</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/14/HTML/10-2D转换/">08-2D转换(transform)【变形】</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/13/HTML/09-过渡/">07-过渡（transition）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/12/HTML/08-Web字体/">06-Web字体</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/12/HTML/07-Logo内容移除/">05-Logo内容移除</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/12/HTML/06-定位/">04-定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/HTML/05-浮动/">03-浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/HTML/04-渐变与盒子模型/">02-渐变与盒模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/HTML/03-css基础/">01-CSS 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/HTML/02-列表/">02-列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/HTML/01-HTML基础/">01-HTML基础</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Mr.张
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/zhangxx1990" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
