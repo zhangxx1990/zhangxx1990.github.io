@@ -205,11 +205,31 @@
                 <section class="switch-part switch-part3">
                     <div id="js-friends">
                     
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://google.com">谷歌</a>
                     
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.zhihu.com/signup?next=%2F">知乎</a>
                     
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com">简书</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.oschina.net">开源中国</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.cnblogs.com">博客园</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.csdn.net">CSDN</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://stackoverflow.com">stackoverflow（国外）</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://git.oschina.net">码云</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://coding.net">coding</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.imooc.com">慕课网</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jikexueyuan.com">极客学院</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.shiyanlou.com">实验楼</a>
                     
                     </div>
                 </section>
@@ -1101,6 +1121,90 @@ box.innerHTML+=&apos;这是新内容&apos;;
 
 
   
+    <article id="post-JS/14-String类型对象" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/02/24/JS/14-String类型对象/" class="article-date">
+      <time datetime="2017-02-24T03:15:13.000Z" itemprop="datePublished">2017-02-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/02/24/JS/14-String类型对象/">14-String类型对象</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="String字符串对象"><a href="#String字符串对象" class="headerlink" title="String字符串对象"></a>String字符串对象</h1><h2 id="字符串的不可变性"><a href="#字符串的不可变性" class="headerlink" title="字符串的不可变性"></a>字符串的不可变性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line">str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="comment">// 当重新给str赋值的时候，数据'abc'不会被修改，依然在内存中</span></span><br><span class="line"><span class="comment">// 重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变</span></span><br><span class="line"><span class="comment">// 由于字符串的不可变，在大量拼接字符串的时候会有效率问题</span></span><br></pre></td></tr></table></figure>
+<h3 id="基本包装对象"><a href="#基本包装对象" class="headerlink" title="基本包装对象"></a>基本包装对象</h3><ul>
+<li><p>思考：为什么基本数据类型字符串，可以像对象一样使用？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通字符串</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;   <span class="comment">// 普通字符串不是对象</span></span><br><span class="line"><span class="keyword">var</span> len = str.length; <span class="comment">// 但是为什么可以像对象一样使用点出东西？</span></span><br><span class="line">alert(len); <span class="comment">//3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//把字符串包装成对象 → 基本包装类型</span></span><br><span class="line"><span class="keyword">var</span> strObj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>);  <span class="comment">// 把字符串包装成对象</span></span><br><span class="line"><span class="keyword">var</span> len = strObj.length;  <span class="comment">// 因为是对象，所以可以点出东西。</span></span><br><span class="line">alert(len); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="字符串对象常用的方法"><a href="#字符串对象常用的方法" class="headerlink" title="字符串对象常用的方法"></a>字符串对象常用的方法</h2><ul>
+<li><p>字符串所有的方法，都 不会修改字符串本身(字符串是不可变的)，操作完成会 返回一个新的字符串</p>
+<ul>
+<li>以下方法，可以自己尝试查手册或文档使用</li>
+</ul>
+</li>
+<li><p>获取字符串中的单个字符</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.charAt(index);</span><br><span class="line">字符串[index];      <span class="comment">// 推荐使用</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符串的拼接concat-和-截取slice"><a href="#字符串的拼接concat-和-截取slice" class="headerlink" title="字符串的拼接concat 和 截取slice"></a>字符串的拼接concat 和 截取slice</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拼接</span></span><br><span class="line">字符串.concat(str1,str2,str3...);</span><br><span class="line">拼接符 +     <span class="comment">//推荐使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 截取</span></span><br><span class="line">字符串.slice(star,end);</span><br></pre></td></tr></table></figure>
+<h3 id="查询字符是否在字符串中存在"><a href="#查询字符是否在字符串中存在" class="headerlink" title="查询字符是否在字符串中存在"></a>查询字符是否在字符串中存在</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.indexOf(); </span><br><span class="line">字符串.lastIndexOf();</span><br></pre></td></tr></table></figure>
+<h3 id="去除空白符trim"><a href="#去除空白符trim" class="headerlink" title="去除空白符trim"></a>去除空白符trim</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.trim();  <span class="comment">// 去除字符串两边的空格</span></span><br></pre></td></tr></table></figure>
+<h3 id="字母字符大小写转换toUpperCase-toLowerCase"><a href="#字母字符大小写转换toUpperCase-toLowerCase" class="headerlink" title="字母字符大小写转换toUpperCase/toLowerCase"></a>字母字符大小写转换toUpperCase/toLowerCase</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.toUpperCase(); 	<span class="comment">// 转换大写 重点</span></span><br><span class="line">字符串.toLowerCase(); 	<span class="comment">// 转换小写 重点</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符串替换replace"><a href="#字符串替换replace" class="headerlink" title="字符串替换replace"></a>字符串替换replace</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.replace(newStr,oldStr);</span><br></pre></td></tr></table></figure>
+<h3 id="字符串分割split"><a href="#字符串分割split" class="headerlink" title="字符串分割split"></a>字符串分割split</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.split(sp);  <span class="comment">// 把一个字符串分割成字符串数组。</span></span><br></pre></td></tr></table></figure>
+<h3 id="还有很多方法"><a href="#还有很多方法" class="headerlink" title="还有很多方法"></a>还有很多方法</h3><pre><code>- 查用MDN文档 或 离线手册 学习内置对象的属性 或 方法。
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-JS/12-Date类型对象" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1212,90 +1316,6 @@ box.innerHTML+=&apos;这是新内容&apos;;
 <p>日期对象.getTime()  /  日期对象.setTime(数字); </p>
 </blockquote>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JS/14-String类型对象" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/02/24/JS/14-String类型对象/" class="article-date">
-      <time datetime="2017-02-24T03:15:13.000Z" itemprop="datePublished">2017-02-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/02/24/JS/14-String类型对象/">14-String类型对象</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="String字符串对象"><a href="#String字符串对象" class="headerlink" title="String字符串对象"></a>String字符串对象</h1><h2 id="字符串的不可变性"><a href="#字符串的不可变性" class="headerlink" title="字符串的不可变性"></a>字符串的不可变性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line">str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="comment">// 当重新给str赋值的时候，数据'abc'不会被修改，依然在内存中</span></span><br><span class="line"><span class="comment">// 重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变</span></span><br><span class="line"><span class="comment">// 由于字符串的不可变，在大量拼接字符串的时候会有效率问题</span></span><br></pre></td></tr></table></figure>
-<h3 id="基本包装对象"><a href="#基本包装对象" class="headerlink" title="基本包装对象"></a>基本包装对象</h3><ul>
-<li><p>思考：为什么基本数据类型字符串，可以像对象一样使用？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通字符串</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;   <span class="comment">// 普通字符串不是对象</span></span><br><span class="line"><span class="keyword">var</span> len = str.length; <span class="comment">// 但是为什么可以像对象一样使用点出东西？</span></span><br><span class="line">alert(len); <span class="comment">//3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//把字符串包装成对象 → 基本包装类型</span></span><br><span class="line"><span class="keyword">var</span> strObj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>);  <span class="comment">// 把字符串包装成对象</span></span><br><span class="line"><span class="keyword">var</span> len = strObj.length;  <span class="comment">// 因为是对象，所以可以点出东西。</span></span><br><span class="line">alert(len); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="字符串对象常用的方法"><a href="#字符串对象常用的方法" class="headerlink" title="字符串对象常用的方法"></a>字符串对象常用的方法</h2><ul>
-<li><p>字符串所有的方法，都 不会修改字符串本身(字符串是不可变的)，操作完成会 返回一个新的字符串</p>
-<ul>
-<li>以下方法，可以自己尝试查手册或文档使用</li>
-</ul>
-</li>
-<li><p>获取字符串中的单个字符</p>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.charAt(index);</span><br><span class="line">字符串[index];      <span class="comment">// 推荐使用</span></span><br></pre></td></tr></table></figure>
-<h3 id="字符串的拼接concat-和-截取slice"><a href="#字符串的拼接concat-和-截取slice" class="headerlink" title="字符串的拼接concat 和 截取slice"></a>字符串的拼接concat 和 截取slice</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拼接</span></span><br><span class="line">字符串.concat(str1,str2,str3...);</span><br><span class="line">拼接符 +     <span class="comment">//推荐使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 截取</span></span><br><span class="line">字符串.slice(star,end);</span><br></pre></td></tr></table></figure>
-<h3 id="查询字符是否在字符串中存在"><a href="#查询字符是否在字符串中存在" class="headerlink" title="查询字符是否在字符串中存在"></a>查询字符是否在字符串中存在</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.indexOf(); </span><br><span class="line">字符串.lastIndexOf();</span><br></pre></td></tr></table></figure>
-<h3 id="去除空白符trim"><a href="#去除空白符trim" class="headerlink" title="去除空白符trim"></a>去除空白符trim</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.trim();  <span class="comment">// 去除字符串两边的空格</span></span><br></pre></td></tr></table></figure>
-<h3 id="字母字符大小写转换toUpperCase-toLowerCase"><a href="#字母字符大小写转换toUpperCase-toLowerCase" class="headerlink" title="字母字符大小写转换toUpperCase/toLowerCase"></a>字母字符大小写转换toUpperCase/toLowerCase</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.toUpperCase(); 	<span class="comment">// 转换大写 重点</span></span><br><span class="line">字符串.toLowerCase(); 	<span class="comment">// 转换小写 重点</span></span><br></pre></td></tr></table></figure>
-<h3 id="字符串替换replace"><a href="#字符串替换replace" class="headerlink" title="字符串替换replace"></a>字符串替换replace</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.replace(newStr,oldStr);</span><br></pre></td></tr></table></figure>
-<h3 id="字符串分割split"><a href="#字符串分割split" class="headerlink" title="字符串分割split"></a>字符串分割split</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.split(sp);  <span class="comment">// 把一个字符串分割成字符串数组。</span></span><br></pre></td></tr></table></figure>
-<h3 id="还有很多方法"><a href="#还有很多方法" class="headerlink" title="还有很多方法"></a>还有很多方法</h3><pre><code>- 查用MDN文档 或 离线手册 学习内置对象的属性 或 方法。
-</code></pre>
       
     </div>
     
