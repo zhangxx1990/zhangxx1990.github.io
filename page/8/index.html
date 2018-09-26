@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -295,6 +295,87 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-jQuery/14-jQuery操作样式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/25/jQuery/14-jQuery操作样式/" class="article-date">
+      <time datetime="2017-03-25T01:11:45.000Z" itemprop="datePublished">2017-03-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/25/jQuery/14-jQuery操作样式/">14-jQuery操作样式</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="jQuery操作样式"><a href="#jQuery操作样式" class="headerlink" title="jQuery操作样式"></a>jQuery操作样式</h1><h2 id="css操作"><a href="#css操作" class="headerlink" title="css操作"></a>css操作</h2><ul>
+<li>功能：设置或者修改样式，操作的是style属性</li>
+</ul>
+<h3 id="设置单个样式"><a href="#设置单个样式" class="headerlink" title="设置单个样式"></a>设置单个样式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name：需要设置的样式名称</span></span><br><span class="line"><span class="comment">//value：对应的样式值</span></span><br><span class="line">css(name, value);</span><br><span class="line"><span class="comment">//使用案例</span></span><br><span class="line">$(<span class="string">"#one"</span>).css(<span class="string">"background"</span>,<span class="string">"gray"</span>);<span class="comment">//将背景色修改为灰色</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置多个样式"><a href="#设置多个样式" class="headerlink" title="设置多个样式"></a>设置多个样式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参数是一个对象，对象中包含了需要设置的样式名和样式值</span></span><br><span class="line">css(obj);</span><br><span class="line"><span class="comment">//使用案例</span></span><br><span class="line">$(<span class="string">"#one"</span>).css(&#123;</span><br><span class="line">    <span class="string">"background"</span>:<span class="string">"gray"</span>,</span><br><span class="line">    <span class="string">"width"</span>:<span class="string">"400px"</span>,</span><br><span class="line">    <span class="string">"height"</span>:<span class="string">"200px"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="获取样式"><a href="#获取样式" class="headerlink" title="获取样式"></a>获取样式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:需要获取的样式名称</span></span><br><span class="line">css(name);</span><br><span class="line"><span class="comment">//案例</span></span><br><span class="line">$(<span class="string">"div"</span>).css(<span class="string">"background-color"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：获取样式操作只会返回第一个元素对应的样式值。</li>
+</ul>
+<h2 id="class操作"><a href="#class操作" class="headerlink" title="class操作"></a>class操作</h2><h3 id="添加样式类"><a href="#添加样式类" class="headerlink" title="添加样式类"></a>添加样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name：需要添加的样式类名，注意参数不要带点.</span></span><br><span class="line">addClass(name);</span><br><span class="line"><span class="comment">//例子,给所有的div添加one的样式。</span></span><br><span class="line">$(<span class="string">"div"</span>).addClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="移除所有样式类"><a href="#移除所有样式类" class="headerlink" title="移除所有样式类"></a>移除所有样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不带参数，移除所有的样式类</span></span><br><span class="line">removeClass()</span><br><span class="line"><span class="comment">//例子，移除div所有的样式类</span></span><br><span class="line">$(<span class="string">"div"</span>).removeClass();</span><br></pre></td></tr></table></figure>
+<h3 id="移除单个样式类"><a href="#移除单个样式类" class="headerlink" title="移除单个样式类"></a>移除单个样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:需要移除的样式类名</span></span><br><span class="line">removeClass(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">//例子，移除div中one的样式类名</span></span><br><span class="line">$(<span class="string">"div"</span>).removeClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="判断是否有样式类"><a href="#判断是否有样式类" class="headerlink" title="判断是否有样式类"></a>判断是否有样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:用于判断的样式类名，返回值为true false</span></span><br><span class="line">hasClass(name)</span><br><span class="line"><span class="comment">//例子，判断第一个div是否有one的样式类</span></span><br><span class="line">$(<span class="string">"div"</span>).hasClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="切换样式类"><a href="#切换样式类" class="headerlink" title="切换样式类"></a>切换样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:需要切换的样式类名，如果有，移除该样式，如果没有，添加该样式。</span></span><br><span class="line">toggleClass(name);</span><br><span class="line"><span class="comment">//例子</span></span><br><span class="line">$(<span class="string">"div"</span>).toggleClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>经验总结：</li>
+</ul>
+<p>1.如果操作到的样式非常少，可以考虑css方法</p>
+<p>2.如果操作到的样式非常多，那么可以通过class方法来操作，将样式写到一个class类里面。</p>
+<p>3.如果考虑到后期维护方便，将css从js中分离出来，那么推荐使用class的方式来操作。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-jQuery/13-jQuery插件机制" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1000,90 +1081,6 @@
 <ul>
 <li>html方法与text方法的区别：<br>  html方法会识别html标签，text方法会把内容直接当成字符串，并不会识别html标签。</li>
 </ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery/04-jQuery操作DOM" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/03/22/jQuery/04-jQuery操作DOM/" class="article-date">
-      <time datetime="2017-03-22T01:02:19.000Z" itemprop="datePublished">2017-03-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/03/22/jQuery/04-jQuery操作DOM/">04-jQuery操作DOM</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="jQuery操作DOM"><a href="#jQuery操作DOM" class="headerlink" title="jQuery操作DOM"></a>jQuery操作DOM</h1><h2 id="jQuery操作属性"><a href="#jQuery操作属性" class="headerlink" title="jQuery操作属性"></a>jQuery操作属性</h2><ul>
-<li><p><strong>设置单个属性</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一个参数：需要设置的属性名</span></span><br><span class="line"><span class="comment">//第二个参数：对应的属性值</span></span><br><span class="line">attr(name, value);</span><br><span class="line"><span class="comment">//用法举例</span></span><br><span class="line">$(<span class="string">"img"</span>).attr(<span class="string">"title"</span>,<span class="string">"哎哟，不错哦"</span>);</span><br><span class="line">$(<span class="string">"img"</span>).attr(<span class="string">"alt"</span>,<span class="string">"哎哟，不错哦"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>设置多个属性</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参数是一个对象，包含了需要设置的属性名和属性值</span></span><br><span class="line">attr(obj)</span><br><span class="line"><span class="comment">//用法举例</span></span><br><span class="line">$(<span class="string">"img"</span>).attr(&#123;</span><br><span class="line">    title:<span class="string">"哎哟，不错哦"</span>,</span><br><span class="line">    alt:<span class="string">"哎哟，不错哦"</span>,</span><br><span class="line">    style:<span class="string">"opacity:.5"</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>获取属性</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//传需要获取的属性名称，返回对应的属性值</span></span><br><span class="line">attr(name)</span><br><span class="line"><span class="comment">//用法举例</span></span><br><span class="line"><span class="keyword">var</span> oTitle = $(<span class="string">"img"</span>).attr(<span class="string">"title"</span>);</span><br><span class="line">alert(oTitle);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注意：</p>
-<ul>
-<li>1.获取属性时，只会获取到第一个元素对应的属性，与css方法一样</li>
-<li>2.获取属性时，如果该属性不存在，那么会返回undefined</li>
-</ul>
-</li>
-<li><p><strong>移除属性</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参数：需要移除的属性名，如果传空，那么不会有任何操作，注意，并不是移除所有的属性。区分removeClass。</span></span><br><span class="line">removeAttr(name);</span><br><span class="line"><span class="comment">//用法举例</span></span><br><span class="line">$(<span class="string">"img"</span>).removeAttr(<span class="string">"title"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>prop</strong></p>
-</li>
-</ul>
-<p>注意：在jQuery1.6之后，对于checked、selected、disable这类boolean类型的属性来说，如果使用attr方法获取属性值，得到的不是true和false，而是checked以及undefined。，使用prop方法来获取或者设置checked、selected、disable这类的值。prop方法使用跟attr方法一样。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置属性</span></span><br><span class="line">$(<span class="string">":checked"</span>).prop(<span class="string">"checked"</span>,<span class="literal">true</span>);</span><br><span class="line"><span class="comment">//获取属性</span></span><br><span class="line">$(<span class="string">":checked"</span>).prop(<span class="string">"checked"</span>);<span class="comment">//返回true或者false</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>

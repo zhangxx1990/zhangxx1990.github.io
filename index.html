@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -295,6 +295,163 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-git/Git" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/12/git/Git/" class="article-date">
+      <time datetime="2017-08-12T12:01:58.000Z" itemprop="datePublished">2017-08-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/08/12/git/Git/">Git使用</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><blockquote>
+<p>掌握git的常用命令操作<br>能够使用代码托管平台</p>
+</blockquote>
+<h3 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h3><h5 id="本地版本控制系统"><a href="#本地版本控制系统" class="headerlink" title="本地版本控制系统"></a>本地版本控制系统</h5><p>借助软件我们可以记录下文件的每一次修改，如下图所示，文件被修改后，记录下了3个版本，<br>这样我们通过版本控制系统（软件）便可以非常方便的恢复到任意版本。如下图所示:<br> <img src="/images/git/01.png" alt=""><br>这种类型的版本控制系统，功能比较单一，比如很难实现多人协同开发，所以现在几乎很少使用了。</p>
+<h5 id="集中式版本控制系统"><a href="#集中式版本控制系统" class="headerlink" title="集中式版本控制系统"></a>集中式版本控制系统</h5><p>实际开发环境，一个项目通常是由多人协作共同完成的，如何让在不同终端上的开发者协同工作成了亟待解决的问题，<br>集中式版本控制系统便应运而生了。它通过单一的集中管理的服务器，保存所有文件的修订版本，<br>协同工作的开发者都通过客户端连到这台服务器，取出最新的文件或者提交更新。其代表为SVN，如下图所示:<br><img src="/images/git/02.png" alt=""><br>这种方式很好解决了多人协同开发的问题，但是也有一个弊端，如果集中管理的服务器出现故障，将会导致数据（版本）丢失的风险，<br>另外协同开发者从集中服务器中更新数据时，严重依赖网络，如果网络不佳，也给开发带来诸多不便。</p>
+<h5 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h5><p>分布式版本控制系统，则不需要中央服务器，每个协同开发者都拥有一个完整的版本库，<br>这么一来，任何协同开发者用的服务器发生故障，事后都可以用其它协同开发者本地仓库恢复。<br>由于版本库在本地计算机，也便不再受网络影响了。如果要将本地的修改，推送给其它协同开发者，<br>还需要一台共享服务器，所有开发者通过这台共享服务器同步和更新数据。如下图所示:<br><img src="/images/git/03.png" alt=""><br>分布式版本控制系统弥补了前面两种版本控制系统的缺陷，成为了版本控制的首选方案。其代表就是Git。</p>
+<h3 id="git准备工作"><a href="#git准备工作" class="headerlink" title="git准备工作"></a>git准备工作</h3><h5 id="git简介"><a href="#git简介" class="headerlink" title="git简介"></a>git简介</h5><p> Git最初是在2005年由Linux之父Linus TorvaLinus领导开发的一套为Linux内核维护的版本管理系统；<br> Git日臻成熟完善，在高度易用的同时，仍然保留着初期设定的目标，它的速度飞快，极其适合管理大项目；<br> 它还有着令人难以置信的非线性分支管理系统，可以应付各 种复杂的项目开发需求。</p>
+<h5 id="git与svn的区别"><a href="#git与svn的区别" class="headerlink" title="git与svn的区别"></a>git与svn的区别</h5><ul>
+<li><p>SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，<br>用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，<br>需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，<br>如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。</p>
+</li>
+<li><p>Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，<br>这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，<br>那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，<br>你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。</p>
+</li>
+</ul>
+<h5 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h5><ul>
+<li>Window安装<ul>
+<li><a href="http://git-scm.com/download/win" target="_blank" rel="noopener">http://git-scm.com/download/win</a> 下载Git客户端软件，和普通软件安装方式一样。</li>
+</ul>
+</li>
+<li>Linux安装<ul>
+<li>CentOS发行版：sudo yum install git</li>
+<li>Ubuntu发行版：sudo apt-get install git</li>
+</ul>
+</li>
+<li>Mac安装<ul>
+<li>打开Terminal直接输入git命令，会自动提示，按提示引导安装即可。</li>
+</ul>
+</li>
+</ul>
+<h5 id="git工作原理"><a href="#git工作原理" class="headerlink" title="git工作原理"></a>git工作原理</h5><p>为了更好的学习Git，我们们必须了解Git管理我们文件的3种状态，<br>分别是已提交（committed）、已修改（modified）和已暂存（staged），<br>由此引入 Git 项目的三个工作区域的概念：Git 仓库、工作目录以及暂存区域。<br><img src="/images/git/04.png" alt=""><br>基本的Git工作流程如下：<br>1、在工作目录中修改文件。<br>2、暂存文件，将文件的快照放入暂存区域。<br>3、提交文件，找到暂存区域的文件，将快照永久性存储到Git仓库目录。</p>
+<h3 id="git常见操作"><a href="#git常见操作" class="headerlink" title="git常见操作"></a>git常见操作</h3><h5 id="1-配置用户"><a href="#1-配置用户" class="headerlink" title="1.配置用户"></a>1.配置用户</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;zzzzzzzzz&quot;</span><br><span class="line">git config --global user.email &quot;zzzzzzzzz@zzzz.cn&quot;</span><br></pre></td></tr></table></figure>
+<p>配置用户的意义在于记录开发者信息，以便在版本控制记录开发者的操作行为。</p>
+<h5 id="2-初始化仓库"><a href="#2-初始化仓库" class="headerlink" title="2.初始化仓库"></a>2.初始化仓库</h5><p><strong>a)</strong>需要将现有项目初始化为一个仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
+<p>git init只是创建了一个名为.git的隐藏目录，这个目录就是存储我们历史版本的仓库。</p>
+<p><strong>b)</strong>已用git进行版本控制的仓库克隆到本地：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@gitee.com:zzzzzzzzz/meituan.git</span><br></pre></td></tr></table></figure></p>
+<p>假如公司已有项目用了git，那我们就利用克隆，执行完这个命令，<br>会在当前目录下生成一个meituan目录（默认和仓库名称相同），这个便是已经使用git管理的项目。</p>
+<h5 id="3-查看文件状态"><a href="#3-查看文件状态" class="headerlink" title="3.查看文件状态"></a>3.查看文件状态</h5><p>新建文件后：已修改状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></p>
+<p>检测当前仓库文件的状态，注：git会忽略空的目录。</p>
+<h5 id="4-添加文件到暂存区"><a href="#4-添加文件到暂存区" class="headerlink" title="4.添加文件到暂存区"></a>4.添加文件到暂存区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//提交单个文件</span><br><span class="line">git add test.txt</span><br><span class="line">//提交单个目录文件</span><br><span class="line">git add css</span><br><span class="line">//提交所有文件</span><br><span class="line">git add .|*|-A</span><br></pre></td></tr></table></figure>
+<p>执行命令后：已暂存状态<br>修改文件后：已修改状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout test.txt</span><br></pre></td></tr></table></figure></p>
+<p>执行命令后：已暂存状态</p>
+<h5 id="5-提交文件"><a href="#5-提交文件" class="headerlink" title="5.提交文件"></a>5.提交文件</h5><p>将暂存区文件，全部提交到本地仓库存储。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// message 提交的备注信息</span><br><span class="line">git commit -m &quot;message&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>执行命令后：已提交状态</p>
+<h5 id="6-查看提交历史"><a href="#6-查看提交历史" class="headerlink" title="6.查看提交历史"></a>6.查看提交历史</h5><p>经过多次提交，查看提交历史。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure></p>
+<h5 id="7-恢复上一次提交"><a href="#7-恢复上一次提交" class="headerlink" title="7.恢复上一次提交"></a>7.恢复上一次提交</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 242a</span><br></pre></td></tr></table></figure>
+<h3 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h3><p>在我们的现实开发中，需求往往是五花八门的，同时开发多个需求的情况十分常见，<br>比如当你正在专注开发一个功能时，突然有一个紧急的BUG需要你来修复，<br>这个时候我们当然是希望在能够保存当前任务进度，再去修改这个BUG，<br>等这个BUG修复完成后再继续我们的任务。如何实现呢？<br><strong>通过Git创建分支来解决实际开发中类似的问题。</strong></p>
+<p>在Git的使用过程中一次提交称为历史记录（版本），并且会生成一个唯一的字符串，如下图：<br><img src="/images/git/05.png" alt=""><br>当我们在初始化仓库的时候（实际上是产生第1次提交时），Git会默认帮我们创建了一个master的分支，并且有指针（HEAD）指到了末端。<br>指针（HEAD）用来标明当前处于哪个分支的哪个版本，如上图指的处于master分支的最后1个版本。</p>
+<h5 id="1-创建分支-hotfix"><a href="#1-创建分支-hotfix" class="headerlink" title="1.创建分支 hotfix"></a>1.创建分支 hotfix</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch hotfix</span><br></pre></td></tr></table></figure>
+<p>新的分支会在当前分支原有历史版本的结点上进行创建，新建的子分支会继承父分支的所有提交历史，如下图:<br><img src="/images/git/06.png" alt=""></p>
+<h5 id="2-切换-hotfix-分支"><a href="#2-切换-hotfix-分支" class="headerlink" title="2.切换 hotfix 分支"></a>2.切换 hotfix 分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout hotfix</span><br></pre></td></tr></table></figure>
+<p>我们发现HEAD现在又指向了hotfix的末端，如下图:<br><img src="/images/git/07.png" alt=""></p>
+<h5 id="3-在-hotfix-修改bug"><a href="#3-在-hotfix-修改bug" class="headerlink" title="3.在 hotfix 修改bug"></a>3.在 hotfix 修改bug</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;update bug&apos;</span><br></pre></td></tr></table></figure>
+<p>这次的提交历史版本就会记录在hotfix这个分支上了，并且HEAD伴随hotfix在移动，如下图:<br><img src="/images/git/08.png" alt=""></p>
+<h5 id="4-切换-master-分支"><a href="#4-切换-master-分支" class="headerlink" title="4.切换 master 分支"></a>4.切换 master 分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+<p>当我们切换回master后，HEAD指向了master分支的末端，并且我们观察发现我们的文件内容还是原来的”模样”，如下图:<br><img src="/images/git/09.png" alt=""></p>
+<h5 id="5-在-master-继续开发"><a href="#5-在-master-继续开发" class="headerlink" title="5.在 master 继续开发"></a>5.在 master 继续开发</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;go on dev&apos;</span><br></pre></td></tr></table></figure>
+<p>总结：当我们 ‘git checkout 分支名称’，HEAD会自动指向对应分支的末端，工作目录中的源码也会随之发生改变。<br>这个时候我们就在hotfix这个分支上修复了这个BUG，而我们原来在master分支上的操作并未受到影响。<br>但是这时的master分支并没有包含有hotfix的修复，如下图:<br><img src="/images/git/10.png" alt=""></p>
+<h5 id="6-合并-hotfix-分支"><a href="#6-合并-hotfix-分支" class="headerlink" title="6.合并 hotfix 分支"></a>6.合并 hotfix 分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge hotfix</span><br></pre></td></tr></table></figure>
+<p>这时master会有两个父结点了，master便包含了hotfix里的修复了，如下图:<br><img src="/images/git/11.png" alt=""></p>
+<h5 id="6-删除-hotfix-分支"><a href="#6-删除-hotfix-分支" class="headerlink" title="6.删除 hotfix 分支"></a>6.删除 hotfix 分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d hotfix</span><br></pre></td></tr></table></figure>
+<p>这时用来修复BUG创建的hotfix分支已经没有用处了，我们可以将它删除，如下图:<br><img src="/images/git/12.png" alt=""></p>
+<h3 id="git远程（共享）仓库"><a href="#git远程（共享）仓库" class="headerlink" title="git远程（共享）仓库"></a>git远程（共享）仓库</h3><p>通过上面学习我们可以很好的管理本地版本控制了。</p>
+<ul>
+<li>一种情形，可是如果我们下班回到家里突然来了灵感觉得有部分代码可以优化，<br>如果能接着公司电脑上的代码继续写该有多好呀！！！</li>
+<li>一种情形，假设项目比较大，不同的功能模块由不同的开发人员完成，不同模块儿之间又难免会依赖关系，<br>这时如果我们的代码互相合并（融合）该有多好呀！！！</li>
+</ul>
+<h5 id="1-创建共享仓库"><a href="#1-创建共享仓库" class="headerlink" title="1.创建共享仓库"></a>1.创建共享仓库</h5><p>Git要求共享仓库是一个以.git结尾的目录。</p>
+<p>mkdir repo.git 创建以.git结尾目录</p>
+<p>cd repo.git 进入这个目录</p>
+<p>git init –bare 初始化一个共享仓库，也叫裸仓库 注意选项–bare</p>
+<p>这样我们就建好了一个共享的仓库，但这时这个仓库是一个空的仓库，并且不允在这个仓库中进行任何修改。</p>
+<h5 id="2-向共享仓库共享（同步）内容"><a href="#2-向共享仓库共享（同步）内容" class="headerlink" title="2.向共享仓库共享（同步）内容"></a>2.向共享仓库共享（同步）内容</h5><p>将自已开发的项目同步到这个目录中，其它开发者就可以共享你开发的项目了。</p>
+<p>1、进入到test目录</p>
+<p>2、git push ../repo.git master</p>
+<p>这样便把test中的项目同步进了repo.git中。</p>
+<h5 id="3-从共享仓库里取出内容"><a href="#3-从共享仓库里取出内容" class="headerlink" title="3.从共享仓库里取出内容"></a>3.从共享仓库里取出内容</h5><p>1、新创建一个目录（模拟另一个开发者）</p>
+<p>2、git clone ./repo.git demo</p>
+<p>通过repo.git共享仓库，我们轻松得到了一个test的副本</p>
+<h5 id="4-通过demo仓库向repo-git共享内容"><a href="#4-通过demo仓库向repo-git共享内容" class="headerlink" title="4.通过demo仓库向repo.git共享内容"></a>4.通过demo仓库向repo.git共享内容</h5><p>进入到demo里，我们做一些修改</p>
+<p>cd demo</p>
+<p>git push ../repo.git master</p>
+<h5 id="5-在仓库从repo-git获取共享的内容"><a href="#5-在仓库从repo-git获取共享的内容" class="headerlink" title="5.在仓库从repo.git获取共享的内容"></a>5.在仓库从repo.git获取共享的内容</h5><p>cd test</p>
+<p>git pull ../repo.git master</p>
+<ul>
+<li>奇迹似乎发生了，我们轻松的将demo仓库里的内容，通过repo.git共享给了test仓库。</li>
+<li>惊喜不断，问题也总是不断，我们发现我们这个共享的仓库只是放到了本地的，其它人是没有办法从我们这个共享仓库共享内容的！！！</li>
+<li>然而现实是，办法总是有的，我们把这个共享的仓库放到一台远程服务器上，问题不就解决了吗？</li>
+</ul>
+<h5 id="6-gitHub、gitLab和gitee-码云"><a href="#6-gitHub、gitLab和gitee-码云" class="headerlink" title="6.gitHub、gitLab和gitee(码云)"></a>6.gitHub、gitLab和gitee(码云)</h5><p>如果我们熟悉服务器的话，我们完全可以将上述的步骤在我们的远程服务器上进行操作，<br>然后再做一些登录权限的设置，就可非常完美的搭建一个共享服务器了。<br>其实为了更好的管理我们的仓库，一些第三方机构开发出了Web版仓库管理程序，通过Web界面形式管理仓库。</p>
+<ul>
+<li>ssh</li>
+<li>简单说，SSH是一种网络协议，用于计算机之间的加密登录。如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。</li>
+<li>配置步骤：</li>
+</ul>
+<ul>
+<li>使用git bash 执行 <code>ssh-keygen -t rsa</code></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-MWEB/13-swiper" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -647,14 +804,22 @@
 <h3 id="less的安装"><a href="#less的安装" class="headerlink" title="less的安装"></a>less的安装</h3><ol>
 <li>安装nodejs <a href="https://nodejs.org/dist/" target="_blank" rel="noopener">https://nodejs.org/dist/</a> 可选择版本(6.0)。</li>
 <li>检查是否安装成功，使用cmd命令 node -v 查看版本即可。</li>
-<li>基于nodejs安装less:<ul>
-<li>在线安装：使用cmd命令 npm install -g less</li>
-<li>离线安装:<br>a.找到C盘根目录下的用户或User文件夹打开<br>b.找到当前计算机使用的用户文件夹打开<br>c.找到隐藏文件夹AppData打开<br>d.找到Roaming文件夹打开<br>e.找到npm文件夹打开，该文件夹为基于nodejs程序目录<br>f.把npm.zip文件解压到该目录 </li>
+<li><p>基于nodejs安装less:</p>
+<ul>
+<li><p>在线安装：使用cmd命令 npm install -g less</p>
+</li>
+<li><p>离线安装:<br>a.找到C盘根目录下的用户或User文件夹打开<br>b.找到当前计算机使用的用户文件夹打开<br>c.找到隐藏文件夹AppData打开<br>d.找到Roaming文件夹打开<br>e.找到npm文件夹打开，该文件夹为基于nodejs程序目录<br>f.把npm.zip文件解压到该目录 </p>
+<p>g.可以在命令符中查看版本  lessc  -v</p>
+<p>​</p>
+</li>
 </ul>
 </li>
 <li>基于koala软件也可以编译LESS;</li>
 </ol>
 <h3 id="less编译"><a href="#less编译" class="headerlink" title="less编译"></a>less编译</h3><p>本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。</p>
+<ul>
+<li><strong>如果使用viscode 可下载EASY LESS  插件。</strong>直接创建新文件   xxx.less 即可生成 对应的 xxx.css文件</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc 目标文件地址 生成文件地址</span><br></pre></td></tr></table></figure>
 <p>在开发过程当中如果要预览less，每次都要执行编译命令，为了方便可以使用部分编辑器中less自动编译功能。</p>
 <ol>
@@ -1199,76 +1364,6 @@
 </table>
 <h3 id="滑动效果原理"><a href="#滑动效果原理" class="headerlink" title="滑动效果原理"></a>滑动效果原理</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">imageBox.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> moveX = e.touches[<span class="number">0</span>].clientX;</span><br><span class="line">        distanceX = moveX - startX;</span><br><span class="line">        <span class="comment">/*计算将要给图片盒子的定位*/</span></span><br><span class="line">        <span class="comment">/*基于当前的定位去计算*/</span></span><br><span class="line">        <span class="keyword">var</span> translateX = -index * width + distanceX;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>移动端滑动效果，就是使用touch事件，拖动元素。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MWEB/">MWEB</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-MWEB/04-二倍图" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/17/MWEB/04-二倍图/" class="article-date">
-      <time datetime="2017-06-17T05:22:40.000Z" itemprop="datePublished">2017-06-17</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/17/MWEB/04-二倍图/">04-移动端二倍图</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="移动端二倍图"><a href="#移动端二倍图" class="headerlink" title="移动端二倍图"></a>移动端二倍图</h2><h3 id="移动端设备屏幕清晰度"><a href="#移动端设备屏幕清晰度" class="headerlink" title="移动端设备屏幕清晰度"></a>移动端设备屏幕清晰度</h3><ul>
-<li>物理像素点指的是屏幕显示的最小颗，是物理真实存在的。</li>
-<li>所谓Retina是一种显示技术，可以将把更多的物理像素点压缩至一块屏幕里，从而达到更高的分辨率并提高屏幕显示的细腻程度。</li>
-<li>而一个px的绝对（在开发中认为是绝对）长度能显示的物理像素点的个数，称为物理像素比，屏幕像素比。</li>
-</ul>
-<p><img src="data:image/jpeg;base64,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Mrf/AOLrvfgP+yF8T/A3xg8K6/rGi29vplheCa4lW/hcquCM7QxJ69qVLD1lUi3B7roXmOd5ZUwVeEMTBtxkkuZb2fmfMHjr/kd/EP8A2Ebj/wBGtWHX0n4q/Yl+LeqeKNYvbfQbV7e4vJpo2OowDKs5IOC/HBrK/wCGFvjD/wBC/a/+DK3/APi6iWGrXfuP7jro57lapRTxMNl9pf5nD/s5f8l68Af9hq1/9GCsP4r/APJUvGP/AGGbz/0e9fQ/wZ/Y6+KXg74seEtc1TRLaDTtP1KC5uJFv4XKorgkgBsnjsKy/H/7FnxY17x34k1Oy0K2ks73Urm5hc6hApZHlZlOC2RwRxWv1et7JLke/byPOWdZZ/aLqfWYcvIlfmVr8z03PmKvVP2WP+ThfAn/AGEV/wDQWrqv+GFvjD/0L9r/AODK3/8Ai6734D/shfE/wN8YPCuv6xotvb6ZYXgmuJVv4XKrgjO0MSevappYesqkW4PddDbMc7yypgq8IYmDbjJJcy3s/M/QiiiivsD+XwooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//2Q==" alt="img"></p>
-<h3 id="二倍图的使用"><a href="#二倍图的使用" class="headerlink" title="二倍图的使用"></a>二倍图的使用</h3><p>在标准的viewport设置中，使用二倍图来提高图片质量，解决在高清设备模糊问题。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="comment">/*原始图片100*100px*/</span></span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">50px</span> <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="comment">/*原始图片100*100px*/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在移动端屏幕的清晰度由物理像素比决定的，但是如果对于现实的图片质量不够，会造成图片模糊发虚现象，二倍图是决定这个问题的简单做法。</p>
 
       
     </div>

@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -295,6 +295,294 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-PHP/18-数据查询" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/26/PHP/18-数据查询/" class="article-date">
+      <time datetime="2017-04-26T01:03:34.000Z" itemprop="datePublished">2017-04-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/26/PHP/18-数据查询/">18-数据查询</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="2-数据查询"><a href="#2-数据查询" class="headerlink" title="2. 数据查询"></a>2. 数据查询</h1><p>语法格式: </p>
+<p>  SELECT  字段名1, 字段名2, ……</p>
+<p>  FROM 表名    </p>
+<pre><code>[ WHERE &lt;条件表达式&gt; ]
+
+[ ORDER BY &lt;字段名&gt; [ ASC|DESC ]]
+
+[ LIMIT  START, LENGTH]
+</code></pre><h2 id="2-1-基本查询"><a href="#2-1-基本查询" class="headerlink" title="2.1 基本查询"></a>2.1 基本查询</h2><p>格式:  select  字段名1, 字段名2,….  from  表名 </p>
+<blockquote>
+<p>案例1: 查询所有栏目的id和名称</p>
+</blockquote>
+<pre><code>表:  ali_cate
+
+字段:  cate_id、cate_name
+</code></pre><p><img src="/images/php/1534213675206.png" alt="1534213675206"></p>
+<blockquote>
+<p>案例2: 查询管理员信息 (全部字段信息)</p>
+</blockquote>
+<pre><code>表: ali_admin
+
+字段: 所有字段
+</code></pre><p>方式一:  在select和from之间，列出所有字段</p>
+<p><img src="/images/php/1534213763761.png" alt="1534213763761"></p>
+<p>方式二: 使用 * 来代表所有字段</p>
+<p><img src="/images/php/1534213822095.png" alt="1534213822095"></p>
+<h2 id="2-2-带where子句的查询"><a href="#2-2-带where子句的查询" class="headerlink" title="2.2 带where子句的查询"></a>2.2 带where子句的查询</h2><p>select  field1, field2… from 表名  查询表中的所有数据</p>
+<p>  where 可以使用条件来筛选查询出的结果</p>
+<p><img src="/images/php/01.jpg" alt="img"> </p>
+<blockquote>
+<p>案例3: 查询id值为2的栏目的所有信息</p>
+</blockquote>
+<pre><code>表: ali_cate
+
+字段:  *
+
+筛选条件:  cate_id = 2
+</code></pre><p><img src="/images/php/1534214952123.png" alt="1534214952123"></p>
+<blockquote>
+<p>案例4: 查询年龄大于等于25的管理员的邮箱和昵称</p>
+</blockquote>
+<pre><code>表: ali_admin
+
+字段:  admin_email、 admin_nickname
+
+筛选条件:  admin_age &gt;= 25
+</code></pre><p><img src="/images/php/1534215147258.png" alt="1534215147258"></p>
+<blockquote>
+<p>案例5: 查询年龄在23-28之间的管理员的所有信息</p>
+</blockquote>
+<pre><code>表: ali_admin
+
+字段: *
+
+筛选条件： admin_age&gt;=23  and  admin_age&lt;=28
+</code></pre><p>方法一:</p>
+<p><img src="/images/php/1534215257922.png" alt="1534215257922"></p>
+<p>方式二:</p>
+<p><img src="/images/php/1534215324315.png" alt="1534215324315"></p>
+<blockquote>
+<p>案例6: 查询年龄不在23-28之间的管理员的所有信息</p>
+</blockquote>
+<pre><code>表: ali_admin
+
+字段: *
+
+筛选条件： `admin_age&lt;23  or  admin_age&gt;28`
+</code></pre><p>方法一:</p>
+<p><img src="/images/php/1534215426973.png" alt="1534215426973"></p>
+<p>方法二：</p>
+<p><img src="/images/php/1534215454171.png" alt="1534215454171"></p>
+<blockquote>
+<p>案例7: 查询年龄大于25的男性管理员信息</p>
+</blockquote>
+<pre><code>表: ali_admin
+
+字段:  *
+
+筛选条件:  admin_age&gt;=25 and admin_gender=&apos;男&apos;
+</code></pre><p><img src="/images/php/1534215590016.png" alt="1534215590016"></p>
+<h2 id="2-3-in关键词"><a href="#2-3-in关键词" class="headerlink" title="2.3 in关键词"></a>2.3 in关键词</h2><p>集合:  一组相同类型的数据，使用()来包含，括号内使用 ， 分隔开</p>
+<p>(1, 2, 3, 4, 5)  (‘潮科技’, ‘会生活’, ‘奇趣事’, ‘美奇迹’)  </p>
+<blockquote>
+<p>案例8: 查询年龄为20、28的女性管理员信息</p>
+</blockquote>
+<pre><code>表： ali_admin
+
+字段： *
+
+筛选条件： admin_gender=&apos;女&apos;  and  （admin_age=20 or admin_age=28）
+</code></pre><p>方式一:</p>
+<p><img src="/images/php/1534215841500.png" alt="1534215841500"></p>
+<p>方式二：</p>
+<p><img src="/images/php/1534215898938.png" alt="1534215898938"></p>
+<h2 id="2-4-模糊查询"><a href="#2-4-模糊查询" class="headerlink" title="2.4 模糊查询"></a>2.4 模糊查询</h2><p>通配符:</p>
+<p>  %: 代表任意长度(包括0)的任意字符</p>
+<p>  _:  代表1位长度的任意字符</p>
+<p>​    a%b :  ab  abb  a对萨达b<br>    a_b: acb  atb  a的b<br>    a_b%:  acb  a&amp;baaad</p>
+<p>like: 在执行模糊查询时，必须使用like来作为匹配条件</p>
+<blockquote>
+<p>案例9: 查询邮箱地址中包含字符h的管理员信息</p>
+</blockquote>
+<pre><code>表： ali_admin
+
+字段： *
+
+筛选条件： admin_email like &apos;%h%&apos;
+</code></pre><p><img src="/images/php/1534216354094.png" alt="1534216354094"></p>
+<blockquote>
+<p>案例10: 查询包含“科技”关键词的文章信息</p>
+</blockquote>
+<pre><code>表： ali_article
+
+字段： *
+
+筛选条件：admin_title like ‘%科技%’
+</code></pre><p><img src="/images/php/1534216526440.png" alt="1534216526440"></p>
+<blockquote>
+<p>案例11: 查询邮箱以a字符开头并且包含n的管理员信息</p>
+</blockquote>
+<pre><code>表： ali_admin
+
+字段： *
+
+筛选条件： admin_email like ‘a%n%’
+</code></pre><p><img src="/images/php/1534216625722.png" alt="1534216625722"></p>
+<h2 id="2-5-order-by-排序"><a href="#2-5-order-by-排序" class="headerlink" title="2.5 order by 排序"></a>2.5 order by 排序</h2><p>order by 可以对查询结果按某个字段的升降进行排序</p>
+<p>  升序 asc （默认值） ，  降序 desc </p>
+<p>可进行排序的字段通常是  整型  英文字符串型  日期型  (中文字符串也行,但一般不用)</p>
+<blockquote>
+<p>案例12: 查询所有的栏目信息，并按别名的降序排列</p>
+</blockquote>
+<pre><code>表： ali_cate
+
+字段：*
+
+排序条件： cate_slug  desc
+</code></pre><p><img src="/images/php/1534216794928.png" alt="1534216794928"></p>
+<blockquote>
+<p>案例13: 查询所有栏目信息，并按发布时间升序排列</p>
+</blockquote>
+<pre><code>表：ali_cate
+
+字段： *
+
+排序条件：cate_addtime asc
+</code></pre><p><img src="/images/php/1534216877104.png" alt="1534216877104"></p>
+<blockquote>
+<p>案例14: 查询所有男性的管理员信息，并按照创建时间降序排列</p>
+</blockquote>
+<pre><code>表： ali_admin
+
+字段：*
+
+筛选条件： admin_gender=&apos;男&apos;
+
+排序：admin_addtime desc
+</code></pre><p><img src="/images/php/1534217036912.png" alt="1534217036912"></p>
+<h2 id="2-6-limit-限制"><a href="#2-6-limit-限制" class="headerlink" title="2.6 limit 限制"></a>2.6 limit 限制</h2><p>limit用来限制查询结果的起始点和长度</p>
+<p> 格式:  </p>
+<pre><code>limit  var1, var2
+</code></pre><p> var1: 起始点。 查询结果的索引，从0开始。 0代表第一条数据</p>
+<p> var2: 长度</p>
+<blockquote>
+<p>案例15: 查询年龄最大的3名男性管理员的信息</p>
+</blockquote>
+<pre><code>表： ali_admin
+
+字段： *
+
+筛选： admin_gender=&apos;男&apos;
+
+排序：order by admin_age desc
+
+限制：limit 0,3
+</code></pre><p><img src="/images/php/1534218129029.png" alt="1534218129029"></p>
+<blockquote>
+<p>案例16: 将文章按发布时间逆序排列，并取出第三条到第五条</p>
+</blockquote>
+<pre><code>表： ali_article
+
+字段：*
+
+排序： article_addtime desc
+
+限制：limit 2,3
+</code></pre><p><img src="/images/php/1534218422235.png" alt="1534218422235"></p>
+<p>将 *  解释成对应的字段需要 0.0001秒，但是人多了之后就会变慢。</p>
+<h2 id="2-7-多表查询"><a href="#2-7-多表查询" class="headerlink" title="2.7 多表查询"></a>2.7 多表查询</h2><p>关键词: </p>
+<pre><code>join   on
+</code></pre><p>格式:  </p>
+<pre><code>select  *  from  表1
+
+join 表2  on  链接条件
+</code></pre><p>链接条件一定是   表1的某个字段 =  表2的某个字段</p>
+<blockquote>
+<p>案例: 查询学生的全部信息，系别需要使用系名来进行显示</p>
+</blockquote>
+<pre><code>表： student     dept
+
+字段: student.*   dept.dept_name
+</code></pre><p><img src="/images/php/1534219437090.png" alt="1534219437090"></p>
+<p>原理:</p>
+<p><img src="/images/php/1534219689703.png" alt="1534219689703"></p>
+<blockquote>
+<p>案例17: 查询所有文章信息，作者使用昵称显示</p>
+</blockquote>
+<p>表： ali_article   ali_admin</p>
+<p>字段： ali_article.*   ali_admin.admin_nickname</p>
+<p><img src="/images/php/1534220115051.png" alt="1534220115051"></p>
+<blockquote>
+<p>案例18: 查询大牛发布的所有文章信息，作者使用昵称显示</p>
+</blockquote>
+<p>表： ali_article   ali_admin</p>
+<p>筛选： admin_nickname=’大牛’</p>
+<p><img src="/images/php/1534220239981.png" alt="1534220239981"></p>
+<blockquote>
+<p>案例19: 查询属于潮科技和奇趣事的所有文章</p>
+</blockquote>
+<p>表：ali_cate   ali_article</p>
+<p>筛选条件： cate_name in (‘潮科技’, ‘奇趣事’)</p>
+<p><img src="/images/php/1534220507814.png" alt="1534220507814"></p>
+<blockquote>
+<p>案例20: 查询所有文章信息，作者使用昵称显示，栏目使用栏目名显示</p>
+</blockquote>
+<p>表： ali_article    ali_admin   ali_cate</p>
+<p><img src="/images/php/1534220828795.png" alt="1534220828795"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-PHP/17-关系型数据库介绍" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1159,139 +1447,6 @@ static在递归操作中非常有用。
 <p>move_uploaded_file (参数1， 参数2)；</p>
 <p> 参数1: 临时路径  —&gt;  $_FILES[‘pic’][‘tmp_name’]</p>
 <p> 参数2: 目标路径  —&gt;  使用相对路径移动到当前目录下   ./ </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/08-PHP超全局变量" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/24/PHP/08-PHP超全局变量/" class="article-date">
-      <time datetime="2017-04-24T01:08:07.000Z" itemprop="datePublished">2017-04-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/24/PHP/08-PHP超全局变量/">08-PHP超全局变量</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="超全局变量-预定义数组"><a href="#超全局变量-预定义数组" class="headerlink" title="超全局变量(预定义数组)"></a>超全局变量(预定义数组)</h1><h2 id="什么是超全局变量"><a href="#什么是超全局变量" class="headerlink" title="什么是超全局变量"></a>什么是超全局变量</h2><pre><code>超全局变量是PHP内置的变量，在每一个php文件中都可以直接使用。
-
-特点: 
-在每个页面都能直接使用
-内部都是**关联数组**结构
-</code></pre><blockquote>
-<p>非常重要: $_GET、$_POST、$_SESSION、$_COOKIE、$_FILES<br>知道: $_SERVER、$_REQUEST、$GLOBALS</p>
-</blockquote>
-<h2 id="SERVER"><a href="#SERVER" class="headerlink" title="$_SERVER"></a>$_SERVER</h2><p>$_SERVER记录了服务器和客户端的主要信息，和当前页面的信息<br><img src="/images/php/1533782283446.png" alt=""></p>
-<p>重点记住的内容:</p>
-<p>  REQURES_URI ： 访问的文件地址</p>
-<p>  SCRIPT_NAME： 脚本名称（路径）</p>
-<p>  PHP_SELF： 自身文件名</p>
-<p>  访问的文件的绝对路径。 此处的绝对路径是和域名绝对</p>
-<p>   /php2/code/server.php –&gt;  localhost/php2/code/server.php</p>
-<h2 id="get-post方式接收表单数据"><a href="#get-post方式接收表单数据" class="headerlink" title="get/post方式接收表单数据"></a>get/post方式接收表单数据</h2><pre><code>表单处理通常需要两个页面：
-
-  1)  form.html，表单页，用户可以在表单页上填写相关数据
-
-  2)  form.php ,  数据接收处理页， 接收用户在表单填写的数据，然后做进一步处理
-</code></pre><p><img src="/images/php/1525418662232.png" alt=""></p>
-<p>代码实现：</p>
-<p>form.html</p>
-<p><img src="/images/php/1533783297322.png" alt=""></p>
-<p>form.php<br><img src="/images/php/1533783312171.png" alt=""><br>注意:  表单中每个域的name值，会作为$_POST的下标</p>
-<p>表单提交关键点总结:</p>
-<p>  表单页: form.html</p>
-<pre><code>1) 必须有form表单标签，form必须有action 和 method 两个属性
-</code></pre><ul>
-<li>action: 指定表单数据提交的位置 —  php/jsp/asp文件的路径</li>
-<li><p>method: 表单提交的方式， post 、get(默认)</p>
-<p>  2) 每个表单域都要有name属性    input   select   textarea</p>
-<p>  3) 必须有submit类型的按钮</p>
-</li>
-</ul>
-<p>   数据接收处理页： form.php</p>
-<pre><code>1) method=post时，使用$_POST接收数据    
-
-2) method=get时，使用$_GET接收数据
-
-3) 不管是$_POST还是$_GET，都是一个关联数组，数组的下标就是表单域中 name 属性的值
-</code></pre><h2 id="每种域和类型的提交方式"><a href="#每种域和类型的提交方式" class="headerlink" title="每种域和类型的提交方式"></a>每种域和类型的提交方式</h2><p> 表单标签： form 、 <strong>input 、 select 、 textarea</strong></p>
-<p>  <strong>表单提交的实际上是每个域的value值</strong></p>
-<p>  1) input  type= text/password/hidden/email  提交的就是value属性中的值</p>
-<p>  2) input  type=radio  提交的是选中项的value值。<strong>value必须设置，否则后端会接收 on</strong></p>
-<p>  3) input  type=checkbox  <strong>在name的值后增加[] 转换成数组结构</strong>，后端才能接收到所有的已勾选项</p>
-<p>  4) select  name值需要定义在select标签中； value定义在option中，每条option都有自己的value</p>
-<pre><code>如果不定义option中的value，则会将option中间的内容发送到后端页面中
-</code></pre><p>  5) textarea  name值定义在textarea标签中，value没有显式的表示出来，就是开始标签和结束标签之间的内容</p>
-<p><img src="/images/php/1533784655977.png" alt=""></p>
-<h1 id="post和get的区别-非常重要"><a href="#post和get的区别-非常重要" class="headerlink" title="post和get的区别 (非常重要)"></a>post和get的区别 (非常重要)</h1><h2 id="通过URL地址栏来区分post和get"><a href="#通过URL地址栏来区分post和get" class="headerlink" title="通过URL地址栏来区分post和get"></a>通过URL地址栏来区分post和get</h2><p>get将提交数据拼接成字符串显示在URL地址栏中<br><img src="/images/php/1525423939656.png" alt=""><br>post不显示<br><img src="/images/php/1525423862000.png" alt=""></p>
-<p>1) 提交方式</p>
-<ul>
-<li><p>get会将数据显式的拼接到url地址栏中  (字符串)<br>例如： form.php?id=10001&amp;username=heiheihei&amp;passwd=123456&amp;key=value….<br>key=value方式传参，多个参数之间使用&amp;符号隔开</p>
-<pre><code>id、username、passwd等等（键/key）都是表单域的name值
-
-1、heiheihei、123456等等（值/value）都是表单域的value值
-</code></pre></li>
-<li><p>post不会显示出来</p>
-</li>
-</ul>
-<p>2) 传递数据量大小</p>
-<ul>
-<li>post最小值是2M，默认8M，可以通过修改php配置(php.ini)文件来修改大小，理论上没有上限的。</li>
-<li>get会受到浏览器的地址栏的限制。有的是2k，有的是8K(chrome)</li>
-</ul>
-<p>3) 应用范围不一样</p>
-<ul>
-<li>post在绝大多数情况下都使用在表单提交中。</li>
-<li>get的应用范围比较广。在a标签的href中，location.href中等都能使用get方式。<br><img src="/images/php/1533786580917.png" alt=""></li>
-</ul>
-<h2 id="REQUEST"><a href="#REQUEST" class="headerlink" title="$_REQUEST"></a>$_REQUEST</h2><p>   $_REQUEST 即可以接收get方式提交的表单，也能接收post方式提交的表单。但是因为速度比较慢，所以现在被弃用。</p>
 
       
     </div>

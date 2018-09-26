@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -295,6 +295,139 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-PHP/08-PHP超全局变量" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/24/PHP/08-PHP超全局变量/" class="article-date">
+      <time datetime="2017-04-24T01:08:07.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/24/PHP/08-PHP超全局变量/">08-PHP超全局变量</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="超全局变量-预定义数组"><a href="#超全局变量-预定义数组" class="headerlink" title="超全局变量(预定义数组)"></a>超全局变量(预定义数组)</h1><h2 id="什么是超全局变量"><a href="#什么是超全局变量" class="headerlink" title="什么是超全局变量"></a>什么是超全局变量</h2><pre><code>超全局变量是PHP内置的变量，在每一个php文件中都可以直接使用。
+
+特点: 
+在每个页面都能直接使用
+内部都是**关联数组**结构
+</code></pre><blockquote>
+<p>非常重要: $_GET、$_POST、$_SESSION、$_COOKIE、$_FILES<br>知道: $_SERVER、$_REQUEST、$GLOBALS</p>
+</blockquote>
+<h2 id="SERVER"><a href="#SERVER" class="headerlink" title="$_SERVER"></a>$_SERVER</h2><p>$_SERVER记录了服务器和客户端的主要信息，和当前页面的信息<br><img src="/images/php/1533782283446.png" alt=""></p>
+<p>重点记住的内容:</p>
+<p>  REQURES_URI ： 访问的文件地址</p>
+<p>  SCRIPT_NAME： 脚本名称（路径）</p>
+<p>  PHP_SELF： 自身文件名</p>
+<p>  访问的文件的绝对路径。 此处的绝对路径是和域名绝对</p>
+<p>   /php2/code/server.php –&gt;  localhost/php2/code/server.php</p>
+<h2 id="get-post方式接收表单数据"><a href="#get-post方式接收表单数据" class="headerlink" title="get/post方式接收表单数据"></a>get/post方式接收表单数据</h2><pre><code>表单处理通常需要两个页面：
+
+  1)  form.html，表单页，用户可以在表单页上填写相关数据
+
+  2)  form.php ,  数据接收处理页， 接收用户在表单填写的数据，然后做进一步处理
+</code></pre><p><img src="/images/php/1525418662232.png" alt=""></p>
+<p>代码实现：</p>
+<p>form.html</p>
+<p><img src="/images/php/1533783297322.png" alt=""></p>
+<p>form.php<br><img src="/images/php/1533783312171.png" alt=""><br>注意:  表单中每个域的name值，会作为$_POST的下标</p>
+<p>表单提交关键点总结:</p>
+<p>  表单页: form.html</p>
+<pre><code>1) 必须有form表单标签，form必须有action 和 method 两个属性
+</code></pre><ul>
+<li>action: 指定表单数据提交的位置 —  php/jsp/asp文件的路径</li>
+<li><p>method: 表单提交的方式， post 、get(默认)</p>
+<p>  2) 每个表单域都要有name属性    input   select   textarea</p>
+<p>  3) 必须有submit类型的按钮</p>
+</li>
+</ul>
+<p>   数据接收处理页： form.php</p>
+<pre><code>1) method=post时，使用$_POST接收数据    
+
+2) method=get时，使用$_GET接收数据
+
+3) 不管是$_POST还是$_GET，都是一个关联数组，数组的下标就是表单域中 name 属性的值
+</code></pre><h2 id="每种域和类型的提交方式"><a href="#每种域和类型的提交方式" class="headerlink" title="每种域和类型的提交方式"></a>每种域和类型的提交方式</h2><p> 表单标签： form 、 <strong>input 、 select 、 textarea</strong></p>
+<p>  <strong>表单提交的实际上是每个域的value值</strong></p>
+<p>  1) input  type= text/password/hidden/email  提交的就是value属性中的值</p>
+<p>  2) input  type=radio  提交的是选中项的value值。<strong>value必须设置，否则后端会接收 on</strong></p>
+<p>  3) input  type=checkbox  <strong>在name的值后增加[] 转换成数组结构</strong>，后端才能接收到所有的已勾选项</p>
+<p>  4) select  name值需要定义在select标签中； value定义在option中，每条option都有自己的value</p>
+<pre><code>如果不定义option中的value，则会将option中间的内容发送到后端页面中
+</code></pre><p>  5) textarea  name值定义在textarea标签中，value没有显式的表示出来，就是开始标签和结束标签之间的内容</p>
+<p><img src="/images/php/1533784655977.png" alt=""></p>
+<h1 id="post和get的区别-非常重要"><a href="#post和get的区别-非常重要" class="headerlink" title="post和get的区别 (非常重要)"></a>post和get的区别 (非常重要)</h1><h2 id="通过URL地址栏来区分post和get"><a href="#通过URL地址栏来区分post和get" class="headerlink" title="通过URL地址栏来区分post和get"></a>通过URL地址栏来区分post和get</h2><p>get将提交数据拼接成字符串显示在URL地址栏中<br><img src="/images/php/1525423939656.png" alt=""><br>post不显示<br><img src="/images/php/1525423862000.png" alt=""></p>
+<p>1) 提交方式</p>
+<ul>
+<li><p>get会将数据显式的拼接到url地址栏中  (字符串)<br>例如： form.php?id=10001&amp;username=heiheihei&amp;passwd=123456&amp;key=value….<br>key=value方式传参，多个参数之间使用&amp;符号隔开</p>
+<pre><code>id、username、passwd等等（键/key）都是表单域的name值
+
+1、heiheihei、123456等等（值/value）都是表单域的value值
+</code></pre></li>
+<li><p>post不会显示出来</p>
+</li>
+</ul>
+<p>2) 传递数据量大小</p>
+<ul>
+<li>post最小值是2M，默认8M，可以通过修改php配置(php.ini)文件来修改大小，理论上没有上限的。</li>
+<li>get会受到浏览器的地址栏的限制。有的是2k，有的是8K(chrome)</li>
+</ul>
+<p>3) 应用范围不一样</p>
+<ul>
+<li>post在绝大多数情况下都使用在表单提交中。</li>
+<li>get的应用范围比较广。在a标签的href中，location.href中等都能使用get方式。<br><img src="/images/php/1533786580917.png" alt=""></li>
+</ul>
+<h2 id="REQUEST"><a href="#REQUEST" class="headerlink" title="$_REQUEST"></a>$_REQUEST</h2><p>   $_REQUEST 即可以接收get方式提交的表单，也能接收post方式提交的表单。但是因为速度比较慢，所以现在被弃用。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-PHP/07-PHP数组" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1161,87 +1294,6 @@ null (空)
 <p>在同一个元素上执行多个动画，那么对于这个动画来说，后面的动画会被放到动画队列中，等前面的动画执行完成了才会执行（联想：地铁进站）。</p>
 <h2 id="停止动画"><a href="#停止动画" class="headerlink" title="停止动画"></a>停止动画</h2><h3 id="stop方法：停止动画效果"><a href="#stop方法：停止动画效果" class="headerlink" title="stop方法：停止动画效果"></a>stop方法：停止动画效果</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stop(clearQueue, jumpToEnd);</span><br><span class="line"><span class="comment">//第一个参数：是否清除队列</span></span><br><span class="line"><span class="comment">//第二个参数：是否跳转到最终效果</span></span><br></pre></td></tr></table></figure>
 <p><strong>最常用的停止动画：stop();</strong></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery/14-jQuery操作样式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/03/25/jQuery/14-jQuery操作样式/" class="article-date">
-      <time datetime="2017-03-25T01:11:45.000Z" itemprop="datePublished">2017-03-25</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/03/25/jQuery/14-jQuery操作样式/">14-jQuery操作样式</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="jQuery操作样式"><a href="#jQuery操作样式" class="headerlink" title="jQuery操作样式"></a>jQuery操作样式</h1><h2 id="css操作"><a href="#css操作" class="headerlink" title="css操作"></a>css操作</h2><ul>
-<li>功能：设置或者修改样式，操作的是style属性</li>
-</ul>
-<h3 id="设置单个样式"><a href="#设置单个样式" class="headerlink" title="设置单个样式"></a>设置单个样式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name：需要设置的样式名称</span></span><br><span class="line"><span class="comment">//value：对应的样式值</span></span><br><span class="line">css(name, value);</span><br><span class="line"><span class="comment">//使用案例</span></span><br><span class="line">$(<span class="string">"#one"</span>).css(<span class="string">"background"</span>,<span class="string">"gray"</span>);<span class="comment">//将背景色修改为灰色</span></span><br></pre></td></tr></table></figure>
-<h3 id="设置多个样式"><a href="#设置多个样式" class="headerlink" title="设置多个样式"></a>设置多个样式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参数是一个对象，对象中包含了需要设置的样式名和样式值</span></span><br><span class="line">css(obj);</span><br><span class="line"><span class="comment">//使用案例</span></span><br><span class="line">$(<span class="string">"#one"</span>).css(&#123;</span><br><span class="line">    <span class="string">"background"</span>:<span class="string">"gray"</span>,</span><br><span class="line">    <span class="string">"width"</span>:<span class="string">"400px"</span>,</span><br><span class="line">    <span class="string">"height"</span>:<span class="string">"200px"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="获取样式"><a href="#获取样式" class="headerlink" title="获取样式"></a>获取样式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:需要获取的样式名称</span></span><br><span class="line">css(name);</span><br><span class="line"><span class="comment">//案例</span></span><br><span class="line">$(<span class="string">"div"</span>).css(<span class="string">"background-color"</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>注意：获取样式操作只会返回第一个元素对应的样式值。</li>
-</ul>
-<h2 id="class操作"><a href="#class操作" class="headerlink" title="class操作"></a>class操作</h2><h3 id="添加样式类"><a href="#添加样式类" class="headerlink" title="添加样式类"></a>添加样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name：需要添加的样式类名，注意参数不要带点.</span></span><br><span class="line">addClass(name);</span><br><span class="line"><span class="comment">//例子,给所有的div添加one的样式。</span></span><br><span class="line">$(<span class="string">"div"</span>).addClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="移除所有样式类"><a href="#移除所有样式类" class="headerlink" title="移除所有样式类"></a>移除所有样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不带参数，移除所有的样式类</span></span><br><span class="line">removeClass()</span><br><span class="line"><span class="comment">//例子，移除div所有的样式类</span></span><br><span class="line">$(<span class="string">"div"</span>).removeClass();</span><br></pre></td></tr></table></figure>
-<h3 id="移除单个样式类"><a href="#移除单个样式类" class="headerlink" title="移除单个样式类"></a>移除单个样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:需要移除的样式类名</span></span><br><span class="line">removeClass(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">//例子，移除div中one的样式类名</span></span><br><span class="line">$(<span class="string">"div"</span>).removeClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="判断是否有样式类"><a href="#判断是否有样式类" class="headerlink" title="判断是否有样式类"></a>判断是否有样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:用于判断的样式类名，返回值为true false</span></span><br><span class="line">hasClass(name)</span><br><span class="line"><span class="comment">//例子，判断第一个div是否有one的样式类</span></span><br><span class="line">$(<span class="string">"div"</span>).hasClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="切换样式类"><a href="#切换样式类" class="headerlink" title="切换样式类"></a>切换样式类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:需要切换的样式类名，如果有，移除该样式，如果没有，添加该样式。</span></span><br><span class="line">toggleClass(name);</span><br><span class="line"><span class="comment">//例子</span></span><br><span class="line">$(<span class="string">"div"</span>).toggleClass(<span class="string">"one"</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>经验总结：</li>
-</ul>
-<p>1.如果操作到的样式非常少，可以考虑css方法</p>
-<p>2.如果操作到的样式非常多，那么可以通过class方法来操作，将样式写到一个class类里面。</p>
-<p>3.如果考虑到后期维护方便，将css从js中分离出来，那么推荐使用class的方式来操作。</p>
 
       
     </div>

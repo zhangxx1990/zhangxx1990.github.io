@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -295,6 +295,104 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-PHP/28-cookie和session的联系" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/27/PHP/28-cookie和session的联系/" class="article-date">
+      <time datetime="2017-04-27T08:04:36.000Z" itemprop="datePublished">2017-04-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/27/PHP/28-cookie和session的联系/">28-session和cookie的联系</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="session和cookie的联系"><a href="#session和cookie的联系" class="headerlink" title="session和cookie的联系"></a>session和cookie的联系</h1><h2 id="session原理"><a href="#session原理" class="headerlink" title="session原理"></a>session原理</h2><pre><code>session默认是保存在服务器的文件当中的。
+
+    windows默认存放在 c:/windows/temp目录下， phpstudy存放在 phpstudy/tmp/tmp目录下
+</code></pre><p><img src="/images/php/1534557997292.png" alt="1534557997292"></p>
+<h2 id="cookie和session的联系"><a href="#cookie和session的联系" class="headerlink" title="cookie和session的联系"></a>cookie和session的联系</h2><p>当浏览器访问一个设置session的页面时，服务器会随机自动生成一个session_id（字符串）。通过响应头的set-cookie返回给浏览器，并保存在浏览器的cookie当中，同时服务器中也会生成一个以该session_id为名称的文件，用来记录信息。</p>
+<pre><code>浏览器之后每次访问该网站时，都会携带cookie中的session_id，来和服务器中的session文件名进行比对。当文件名和cookie中的session_id一致时，则说明使用的是该session文件，可以从该session文件中读取数据。
+</code></pre><p>案例: 访问 sets.php文件 和  gets.php</p>
+<p>sets.php</p>
+<p><img src="/images/php/1534558764734.png" alt="1534558764734"></p>
+<p>gets.php</p>
+<p><img src="/images/php/1534558776347.png" alt="1534558776347"></p>
+<p>访问 sets.php文件时，完成两件事情</p>
+<p>1) 将session_id随着响应头返回给浏览器，并保存在浏览器中</p>
+<p><img src="/images/php/1534558189499.png" alt="1534558189499"></p>
+<p>2) 在服务器端创建一个session文件   sess_958ur7nh1djufrs9aqkia40im1， 将$_SESSION中已保存的数据，存储到该文件中。</p>
+<p><img src="/images/php/1534558225267.png" alt="1534558225267"></p>
+<p>gets.php文件</p>
+<p><img src="/images/php/1534558307932.png" alt="1534558307932"></p>
+<p>服务器在tmp目录下找到 sess_958ur7nh1djufrs9aqkia40im1 文件，并将文件中的数据取出，返回给浏览器</p>
+<h1 id="session和cookie总结"><a href="#session和cookie总结" class="headerlink" title="session和cookie总结"></a>session和cookie总结</h1><h2 id="cookie小结"><a href="#cookie小结" class="headerlink" title="cookie小结:"></a>cookie小结:</h2><p>  1） 将数据保存在客户端，安全性不好，但是可以保存的数据量较大。</p>
+<pre><code>一个网站能向一个浏览器写 20 个cookie
+
+一个浏览器最多保存300个cookie，每个cookie最大4kb
+</code></pre><p>  2） 设置cookie使用  setcookie(var1, var2, var3)；</p>
+<pre><code>var1： cookie名称
+var2： 名称对应的值
+var3： 有效期。 可选参数，如果不设置该值或者设置为-1，浏览器关闭则cookie消失
+</code></pre><p>  3） 使用$_COOKIE 预定义数组来读取cookie</p>
+<p>  4） cookie的有效范围： 当前目录及子目录；上级目录无效</p>
+<p>  5） 删除cookie:  setcookie(‘name’, null);</p>
+<h2 id="session小结"><a href="#session小结" class="headerlink" title="session小结:"></a>session小结:</h2><p>  1) 将数据保存在服务器端，安全性高，但是不能保存大量的数据。一般来讲session当中保存的都是用户信息。</p>
+<p>  2) 使用session时，首先要使用 session_start函数开启session</p>
+<p>  3) 设置和读取session时，都是用$_SESSION[‘name’] = ‘zs’;  $_SESSION[‘name’];</p>
+<p>  4) session的有效范围，在一个域名下设置session，在整个域名范围内都有效</p>
+<p>  5) 删除session</p>
+<pre><code>unset($_SESSION[‘name’]);    //删除单个session
+session_destroy();                   //删除所有session
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-PHP/27-session技术" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1078,294 +1176,6 @@ stel   char(11)
 <p><img src="/images/php/1534295979697.png" alt="1534295979697"></p>
 <p>方式三: </p>
 <p><img src="/images/php/1534296150393.png" alt="1534296150393"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/18-数据查询" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/26/PHP/18-数据查询/" class="article-date">
-      <time datetime="2017-04-26T01:03:34.000Z" itemprop="datePublished">2017-04-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/26/PHP/18-数据查询/">18-数据查询</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="2-数据查询"><a href="#2-数据查询" class="headerlink" title="2. 数据查询"></a>2. 数据查询</h1><p>语法格式: </p>
-<p>  SELECT  字段名1, 字段名2, ……</p>
-<p>  FROM 表名    </p>
-<pre><code>[ WHERE &lt;条件表达式&gt; ]
-
-[ ORDER BY &lt;字段名&gt; [ ASC|DESC ]]
-
-[ LIMIT  START, LENGTH]
-</code></pre><h2 id="2-1-基本查询"><a href="#2-1-基本查询" class="headerlink" title="2.1 基本查询"></a>2.1 基本查询</h2><p>格式:  select  字段名1, 字段名2,….  from  表名 </p>
-<blockquote>
-<p>案例1: 查询所有栏目的id和名称</p>
-</blockquote>
-<pre><code>表:  ali_cate
-
-字段:  cate_id、cate_name
-</code></pre><p><img src="/images/php/1534213675206.png" alt="1534213675206"></p>
-<blockquote>
-<p>案例2: 查询管理员信息 (全部字段信息)</p>
-</blockquote>
-<pre><code>表: ali_admin
-
-字段: 所有字段
-</code></pre><p>方式一:  在select和from之间，列出所有字段</p>
-<p><img src="/images/php/1534213763761.png" alt="1534213763761"></p>
-<p>方式二: 使用 * 来代表所有字段</p>
-<p><img src="/images/php/1534213822095.png" alt="1534213822095"></p>
-<h2 id="2-2-带where子句的查询"><a href="#2-2-带where子句的查询" class="headerlink" title="2.2 带where子句的查询"></a>2.2 带where子句的查询</h2><p>select  field1, field2… from 表名  查询表中的所有数据</p>
-<p>  where 可以使用条件来筛选查询出的结果</p>
-<p><img src="/images/php/01.jpg" alt="img"> </p>
-<blockquote>
-<p>案例3: 查询id值为2的栏目的所有信息</p>
-</blockquote>
-<pre><code>表: ali_cate
-
-字段:  *
-
-筛选条件:  cate_id = 2
-</code></pre><p><img src="/images/php/1534214952123.png" alt="1534214952123"></p>
-<blockquote>
-<p>案例4: 查询年龄大于等于25的管理员的邮箱和昵称</p>
-</blockquote>
-<pre><code>表: ali_admin
-
-字段:  admin_email、 admin_nickname
-
-筛选条件:  admin_age &gt;= 25
-</code></pre><p><img src="/images/php/1534215147258.png" alt="1534215147258"></p>
-<blockquote>
-<p>案例5: 查询年龄在23-28之间的管理员的所有信息</p>
-</blockquote>
-<pre><code>表: ali_admin
-
-字段: *
-
-筛选条件： admin_age&gt;=23  and  admin_age&lt;=28
-</code></pre><p>方法一:</p>
-<p><img src="/images/php/1534215257922.png" alt="1534215257922"></p>
-<p>方式二:</p>
-<p><img src="/images/php/1534215324315.png" alt="1534215324315"></p>
-<blockquote>
-<p>案例6: 查询年龄不在23-28之间的管理员的所有信息</p>
-</blockquote>
-<pre><code>表: ali_admin
-
-字段: *
-
-筛选条件： `admin_age&lt;23  or  admin_age&gt;28`
-</code></pre><p>方法一:</p>
-<p><img src="/images/php/1534215426973.png" alt="1534215426973"></p>
-<p>方法二：</p>
-<p><img src="/images/php/1534215454171.png" alt="1534215454171"></p>
-<blockquote>
-<p>案例7: 查询年龄大于25的男性管理员信息</p>
-</blockquote>
-<pre><code>表: ali_admin
-
-字段:  *
-
-筛选条件:  admin_age&gt;=25 and admin_gender=&apos;男&apos;
-</code></pre><p><img src="/images/php/1534215590016.png" alt="1534215590016"></p>
-<h2 id="2-3-in关键词"><a href="#2-3-in关键词" class="headerlink" title="2.3 in关键词"></a>2.3 in关键词</h2><p>集合:  一组相同类型的数据，使用()来包含，括号内使用 ， 分隔开</p>
-<p>(1, 2, 3, 4, 5)  (‘潮科技’, ‘会生活’, ‘奇趣事’, ‘美奇迹’)  </p>
-<blockquote>
-<p>案例8: 查询年龄为20、28的女性管理员信息</p>
-</blockquote>
-<pre><code>表： ali_admin
-
-字段： *
-
-筛选条件： admin_gender=&apos;女&apos;  and  （admin_age=20 or admin_age=28）
-</code></pre><p>方式一:</p>
-<p><img src="/images/php/1534215841500.png" alt="1534215841500"></p>
-<p>方式二：</p>
-<p><img src="/images/php/1534215898938.png" alt="1534215898938"></p>
-<h2 id="2-4-模糊查询"><a href="#2-4-模糊查询" class="headerlink" title="2.4 模糊查询"></a>2.4 模糊查询</h2><p>通配符:</p>
-<p>  %: 代表任意长度(包括0)的任意字符</p>
-<p>  _:  代表1位长度的任意字符</p>
-<p>​    a%b :  ab  abb  a对萨达b<br>    a_b: acb  atb  a的b<br>    a_b%:  acb  a&amp;baaad</p>
-<p>like: 在执行模糊查询时，必须使用like来作为匹配条件</p>
-<blockquote>
-<p>案例9: 查询邮箱地址中包含字符h的管理员信息</p>
-</blockquote>
-<pre><code>表： ali_admin
-
-字段： *
-
-筛选条件： admin_email like &apos;%h%&apos;
-</code></pre><p><img src="/images/php/1534216354094.png" alt="1534216354094"></p>
-<blockquote>
-<p>案例10: 查询包含“科技”关键词的文章信息</p>
-</blockquote>
-<pre><code>表： ali_article
-
-字段： *
-
-筛选条件：admin_title like ‘%科技%’
-</code></pre><p><img src="/images/php/1534216526440.png" alt="1534216526440"></p>
-<blockquote>
-<p>案例11: 查询邮箱以a字符开头并且包含n的管理员信息</p>
-</blockquote>
-<pre><code>表： ali_admin
-
-字段： *
-
-筛选条件： admin_email like ‘a%n%’
-</code></pre><p><img src="/images/php/1534216625722.png" alt="1534216625722"></p>
-<h2 id="2-5-order-by-排序"><a href="#2-5-order-by-排序" class="headerlink" title="2.5 order by 排序"></a>2.5 order by 排序</h2><p>order by 可以对查询结果按某个字段的升降进行排序</p>
-<p>  升序 asc （默认值） ，  降序 desc </p>
-<p>可进行排序的字段通常是  整型  英文字符串型  日期型  (中文字符串也行,但一般不用)</p>
-<blockquote>
-<p>案例12: 查询所有的栏目信息，并按别名的降序排列</p>
-</blockquote>
-<pre><code>表： ali_cate
-
-字段：*
-
-排序条件： cate_slug  desc
-</code></pre><p><img src="/images/php/1534216794928.png" alt="1534216794928"></p>
-<blockquote>
-<p>案例13: 查询所有栏目信息，并按发布时间升序排列</p>
-</blockquote>
-<pre><code>表：ali_cate
-
-字段： *
-
-排序条件：cate_addtime asc
-</code></pre><p><img src="/images/php/1534216877104.png" alt="1534216877104"></p>
-<blockquote>
-<p>案例14: 查询所有男性的管理员信息，并按照创建时间降序排列</p>
-</blockquote>
-<pre><code>表： ali_admin
-
-字段：*
-
-筛选条件： admin_gender=&apos;男&apos;
-
-排序：admin_addtime desc
-</code></pre><p><img src="/images/php/1534217036912.png" alt="1534217036912"></p>
-<h2 id="2-6-limit-限制"><a href="#2-6-limit-限制" class="headerlink" title="2.6 limit 限制"></a>2.6 limit 限制</h2><p>limit用来限制查询结果的起始点和长度</p>
-<p> 格式:  </p>
-<pre><code>limit  var1, var2
-</code></pre><p> var1: 起始点。 查询结果的索引，从0开始。 0代表第一条数据</p>
-<p> var2: 长度</p>
-<blockquote>
-<p>案例15: 查询年龄最大的3名男性管理员的信息</p>
-</blockquote>
-<pre><code>表： ali_admin
-
-字段： *
-
-筛选： admin_gender=&apos;男&apos;
-
-排序：order by admin_age desc
-
-限制：limit 0,3
-</code></pre><p><img src="/images/php/1534218129029.png" alt="1534218129029"></p>
-<blockquote>
-<p>案例16: 将文章按发布时间逆序排列，并取出第三条到第五条</p>
-</blockquote>
-<pre><code>表： ali_article
-
-字段：*
-
-排序： article_addtime desc
-
-限制：limit 2,3
-</code></pre><p><img src="/images/php/1534218422235.png" alt="1534218422235"></p>
-<p>将 *  解释成对应的字段需要 0.0001秒，但是人多了之后就会变慢。</p>
-<h2 id="2-7-多表查询"><a href="#2-7-多表查询" class="headerlink" title="2.7 多表查询"></a>2.7 多表查询</h2><p>关键词: </p>
-<pre><code>join   on
-</code></pre><p>格式:  </p>
-<pre><code>select  *  from  表1
-
-join 表2  on  链接条件
-</code></pre><p>链接条件一定是   表1的某个字段 =  表2的某个字段</p>
-<blockquote>
-<p>案例: 查询学生的全部信息，系别需要使用系名来进行显示</p>
-</blockquote>
-<pre><code>表： student     dept
-
-字段: student.*   dept.dept_name
-</code></pre><p><img src="/images/php/1534219437090.png" alt="1534219437090"></p>
-<p>原理:</p>
-<p><img src="/images/php/1534219689703.png" alt="1534219689703"></p>
-<blockquote>
-<p>案例17: 查询所有文章信息，作者使用昵称显示</p>
-</blockquote>
-<p>表： ali_article   ali_admin</p>
-<p>字段： ali_article.*   ali_admin.admin_nickname</p>
-<p><img src="/images/php/1534220115051.png" alt="1534220115051"></p>
-<blockquote>
-<p>案例18: 查询大牛发布的所有文章信息，作者使用昵称显示</p>
-</blockquote>
-<p>表： ali_article   ali_admin</p>
-<p>筛选： admin_nickname=’大牛’</p>
-<p><img src="/images/php/1534220239981.png" alt="1534220239981"></p>
-<blockquote>
-<p>案例19: 查询属于潮科技和奇趣事的所有文章</p>
-</blockquote>
-<p>表：ali_cate   ali_article</p>
-<p>筛选条件： cate_name in (‘潮科技’, ‘奇趣事’)</p>
-<p><img src="/images/php/1534220507814.png" alt="1534220507814"></p>
-<blockquote>
-<p>案例20: 查询所有文章信息，作者使用昵称显示，栏目使用栏目名显示</p>
-</blockquote>
-<p>表： ali_article    ali_admin   ali_cate</p>
-<p><img src="/images/php/1534220828795.png" alt="1534220828795"></p>
 
       
     </div>

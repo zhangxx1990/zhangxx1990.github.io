@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -295,6 +295,101 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-JS/04-运算符" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/02/19/JS/04-运算符/" class="article-date">
+      <time datetime="2017-02-19T00:11:00.000Z" itemprop="datePublished">2017-02-19</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/02/19/JS/04-运算符/">04-运算符</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><p> （ + - * / % ）先乘除取余数，在加减</p>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><p>（针对的是变量，改变的也是变量）</p>
+<p>  简单赋值： ” = “</p>
+<p>  复合赋值运算符： “ += ”、“ -= ”、 “ *= ”、“ /= ”、” %= “</p>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><p>  比较大小：&gt;、&lt;、&gt;=、&lt;=</p>
+<p>  比较相等：</p>
+<p>  ​        ==、!= （相等）</p>
+<p>  ​        ===、!==（全等）</p>
+<p>  相等于全等的区别；相等运算符之比较数值大小；</p>
+<p>  全等运算符既比较数值大小也比较数值类型。</p>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>  &amp;&amp; 与运算</p>
+<p>  两个条件都为真时，结果为真，其余都为假。 </p>
+<p>  || 或运算</p>
+<p>  两个条件只要有一个真，结果就是真，只有都为假时，结果为假。</p>
+<p>  ！ 非运算</p>
+<p>  取反 ，非假，既为真。非真，既为假。</p>
+<h2 id="amp-amp-和-运算符的短路问题"><a href="#amp-amp-和-运算符的短路问题" class="headerlink" title="&amp;&amp;和||运算符的短路问题"></a>&amp;&amp;和||运算符的短路问题</h2><ul>
+<li>对于&amp;&amp;运算符和||运算符的短路操作。最重要的一点是表达式的结果是由哪一个操作数决定的就返回这个操作数。</li>
+<li>&amp;&amp;运算符（原则：都为真时表达式结果即为真，否则第一个为假结果就为假。也就是说整个表达式为真的情况是由最后一个为真的操作数决定的，则返回最后一个为真的操作数；为假的情况是由第一个出现假的操作数决定的，则返回第一个为假的操作数）。</li>
+<li>||运算符 （原则：有一个为真即为真，所有的都为假结果才为假。也就是说整个表达式为真的情况是由第一个出现真的操作数决定的，则返回第一个为真的操作数；为假的情况是由最后一个为假的操作数决定的，则返回最后一个为假的操作数）。</li>
+</ul>
+<h2 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h2><p>  操作数只有一个：！、+、-、++、–</p>
+<p>  N++：后自增：先运算，后自增。</p>
+<p>  ++N：前自增：先自增，后运算。</p>
+<p>  N-   ：后自减：先运算，后自减。</p>
+<p>  -N   ：前自减：先自减，后运算。</p>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>  1.小括号( );</p>
+<p>  2.一元运算符：</p>
+<p>  3.算术运算符：</p>
+<p>  4.关系运算符：（先比较大小、在比较相等）</p>
+<p>  5.逻辑运算符：</p>
+<p>  6.赋值运算符：</p>
+<h2 id="补充弱类型：强类型和弱类型。"><a href="#补充弱类型：强类型和弱类型。" class="headerlink" title="补充弱类型：强类型和弱类型。"></a>补充弱类型：强类型和弱类型。</h2><p>   强类型：在创建变量时，就必须确定其数据类型。</p>
+<p>   弱类型：在创建变量时，变量内部可以保存的数类型是不定的。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-JS/03-数据类型" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1161,92 +1256,6 @@
 </li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-HTML/07-Logo内容移除" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/01/12/HTML/07-Logo内容移除/" class="article-date">
-      <time datetime="2017-01-12T02:12:39.000Z" itemprop="datePublished">2017-01-12</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/01/12/HTML/07-Logo内容移除/">05-Logo内容移除</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Logo内容移除"><a href="#Logo内容移除" class="headerlink" title="Logo内容移除"></a>Logo内容移除</h1><ul>
-<li>推荐将logo作为a标签的背景图片使用<ul>
-<li>推荐在logo中要设置文字，但是还要将该文字移除（用户体验）</li>
-<li>推荐使用text-indent 设置一个负值来移除logo中的内容<pre><code>- 或者：
-</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">font-size:<span class="number">0</span>px;</span><br><span class="line">color:transparent;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="盒子阴影"><a href="#盒子阴影" class="headerlink" title="盒子阴影"></a>盒子阴影</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: <span class="number">5</span>px <span class="number">5</span>px <span class="number">10</span>px green,</span><br><span class="line">           <span class="number">-5</span>px <span class="number">-5</span>px <span class="number">10</span>px red;</span><br></pre></td></tr></table></figure>
-<h2 id="设置盒子内阴影"><a href="#设置盒子内阴影" class="headerlink" title="设置盒子内阴影"></a>设置盒子内阴影</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:inset <span class="number">5</span>px <span class="number">5</span>px <span class="number">10</span>px green;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>注意：<ul>
-<li>盒子阴影不会改变盒子大小。</li>
-</ul>
-</li>
-</ul>
-<h2 id="滑动门"><a href="#滑动门" class="headerlink" title="滑动门"></a>滑动门</h2><ul>
-<li>制作导航（使用背景图片制作）</li>
-<li>核心：<ul>
-<li>使用背景图片</li>
-<li>导航的内容区域不能设置固定宽度，一定要使用内容讲导航撑开</li>
 </ul>
 </li>
 </ul>

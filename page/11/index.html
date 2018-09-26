@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -295,6 +295,124 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-JS/24-offset系列" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/07/JS/24-offset系列/" class="article-date">
+      <time datetime="2017-03-07T00:24:15.000Z" itemprop="datePublished">2017-03-07</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/07/JS/24-offset系列/">24-offset系列</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="offset系列"><a href="#offset系列" class="headerlink" title="offset系列"></a>offset系列</h1><ul>
+<li><p>三大系列都是DOM元素的一些属性;</p>
+</li>
+<li><p>scrollWidth/Heiht/Top/Left</p>
+</li>
+<li>offsetWidth/Heiht/Top/Left/Parent</li>
+<li><p>clientWidth/Heiht/Top/Left/clientX/clientY</p>
+<ul>
+<li>width/height: 代指检测盒子的宽高;（padding+border+width/height,内容超出）</li>
+<li>top/left: 调用者不同功能不同;</li>
+</ul>
+</li>
+</ul>
+<h2 id="offset系列：都是DOM对象的一些属性"><a href="#offset系列：都是DOM对象的一些属性" class="headerlink" title="offset系列：都是DOM对象的一些属性"></a>offset系列：都是DOM对象的一些属性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//offset系列：都是DOM对象的一些属性;</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"div"</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//console.dir(div);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//offsetWidth/Height = width/height+padding+border;</span></span><br><span class="line"><span class="comment">//不会受到margin和内容影响</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(div.offsetWidth);<span class="comment">//数字类型;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> div.offsetHeight);<span class="comment">//数字类型;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：<ul>
+<li>如果一个盒子没有padding和border我们就可以用offsetWidth/Height<pre><code>//获取盒子非行内式的宽高;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="offsetTop-Left"><a href="#offsetTop-Left" class="headerlink" title="offsetTop/Left"></a>offsetTop/Left</h3><pre><code>- offsetTop/Left: 1.如果父系盒子有定位，那么就是距离最近的父系盒子带有定位的距离;
+- offsetTop/Left: 2.如果父系盒子都没有定位，那么以浏览器为准(不是body);
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取元素</span></span><br><span class="line"><span class="keyword">var</span> box3 = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"box3"</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//console.log(box3.offsetTop);//都没有定位130，以浏览器为基准;</span></span><br><span class="line"><span class="comment">//console.log(box3.offsetLeft);//都没有定位130，以浏览器为基准;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(box3.offsetTop);<span class="comment">//都没有定位130，以浏览器为基准;</span></span><br><span class="line"><span class="built_in">console</span>.log(box3.offsetLeft);<span class="comment">//都没有定位130，以浏览器为基准;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结:<ul>
+<li>1.获取盒子在父盒子中的位置;(自绝父相情况下获取top/left值)</li>
+<li>2.获取盒子在整个页面的坐标;</li>
+</ul>
+</li>
+</ul>
+<h3 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent"></a>offsetParent</h3><ul>
+<li>offsetParent: 1.(有定位)获取距离最近的父系盒子中带有定位的盒子;</li>
+<li><p>offsetParent: 2.(无定位)获取body;</p>
+</li>
+<li><p>总结：我们宁可使用<br>parentNode;（他找直接父节点）</p>
+</li>
+</ul>
+<h2 id="style-left和offsetLeft的区别"><a href="#style-left和offsetLeft的区别" class="headerlink" title="style.left和offsetLeft的区别"></a>style.left和offsetLeft的区别</h2><ul>
+<li><p>一、最大区别在于offsetLeft可以返回没有定位盒子的距离左侧的位置。而style.left不可以</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(box3.offsetLeft);<span class="comment">//130;数字</span></span><br><span class="line"><span class="built_in">console</span>.log(box3.style.left);<span class="comment">// ""</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二、offsetleft 返回的是数字，而 style.left 返回的是字符串，除了数字外还带有单位：px。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(box3.offsetLeft);<span class="comment">//   111</span></span><br><span class="line"><span class="built_in">console</span>.log(box3.style.left);<span class="comment">//   "111px"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>三、offsetleft 只读，而 style.left 可读写。（只读是获取值，可写是赋值）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box3.offsetLeft = <span class="string">"222px"</span>;<span class="comment">//只读</span></span><br><span class="line">box3.style.left = <span class="string">"222px"</span>;<span class="comment">//可写</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>四、如果没有给 HTML 元素指定过 left 样式，则style.left 返回的是空字符串。</p>
+</li>
+</ul>
+<ul>
+<li>总结;<ul>
+<li>1.获取值offset;(没有定位都可以获取，获取的是数字)</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-JS/23-location与navigator与history对象" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1474,90 +1592,6 @@ box.innerHTML+=&apos;这是新内容&apos;;
 <li><strong>注意</strong>：上述方法可以操作标签行内的任意属性（自带的和自定义的），但是自带属性没必要这样操作。</li>
 </ul>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JS/14-String类型对象" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/02/24/JS/14-String类型对象/" class="article-date">
-      <time datetime="2017-02-24T03:15:13.000Z" itemprop="datePublished">2017-02-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/02/24/JS/14-String类型对象/">14-String类型对象</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="String字符串对象"><a href="#String字符串对象" class="headerlink" title="String字符串对象"></a>String字符串对象</h1><h2 id="字符串的不可变性"><a href="#字符串的不可变性" class="headerlink" title="字符串的不可变性"></a>字符串的不可变性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line">str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="comment">// 当重新给str赋值的时候，数据'abc'不会被修改，依然在内存中</span></span><br><span class="line"><span class="comment">// 重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变</span></span><br><span class="line"><span class="comment">// 由于字符串的不可变，在大量拼接字符串的时候会有效率问题</span></span><br></pre></td></tr></table></figure>
-<h3 id="基本包装对象"><a href="#基本包装对象" class="headerlink" title="基本包装对象"></a>基本包装对象</h3><ul>
-<li><p>思考：为什么基本数据类型字符串，可以像对象一样使用？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通字符串</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;   <span class="comment">// 普通字符串不是对象</span></span><br><span class="line"><span class="keyword">var</span> len = str.length; <span class="comment">// 但是为什么可以像对象一样使用点出东西？</span></span><br><span class="line">alert(len); <span class="comment">//3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//把字符串包装成对象 → 基本包装类型</span></span><br><span class="line"><span class="keyword">var</span> strObj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>);  <span class="comment">// 把字符串包装成对象</span></span><br><span class="line"><span class="keyword">var</span> len = strObj.length;  <span class="comment">// 因为是对象，所以可以点出东西。</span></span><br><span class="line">alert(len); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="字符串对象常用的方法"><a href="#字符串对象常用的方法" class="headerlink" title="字符串对象常用的方法"></a>字符串对象常用的方法</h2><ul>
-<li><p>字符串所有的方法，都 不会修改字符串本身(字符串是不可变的)，操作完成会 返回一个新的字符串</p>
-<ul>
-<li>以下方法，可以自己尝试查手册或文档使用</li>
-</ul>
-</li>
-<li><p>获取字符串中的单个字符</p>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.charAt(index);</span><br><span class="line">字符串[index];      <span class="comment">// 推荐使用</span></span><br></pre></td></tr></table></figure>
-<h3 id="字符串的拼接concat-和-截取slice"><a href="#字符串的拼接concat-和-截取slice" class="headerlink" title="字符串的拼接concat 和 截取slice"></a>字符串的拼接concat 和 截取slice</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拼接</span></span><br><span class="line">字符串.concat(str1,str2,str3...);</span><br><span class="line">拼接符 +     <span class="comment">//推荐使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 截取</span></span><br><span class="line">字符串.slice(star,end);</span><br></pre></td></tr></table></figure>
-<h3 id="查询字符是否在字符串中存在"><a href="#查询字符是否在字符串中存在" class="headerlink" title="查询字符是否在字符串中存在"></a>查询字符是否在字符串中存在</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.indexOf(); </span><br><span class="line">字符串.lastIndexOf();</span><br></pre></td></tr></table></figure>
-<h3 id="去除空白符trim"><a href="#去除空白符trim" class="headerlink" title="去除空白符trim"></a>去除空白符trim</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.trim();  <span class="comment">// 去除字符串两边的空格</span></span><br></pre></td></tr></table></figure>
-<h3 id="字母字符大小写转换toUpperCase-toLowerCase"><a href="#字母字符大小写转换toUpperCase-toLowerCase" class="headerlink" title="字母字符大小写转换toUpperCase/toLowerCase"></a>字母字符大小写转换toUpperCase/toLowerCase</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.toUpperCase(); 	<span class="comment">// 转换大写 重点</span></span><br><span class="line">字符串.toLowerCase(); 	<span class="comment">// 转换小写 重点</span></span><br></pre></td></tr></table></figure>
-<h3 id="字符串替换replace"><a href="#字符串替换replace" class="headerlink" title="字符串替换replace"></a>字符串替换replace</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.replace(newStr,oldStr);</span><br></pre></td></tr></table></figure>
-<h3 id="字符串分割split"><a href="#字符串分割split" class="headerlink" title="字符串分割split"></a>字符串分割split</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.split(sp);  <span class="comment">// 把一个字符串分割成字符串数组。</span></span><br></pre></td></tr></table></figure>
-<h3 id="还有很多方法"><a href="#还有很多方法" class="headerlink" title="还有很多方法"></a>还有很多方法</h3><pre><code>- 查用MDN文档 或 离线手册 学习内置对象的属性 或 方法。
-</code></pre>
       
     </div>
     
