@@ -328,9 +328,9 @@
         <h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><blockquote>
 <p>掌握git的常用命令操作<br>能够使用代码托管平台</p>
 </blockquote>
-<h3 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h3><h5 id="本地版本控制系统"><a href="#本地版本控制系统" class="headerlink" title="本地版本控制系统"></a>本地版本控制系统</h5><p>借助软件我们可以记录下文件的每一次修改，如下图所示，文件被修改后，记录下了3个版本，<br>这样我们通过版本控制系统（软件）便可以非常方便的恢复到任意版本。如下图所示:<br> <img src="/images/git/01.png" alt=""><br>这种类型的版本控制系统，功能比较单一，比如很难实现多人协同开发，所以现在几乎很少使用了。</p>
-<h5 id="集中式版本控制系统"><a href="#集中式版本控制系统" class="headerlink" title="集中式版本控制系统"></a>集中式版本控制系统</h5><p>实际开发环境，一个项目通常是由多人协作共同完成的，如何让在不同终端上的开发者协同工作成了亟待解决的问题，<br>集中式版本控制系统便应运而生了。它通过单一的集中管理的服务器，保存所有文件的修订版本，<br>协同工作的开发者都通过客户端连到这台服务器，取出最新的文件或者提交更新。其代表为SVN，如下图所示:<br><img src="/images/git/02.png" alt=""><br>这种方式很好解决了多人协同开发的问题，但是也有一个弊端，如果集中管理的服务器出现故障，将会导致数据（版本）丢失的风险，<br>另外协同开发者从集中服务器中更新数据时，严重依赖网络，如果网络不佳，也给开发带来诸多不便。</p>
-<h5 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h5><p>分布式版本控制系统，则不需要中央服务器，每个协同开发者都拥有一个完整的版本库，<br>这么一来，任何协同开发者用的服务器发生故障，事后都可以用其它协同开发者本地仓库恢复。<br>由于版本库在本地计算机，也便不再受网络影响了。如果要将本地的修改，推送给其它协同开发者，<br>还需要一台共享服务器，所有开发者通过这台共享服务器同步和更新数据。如下图所示:<br><img src="/images/git/03.png" alt=""><br>分布式版本控制系统弥补了前面两种版本控制系统的缺陷，成为了版本控制的首选方案。其代表就是Git。</p>
+<h3 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h3><h5 id="本地版本控制系统"><a href="#本地版本控制系统" class="headerlink" title="本地版本控制系统"></a>本地版本控制系统</h5><p>借助软件我们可以记录下文件的每一次修改，如下图所示，文件被修改后，记录下了3个版本，<br>这样我们通过版本控制系统（软件）便可以非常方便的恢复到任意版本。如下图所示:<br> <img src="/images/git/01.jpg" alt=""><br>这种类型的版本控制系统，功能比较单一，比如很难实现多人协同开发，所以现在几乎很少使用了。</p>
+<h5 id="集中式版本控制系统"><a href="#集中式版本控制系统" class="headerlink" title="集中式版本控制系统"></a>集中式版本控制系统</h5><p>实际开发环境，一个项目通常是由多人协作共同完成的，如何让在不同终端上的开发者协同工作成了亟待解决的问题，<br>集中式版本控制系统便应运而生了。它通过单一的集中管理的服务器，保存所有文件的修订版本，<br>协同工作的开发者都通过客户端连到这台服务器，取出最新的文件或者提交更新。其代表为SVN，如下图所示:<br><img src="/images/git/02.jpg" alt=""><br>这种方式很好解决了多人协同开发的问题，但是也有一个弊端，如果集中管理的服务器出现故障，将会导致数据（版本）丢失的风险，<br>另外协同开发者从集中服务器中更新数据时，严重依赖网络，如果网络不佳，也给开发带来诸多不便。</p>
+<h5 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h5><p>分布式版本控制系统，则不需要中央服务器，每个协同开发者都拥有一个完整的版本库，<br>这么一来，任何协同开发者用的服务器发生故障，事后都可以用其它协同开发者本地仓库恢复。<br>由于版本库在本地计算机，也便不再受网络影响了。如果要将本地的修改，推送给其它协同开发者，<br>还需要一台共享服务器，所有开发者通过这台共享服务器同步和更新数据。如下图所示:<br><img src="/images/git/03.jpg" alt=""><br>分布式版本控制系统弥补了前面两种版本控制系统的缺陷，成为了版本控制的首选方案。其代表就是Git。</p>
 <h3 id="git准备工作"><a href="#git准备工作" class="headerlink" title="git准备工作"></a>git准备工作</h3><h5 id="git简介"><a href="#git简介" class="headerlink" title="git简介"></a>git简介</h5><p> Git最初是在2005年由Linux之父Linus TorvaLinus领导开发的一套为Linux内核维护的版本管理系统；<br> Git日臻成熟完善，在高度易用的同时，仍然保留着初期设定的目标，它的速度飞快，极其适合管理大项目；<br> 它还有着令人难以置信的非线性分支管理系统，可以应付各 种复杂的项目开发需求。</p>
 <h5 id="git与svn的区别"><a href="#git与svn的区别" class="headerlink" title="git与svn的区别"></a>git与svn的区别</h5><ul>
 <li><p>SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，<br>用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，<br>需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，<br>如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。</p>
@@ -353,7 +353,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="git工作原理"><a href="#git工作原理" class="headerlink" title="git工作原理"></a>git工作原理</h5><p>为了更好的学习Git，我们们必须了解Git管理我们文件的3种状态，<br>分别是已提交（committed）、已修改（modified）和已暂存（staged），<br>由此引入 Git 项目的三个工作区域的概念：Git 仓库、工作目录以及暂存区域。<br><img src="/images/git/04.png" alt=""><br>基本的Git工作流程如下：<br>1、在工作目录中修改文件。<br>2、暂存文件，将文件的快照放入暂存区域。<br>3、提交文件，找到暂存区域的文件，将快照永久性存储到Git仓库目录。</p>
+<h5 id="git工作原理"><a href="#git工作原理" class="headerlink" title="git工作原理"></a>git工作原理</h5><p>为了更好的学习Git，我们们必须了解Git管理我们文件的3种状态，<br>分别是已提交（committed）、已修改（modified）和已暂存（staged），<br>由此引入 Git 项目的三个工作区域的概念：Git 仓库、工作目录以及暂存区域。<br><img src="/images/git/04.jpg" alt=""><br>基本的Git工作流程如下：<br>1、在工作目录中修改文件。<br>2、暂存文件，将文件的快照放入暂存区域。<br>3、提交文件，找到暂存区域的文件，将快照永久性存储到Git仓库目录。</p>
 <h3 id="git常见操作"><a href="#git常见操作" class="headerlink" title="git常见操作"></a>git常见操作</h3><h5 id="1-配置用户"><a href="#1-配置用户" class="headerlink" title="1.配置用户"></a>1.配置用户</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;zzzzzzzzz&quot;</span><br><span class="line">git config --global user.email &quot;zzzzzzzzz@zzzz.cn&quot;</span><br></pre></td></tr></table></figure>
 <p>配置用户的意义在于记录开发者信息，以便在版本控制记录开发者的操作行为。</p>
 <h5 id="2-初始化仓库"><a href="#2-初始化仓库" class="headerlink" title="2.初始化仓库"></a>2.初始化仓库</h5><p><strong>a)</strong>需要将现有项目初始化为一个仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
@@ -370,21 +370,21 @@
 <h5 id="6-查看提交历史"><a href="#6-查看提交历史" class="headerlink" title="6.查看提交历史"></a>6.查看提交历史</h5><p>经过多次提交，查看提交历史。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure></p>
 <h5 id="7-恢复上一次提交"><a href="#7-恢复上一次提交" class="headerlink" title="7.恢复上一次提交"></a>7.恢复上一次提交</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 242a</span><br></pre></td></tr></table></figure>
 <h3 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h3><p>在我们的现实开发中，需求往往是五花八门的，同时开发多个需求的情况十分常见，<br>比如当你正在专注开发一个功能时，突然有一个紧急的BUG需要你来修复，<br>这个时候我们当然是希望在能够保存当前任务进度，再去修改这个BUG，<br>等这个BUG修复完成后再继续我们的任务。如何实现呢？<br><strong>通过Git创建分支来解决实际开发中类似的问题。</strong></p>
-<p>在Git的使用过程中一次提交称为历史记录（版本），并且会生成一个唯一的字符串，如下图：<br><img src="/images/git/05.png" alt=""><br>当我们在初始化仓库的时候（实际上是产生第1次提交时），Git会默认帮我们创建了一个master的分支，并且有指针（HEAD）指到了末端。<br>指针（HEAD）用来标明当前处于哪个分支的哪个版本，如上图指的处于master分支的最后1个版本。</p>
+<p>在Git的使用过程中一次提交称为历史记录（版本），并且会生成一个唯一的字符串，如下图：<br><img src="/images/git/05.jpg" alt=""><br>当我们在初始化仓库的时候（实际上是产生第1次提交时），Git会默认帮我们创建了一个master的分支，并且有指针（HEAD）指到了末端。<br>指针（HEAD）用来标明当前处于哪个分支的哪个版本，如上图指的处于master分支的最后1个版本。</p>
 <h5 id="1-创建分支-hotfix"><a href="#1-创建分支-hotfix" class="headerlink" title="1.创建分支 hotfix"></a>1.创建分支 hotfix</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch hotfix</span><br></pre></td></tr></table></figure>
-<p>新的分支会在当前分支原有历史版本的结点上进行创建，新建的子分支会继承父分支的所有提交历史，如下图:<br><img src="/images/git/06.png" alt=""></p>
+<p>新的分支会在当前分支原有历史版本的结点上进行创建，新建的子分支会继承父分支的所有提交历史，如下图:<br><img src="/images/git/06.jpg" alt=""></p>
 <h5 id="2-切换-hotfix-分支"><a href="#2-切换-hotfix-分支" class="headerlink" title="2.切换 hotfix 分支"></a>2.切换 hotfix 分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout hotfix</span><br></pre></td></tr></table></figure>
-<p>我们发现HEAD现在又指向了hotfix的末端，如下图:<br><img src="/images/git/07.png" alt=""></p>
+<p>我们发现HEAD现在又指向了hotfix的末端，如下图:<br><img src="/images/git/07.jpg" alt=""></p>
 <h5 id="3-在-hotfix-修改bug"><a href="#3-在-hotfix-修改bug" class="headerlink" title="3.在 hotfix 修改bug"></a>3.在 hotfix 修改bug</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;update bug&apos;</span><br></pre></td></tr></table></figure>
-<p>这次的提交历史版本就会记录在hotfix这个分支上了，并且HEAD伴随hotfix在移动，如下图:<br><img src="/images/git/08.png" alt=""></p>
+<p>这次的提交历史版本就会记录在hotfix这个分支上了，并且HEAD伴随hotfix在移动，如下图:<br><img src="/images/git/08.jpg" alt=""></p>
 <h5 id="4-切换-master-分支"><a href="#4-切换-master-分支" class="headerlink" title="4.切换 master 分支"></a>4.切换 master 分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
-<p>当我们切换回master后，HEAD指向了master分支的末端，并且我们观察发现我们的文件内容还是原来的”模样”，如下图:<br><img src="/images/git/09.png" alt=""></p>
+<p>当我们切换回master后，HEAD指向了master分支的末端，并且我们观察发现我们的文件内容还是原来的”模样”，如下图:<br><img src="/images/git/09.jpg" alt=""></p>
 <h5 id="5-在-master-继续开发"><a href="#5-在-master-继续开发" class="headerlink" title="5.在 master 继续开发"></a>5.在 master 继续开发</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;go on dev&apos;</span><br></pre></td></tr></table></figure>
-<p>总结：当我们 ‘git checkout 分支名称’，HEAD会自动指向对应分支的末端，工作目录中的源码也会随之发生改变。<br>这个时候我们就在hotfix这个分支上修复了这个BUG，而我们原来在master分支上的操作并未受到影响。<br>但是这时的master分支并没有包含有hotfix的修复，如下图:<br><img src="/images/git/10.png" alt=""></p>
+<p>总结：当我们 ‘git checkout 分支名称’，HEAD会自动指向对应分支的末端，工作目录中的源码也会随之发生改变。<br>这个时候我们就在hotfix这个分支上修复了这个BUG，而我们原来在master分支上的操作并未受到影响。<br>但是这时的master分支并没有包含有hotfix的修复，如下图:<br><img src="/images/git/10.jpg" alt=""></p>
 <h5 id="6-合并-hotfix-分支"><a href="#6-合并-hotfix-分支" class="headerlink" title="6.合并 hotfix 分支"></a>6.合并 hotfix 分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge hotfix</span><br></pre></td></tr></table></figure>
-<p>这时master会有两个父结点了，master便包含了hotfix里的修复了，如下图:<br><img src="/images/git/11.png" alt=""></p>
+<p>这时master会有两个父结点了，master便包含了hotfix里的修复了，如下图:<br><img src="/images/git/11.jpg" alt=""></p>
 <h5 id="6-删除-hotfix-分支"><a href="#6-删除-hotfix-分支" class="headerlink" title="6.删除 hotfix 分支"></a>6.删除 hotfix 分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d hotfix</span><br></pre></td></tr></table></figure>
-<p>这时用来修复BUG创建的hotfix分支已经没有用处了，我们可以将它删除，如下图:<br><img src="/images/git/12.png" alt=""></p>
+<p>这时用来修复BUG创建的hotfix分支已经没有用处了，我们可以将它删除，如下图:<br><img src="/images/git/12.jpg" alt=""></p>
 <h3 id="git远程（共享）仓库"><a href="#git远程（共享）仓库" class="headerlink" title="git远程（共享）仓库"></a>git远程（共享）仓库</h3><p>通过上面学习我们可以很好的管理本地版本控制了。</p>
 <ul>
 <li>一种情形，可是如果我们下班回到家里突然来了灵感觉得有部分代码可以优化，<br>如果能接着公司电脑上的代码继续写该有多好呀！！！</li>
