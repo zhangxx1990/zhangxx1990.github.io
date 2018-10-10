@@ -196,7 +196,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12.5px;">Node</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -292,1198 +292,6 @@
     </div>
 </nav>
       <div class="body-wrap">
-  
-    <article id="post-JS/09-对象" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/02/22/JS/09-对象/" class="article-date">
-      <time datetime="2017-02-22T02:50:25.000Z" itemprop="datePublished">2017-02-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/02/22/JS/09-对象/">09-对象</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h2 id="对象的概念"><a href="#对象的概念" class="headerlink" title="对象的概念"></a>对象的概念</h2><ul>
-<li>从生活角度，万物皆对象；</li>
-<li>从数据角度，对象就是一组无序数据的集合，它封装了属性和方法。</li>
-<li><p>任何事物都可以被抽象成对象, 一本书、一辆汽车、一个人都可以是对象，一个数据库、一张网页、一个与远程服务器的连接也可以是对象。当实物被抽象成对象，实物之间的关系就变成了对象之间的关系，从而就可以模拟现实情况，针对对象进行编程。</p>
-</li>
-<li><p>编程角度</p>
-<ul>
-<li>对象是一个容器，封装了  【属性】  和  【方法】 <ul>
-<li>属性：对象的静态特征</li>
-<li>方法：对象的动态特征，一般指的是对象的一种功能（用匿名函数表示）或行为</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="类的概念"><a href="#类的概念" class="headerlink" title="类的概念"></a>类的概念</h2><p>（了解对象之前先了解类的概念以及类和对象的关系）</p>
-<ul>
-<li>类是抽象的模板。<ul>
-<li>【ECMAScript6.0之前没有类的概念，但是ES6之前可以通过函数可以模拟出类，该函数被称为 构造函数】<blockquote>
-<p>ECMAScript 核心语法   ES3.0  ES5.0  ES6.0</p>
-<p>DOM   文档对象模型</p>
-<p>BOM   浏览器对象模型</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="类和对象的关系"><a href="#类和对象的关系" class="headerlink" title="类和对象的关系"></a>类和对象的关系</h2><ul>
-<li><p>类是对象的模板，对象是类的实例。</p>
-<ul>
-<li>所以，创建对象之前、应该先创建类</li>
-<li>对象是具体的实例。<ul>
-<li>类和对象的关系：就像月饼模子 和 月饼的关系。  类是对象的模板，对象是类的一个实例。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="this的指向问题"><a href="#this的指向问题" class="headerlink" title="this的指向问题"></a>this的指向问题</h2><p>this的指向问题只要是构造函数被调用时因为调用方式不同this指向不同。</p>
-<ul>
-<li><p>①当构造函数被当做一个普通的函数调用时，构造函数体内的this关键字指向windows对象。</p>
-</li>
-<li><p>②当构造函数用{new构造函数名(实参);}的方式调用构造函数创建对象时，this指向当前所创建的构造函数名（类名）类型的对象。</p>
-</li>
-</ul>
-<h2 id="对象的创建方式（三种）"><a href="#对象的创建方式（三种）" class="headerlink" title="对象的创建方式（三种）"></a>对象的创建方式（三种）</h2><ul>
-<li><p>使用Object类创建一个对象（因为Object类是所以对象的祖宗类 我们不用在创建新的类可以用祖宗类直接创建对象）</p>
-<ul>
-<li><p>语法结构</p>
-<ul>
-<li>方式1：通过 new关键字调用系统提供 Object构造函数</li>
-</ul>
-<blockquote>
-<p>​    <code>var obj  = new Object( );</code>//创建一个对象</p>
-<p><code>var 变量名 = {};</code>//字面量，是对new Object(); 的一个简写 推荐使用 </p>
-</blockquote>
-</li>
-<li><p>语法结构</p>
-<blockquote>
-<p>var obj = { };</p>
-<p>var obj = { 键：值，键：值，……}</p>
-<p>例如：</p>
-<p><code>var wuKong = {</code></p>
-<p>​    <code>nume：&quot;孙悟空&quot;；</code></p>
-<p>​    <code>age：500；</code></p>
-<p>​    <code>attack：function( ){</code></p>
-<p>​    <code>console.log(this.name+&quot;发动的攻击&quot;)}</code></p>
-<p><code>}</code></p>
-</blockquote>
-</li>
-<li><p>自定义构造函数</p>
-</li>
-<li><p>作用：模拟一个类来创建对象</p>
-</li>
-<li><p>语法结构</p>
-<blockquote>
-<p><code>function 类名(形参，形参，.......){</code>// 构造函数命名首字母要大写（帕斯卡命名法）</p>
-<p>//this表示通过new创建的哪个当前的对象</p>
-<p>​    <code>this.键名 = 形参；</code></p>
-<p>​    <code>this.键名 = 形参；</code></p>
-<p>​    <code>this.函数名 = function( ){</code></p>
-<p>​    函数体；类中用函数实现的一种功能</p>
-<p>​    <code>}</code></p>
-<p><code>}</code></p>
-<p><code>var dx1 = new 构造函数名(实参,实参...);</code></p>
-</blockquote>
-</li>
-<li><p>普通函数和构造函数的区别</p>
-<ul>
-<li><p>命名规则不一样。</p>
-<ul>
-<li><p>构造函数使用帕斯卡命名</p>
-</li>
-<li><p>普通函数使用驼峰命名法</p>
-</li>
-</ul>
-</li>
-<li><p>调用方式不一样。</p>
-<ul>
-<li><p>普通函数，直接调用。</p>
-</li>
-<li><p>构造函数，需要通过 new关键字调用</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>系统提供的构造函数  和 自定义构造函数的区别</p>
-<ul>
-<li><p>系统提供的构造函数创建的对象，叫做 内置对象。【现阶段重点就是使用内置对象】。</p>
-</li>
-<li><p>自定义构造函数创建的对象，叫做 自定义对象。【后面js高级会深入讲解和使用】</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="new关键字"><a href="#new关键字" class="headerlink" title="new关键字"></a>new关键字</h2><h3 id="new关键字的执行过程"><a href="#new关键字的执行过程" class="headerlink" title="new关键字的执行过程"></a>new关键字的执行过程</h3><ul>
-<li><p>作用：通过调用构造函数创建对象</p>
-</li>
-<li><p>new关键字的执行过程：</p>
-<ul>
-<li>①在内存中创建了一个空的Object类型的对象（看不见）</li>
-<li>让this关键字指向这个空的对象（看不见）</li>
-<li>③通过this给这个对象添加属性和方法（看的见）</li>
-<li>④将对象 返回给用new关键字调用构造函数的 调用者(看不见)。<ul>
-<li>备注：Object在JS中是祖宗类（构造函数），所有不同类型的对象，都直接或间接的继承于它。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="对象的操作【重要】"><a href="#对象的操作【重要】" class="headerlink" title="对象的操作【重要】"></a>对象的操作【重要】</h1><ul>
-<li><p>对象组织数据的方式是： 键值对。</p>
-<ul>
-<li>键，指的是属性名或方法名，命名规范和变量名一样。</li>
-<li>值，指的是实际的数据。</li>
-</ul>
-</li>
-<li><p>设置属性和方法</p>
-<ul>
-<li>对象名.键名 = 值;【重点】</li>
-<li><p>对象名[‘键名’] = 值;</p>
-<blockquote>
-<p>代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dog1 = &#123;&#125;;</span><br><span class="line">dog1.name = <span class="string">'旺财'</span>; <span class="comment">// 属性</span></span><br><span class="line">dog1.age = <span class="number">1</span>;    <span class="comment">// 属性</span></span><br><span class="line">dog1.call = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">// 方法</span></span><br><span class="line">alert(<span class="keyword">this</span>.name + <span class="string">'在汪汪叫...'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 注意，方法要用函数来表示</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="获取属性-和-调用方法"><a href="#获取属性-和-调用方法" class="headerlink" title="获取属性 和 调用方法"></a>获取属性 和 调用方法</h2><ul>
-<li><p>访问对象中的属性和方法：</p>
-<ul>
-<li>对象.键名; 【重点】</li>
-<li><p>对象[‘键名’];</p>
-<blockquote>
-<p>代码：</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dog1 = &#123;&#125;;</span><br><span class="line">dog1.name = <span class="string">'旺财'</span>; <span class="comment">// 属性</span></span><br><span class="line">dog1.age = <span class="number">1</span>;    <span class="comment">// 属性</span></span><br><span class="line">dog1.call = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  <span class="comment">// 方法</span></span><br><span class="line">alert(<span class="keyword">this</span>.name + <span class="string">'在汪汪叫 ...'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 注意，方法要用函数来表示</span></span><br><span class="line">dog1.call(); <span class="comment">// 调用</span></span><br><span class="line"><span class="built_in">console</span>.log(dog1.name);</span><br><span class="line"><span class="built_in">console</span>.log(dog1.age);</span><br></pre></td></tr></table></figure>
-<h3 id="删除属性和方法"><a href="#删除属性和方法" class="headerlink" title="删除属性和方法"></a>删除属性和方法</h3><ul>
-<li>delete 对象.键名;  【重点】</li>
-<li>delete 对象[‘键名’];</li>
-</ul>
-<blockquote>
-<p>代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dog1 = &#123;</span><br><span class="line">    name:<span class="string">'旺财'</span>,</span><br><span class="line">    age:<span class="number">1</span>,</span><br><span class="line">    call:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name + <span class="string">'在汪汪叫...'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//删除之前访问</span></span><br><span class="line"><span class="built_in">console</span>.log(dog1.name); <span class="comment">//旺财</span></span><br><span class="line"><span class="comment">//删除</span></span><br><span class="line"><span class="keyword">delete</span> dog.name;</span><br><span class="line"><span class="comment">//删除之后访问</span></span><br><span class="line"><span class="built_in">console</span>.log(do1.name); <span class="comment">//undefiend</span></span><br><span class="line"><span class="comment">//检测对中是否还要name属性</span></span><br><span class="line"><span class="built_in">console</span>.log(dog1.hasOwnProperty(<span class="string">'name'</span>));  <span class="comment">//false;</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="检测属性或方法"><a href="#检测属性或方法" class="headerlink" title="检测属性或方法"></a>检测属性或方法</h3><ul>
-<li><p>检测一个对象中是否存在某个属性或方法：</p>
-<ul>
-<li><p>对象.hasOwnProperty(‘键名’);  // 返回boolean值，false表示不存在，true表示存在</p>
-<blockquote>
-<p>代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dog1 = &#123;</span><br><span class="line">    name:<span class="string">'旺财'</span>,</span><br><span class="line">    age: <span class="number">1</span>,</span><br><span class="line">    call:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name + <span class="string">'在汪汪叫...'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> r1 = do1.hasOwnProperty(<span class="string">'age'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(r1); <span class="comment">// true</span></span><br><span class="line"><span class="keyword">var</span> r2 = do1.hasOwnProperty(<span class="string">'gender'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(r2); <span class="comment">// false</span></span><br><span class="line"><span class="keyword">var</span> r3 = do1.hasOwnProperty(<span class="string">'call'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(r3); <span class="comment">// true</span></span><br><span class="line"><span class="keyword">var</span> r4 = do1.hasOwnProperty(<span class="string">'eat'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(r4); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="对象中属性的遍历"><a href="#对象中属性的遍历" class="headerlink" title="对象中属性的遍历"></a>对象中属性的遍历</h3><ul>
-<li>遍历对象中的键值对</li>
-</ul>
-<blockquote>
-<p>语法：遍历方式  for-in</p>
-</blockquote>
-<blockquote>
-<p><code>for (var 键名 in 对象名){</code></p>
-<p><code>对象名[key]；</code>//key 是对象中的每一个键</p>
-<p><code>}</code></p>
-</blockquote>
-<ul>
-<li><p>例：</p>
-<blockquote>
-<p><code>var obj = {name : &quot; 张三 &quot;，age ：17};</code></p>
-<p><code>for ( var key in obj ){</code></p>
-<p>​    <code>obj[key];</code>                        遍历对象中所有键</p>
-<p>​    <code>console.log( obj[key] );</code>    打印</p>
-<p><code>}</code></p>
-</blockquote>
-</li>
-</ul>
-<h2 id="检测对象的类型"><a href="#检测对象的类型" class="headerlink" title="检测对象的类型"></a>检测对象的类型</h2><h3 id="检测对象的类型-1"><a href="#检测对象的类型-1" class="headerlink" title="检测对象的类型"></a>检测对象的类型</h3><ul>
-<li><p>检测一个对象的数据类型</p>
-<ul>
-<li>对象是引用数据类型，检测对象时不要用typeof去检测，要用instanceof<blockquote>
-<p>对象 instanceof 构造函数名;    // 返回boolean值，true表示属于，false表示不属于</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>代码</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    创建构造函数 Person</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,gender</span>)</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.name = name;</span><br><span class="line"><span class="keyword">this</span>.age = age;</span><br><span class="line"><span class="keyword">this</span>.gender = gender;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建一个Person类型的对象 p1</span></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(<span class="string">'张三'</span>,<span class="number">17</span>,<span class="string">'男'</span>);</span><br><span class="line"><span class="comment">// 检测对象p1是否属于Person</span></span><br><span class="line"><span class="built_in">console</span>.log(p1 <span class="keyword">instanceof</span> Person);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JS/08-函数" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/02/21/JS/08-函数/" class="article-date">
-      <time datetime="2017-02-21T01:20:55.000Z" itemprop="datePublished">2017-02-21</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/02/21/JS/08-函数/">08-函数</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
-<li>函数就是功能，也是引用类型的数据。<br>简单理解就是一个 功能，功能可以反复调用。<ul>
-<li>函数的作用</li>
-</ul>
-</li>
-<li>封装性，将执行代码封闭在一个独立的执行环境中。可以反复调用，减少代码冗余</li>
-</ul>
-<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><ul>
-<li>function</li>
-</ul>
-<h3 id="函数创建"><a href="#函数创建" class="headerlink" title="函数创建"></a>函数创建</h3><ul>
-<li><p>函数创建有两种方式</p>
-</li>
-<li><p>函数表达式；</p>
-<blockquote>
-<p>var 函数名 = function( ){};</p>
-</blockquote>
-</li>
-<li><p>函数声明</p>
-<blockquote>
-<p>function 函数名( ){</p>
-<p>函数名和变量名的命名规则规范一样</p>
-<p>​        函数体；</p>
-<p>}</p>
-<ul>
-<li>【注意】：函数创建完后，函数体中的代码不会执行，只用调用时才会执行<br>调用函数 ↓ </li>
-</ul>
-<p>函数名(); </p>
-</blockquote>
-<ul>
-<li>代码：<blockquote>
-<p>创建</p>
-<p><code>function getEven() {</code></p>
-<p><code>for (var i = 1; i &lt;= 100; i++) {</code></p>
-<p><code>if (i % 2 == 0) {</code></p>
-<p><code>console.log(i);</code></p>
-<p><code>}</code></p>
-<p><code>}</code></p>
-<p><code>}</code></p>
-<p><code>cosnole.log(&#39;地方1&#39;);</code></p>
-<p><code>getEven();</code> // 调用</p>
-<p><code>cosnole.log(&#39;地方2&#39;);</code></p>
-<p><code>getEven();</code>// 调用</p>
-<p><code>cosnole.log(&#39;地方3&#39;);</code></p>
-<p><code>getEven();</code> // 调用</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h3><ul>
-<li>函数名( );或 函数名(数据，数据…);</li>
-</ul>
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
-<li><p>参数可用分为形参和实参</p>
-<ul>
-<li>形参：创建函数时小括号( )中定义的标识符。就是形参。</li>
-<li>实参：调用函数时小括号( )中传入的实际的数据就是实参。</li>
-</ul>
-</li>
-<li><p>语法：</p>
-<blockquote>
-<p><code>function 函数名(形参,形参,形参...) {</code>//形参，就是一个占位符，命名规则和规范和变量一样.</p>
-<p><code>函数体</code></p>
-<p><code>}</code></p>
-<p><code>函数名(数据,数据,数据...);</code></p>
-<p>//实参，就是实际的数据</p>
-</blockquote>
-<ul>
-<li>代码: <blockquote>
-<p>创建函数</p>
-<p><code>function getSum(n,m) {</code></p>
-<p><code>var sum = 0;</code></p>
-<p><code>for (var i = n; n&lt;=m; n++) {</code></p>
-<p><code>sum = sum + n;</code></p>
-<p><code>}</code></p>
-<p><code>console.log(sum);</code></p>
-<p><code>}</code></p>
-<p>// 调用</p>
-<p><code>getSum(1,100);</code></p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><ul>
-<li><p>关键字：    return</p>
-<ul>
-<li>作用：    可以终止函数的执行,可以将数据返回给调用者.<ul>
-<li>调用者  可以用变量接收函数返回的结果</li>
-</ul>
-</li>
-<li><p>语法：      </p>
-<blockquote>
-<p>// return 关键字，要在函数体内使用</p>
-<p>function 函数名(形参,形参,形参) {</p>
-<p>//① 函数体内没有return时; 函数默认返回undefined</p>
-<p>//② return 数据;  //终止函数，并返回数据。</p>
-<p>//③ return;   //终止函数，并返回undefined</p>
-<p>}</p>
-</blockquote>
-</li>
-<li><p>代码：</p>
-<blockquote>
-<p><code>function getSum(n,m) {</code></p>
-<p><code>var sum = 0;</code></p>
-<p><code>for (var i = n; n&lt;=m; n++) {</code></p>
-<p><code>sum = sum + n;</code></p>
-<p><code>}</code></p>
-<p><code>return sum;</code></p>
-<p><code>}</code></p>
-<p>// 调用函数</p>
-<p><code>var r1 = getSum(100,200);</code>// 函数把结果给了 r1<br>// 用户可以任意使用函数的结果 </p>
-<p><code>document.write(&#39;&lt;h1&gt;&#39; + r1 + &#39;&lt;/h1&gt;&#39;);</code></p>
-<p><code>document.write(&#39;&lt;h2&gt;&#39; + r1 + &#39;&lt;/h2&gt;&#39;);</code></p>
-<p><code>document.write(&#39;&lt;h3&gt;&#39; + r1 + &#39;&lt;/h3&gt;&#39;);</code></p>
-<p><code>console.log(r1);</code></p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="函数体中arguments"><a href="#函数体中arguments" class="headerlink" title="函数体中arguments"></a>函数体中arguments</h1><ul>
-<li>函数体内的一个数组，存放了所有实参。（就是调用函数时，当实参是一个数组，函数体可以直接用arguments来存放实参，不需要定义形参）。</li>
-<li>aruments，函数体内提供的一个伪数组。aruments中存放了所有的实参</li>
-<li><p>aruments的使用：</p>
-<blockquote>
-<p><code>function 函数名(){</code></p>
-<p><code>//arguments.length;  参数的个数</code></p>
-<p><code>//arguments[索引];   //获取一个实参</code></p>
-<p><code>}</code></p>
-</blockquote>
-</li>
-<li><p>全局变量的特殊情况</p>
-<blockquote>
-<p><code>function fn() {</code></p>
-<p><code>a = 123;//隐式全局变量</code></p>
-<p><code>}</code></p>
-<p><code>fn();</code></p>
-<p><code>alert(a);</code>// ?</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="函数创建方式2"><a href="#函数创建方式2" class="headerlink" title="函数创建方式2"></a>函数创建方式2</h2><ul>
-<li><p>①函数声明</p>
-<blockquote>
-<p><code>function 函数名() {</code>     </p>
-<p><code>// 函数体</code></p>
-<p><code>}</code></p>
-</blockquote>
-</li>
-<li>②函数表达式<blockquote>
-<p><code>var 变量名 = function() {</code></p>
-<p><code>//函数体</code></p>
-<p><code>}</code></p>
-</blockquote>
-</li>
-</ul>
-<h3 id="函数声明-和-函数表达式的区别？"><a href="#函数声明-和-函数表达式的区别？" class="headerlink" title="函数声明 和 函数表达式的区别？"></a>函数声明 和 函数表达式的区别？</h3><blockquote>
-<p><code>fn();</code>// ?  答案：打印1</p>
-<p><code>function fn () {</code></p>
-<p><code>alert(&#39;1&#39;);</code></p>
-<p><code>}</code></p>
-</blockquote>
-<blockquote>
-<p><code>fn();</code>// ?  报错 不是一个函数</p>
-<p><code>var fn = function() {</code></p>
-<p><code>alert(&#39;你好&#39;);</code></p>
-<p><code>}</code></p>
-</blockquote>
-<h3 id="匿名函数-和-自调用函数"><a href="#匿名函数-和-自调用函数" class="headerlink" title="匿名函数 和 自调用函数"></a>匿名函数 和 自调用函数</h3><ul>
-<li>函数也是一种数据类型。属于引用数据类型（Function）</li>
-<li>匿名函数就是 没有名字的函数。在js中匿名函数需要 配合运算符使用</li>
-</ul>
-<ul>
-<li>函数创建的第二种方式：函数表达式<blockquote>
-<p><code>var 变量名 = function() {</code></p>
-<p><code>//函数体;</code></p>
-<p><code>}</code></p>
-</blockquote>
-</li>
-</ul>
-<h3 id="自调用函数（自调用函数）"><a href="#自调用函数（自调用函数）" class="headerlink" title="自调用函数（自调用函数）"></a>自调用函数（自调用函数）</h3><ul>
-<li><p>自执行函数就是匿名函数 创建后马上调用执行</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//匿名函数 【常用的方式】 </span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="comment">//函数体</span></span><br><span class="line">  &#125;)();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//匿名函数 【常用的方式】</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">形参,形参</span>)</span>&#123;</span><br><span class="line"><span class="comment">//函数体</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自调用函数的优点   </p>
-<ul>
-<li><p>①模拟块级作用域；</p>
-</li>
-<li><p>②避免全局变量污染（命名冲突） </p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="函数作为函数的参数"><a href="#函数作为函数的参数" class="headerlink" title="函数作为函数的参数"></a>函数作为函数的参数</h3><ul>
-<li>回调函数的参数<ul>
-<li>形参，函数定义时的标识符。</li>
-<li>实参，函数调用时传入的实际的数据。</li>
-<li>函数也是一种数据类型，类型是 Function<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">  f();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">'执行'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>自我总结</strong></p>
-<ul>
-<li>本质归根结底是还是形参和实参的关系。 无非是把一个函数当做实参传递给了一个形参！</li>
-</ul>
-<h1 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h1><h2 id="预解析→执行之前的预备过程"><a href="#预解析→执行之前的预备过程" class="headerlink" title="预解析→执行之前的预备过程"></a>预解析→执行之前的预备过程</h2><ul>
-<li><p>什么是预解析?</p>
-<blockquote>
-<p>程序准备→执行。程序在执行之前，有个预备过程。 预备过程要做的事就是预解析。预备过程要做两件事，分别是：</p>
-<ul>
-<li>把用 var关键字所声明的变量名（ 仅仅是变量名），提升到当前执行环境（作用域）的顶部。</li>
-</ul>
-</blockquote>
-<ul>
-<li>把用 函数声明所创建的函数（ 函数整体），提升到当前执行环境（作用域）的顶部。</li>
-</ul>
-</li>
-<li><p>预解析有两步；</p>
-<p>①把var关键字创建的变量名（仅仅是变量名）提升到当前作用域的顶部。</p>
-<p>②把函数声明方式创建的整个函数体提升到当前作用域的顶部。</p>
-</li>
-</ul>
-<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><ul>
-<li>什么是作用域？<ul>
-<li>变量可访问的范围。</li>
-</ul>
-</li>
-</ul>
-<h2 id="全局作用域—函数之外的环境。"><a href="#全局作用域—函数之外的环境。" class="headerlink" title="全局作用域—函数之外的环境。"></a>全局作用域—函数之外的环境。</h2><ul>
-<li><p>什么全局作用域</p>
-<ul>
-<li>函数之外的执行环境。</li>
-</ul>
-</li>
-<li><p>全局变量：</p>
-<ul>
-<li>在全局作用域中用var关键字创建的变量.</li>
-<li>访问范围：程序的任何地方</li>
-</ul>
-</li>
-</ul>
-<h3 id="局部作用域—函数体内的环境。"><a href="#局部作用域—函数体内的环境。" class="headerlink" title="局部作用域—函数体内的环境。"></a>局部作用域—函数体内的环境。</h3><ul>
-<li><p>什么是局部作用域</p>
-<ul>
-<li>函数体内的执行环境</li>
-</ul>
-<ul>
-<li>局部变量:  <ul>
-<li>在局部作用域中定义的变量称为局部变量。函数定义的形参,以及     在 函数体中用var关键字定义的变量</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>局部变量只能在本函数体中使用。</li>
-</ul>
-<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><ul>
-<li>js中没有块级作用域（我们用匿名函数和自执行函数模拟块级作用域）在分支结构或循环结构中创建的变量，仅仅只能在本分支或循环结构中使用。</li>
-</ul>
-<h1 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h1><ul>
-<li>指的是访问一个变量时，会先从本作用域中去找，若没找到，则向上一层作用域中去找，以此类推就构成了作用域链.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="string">'2b'</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> a = <span class="number">4</span>;</span><br><span class="line">      <span class="built_in">console</span>.log(a);   <span class="comment">//a的值 ?4</span></span><br><span class="line">      <span class="built_in">console</span>.log(b);    <span class="comment">//b的值 ?'2b'</span></span><br><span class="line">    &#125;</span><br><span class="line">    fn3();</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  fn2();</span><br><span class="line">&#125;</span><br><span class="line">fn1();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JS/07-数组" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/02/20/JS/07-数组/" class="article-date">
-      <time datetime="2017-02-20T02:20:15.000Z" itemprop="datePublished">2017-02-20</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/02/20/JS/07-数组/">07-数组</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
-<li>数组是一组有序的数据集合</li>
-<li>有序是：下标（索引值）是有序的（从0开始）</li>
-<li>数组也是一种数据，是属于引用类型的数据。</li>
-<li>数组的优点：可以存储一组数据交给一个变量统一管理，并且可以方便的维护和操作。</li>
-<li>概念：数组是一组 有序的 数据的集合</li>
-</ul>
-<h2 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h2><ul>
-<li><p>方式1：通过构造函数</p>
-<blockquote>
-<p>var 变量名 = new Array(); </p>
-</blockquote>
-<ul>
-<li>空的数组   相当于  var 变量名 = []; <blockquote>
-<p>var 变量名 = new Array(数据,数据,数据,数据); </p>
-</blockquote>
-</li>
-<li><p>相当于 var 变量名 = [数据,数据,数据,数据]</p>
-<ul>
-<li>代码：<blockquote>
-<p><code>var userNames = new Array();</code></p>
-<p><code>var userNames = new Array(&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;)</code></p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>方式2：数组字面量【推荐使用】<blockquote>
-<p> var 变量名 = [];  </p>
-<p>空的数组</p>
-<p>var 变量名 = [数据,数据,数据,数据];</p>
-<p>有数据 的数组</p>
-<ul>
-<li>代码：<br><code>var userNames = [];</code></li>
-</ul>
-<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;]</code></p>
-</blockquote>
-</li>
-<li>小细节<ul>
-<li>若小括号中只有一个数字时，表示数组在内存中连续申请了n个空间，每个空间的默认值是 undefined。<blockquote>
-<p>var 变量 = new Array(数字); </p>
-</blockquote>
-</li>
-<li>如：代码：<blockquote>
-<p><code>var userNames = new Array(4)</code></p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="访问和设置数组的元素"><a href="#访问和设置数组的元素" class="headerlink" title="访问和设置数组的元素"></a>访问和设置数组的元素</h2><ul>
-<li><p>访问数组中的元素</p>
-</li>
-<li><p>语法：数组名[下标];    下标 也叫 索引.下标是从 0    1     2      3   …</p>
-</li>
-<li><p>获取数组中的元素。</p>
-<ul>
-<li>代码：<blockquote>
-<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;];</code></p>
-<p><code>console.log(userNames[1]);</code>//获取李四</p>
-<p><code>console.log(userNames[4]);</code></p>
-<p> ↑  undefined</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>设置（修改）数组中的元素</p>
-<ul>
-<li>代码：<blockquote>
-<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;];</code>// 修改李四 为 LiSi</p>
-<p><code>userNames[1] = &#39;LiSi&#39;;</code></p>
-<p><code>console.log(userNames);</code><br>// [‘张三’,’LiSi’,’王五’,’赵六’]</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="数组的length属性"><a href="#数组的length属性" class="headerlink" title="数组的length属性"></a>数组的length属性</h2><ul>
-<li>通过 length 获取数组中元素的个数 【重点】</li>
-<li>语法：数组名.length;<ul>
-<li>代码：<blockquote>
-<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;];</code></p>
-<p><code>console.log(userNames.length);</code>// 4</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>通过length 设定数组的长度</li>
-<li><p>语法：数组名.length = 数字;</p>
-<ul>
-<li>代码1：<blockquote>
-<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;];</code></p>
-<p><code>userNames.length = 6;</code>// 因为数组长度为6，所以新增了两个空间.</p>
-</blockquote>
-</li>
-<li>代码2：<blockquote>
-<p><code>var userNames = [&#39;张三&#39;,&#39;李四&#39;,&#39;王五&#39;,&#39;赵六&#39;];</code></p>
-<p><code>userNames.length = 4;</code>// 因为数组长度为4，所以减了两个空间.</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>通过length清空数组</p>
-<blockquote>
-<p><code>var userNames = [&#39;张三&#39;, &#39;李四&#39;, &#39;王五&#39;, &#39;赵六&#39;];</code></p>
-<p><code>console.log(userNames);</code>// 清空之前 [‘张三’, ‘李四’, ‘王五’, ‘赵六’]</p>
-<p><code>userNames.length = 0;</code></p>
-<p><code>console.log(userNames);</code>// 清空之后 []</p>
-</blockquote>
-</li>
-<li><p>向数组最后追加新元素</p>
-</li>
-<li>语法： 数组名[数组名.length] = 数据;<blockquote>
-<p><code>var userNames = [&#39;张三&#39;, &#39;李四&#39;, &#39;王五&#39;, &#39;赵六&#39;];</code></p>
-<p><code>userNames[数组名.length] = &#39;陈七&#39;;</code></p>
-<p><code>console.log(userNames);</code>//[‘张三’, ‘李四’, ‘王五’, ‘赵六’,’陈七’]</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><p>赋值：</p>
-<blockquote>
-<p>​    1.    var arr = [];</p>
-<p>​        arr[0] = “张三”；    </p>
-<p>​        arr[1] = “李四”；</p>
-<p>​    2.     var arr = [“张三”,”李四”]；</p>
-<p>​    3.    var arr = new Arrary[“张三”,”李四”];</p>
-</blockquote>
-</li>
-<li><p>获取数组中的数据                数组名[下标];</p>
-</li>
-<li><p>长度=数组中数据的个数     数组名.length；</p>
-</li>
-<li><p>添加数据                                数组名[数组名.length]=值；</p>
-</li>
-<li><p>修改数据                                数组名[下标]=值;</p>
-<p>​</p>
-</li>
-</ul>
-<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><ul>
-<li>冒泡排序：<ul>
-<li>比较的趟数：数据的个数 - 1； （多趟）</li>
-<li>每趟比较的次数：数据的个数 - 当前趟数</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nums = [<span class="number">40</span>,<span class="number">8</span>,<span class="number">15</span>,<span class="number">18</span>,<span class="number">12</span>];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">1</span>;i&lt;nums.length;i++ )&#123;  <span class="comment">//描述重复的趟数</span></span><br><span class="line">    <span class="comment">//console.log(i);</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>;j&lt;nums.length-i;j++)&#123; <span class="comment">//每趟比较的次数</span></span><br><span class="line">        <span class="keyword">if</span>(nums[j]&gt;nums[j+<span class="number">1</span>])&#123;<span class="comment">//比较大小，是否交换位置</span></span><br><span class="line">        <span class="keyword">var</span> temp = nums[j];</span><br><span class="line">          </span><br><span class="line">          nums[j] = nums[j+<span class="number">1</span>];</span><br><span class="line">          </span><br><span class="line">          nums[j+<span class="number">1</span>] = temp;</span><br><span class="line">          </span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(nums);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JS/06-流程控制" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/02/19/JS/06-流程控制/" class="article-date">
-      <time datetime="2017-02-19T02:31:45.000Z" itemprop="datePublished">2017-02-19</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/02/19/JS/06-流程控制/">06-流程控制</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="表达式和语句"><a href="#表达式和语句" class="headerlink" title="表达式和语句"></a>表达式和语句</h2><ul>
-<li><p>表达式<br>一个表达式可以产生一个值，有可能是运算、函数调用、有可能是字面量。表达式可以放在任何需要值的地方。<br>表达式是程序最基本的组部分，每个表达式具有一个结果（也就是有一个返回值）</p>
-<ul>
-<li>语句<br>语句可以理解为一个行为，循环语句和判断语句就是典型的语句。一个程序有很多个语句组成，一般情况下;分割一个一个的语句</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>表达式种类：</p>
-<ul>
-<li>一元表达式：var num = 100<ul>
-<li>num++;</li>
-<li>!”asd”;</li>
-<li>typeof22;</li>
-</ul>
-</li>
-<li>二元表达式:  1+1;<ul>
-<li>2&gt;3;</li>
-<li>“a”==”b”;</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>语句是完整的行为：一个程序是由多个语句组成的，语句通常没有返回值。</p>
-<ul>
-<li>例如：alert(“我是弹出提示框”)；</li>
-</ul>
-</li>
-</ul>
-<h2 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h2><p>  顺序结构就是程序默认的执行循序（自上而下，从内到外）。程序默认就是由上到下顺序执行的</p>
-<h2 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h2><ul>
-<li><p>根据不同的情况，执行对应代码</p>
-<ul>
-<li>1.单if语句</li>
-</ul>
-<p>​    if条件当为布尔表达式</p>
-<p>​    if(布尔表达式){}；</p>
-<ul>
-<li><p>如果没有设置条件为布尔表达式，会对结果进行隐式转换为布尔类型。</p>
-<blockquote>
-<p> <code>if (条件表达式) {</code></p>
-<p> <code>执行语句</code></p>
-<p> <code>}</code></p>
-</blockquote>
-</li>
-<li><p>2.if…else…语句</p>
-<blockquote>
-<p> <code>if (条件表达式){</code></p>
-<p> <code>成立执行语句</code></p>
-<p> <code>} else {</code></p>
-<p> <code>否则执行语句</code></p>
-<p> <code>}</code></p>
-</blockquote>
-</li>
-<li><p>3.if…else   if…ele   if…else</p>
-<blockquote>
-<p> <code>if (条件表达式1) {</code></p>
-<p> <code>成立执行语句</code></p>
-<p> <code>}else if (条件表达式2) {</code></p>
-<p> <code>成立执行语句</code></p>
-<p> <code>}else if (条件表达式3) {</code></p>
-<p> <code>否则执行语句</code></p>
-<p> <code>}else{</code></p>
-<p> <code>最后默认执行语句</code></p>
-<p> <code>}</code></p>
-</blockquote>
-</li>
-</ul>
-<p>4.switch 语句</p>
-<ul>
-<li><p>通常switch语句用于对一个变量的值进行检测使用。</p>
-</li>
-<li><p>判断方式：条件值和某个case后的值全等（注意.是全等比较），才可以执行对应代码。</p>
-</li>
-<li><p>不需要默认的执行顺序，执行一种情况后就结束程序则在每个case后添加break；</p>
-<blockquote>
-<p><code>switch(条件值){</code></p>
-<p>​    <code>case 值 1；</code></p>
-<p>​        <code>代码段1；</code></p>
-<p>​        <code>break；</code></p>
-<p>​        <code>case 值 2；</code></p>
-<p>​        <code>代码段2；</code></p>
-<p>​        <code>break；</code></p>
-<p>​    <code>default：</code></p>
-<p>​        <code>default的代码；</code></p>
-<p><code>}；</code></p>
-</blockquote>
-</li>
-<li><p>break关键字和continue的区别</p>
-<ul>
-<li>break：终止当前整个循环；</li>
-<li>continue：结束当前这一次的循环，并开始下一下循环。</li>
-</ul>
-</li>
-<li><p>break可以省略，如果省略，代码会继续执行下一个case<br>switch 语句在比较值时使用的是全等操作符, 因此不会发生类型转换（例如，字符串’10’ 不等于数值 10）</p>
-</li>
-<li><p>5.三元运算符</p>
-</li>
-<li><p>表达式1（比较运算符）表达式2？表达式：表达式2；</p>
-</li>
-<li>三元表达式是对if……else语句的一种简化写法</li>
-</ul>
-</li>
-</ul>
-<h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><ul>
-<li><p>1.while循环</p>
-<ul>
-<li>语法结构：（注意：当while的条件值为true时，会重    复的执行内部代码段，直到条件值为false时不再执行内部代码）</li>
-</ul>
-<blockquote>
-<p><code>while(条件表达式){</code></p>
-<p>​    <code>代码段；</code></p>
-<p><code>}</code></p>
-<p>如果一个while循环的条件值为true，是一个死循环</p>
-</blockquote>
-<p>​</p>
-</li>
-</ul>
-<ul>
-<li><p>2.do…while循环</p>
-<ul>
-<li>语法结构：（注意：执行方式为，先执行循环内的代码，然后进行第一次判断）与while循环的区别：while是先判断，在执行，do…while是无论如何都会先执行一次，再判断。</li>
-</ul>
-<blockquote>
-<p><code>do{</code></p>
-<p>​    <code>代码段；</code></p>
-<p><code>} while(条件表达式)</code></p>
-<p>如果一个do…while循环的条件值恒为true，是一个死循环</p>
-</blockquote>
-<p>​</p>
-<p>3.for 循环</p>
-<blockquote>
-<p><code>for(var i = 1; i &lt; n ; i++){</code></p>
-<p>​    <code>代码段；</code></p>
-<p><code>};</code></p>
-<p>① i=1;② i&lt;n; ③ i++; ④ 代码段； </p>
-<p>执行顺序为：①→②→④→③→②→④→③循环</p>
-</blockquote>
-<ul>
-<li><p>for嵌套循环：将多个循环套在一起使用的结构</p>
-<ul>
-<li>注意：多个循环变量的命名不能相同。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p><code>for (var i=1;i&lt;n;i++){</code></p>
-<p>​    代码段；这个循环执行n次</p>
-<p>​    <code>for (var j=0;j&lt;m;j++){</code></p>
-<p>​    内循环单独可以执行m次，放在外循环中可以执行n*m次</p>
-<p>​    内部的循环执行次数=外循环的执行次数*内部循环单独执行的次数</p>
-<p>​        <code>代码段；</code></p>
-<p>​    <code>}</code></p>
-<p><code>}</code></p>
-</blockquote>
-<p> <strong>布尔类型的隐式转换</strong></p>
-<ul>
-<li><p>流程控制语句会把后面的值隐式转换成布尔类型</p>
-<ul>
-<li>转换为true   非空字符串  非0数字  true 任何对象<br>转换成false  空字符串  0  false  null  undefined</li>
-</ul>
-<p>思考：</p>
-<blockquote>
-<p><code>var a = !!&#39;123&#39;;</code></p>
-<p><code>结果是什么？</code></p>
-</blockquote>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JS/05-数据类型转换" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/02/19/JS/05-数据类型转换/" class="article-date">
-      <time datetime="2017-02-19T01:20:35.000Z" itemprop="datePublished">2017-02-19</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/02/19/JS/05-数据类型转换/">05-数据类型转换</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h1><ul>
-<li><p>介绍：在程序中，任何类型的数据之间都可以参与运算符的。比如数字可以和字符串参与运算，字符串可以和布尔值参与参数等等。</p>
-<p>总而言之，任何不同类型的数据之间可以参与任何不同的运算。</p>
-<ul>
-<li>如：案例，接收用户说输入的年龄，在用户年龄原有的基础之上加5.<br><code>var age = prompt(&#39;请输入你的年龄&#39;); //加入用户输入的是10</code><br><code>age = age + 5;</code><br><code>console.log(age);  //结果是 105，为什么？如何解决？</code></li>
-</ul>
-<p>注意：基本数据类型进行转换，只能通过功能获取到转换后的结果，但是原值不会发生改变的。</p>
-</li>
-</ul>
-<h2 id="将数据类型转换成字符串"><a href="#将数据类型转换成字符串" class="headerlink" title="将数据类型转换成字符串"></a>将数据类型转换成字符串</h2><p>  注意：其他数据转字符串，实质就是给其他数据两边加上字符串的特性（单引号或双引号）</p>
-<h3 id="1-强制转换"><a href="#1-强制转换" class="headerlink" title="1.强制转换"></a>1.强制转换</h3><p>明确告诉程序，要进行数据类型转换</p>
-<ul>
-<li><p><strong>变量tostring();方法</strong></p>
-<p><code>var num = 100；</code></p>
-<p><code>console.log(num.toString());//100</code></p>
-<p><code>console.log(num);//100</code></p>
-<p>​</p>
-</li>
-<li><p><strong>String(数据)方法</strong></p>
-<p><code>var num = 100;</code></p>
-<p><code>console.log(string(num));</code></p>
-<p><code>console.log(num);</code></p>
-<p>String()功能存在的目的是为了弥补tostring()的不足（null和undefined不能作为变量调用toString()方法进行字符串的强制转换）</p>
-<p>​</p>
-</li>
-</ul>
-<h2 id="2-隐式转换"><a href="#2-隐式转换" class="headerlink" title="2.隐式转换"></a>2.隐式转换</h2><p>偷偷的对数据进行类型转换</p>
-<p>  任何数据和字符串相加，其他非字符串类型的数据会自动转换为字符串。</p>
-<p>  其实就是看不见的用String(数据)转换。</p>
-<h3 id="什么叫做隐式转换？"><a href="#什么叫做隐式转换？" class="headerlink" title="什么叫做隐式转换？"></a>什么叫做隐式转换？</h3><pre><code>隐式转换，也被称为自动转换。就是在程序运行过程中，不需要我们手动转换，数据会根据运算情况自动的转换为其他类型的数据。
-</code></pre><h3 id="将数据的类型转换伪数组类型"><a href="#将数据的类型转换伪数组类型" class="headerlink" title="将数据的类型转换伪数组类型"></a>将数据的类型转换伪数组类型</h3><p>  对数值类型的转换规则，从左往右检测。遇到不是数就停止。</p>
-<p>  <strong>1.强制转换</strong></p>
-<p>  <strong>Number(数据)</strong></p>
-<p>  <code>console.log(Number(&quot;100&quot;));</code>            // 100</p>
-<p>  <code>console.log(Number(&quot;&quot;));</code>            // 0 为空，不加空格</p>
-<p>  <code>console.log(Number(“ ”));</code>            // 0        为空，加空格</p>
-<p>  <code>console.log(Number(“true”));</code>        // 1</p>
-<p>  <code>console.log(Number(“false”));</code>        // 0</p>
-<p>  <code>console.log(Number(“null”));</code>        // 0</p>
-<p>  <code>console.log(Number(“undefined”));</code>  // NaN</p>
-<p>  如果进行数值类型转换，出现了NaN时表示转换失败。</p>
-<p>  <strong>parseInt(数据)</strong></p>
-<p>  <code>console.log(parseInt (“100”));</code>            // 100</p>
-<p>  <code>console.log(parseInt (“100a1d2d2”));</code>    // 100   </p>
-<p>  <code>console.log(parseInt (“100.1”));</code>        // 100  取整</p>
-<p>  <code>console.log(parseInt (“d100”));</code>            // NaN</p>
-<p>  <code>console.log(parseInt (“”));</code>                // 0   为空，不加空格</p>
-<p>  <code>console.log(parseInt (“ ”));</code>            //NaN</p>
-<p>  <code>console.log(parseInt (“true”));</code>            // NaN</p>
-<p>  <code>console.log(parseInt (“false”));</code>        // NaN</p>
-<p>  <code>console.log(parseInt (“null”));</code>            // NaN</p>
-<p>  <code>console.log(parseInt (“undefined”));</code>    // NaN</p>
-<p>  <strong>parseFloat(数据)  （与parseInt的区别在于可以取出小数的部分）</strong></p>
-<p>  <code>console.log(parseFloat (“100”));</code>        // 100</p>
-<p>  <code>console.log(parseFloat (“100a1d2d2”));</code>    // 100   </p>
-<p>  <code>console.log(parseFloat (“100.1”));</code>        // 100.1 </p>
-<p>  <code>console.log(parseFloat (“d100.12”));</code>    // NaN</p>
-<h3 id="其他数据转字符串-String"><a href="#其他数据转字符串-String" class="headerlink" title="其他数据转字符串 String"></a>其他数据转字符串 String</h3><p>  任何数据和字符串做相加运算时，其他非字符串数据会自动的转换为String类型的数据。就相当于悄悄的，看不见的用String(其他数据)转换为字符串。<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result1 = <span class="literal">true</span> + <span class="string">'我'</span>; <span class="comment">// 布尔值 true 自动转换为字符串 'true'</span></span><br><span class="line"><span class="built_in">console</span>.log(result1); <span class="comment">// 'true我'</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="其他数据转数字-Number"><a href="#其他数据转数字-Number" class="headerlink" title="其他数据转数字 Number"></a>其他数据转数字 Number</h3><p>  ​    在做算术运算时（除了和字符串做相加操作外）其他非数字类型的数据会自动转换为Number类型，其实就是看不见的用Number(数据)转换；<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result1 = <span class="string">'2'</span> - <span class="number">1</span>; <span class="comment">//字符串 '2' 自动转换为数字 2</span></span><br><span class="line"><span class="built_in">console</span>.log(result1); <span class="comment">// 1;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result2 = <span class="string">'3a'</span> - <span class="number">1</span>;  <span class="comment">//字符串 '3a' 自动转换为数字 NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(result2); <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure></p>
-<p>  ​    在任何数据和NaN做算术运，结果是在都是NaN（除了和字符串相加操作外），包括NaN和本身运算。</p>
-<h3 id="其他数据转布尔-Boolean"><a href="#其他数据转布尔-Boolean" class="headerlink" title="其他数据转布尔 Boolean"></a>其他数据转布尔 Boolean</h3><p>  在取反、选择语句 和 循环语句中的条件表达式中，其他数据会自动的转换为布尔值。就相当于悄悄的，看不见的用Boolean(其他数据)转换为布尔值。<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(!<span class="number">1</span>);  <span class="comment">//false ; 数字1 转换为boolean值为 true,对true取反就是false</span></span><br><span class="line">consoel.log(!(<span class="number">1</span>&gt;=<span class="number">2</span>)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="使用-可以实现隐式转换"><a href="#使用-可以实现隐式转换" class="headerlink" title="使用 + - * / % 可以实现隐式转换"></a>使用 + - * / % 可以实现隐式转换</h3><p>  <code>console.log(“100” – 0 );</code></p>
-<p>  <code>console.log(“100” * 1 );</code></p>
-<p>  <code>console.log(“100” / 1 );</code></p>
-<p>  <code>console.log(“100” % Infinity);</code></p>
-<p>  <code>console.log(+ “100” );</code></p>
-<p>  **注意：使用（+加操作进行赋值的转换：需要将+前至于数据，前面不能有其他数据，否则会转换成字符串）。</p>
-<h3 id="将数据的数据类型转换为布尔类型"><a href="#将数据的数据类型转换为布尔类型" class="headerlink" title="将数据的数据类型转换为布尔类型"></a>将数据的数据类型转换为布尔类型</h3><p>  <strong>1.强制转换</strong></p>
-<p>  Boolean(数据)</p>
-<p>  <code>console.log(Boolean(“1233”));</code>        // true</p>
-<p>  <code>console.log(Boolean(100));</code>            // true </p>
-<p>  <strong>将“”、0、NaN、null、undefined转换层布尔类型为false，其他数据的转换结果均为true。</strong></p>
-<p>  <code>console.log(Boolean(“0”));</code>            //true</p>
-<p>  <code>console.log(Boolean(0));</code>            // false</p>
-<p>  <code>console.log(Boolean(“”));</code>            // false</p>
-<p>  <code>console.log(Boolean(NaN));</code>            // false</p>
-<p>  <code>console.log(Boolean(null));</code>            // false</p>
-<p>  <code>console.log(Boolean(undefined));</code>    // false</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
   
     <article id="post-JS/04-运算符" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -2033,9 +841,456 @@
 
 
   
+    <article id="post-HTML/12-动画" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/01/15/HTML/12-动画/" class="article-date">
+      <time datetime="2017-01-15T00:12:20.000Z" itemprop="datePublished">2017-01-15</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/01/15/HTML/12-动画/">10-动画(animation)</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="动画-animation"><a href="#动画-animation" class="headerlink" title="动画(animation)"></a>动画(animation)</h1><h2 id="animation复合属性"><a href="#animation复合属性" class="headerlink" title="animation复合属性"></a>animation复合属性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    width: <span class="number">200</span>px;</span><br><span class="line">    height: <span class="number">200</span>px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    <span class="comment">/* 要执行动画，要调用 */</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* 动画名称 */</span></span><br><span class="line">    animation-name: box_move;</span><br><span class="line">    <span class="comment">/* 动画执行的时间 */</span></span><br><span class="line">    animation-duration: <span class="number">1</span>s;</span><br><span class="line">    <span class="comment">/* 动画执行次数： 默认执行1次   infinite:无限循环*/</span></span><br><span class="line">    animation-iteration-count: infinite;</span><br><span class="line">    <span class="comment">/* 设置动画逆波 */</span></span><br><span class="line">    animation-direction: alternate;</span><br><span class="line">    <span class="comment">/* 设置动画的速度类型 */</span></span><br><span class="line">    animation-timing-<span class="function"><span class="keyword">function</span>: <span class="title">linear</span>;</span></span><br><span class="line"><span class="function">    /* 设置动画延时执行 */</span></span><br><span class="line"><span class="function">    <span class="title">animation</span>-<span class="title">delay</span>: 2<span class="title">s</span>;</span></span><br><span class="line"><span class="function">    /* 设置动画时间之外的状态 */</span></span><br><span class="line"><span class="function">    <span class="title">animation</span>-<span class="title">fill</span>-<span class="title">mode</span>: <span class="title">forwards</span>;</span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function">.<span class="title">box</span>:<span class="title">hover</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* 动画暂停 */</span></span><br><span class="line">    animation-play-state: paused;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义动画<ul>
+<li>通过@keyframes + 自定义动画名称 {}</li>
+<li>在动画集中通过from 和 to 设置动画的开始状态和结束状态。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">          <span class="comment">/* 第一步：先定义一个动画集（序列） */</span></span><br><span class="line">          @keyframes  box_move &#123;</span><br><span class="line">              </span><br><span class="line">              <span class="comment">/* 第二步：定义动画的开始状态 */</span></span><br><span class="line">              <span class="keyword">from</span> &#123;</span><br><span class="line">                  transform: translate(<span class="number">0</span>px);</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="comment">/* 第三步：定义动画的结束状态 */</span></span><br><span class="line">              to &#123;</span><br><span class="line">                  </span><br><span class="line">                  <span class="comment">/* 2d的方式移动 */</span></span><br><span class="line">                  transform: translate(<span class="number">400</span>px);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 注意：</span></span><br><span class="line"><span class="comment">// 动画集要单独定义，不能放到类样式中。</span></span><br></pre></td></tr></table></figure>
+<h3 id="动画联写方式"><a href="#动画联写方式" class="headerlink" title="动画联写方式"></a>动画联写方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animation: move <span class="number">1</span>s  linear infinite  alternate;</span><br></pre></td></tr></table></figure>
+<h3 id="或者可以同时调用多个动画集"><a href="#或者可以同时调用多个动画集" class="headerlink" title="或者可以同时调用多个动画集"></a>或者可以同时调用多个动画集</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;</span><br><span class="line">            background-color: red;</span><br><span class="line">            </span><br><span class="line">            animation: move <span class="number">1</span>s  linear infinite  alternate,</span><br><span class="line">                    chage1 <span class="number">1</span>s <span class="number">1</span>s linear; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="可以通过设置百分比的形式设置动画集中的不同状态"><a href="#可以通过设置百分比的形式设置动画集中的不同状态" class="headerlink" title="可以通过设置百分比的形式设置动画集中的不同状态"></a>可以通过设置百分比的形式设置动画集中的不同状态</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    @keyframes  change &#123;</span><br><span class="line">                <span class="comment">/*动画的开始状态*/</span></span><br><span class="line">            <span class="number">0</span>% &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">                <span class="comment">/*动画的结束状态*/</span></span><br><span class="line">            <span class="number">100</span>% &#123;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//百分比是相对动画执行时间。</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/11-3D转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/01/14/HTML/11-3D转换/" class="article-date">
+      <time datetime="2017-01-14T04:30:50.000Z" itemprop="datePublished">2017-01-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/01/14/HTML/11-3D转换/">09-3D转换(transform)【变形】</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="3D转换-transform-【变形】"><a href="#3D转换-transform-【变形】" class="headerlink" title="3D转换(transform)【变形】"></a>3D转换(transform)【变形】</h1><h2 id="位移"><a href="#位移" class="headerlink" title="位移"></a>位移</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 位移</span></span><br><span class="line">        transform: translateX(<span class="number">-400</span>px) translateY(<span class="number">-400</span>px) translateZ(<span class="number">-400</span>px);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结:<ul>
+<li>如果设置的是正数，那么就沿着对应坐标轴的正方向移动，反之沿着反方向移动</li>
+</ul>
+</li>
+</ul>
+<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 旋转</span></span><br><span class="line">        transform:rotateX(<span class="number">-90</span>deg);</span><br><span class="line">        transform:rotateY(<span class="number">-90</span>deg);</span><br><span class="line">        transform:rotateZ(<span class="number">90</span>deg);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>备注:<ul>
+<li>通过左手法则判断元素的旋转方向</li>
+<li>左手法则： 用左手握住坐标轴，大拇指指向坐标轴的方向，四个手指弯曲的方向就是旋转的方向</li>
+</ul>
+</li>
+</ul>
+<h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><p><code>transform:scaleX(2) scaleY(2);</code></p>
+<h2 id="透视"><a href="#透视" class="headerlink" title="透视"></a>透视</h2><ul>
+<li>perspective: 1000px;<ul>
+<li>总结：<ul>
+<li>该属性要设置给变形元素的父元素</li>
+<li>该属性不是一个必须要设置的属性</li>
+<li>该属性的取值不是唯一的，但是我们一般情况下将该属性的取值设置了800-1000之间。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/10-2D转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/01/14/HTML/10-2D转换/" class="article-date">
+      <time datetime="2017-01-14T03:32:49.000Z" itemprop="datePublished">2017-01-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/01/14/HTML/10-2D转换/">08-2D转换(transform)【变形】</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="2D转换-transform-【变形】"><a href="#2D转换-transform-【变形】" class="headerlink" title="2D转换(transform)【变形】"></a>2D转换(transform)【变形】</h1><h2 id="位移"><a href="#位移" class="headerlink" title="位移"></a>位移</h2><ul>
+<li>transform: translate(400px,200px);</li>
+<li>总结：<ul>
+<li>如果在translate()中设置一个值，那么代表当前元素是沿着水平方向移动，如果是正数则向右移动，反之向左移动。</li>
+<li>如果在translate()中设置两个值，第一个值代表水平方向移动，第二个值代表垂直方向移动。</li>
+<li>translate()中可以设置百分比，百分比是相对元素自己的宽度或者高度</li>
+</ul>
+</li>
+</ul>
+<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><ul>
+<li>transform: rotate(360deg);</li>
+<li>总结：<ul>
+<li>如果设置的是一个正数，那么代表当前元素是按照顺时针方向旋转，反之逆时针</li>
+<li>如果我们希望一个元素既旋转又位移，推荐先写位移然后设置旋转<br><code>transform: translate(400px) rotate(360deg);</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="缩放（让元素放大或缩小）"><a href="#缩放（让元素放大或缩小）" class="headerlink" title="缩放（让元素放大或缩小）"></a>缩放（让元素放大或缩小）</h2><ul>
+<li>transform: scale(0.5,1)；<ul>
+<li>总结：<ul>
+<li>如果sacle()中设置的是一个值，那么代表该元素在水平方向和垂直方向同时放大或者缩小。<ul>
+<li>如果设置两个值，那么第一个值代表的是水平方向的放大或缩小。第二个值代表的是垂直方向的放大或者缩小</li>
+<li>如果要实现放大的效果，那么我们设置大于1的数字就可以了</li>
+<li>如果要实现缩小的效果，那么我们设置大于0小于1之间的小数就可以了。</li>
+<li>不能设置负数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="倾斜"><a href="#倾斜" class="headerlink" title="倾斜"></a>倾斜</h2><ul>
+<li>transform: skew(30deg);<ul>
+<li>总结：<ul>
+<li>如果skew设的是一个值，那么代表该元素是沿着水平方向让元素发生倾斜，如果设置两个值，第一个代表水平方向，第二值代表垂直方向</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="transform属性联写："><a href="#transform属性联写：" class="headerlink" title="transform属性联写："></a>transform属性联写：</h2><p> <code>transform:translate() rotate(angle) scale()skew(30deg,40deg);</code></p>
+<h2 id="旋转圆心位置改变（设置）"><a href="#旋转圆心位置改变（设置）" class="headerlink" title="旋转圆心位置改变（设置）"></a>旋转圆心位置改变（设置）</h2><ul>
+<li>transform-origin设置旋转圆心位置<ul>
+<li>可以通过关键字设置 left | right | top | bottom | center</li>
+<li>可以设置具体值设置</li>
+</ul>
+</li>
+</ul>
+<h2 id="定位盒子居中显示"><a href="#定位盒子居中显示" class="headerlink" title="定位盒子居中显示"></a>定位盒子居中显示</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2d转化实现绝对定位的盒子居中：</span></span><br><span class="line">    .box &#123;</span><br><span class="line">            width: <span class="number">123</span>px;</span><br><span class="line">            height: <span class="number">123</span>px;</span><br><span class="line">            background-color: pink;</span><br><span class="line">            position:absolute;</span><br><span class="line">            left:<span class="number">50</span>%;</span><br><span class="line">            transform: translate(<span class="number">-50</span>%);</span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">// 3d转化的方式实现绝对定位的盒子水平居中：</span></span><br><span class="line">            .one &#123;</span><br><span class="line">                width: <span class="number">123</span>px;</span><br><span class="line">                height: <span class="number">123</span>px;</span><br><span class="line">                background-color: pink;</span><br><span class="line">                position:absolute;</span><br><span class="line">                left:<span class="number">50</span>%;</span><br><span class="line">                transform: translateX(<span class="number">-50</span>%);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/09-过渡" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/01/13/HTML/09-过渡/" class="article-date">
+      <time datetime="2017-01-13T01:52:25.000Z" itemprop="datePublished">2017-01-13</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/01/13/HTML/09-过渡/">07-过渡（transition）</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="过渡（transition）"><a href="#过渡（transition）" class="headerlink" title="过渡（transition）"></a>过渡（transition）</h1><ul>
+<li>过渡属于一种特殊的动画<ul>
+<li>通过一种状态向另外一种状态的改变<ul>
+<li>transition 复合属性：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">         <span class="comment">/* 设置参与过渡的属性 */</span></span><br><span class="line">transition-property: width,height,background-color;</span><br><span class="line">transition-property: all; </span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置过渡完成的时间 */</span></span><br><span class="line">transition-duration: <span class="number">1</span>s; </span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置过渡延时执行的时间 */</span></span><br><span class="line">transition-delay: <span class="number">1</span>s; </span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置过渡的类型（速度类型） */</span></span><br><span class="line">transition-timing-<span class="function"><span class="keyword">function</span>: <span class="title">ease</span>;</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">ease</span>-<span class="title">in</span>;</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">ease</span>-<span class="title">out</span>;</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">ease</span>-<span class="title">in</span>-<span class="title">out</span>; </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">/* 代表当前过渡的速度是匀速完成的。 */</span></span><br><span class="line"><span class="function"><span class="title">transition</span>-<span class="title">timing</span>-<span class="title">function</span>: <span class="title">linear</span>; </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">         // 属性联写:</span></span><br><span class="line"><span class="function"><span class="title">transition</span>: <span class="title">all</span>  1<span class="title">s</span>  <span class="title">linear</span>; </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">         //或者单独为每一个属性设置过渡的效果：</span></span><br><span class="line"><span class="function">         <span class="title">transition</span>: <span class="title">width</span> 1<span class="title">s</span> <span class="title">linear</span>,</span></span><br><span class="line"><span class="function">                     <span class="title">height</span> 1<span class="title">s</span>  1<span class="title">s</span> <span class="title">linear</span>,</span></span><br><span class="line"><span class="function">                     <span class="title">background</span>-<span class="title">color</span> 1<span class="title">s</span> 2<span class="title">s</span> <span class="title">linear</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="常用网"><a href="#常用网" class="headerlink" title="常用网"></a>常用网</h2><p>过渡调试网站：<a href="http://cubic-bezier.com/" target="_blank" rel="noopener">DiagramDesigner</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML/08-Web字体" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/01/12/HTML/08-Web字体/" class="article-date">
+      <time datetime="2017-01-12T03:02:17.000Z" itemprop="datePublished">2017-01-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/01/12/HTML/08-Web字体/">06-Web字体</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Web字体"><a href="#Web字体" class="headerlink" title="Web字体"></a>Web字体</h1><ul>
+<li><p>开发人员可以为自已的网页指定特殊的字体，无需考虑用户电脑上是否安装了此特殊字体，从此把特殊字体处理成图片的时代便成为了过去。支持程度比较好，甚至IE低版本浏览器也能支持。</p>
+<p><a href="http://www.iconfont.cn/" target="_blank" rel="noopener">在线字体</a></p>
+<ul>
+<li>引用在线字体。（了解）</li>
+<li>下载到本地使用（推荐）</li>
+</ul>
+</li>
+<li><p><strong>字体格式</strong></p>
+<ul>
+<li><p>不同浏览器所支持的字体格式是不一样的，我们有必要了解一下有关字体格式的知识。</p>
+<ul>
+<li><p>1、TureType(.ttf)格式</p>
+<ul>
+<li>.ttf字体是Windows和Mac的最常见的字体，是一种RAW格式，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome4+、Safari3+、Opera10+、iOS Mobile、Safari4.2+；</li>
+</ul>
+</li>
+<li><p>2、OpenType(.otf)格式</p>
+<ul>
+<li>.otf字体被认为是一种原始的字体格式，其内置在TureType的基础上，支持这种字体的浏览器有Firefox3.5+、Chrome4.0+、Safari3.1+、Opera10.0+、iOS Mobile、Safari4.2+；</li>
+</ul>
+</li>
+<li><p>3、Web Open Font Format(.woff)格式</p>
+<ul>
+<li>woff字体是Web字体中最佳格式，他是一个开放的TrueType/OpenType的压缩版本，同时也支持元数据包的分离，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome6+、Safari3.6+、Opera11.1+；</li>
+</ul>
+</li>
+<li><p>4、Embedded Open Type(.eot)格式</p>
+<ul>
+<li>.eot字体是IE专用字体，可以从TrueType创建此格式字体，支持这种字体的浏览器有IE4+；</li>
+</ul>
+</li>
+<li><p>5、SVG(.svg)格式</p>
+<ul>
+<li>.svg字体是基于SVG字体渲染的一种格式，支持这种字体的浏览器有Chrome4+、Safari3.1+、Opera10.0+、iOS Mobile Safari3.2+；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
     </nav>
   
 
