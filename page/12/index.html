@@ -1018,93 +1018,6 @@ box.innerHTML+=&apos;这是新内容&apos;;
 
 
   
-    <article id="post-JS/13-Array类型对象" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/02/24/JS/13-Array类型对象/" class="article-date">
-      <time datetime="2017-02-24T03:15:13.000Z" itemprop="datePublished">2017-02-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/02/24/JS/13-Array类型对象/">13-Array类型对象</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Array类型对象"><a href="#Array类型对象" class="headerlink" title="Array类型对象"></a>Array类型对象</h1><h2 id="数组创建方式"><a href="#数组创建方式" class="headerlink" title="数组创建方式"></a>数组创建方式</h2><h3 id="方式1：构造函数Array"><a href="#方式1：构造函数Array" class="headerlink" title="方式1：构造函数Array"></a>方式1：构造函数Array</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line">        <span class="keyword">var</span> 数组名 = <span class="keyword">new</span> <span class="built_in">Array</span>(数据,数据,数据);</span><br><span class="line">        <span class="comment">// 代码：</span></span><br><span class="line">        <span class="keyword">var</span> names = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">'张三'</span>,<span class="string">'李四'</span>,<span class="string">'王五'</span>,<span class="string">'赵六'</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="方式2：数组字面量【推荐使用方式】"><a href="#方式2：数组字面量【推荐使用方式】" class="headerlink" title="方式2：数组字面量【推荐使用方式】"></a>方式2：数组字面量【推荐使用方式】</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line"><span class="keyword">var</span> 数组名 = [数据,数据,数据];  <span class="comment">// 数组字面量</span></span><br><span class="line"><span class="comment">// 代码：</span></span><br><span class="line"><span class="keyword">var</span> names = [<span class="string">'张三'</span>,<span class="string">'李四'</span>,<span class="string">'王五'</span>,<span class="string">'赵六'</span>];</span><br></pre></td></tr></table></figure>
-<h2 id="数组对象常用的方法"><a href="#数组对象常用的方法" class="headerlink" title="数组对象常用的方法"></a>数组对象常用的方法</h2><h3 id="向前后数组中添加元素unshift"><a href="#向前后数组中添加元素unshift" class="headerlink" title="向前后数组中添加元素unshift"></a>向前后数组中添加元素unshift</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  向数组的开头添加一个或更多元素，并返回新的长度。【原数组会发生变化】 </span></span><br><span class="line">数组名.unshift(newelement1,newelement2,....,newelementX);</span><br><span class="line"><span class="comment">// 向数组的末尾添加一个或更多元素，并返回新的长度 【原数组会发生变化】</span></span><br><span class="line">数组名.push(newelement1,newelement2,....,newelementX);</span><br></pre></td></tr></table></figure>
-<h3 id="从数组前后删除元素shift"><a href="#从数组前后删除元素shift" class="headerlink" title="从数组前后删除元素shift"></a>从数组前后删除元素shift</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除并返回数组的第一个元素 【原数组会发生变化】</span></span><br><span class="line">数组名.shift();</span><br><span class="line"><span class="comment">// 删除并返回数组的最后一个元素 【原数组会发生变化】</span></span><br><span class="line">数组名.pop();</span><br></pre></td></tr></table></figure>
-<h3 id="数组任意位置的添加、删除splice"><a href="#数组任意位置的添加、删除splice" class="headerlink" title="数组任意位置的添加、删除splice"></a>数组任意位置的添加、删除splice</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 向/从数组中添加/删除项目，然后返回被删除的项目。【原数组会发生变化】</span></span><br><span class="line">数组名.splice(index,howmany,item1,.....,itemX)</span><br></pre></td></tr></table></figure>
-<h3 id="数组元素的查询indexOf"><a href="#数组元素的查询indexOf" class="headerlink" title="数组元素的查询indexOf"></a>数组元素的查询indexOf</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1</span></span><br><span class="line">数组名.indexOf(searchElement); 【用的较多】</span><br><span class="line"><span class="comment">// 返回指定元素在数组中的最后一个的索引，如果不存在则返回 -1。从数组的后面向前查找</span></span><br><span class="line">数组名.lastIndexOf(searchElement);</span><br></pre></td></tr></table></figure>
-<h3 id="数组的反转-和-排序reverse"><a href="#数组的反转-和-排序reverse" class="headerlink" title="数组的反转 和 排序reverse"></a>数组的反转 和 排序reverse</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 颠倒数组中元素的顺序。 【原数组会发生变化】</span></span><br><span class="line">数组名.reverse();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对数组的元素进行排序 </span></span><br><span class="line">数组名.sort();   <span class="comment">// 默认排序顺序是根据字符串Unicode编码 【了解】</span></span><br><span class="line"></span><br><span class="line">数组名.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;    <span class="comment">//【重点】</span></span><br><span class="line"><span class="keyword">return</span> a - b;   <span class="comment">// 升序（从小到大）</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">数组名.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;    <span class="comment">//【重点】</span></span><br><span class="line"><span class="keyword">return</span> b - a;   <span class="comment">// 降序（从大到小）</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="数组截取slice"><a href="#数组截取slice" class="headerlink" title="数组截取slice"></a>数组截取slice</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从已有的数组中返回选定的元素。【截取后，不会改变原数组，而是返回新的数组】</span></span><br><span class="line">数组名.slice(start,end);</span><br></pre></td></tr></table></figure>
-<h3 id="数组元素的拼接join"><a href="#数组元素的拼接join" class="headerlink" title="数组元素的拼接join"></a>数组元素的拼接join</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用于把数组中的所有元素放入一个字符串。</span></span><br><span class="line">数组名.join(separator);</span><br></pre></td></tr></table></figure>
-<h3 id="数组的其他方法-forEach"><a href="#数组的其他方法-forEach" class="headerlink" title="数组的其他方法(forEach)"></a>数组的其他方法(forEach)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数组遍历</span></span><br><span class="line">数组名.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,currentArray</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 过滤出符合筛选条件的元素，返回一个新的数组</span></span><br><span class="line">数组名.filter(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,currentArray</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> 条件;    <span class="comment">// 如：return value &gt;= 1000;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证数组中的每一个元素是否都符合指定的条件,返回布尔值</span></span><br><span class="line">数组名.every(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,currentArray</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> 条件;    <span class="comment">// 如：return value &gt;= 1000;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证数组中的元素，是否有符合指定条件的，返回布尔值</span></span><br><span class="line">数组名.some(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,currentArray</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> 条件;  <span class="comment">// 如：return value &gt;= 1000;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历数组中的每一个元素，更改后存入一个新的数组中，返回一个新的数组</span></span><br><span class="line">数组名.map(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,currentArray</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> 操作;   <span class="comment">// 如：return value * 2;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="清空数组"><a href="#清空数组" class="headerlink" title="清空数组"></a>清空数组</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>,<span class="number">55</span>];</span><br><span class="line"><span class="comment">// 方式1 推荐 </span></span><br><span class="line">arr = [];</span><br><span class="line"><span class="comment">// 方式2 </span></span><br><span class="line">arr.length = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 方式3</span></span><br><span class="line">arr.splice(<span class="number">0</span>, arr.length);</span><br></pre></td></tr></table></figure>
-<h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><h3 id="数据结构-栈和队列"><a href="#数据结构-栈和队列" class="headerlink" title="数据结构-栈和队列"></a>数据结构-栈和队列</h3><ul>
-<li>在js中没有栈 和 队列的概念，但是js可以通过数组的方法来模拟</li>
-</ul>
-<h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><ul>
-<li><p>特点：先进后出-FILO（First In Last Out）电梯</p>
-</li>
-<li><p>代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> userNames = [];</span><br><span class="line"><span class="comment">// 先进</span></span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// []</span></span><br><span class="line">userNames.push(<span class="string">'张三'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三"]</span></span><br><span class="line">userNames.push(<span class="string">'李四'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三", "李四"]</span></span><br><span class="line">userNames.push(<span class="string">'王五'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三", "李四", "王五"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 后出</span></span><br><span class="line">userNames.pop();   </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三", "李四"]</span></span><br><span class="line">userNames.pop();   </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三"]</span></span><br><span class="line">userNames.pop();       </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h4><pre><code>- 特点：先进先出-FIFO（ First  In  First  Out）排队买票
-</code></pre><ul>
-<li>代码：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> userNames = [];</span><br><span class="line"><span class="comment">// 先进</span></span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// []</span></span><br><span class="line">userNames.push(<span class="string">'张三'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三"]</span></span><br><span class="line">userNames.push(<span class="string">'李四'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三", "李四"]</span></span><br><span class="line">userNames.push(<span class="string">'王五'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三", "李四", "王五"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 先出出</span></span><br><span class="line">userNames.shift();   </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["李四", "王五"]</span></span><br><span class="line">userNames.shift();   </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["王五"]</span></span><br><span class="line">userNames.shift();       </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-JS/12-Date类型对象" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1300,6 +1213,93 @@ box.innerHTML+=&apos;这是新内容&apos;;
 <h3 id="字符串分割split"><a href="#字符串分割split" class="headerlink" title="字符串分割split"></a>字符串分割split</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.split(sp);  <span class="comment">// 把一个字符串分割成字符串数组。</span></span><br></pre></td></tr></table></figure>
 <h3 id="还有很多方法"><a href="#还有很多方法" class="headerlink" title="还有很多方法"></a>还有很多方法</h3><pre><code>- 查用MDN文档 或 离线手册 学习内置对象的属性 或 方法。
 </code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JS/13-Array类型对象" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/02/24/JS/13-Array类型对象/" class="article-date">
+      <time datetime="2017-02-24T03:15:13.000Z" itemprop="datePublished">2017-02-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/02/24/JS/13-Array类型对象/">13-Array类型对象</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Array类型对象"><a href="#Array类型对象" class="headerlink" title="Array类型对象"></a>Array类型对象</h1><h2 id="数组创建方式"><a href="#数组创建方式" class="headerlink" title="数组创建方式"></a>数组创建方式</h2><h3 id="方式1：构造函数Array"><a href="#方式1：构造函数Array" class="headerlink" title="方式1：构造函数Array"></a>方式1：构造函数Array</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line">        <span class="keyword">var</span> 数组名 = <span class="keyword">new</span> <span class="built_in">Array</span>(数据,数据,数据);</span><br><span class="line">        <span class="comment">// 代码：</span></span><br><span class="line">        <span class="keyword">var</span> names = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">'张三'</span>,<span class="string">'李四'</span>,<span class="string">'王五'</span>,<span class="string">'赵六'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="方式2：数组字面量【推荐使用方式】"><a href="#方式2：数组字面量【推荐使用方式】" class="headerlink" title="方式2：数组字面量【推荐使用方式】"></a>方式2：数组字面量【推荐使用方式】</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line"><span class="keyword">var</span> 数组名 = [数据,数据,数据];  <span class="comment">// 数组字面量</span></span><br><span class="line"><span class="comment">// 代码：</span></span><br><span class="line"><span class="keyword">var</span> names = [<span class="string">'张三'</span>,<span class="string">'李四'</span>,<span class="string">'王五'</span>,<span class="string">'赵六'</span>];</span><br></pre></td></tr></table></figure>
+<h2 id="数组对象常用的方法"><a href="#数组对象常用的方法" class="headerlink" title="数组对象常用的方法"></a>数组对象常用的方法</h2><h3 id="向前后数组中添加元素unshift"><a href="#向前后数组中添加元素unshift" class="headerlink" title="向前后数组中添加元素unshift"></a>向前后数组中添加元素unshift</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  向数组的开头添加一个或更多元素，并返回新的长度。【原数组会发生变化】 </span></span><br><span class="line">数组名.unshift(newelement1,newelement2,....,newelementX);</span><br><span class="line"><span class="comment">// 向数组的末尾添加一个或更多元素，并返回新的长度 【原数组会发生变化】</span></span><br><span class="line">数组名.push(newelement1,newelement2,....,newelementX);</span><br></pre></td></tr></table></figure>
+<h3 id="从数组前后删除元素shift"><a href="#从数组前后删除元素shift" class="headerlink" title="从数组前后删除元素shift"></a>从数组前后删除元素shift</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除并返回数组的第一个元素 【原数组会发生变化】</span></span><br><span class="line">数组名.shift();</span><br><span class="line"><span class="comment">// 删除并返回数组的最后一个元素 【原数组会发生变化】</span></span><br><span class="line">数组名.pop();</span><br></pre></td></tr></table></figure>
+<h3 id="数组任意位置的添加、删除splice"><a href="#数组任意位置的添加、删除splice" class="headerlink" title="数组任意位置的添加、删除splice"></a>数组任意位置的添加、删除splice</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 向/从数组中添加/删除项目，然后返回被删除的项目。【原数组会发生变化】</span></span><br><span class="line">数组名.splice(index,howmany,item1,.....,itemX)</span><br></pre></td></tr></table></figure>
+<h3 id="数组元素的查询indexOf"><a href="#数组元素的查询indexOf" class="headerlink" title="数组元素的查询indexOf"></a>数组元素的查询indexOf</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1</span></span><br><span class="line">数组名.indexOf(searchElement); 【用的较多】</span><br><span class="line"><span class="comment">// 返回指定元素在数组中的最后一个的索引，如果不存在则返回 -1。从数组的后面向前查找</span></span><br><span class="line">数组名.lastIndexOf(searchElement);</span><br></pre></td></tr></table></figure>
+<h3 id="数组的反转-和-排序reverse"><a href="#数组的反转-和-排序reverse" class="headerlink" title="数组的反转 和 排序reverse"></a>数组的反转 和 排序reverse</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 颠倒数组中元素的顺序。 【原数组会发生变化】</span></span><br><span class="line">数组名.reverse();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对数组的元素进行排序 </span></span><br><span class="line">数组名.sort();   <span class="comment">// 默认排序顺序是根据字符串Unicode编码 【了解】</span></span><br><span class="line"></span><br><span class="line">数组名.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;    <span class="comment">//【重点】</span></span><br><span class="line"><span class="keyword">return</span> a - b;   <span class="comment">// 升序（从小到大）</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">数组名.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;    <span class="comment">//【重点】</span></span><br><span class="line"><span class="keyword">return</span> b - a;   <span class="comment">// 降序（从大到小）</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="数组截取slice"><a href="#数组截取slice" class="headerlink" title="数组截取slice"></a>数组截取slice</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从已有的数组中返回选定的元素。【截取后，不会改变原数组，而是返回新的数组】</span></span><br><span class="line">数组名.slice(start,end);</span><br></pre></td></tr></table></figure>
+<h3 id="数组元素的拼接join"><a href="#数组元素的拼接join" class="headerlink" title="数组元素的拼接join"></a>数组元素的拼接join</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用于把数组中的所有元素放入一个字符串。</span></span><br><span class="line">数组名.join(separator);</span><br></pre></td></tr></table></figure>
+<h3 id="数组的其他方法-forEach"><a href="#数组的其他方法-forEach" class="headerlink" title="数组的其他方法(forEach)"></a>数组的其他方法(forEach)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数组遍历</span></span><br><span class="line">数组名.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,currentArray</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 过滤出符合筛选条件的元素，返回一个新的数组</span></span><br><span class="line">数组名.filter(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,currentArray</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> 条件;    <span class="comment">// 如：return value &gt;= 1000;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证数组中的每一个元素是否都符合指定的条件,返回布尔值</span></span><br><span class="line">数组名.every(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,currentArray</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> 条件;    <span class="comment">// 如：return value &gt;= 1000;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证数组中的元素，是否有符合指定条件的，返回布尔值</span></span><br><span class="line">数组名.some(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,currentArray</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> 条件;  <span class="comment">// 如：return value &gt;= 1000;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历数组中的每一个元素，更改后存入一个新的数组中，返回一个新的数组</span></span><br><span class="line">数组名.map(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,currentArray</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> 操作;   <span class="comment">// 如：return value * 2;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="清空数组"><a href="#清空数组" class="headerlink" title="清空数组"></a>清空数组</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>,<span class="number">55</span>];</span><br><span class="line"><span class="comment">// 方式1 推荐 </span></span><br><span class="line">arr = [];</span><br><span class="line"><span class="comment">// 方式2 </span></span><br><span class="line">arr.length = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 方式3</span></span><br><span class="line">arr.splice(<span class="number">0</span>, arr.length);</span><br></pre></td></tr></table></figure>
+<h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><h3 id="数据结构-栈和队列"><a href="#数据结构-栈和队列" class="headerlink" title="数据结构-栈和队列"></a>数据结构-栈和队列</h3><ul>
+<li>在js中没有栈 和 队列的概念，但是js可以通过数组的方法来模拟</li>
+</ul>
+<h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><ul>
+<li><p>特点：先进后出-FILO（First In Last Out）电梯</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> userNames = [];</span><br><span class="line"><span class="comment">// 先进</span></span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// []</span></span><br><span class="line">userNames.push(<span class="string">'张三'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三"]</span></span><br><span class="line">userNames.push(<span class="string">'李四'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三", "李四"]</span></span><br><span class="line">userNames.push(<span class="string">'王五'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三", "李四", "王五"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 后出</span></span><br><span class="line">userNames.pop();   </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三", "李四"]</span></span><br><span class="line">userNames.pop();   </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三"]</span></span><br><span class="line">userNames.pop();       </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h4><pre><code>- 特点：先进先出-FIFO（ First  In  First  Out）排队买票
+</code></pre><ul>
+<li>代码：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> userNames = [];</span><br><span class="line"><span class="comment">// 先进</span></span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// []</span></span><br><span class="line">userNames.push(<span class="string">'张三'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三"]</span></span><br><span class="line">userNames.push(<span class="string">'李四'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三", "李四"]</span></span><br><span class="line">userNames.push(<span class="string">'王五'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["张三", "李四", "王五"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 先出出</span></span><br><span class="line">userNames.shift();   </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["李四", "王五"]</span></span><br><span class="line">userNames.shift();   </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// ["王五"]</span></span><br><span class="line">userNames.shift();       </span><br><span class="line"><span class="built_in">console</span>.log(userNames); <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
