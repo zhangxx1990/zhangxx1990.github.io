@@ -196,7 +196,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.67px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15.56px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.67px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.11px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.67px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 14.44px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.22px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12.22px;">Node</a> <a href="/tags/PHP/" style="font-size: 18.89px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.78px;">jQuery</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 17px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 16px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 17px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 17px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12px;">Node</a> <a href="/tags/PHP/" style="font-size: 19px;">PHP</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/jQuery/" style="font-size: 18px;">jQuery</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -292,6 +292,593 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-H5C3/04-边框图片" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/16/H5C3/04-边框图片/" class="article-date">
+      <time datetime="2017-05-16T03:11:15.000Z" itemprop="datePublished">2017-05-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/16/H5C3/04-边框图片/">04-边框图片</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="边框图片"><a href="#边框图片" class="headerlink" title="边框图片"></a>边框图片</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>扩展知识增加一下知识面</li>
+</ul>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>border-image</p>
+<p>设置的图片将会被“切割”成九宫格形式，然后进行设置。如下图</p>
+<p><img src="/images/H5C3/4.png" alt="img"></p>
+<p>“切割”完成后生成虚拟的9块图形，然后按对应位置设置背景，</p>
+<p>其中四个角位置、形状保持不变，中心位置水平垂直两个方向平铺。如下图</p>
+<p><img src="/images/H5C3/6.png" alt="img"> </p>
+<p><strong>1、round和repeat之间的区别<em>**</em></strong></p>
+<p>round 会自动调整尺寸，完整显示边框图片。</p>
+<p><img src="/images/H5C3/7.png" alt="img"> </p>
+<p>repeat 单纯平铺多余部分，会被“裁切”而不能完整显示。</p>
+<p><img src="/images/H5C3/8.png" alt="img"> </p>
+<p><strong>2、更改裁切尺寸<em>**</em></strong></p>
+<p>border-image-slice: 34 36 27 27 分别设置裁切如下图</p>
+<p><img src="/images/H5C3/9.png" alt="img"> </p>
+<p><img src="/images/H5C3/10.png" alt="img"> </p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><ul>
+<li><code>border-image-source</code>  图片地址</li>
+<li><code>border-image-slice</code> 图片裁剪尺寸</li>
+<li><code>border-image-width</code> 边框的宽度</li>
+<li><code>border-image-repeat</code> 平铺方式  <code>stretch</code> <code>round</code> <code>repeat</code></li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p> 关于边框图片重点理解9宫格的裁切及平铺方式，实际开发中应用不广泛，但是如能灵活动用会给我们带来不少便利。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5C3/">H5C3</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-H5C3/03-3d转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/16/H5C3/03-3d转换/" class="article-date">
+      <time datetime="2017-05-16T02:41:56.000Z" itemprop="datePublished">2017-05-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/16/H5C3/03-3d转换/">03-3D转换</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="3D转换"><a href="#3D转换" class="headerlink" title="3D转换"></a>3D转换</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>掌握使用CSS完成一些3d效果</li>
+<li>理解在网页平面内的3d效果</li>
+</ul>
+<h2 id="怎么在网页平面产生3d效果"><a href="#怎么在网页平面产生3d效果" class="headerlink" title="怎么在网页平面产生3d效果"></a>怎么在网页平面产生3d效果</h2><ul>
+<li>我们生活的环境是3d的，照片就是3d物体在2d平面呈现的例子</li>
+<li>有什么特点：<ul>
+<li>近大远小</li>
+<li>物体后面遮挡不可见</li>
+</ul>
+</li>
+<li>当我们在网页上构建3d效果的时候参考这些特点就能产出3d效果</li>
+<li>在现实生活当中 我们通过肉眼去物体的时候和照片的成像是相同的</li>
+<li>如果想要在网页产生3d效果需要透视（理解成3d物体投影在2d平面内）</li>
+</ul>
+<h2 id="透视和视距"><a href="#透视和视距" class="headerlink" title="透视和视距"></a>透视和视距</h2><ul>
+<li><p>透视（perspective）</p>
+<ul>
+<li><p>在2d平面产生近大远小视觉立体，但是只是效果二维的</p>
+</li>
+<li><p>原理：<br><img src="/images/H5C3/01.png" alt=""></p>
+<p>a. 模拟人类的视觉位置，可认为安排一只眼睛去看<br>b. 距离电脑平面的距离为视距<br>c. 距离视觉点越近的在电脑平面成像越大，越远成像越远  </p>
+</li>
+<li><p>特点：只是显示3d图像的近大远小效果，无法呈现3d的三维成像的特点，如遮挡</p>
+</li>
+<li><p>使用场景：只是辅助性的帮助开发者检查3d效果</p>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3d转换"><a href="#3d转换" class="headerlink" title="3d转换"></a>3d转换</h2><ul>
+<li><code>translateX</code>  x轴方向的位移</li>
+<li><code>translateY</code>  y轴方向的位移</li>
+<li><code>translateZ</code> z轴方向的位移</li>
+<li><code>rotateX</code> 绕x轴旋转</li>
+<li><code>rotateY</code> 绕y轴旋转</li>
+<li><code>rotateZ</code> 绕z轴旋转 </li>
+</ul>
+<h2 id="3d呈现"><a href="#3d呈现" class="headerlink" title="3d呈现"></a>3d呈现</h2><ul>
+<li>3d呈现（transfrom-style）<ul>
+<li>在2d平面产生近大远小视觉立体，但是只是效果二维的</li>
+<li>原理：<br><img src="media/02.png"> <img src="media/03.png"><br>a. 第一张图是没有使用3d呈现的  无3d效果<br>b. 第二张图是使用了3d呈现的  出现遮挡三维立体效果</li>
+<li>特点：真正意义的3d呈现，三维立体,有遮挡</li>
+<li>使用场景：在3d立体图形的构建使用</li>
+</ul>
+</li>
+</ul>
+<h2 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .box&#123;</span></span><br><span class="line"><span class="undefined">            width: 200px;</span></span><br><span class="line"><span class="undefined">            height: 200px;</span></span><br><span class="line"><span class="undefined">            position: relative;</span></span><br><span class="line"><span class="undefined">            margin: 100px auto;</span></span><br><span class="line"><span class="undefined">            /*辅助3d效果开发  视觉效果 */</span></span><br><span class="line"><span class="undefined">            /*透视：理解成在屏幕外面安排一只眼睛帮我们开3d效果*/</span></span><br><span class="line"><span class="undefined">            /* 形成近大远小 效果  */</span></span><br><span class="line"><span class="undefined">            /*perspective: 300px;*/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            /*真正意义的3D呈现 */</span></span><br><span class="line"><span class="undefined">            transform-style: preserve-3d;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            transform: rotateX(30deg) rotateY(-30deg);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            animation: rotate 4s linear infinite;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box &gt; div&#123;</span></span><br><span class="line"><span class="undefined">            width: 100%;</span></span><br><span class="line"><span class="undefined">            height: 100%;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            left: 0;</span></span><br><span class="line"><span class="undefined">            top: 0;</span></span><br><span class="line"><span class="undefined">            text-align: center;</span></span><br><span class="line"><span class="undefined">            line-height: 200px;</span></span><br><span class="line"><span class="undefined">            font-size: 20px;</span></span><br><span class="line"><span class="undefined">            opacity: 0.4;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .front&#123;</span></span><br><span class="line"><span class="undefined">            background: red;</span></span><br><span class="line"><span class="undefined">            transform: translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .back&#123;</span></span><br><span class="line"><span class="undefined">            background: blue;</span></span><br><span class="line"><span class="undefined">            transform: rotateY(-180deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .left&#123;</span></span><br><span class="line"><span class="undefined">            background: green;</span></span><br><span class="line"><span class="undefined">            transform: rotateY(-90deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .right&#123;</span></span><br><span class="line"><span class="undefined">            background: yellow;</span></span><br><span class="line"><span class="undefined">            transform: rotateY(-270deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .top&#123;</span></span><br><span class="line"><span class="undefined">            background: pink;</span></span><br><span class="line"><span class="undefined">            transform: rotateX(90deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .box .bottom&#123;</span></span><br><span class="line"><span class="undefined">            background: hotpink;</span></span><br><span class="line"><span class="undefined">            transform: rotateX(-90deg) translateZ(100px);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        /* 立方体的中心在电脑平面上  */</span></span><br><span class="line"><span class="undefined">        /* 当你选择过后正面朝外 Z正方向也是朝外 */</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        @keyframes rotate &#123;</span></span><br><span class="line"><span class="undefined">            from&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            to&#123;</span></span><br><span class="line"><span class="undefined">                transform: rotateX(30deg) rotateY(-390deg);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"front"</span>&gt;</span>front<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"back"</span>&gt;</span>back<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"top"</span>&gt;</span>top<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bottom"</span>&gt;</span>bottom<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>怎么在2d的网页体现3d效果<ul>
+<li>拍照片  物体 呈现 近大远小</li>
+<li>在网页 也可以安排一只虚拟的眼睛  帮我们去观察 立体的物体</li>
+</ul>
+</li>
+<li>透视<ul>
+<li>perspective:100px;</li>
+<li>视距  距离越近 近大远小的效果 越明显</li>
+<li>作用：辅助观察3d效果，不能真正的呈现3d</li>
+</ul>
+</li>
+<li>3d转换<ul>
+<li>rotateX</li>
+<li>rotateY</li>
+<li>rotateZ</li>
+<li>translateX</li>
+<li>translateY</li>
+<li>translateZ</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5C3/">H5C3</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-H5C3/02-选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/15/H5C3/02-选择器/" class="article-date">
+      <time datetime="2017-05-15T01:04:06.000Z" itemprop="datePublished">2017-05-15</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/15/H5C3/02-选择器/">02-选择器</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><ul>
+<li><code>E[attr=value]</code> 选中E元素中属性有attr的且属性值为value的元素 </li>
+<li><code>E[attr^=value]</code> 选中E元素中属性有attr的且属性值以value开头的元素 </li>
+<li><code>E[attr$=value]</code> 选中E元素中属性有attr的且属性值以value结尾的元素 </li>
+<li><code>E[attr*=value]</code> 选中E元素中属性有attr的且属性值包含value的元素 </li>
+</ul>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><ul>
+<li><code>E:first-child</code> 选中E元素的父元素下所有的子元素的第一个元素，如果类型为E选中否则无效</li>
+<li><code>E:last-child</code> 选中E元素的父元素下所有的子元素的最后一个元素，如果类型为E选中否则无效</li>
+<li><code>E:nth-child(n)</code> 选中E元素的父元素下所有的子元素的第n个元素，如果类型为E选中否则无效</li>
+<li><code>E:nth-last-child(n)</code> 选中E元素的父元素下所有的子元素的倒数第n个元素，如果类型为E选中否则无效</li>
+</ul>
+<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><ul>
+<li><code>E::before</code> 选中E元素的内容前伪元素 </li>
+<li><code>E::after</code>  选中E元素的内容前伪元素 </li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5C3/">H5C3</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-H5C3/01-关于H5开发" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/15/H5C3/01-关于H5开发/" class="article-date">
+      <time datetime="2017-05-15T00:44:16.000Z" itemprop="datePublished">2017-05-15</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/15/H5C3/01-关于H5开发/">01-关于H5开发</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="关于H5开发"><a href="#关于H5开发" class="headerlink" title="关于H5开发"></a>关于H5开发</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>作为前端开发人员应该怎么去理解H5开发</li>
+<li>不能单纯认为H5仅仅只是H4的下一个版本</li>
+</ul>
+<h2 id="个人愚见"><a href="#个人愚见" class="headerlink" title="个人愚见"></a>个人愚见</h2><h3 id="HTML4-0-1"><a href="#HTML4-0-1" class="headerlink" title="HTML4.0.1"></a>HTML4.0.1</h3><ol>
+<li>html是HyperText Markup Language <code>超文本标记语言</code>的缩写，是一款描述网页的标记语言。</li>
+<li>HTML4.0.1简单的讲就是html的一个版，1999年12月发布的一直沿用至今，但是html5在慢慢代替它。</li>
+<li>总结一下它的作用是语言规范，开发网页用的。</li>
+</ol>
+<h3 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h3><ol>
+<li>狭义的讲html5的新的一个规范，你可以理解成H5仅仅只是H4的下一个版本。</li>
+<li>但是如果把现在的工作岗位前端-<code>H5开发工程师</code>中的H5那就没这么简单了。</li>
+</ol>
+<h3 id="理解H5开发"><a href="#理解H5开发" class="headerlink" title="理解H5开发"></a>理解H5开发</h3><ol>
+<li>在前端领域H5是一个技术集合（技术栈），而不是一个单纯的技术点，所有不能理解为是一个html规范。</li>
+<li>需要从三个方面去梳理一下常见会学习到技术（当然远不止这些）：<ul>
+<li>html<ul>
+<li>语义化标签</li>
+<li>新增表单类型</li>
+<li>新增表单属性</li>
+</ul>
+</li>
+<li>css<ul>
+<li>新增选择器</li>
+<li>属性的增强</li>
+<li>过渡</li>
+<li>转换</li>
+<li>动画</li>
+<li>媒体查询</li>
+</ul>
+</li>
+<li>javascript<ul>
+<li>新增应用API</li>
+<li>canvas绘图</li>
+<li>ES6</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>还可以从职能去理解H5开发是什么：<ul>
+<li>移动web开发</li>
+<li>响应式开发</li>
+<li>单页面应用开发</li>
+<li>混合APP开发</li>
+<li>微信小程序</li>
+<li>微信公众号</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>H5开发泛<strong>指对h5技术栈(html提升，css提升，javascript提升)的综合使用开发网页应用程序</strong></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5C3/">H5C3</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ajax/13-Ajax跨域" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/04/ajax/13-Ajax跨域/" class="article-date">
+      <time datetime="2017-05-04T03:30:13.000Z" itemprop="datePublished">2017-05-04</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/04/ajax/13-Ajax跨域/">13-Ajax跨域</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="ajax跨域"><a href="#ajax跨域" class="headerlink" title="ajax跨域"></a>ajax跨域</h1><h2 id="什么是ajax跨域"><a href="#什么是ajax跨域" class="headerlink" title="什么是ajax跨域"></a>什么是ajax跨域</h2><p>简单来说，就是网站A去调用网站B的数据。</p>
+<p>常见案例： hao123.com的天气预报。</p>
+<p>但是Ajax跨域存在一个问题 — 浏览器的同源策略，该策略会阻止ajax跨域访问</p>
+<p>同源策略（Same origin policy）是一种约定，它是浏览器的一种安全功能。 </p>
+<p>同源:  同协议，同域名，同端口；   不同源则为跨域</p>
+<p><img src="/images/ajax/1526464487997.png" alt="1526464487997"></p>
+<p>同源限制案例:</p>
+<p><a href="http://www.study.com/origin/index.html使用ajax，请求www.demo.com/1.php文件中的数据" target="_blank" rel="noopener">www.study.com/origin/index.html使用ajax，请求www.demo.com/1.php文件中的数据</a></p>
+<p>1) 创建 <a href="http://www.study.com/origin/index.html" target="_blank" rel="noopener">www.study.com/origin/index.html</a> 文件</p>
+<p>2) 创建 <a href="http://www.demo.com/1.php" target="_blank" rel="noopener">www.demo.com/1.php</a></p>
+<p><img src="/images/ajax/1535080134040.png" alt="1535080134040"></p>
+<p>访问结果:</p>
+<p> 响应主体: </p>
+<p> <img src="/images/ajax/1535080192488.png" alt="1535080192488"></p>
+<p>  终端：</p>
+<p><img src="/images/ajax/1535080232398.png" alt="1535080232398"></p>
+<p>看到 Access-Control-Allow-Origin 错误，就说明正在执行跨域请求，请求数据被浏览器的同源策略所阻止。</p>
+<p>解决跨域问题有三种方式：</p>
+<ul>
+<li>服务器代理</li>
+<li>cors （跨域资源共享）</li>
+<li>jsonp</li>
+</ul>
+<h2 id="代理实现ajax跨域"><a href="#代理实现ajax跨域" class="headerlink" title="代理实现ajax跨域"></a>代理实现ajax跨域</h2><p>核心思想:  php中有一个函数  <strong>file_get_contents</strong>。 该函数能够获取到其他网站的数据。</p>
+<p>  file_get_contents(‘<a href="http://www.baidu.com/index.html&#39;)" target="_blank" rel="noopener">http://www.baidu.com/index.html&#39;)</a>;</p>
+<p><img src="/images/ajax/1526464641537.png" alt="1526464641537"></p>
+<p>案例: </p>
+<p><a href="http://www.study.com/proxy/index.html发送ajax请求，请求www.study.com/proxy/proxy.php文件" target="_blank" rel="noopener">www.study.com/proxy/index.html发送ajax请求，请求www.study.com/proxy/proxy.php文件</a></p>
+<p>proxy.php文件使用file_get_contents函数读取<a href="http://www.demo.com/1.php文件中的内容，再返回给index.html文件中的ajax请求" target="_blank" rel="noopener">www.demo.com/1.php文件中的内容，再返回给index.html文件中的ajax请求</a></p>
+<p>1)创建  <a href="http://www.study.com/proxy/index.html" target="_blank" rel="noopener">www.study.com/proxy/index.html</a></p>
+<pre><code>在该文件中发送ajax请求，请求同服务器(www.study.com)下的 proxy.php文件
+</code></pre><p><img src="/images/ajax/1535080922048.png" alt="1535080922048"></p>
+<p>2)创建  <a href="http://www.study.com/proxy/proxy.php" target="_blank" rel="noopener">www.study.com/proxy/proxy.php</a> </p>
+<pre><code>在该文件中使用 file_get_contents函数，读取远程服务器(www.demo.com)1.php中的内容
+</code></pre><p><img src="/images/ajax/1535080953785.png" alt="1535080953785"></p>
+<p>3)创建  <a href="http://www.demo.com/1.php" target="_blank" rel="noopener">www.demo.com/1.php</a></p>
+<p><img src="/images/ajax/1535080973545.png" alt="1535080973545"></p>
+<p>访问结果:</p>
+<p><img src="/images/ajax/1535081000932.png" alt="1535081000932"></p>
+<h2 id="cors跨域"><a href="#cors跨域" class="headerlink" title="cors跨域"></a>cors跨域</h2><p>cors: 跨域资源共享。</p>
+<p>  同源策略是浏览器的策略。但是如果服务器允许其他网站的页面进行跨域访问，那么浏览器就不会对返回的数据进行限制了。</p>
+<p>  <strong>核心方法: 在服务器端(PHP文件中)声明不用进行同源限制</strong></p>
+<p>如果设置为 * 则是所有外部网站都可以获取数据</p>
+<p>header(‘Access-Control-Allow-origin: *’); </p>
+<p>只允许<a href="http://www.study.com网站访问并获取数据" target="_blank" rel="noopener">www.study.com网站访问并获取数据</a></p>
+<p>header(‘Access-Control-Allow-origin: <a href="http://www.study.com&#39;)" target="_blank" rel="noopener">http://www.study.com&#39;)</a>; </p>
+<p>案例:</p>
+<p><a href="http://www.study.com/cors/index.html通过cors方式，访问www.demo.com/cors.php文件的数据" target="_blank" rel="noopener">www.study.com/cors/index.html通过cors方式，访问www.demo.com/cors.php文件的数据</a>    </p>
+<p>1)创建 <a href="http://www.study.com/cors/index.html文件" target="_blank" rel="noopener">www.study.com/cors/index.html文件</a> 发送ajax请求</p>
+<p><img src="/images/ajax/1535082102105.png" alt="1535082102105"></p>
+<p>2)创建 <a href="http://www.demo.com/cors.php" target="_blank" rel="noopener">www.demo.com/cors.php</a></p>
+<p><img src="/images/ajax/1535082122902.png" alt="1535082122902"></p>
+<h2 id="jsonp跨域"><a href="#jsonp跨域" class="headerlink" title="jsonp跨域"></a>jsonp跨域</h2><p>JSONP(JSON with Padding) : 是一种解决ajax跨域访问的方案。</p>
+<p>核心思想:</p>
+<p>   浏览器虽然有同源策略，但是 src 和 href 两个属性却可以跨域访问。 可以利用这一“漏洞”发送ajax请求。</p>
+<p>案例: </p>
+<p><a href="http://www.study.com/jsonp/index.html文件中通过script标签的src属性，跨域访问www.demo.com/jsonp.php文件中的数据" target="_blank" rel="noopener">www.study.com/jsonp/index.html文件中通过script标签的src属性，跨域访问www.demo.com/jsonp.php文件中的数据</a></p>
+<p>1) 创建 <a href="http://www.study.com/json/index.html" target="_blank" rel="noopener">www.study.com/json/index.html</a> ,使用 script标签引入了  <a href="http://www.demo.com/jsonp.php文件" target="_blank" rel="noopener">www.demo.com/jsonp.php文件</a></p>
+<p><img src="/images/ajax/1535083081431.png" alt="1535083081431"></p>
+<p>2) 创建 <a href="http://www.demo.com/jsonp.php文件" target="_blank" rel="noopener">www.demo.com/jsonp.php文件</a> 输出个 123</p>
+<p><img src="/images/ajax/1535083100372.png" alt="1535083100372"></p>
+<p>访问结果 — 响应主体，拿到后端的返回值</p>
+<p><img src="/images/ajax/1535083123459.png" alt="1535083123459"></p>
+<p>3) 调整后台返回数据的方式 — 返回了一个 <strong>函数字符串 例如: ‘aaa(123)’</strong> </p>
+<p><img src="/images/ajax/1535083161188.png" alt="1535083161188"></p>
+<p>访问结果: </p>
+<p><img src="/images/ajax/1535083191342.png" alt="1535083191342"></p>
+<p><img src="/images/ajax/1535083218087.png" alt="1535083218087"></p>
+<p>4) 在前端页面提前定义好 函数 aaa()</p>
+<p><img src="/images/ajax/1535083297077.png" alt="1535083297077"></p>
+<p>访问结果 — 123被输出到终端</p>
+<p><img src="/images/ajax/1535083321525.png" alt="1535083321525"></p>
+<p>5) 丰富一下后台返回数据的类型</p>
+<p><img src="/images/ajax/1535083388289.png" alt="1535083388289"></p>
+<p>访问结果:</p>
+<p><img src="/images/ajax/1535083403809.png" alt="1535083403809"></p>
+<h2 id="ajax方法跨域操作-—-jsonp方式"><a href="#ajax方法跨域操作-—-jsonp方式" class="headerlink" title="$.ajax方法跨域操作 — jsonp方式"></a>$.ajax方法跨域操作 — jsonp方式</h2><pre><code>$.post $.get $.ajax都能发送跨域请求。
+但是，$.post和$.get是要依靠cors方式的，
+只有$.ajax能使用jsonp方式
+</code></pre><p>核心: </p>
+<pre><code>必须设置请求类型为get ---  type: ‘get’
+必须设置dataType为jsonp --- dataType: ‘jsonp’
+必须额外设置一个jsonp参数，该参数值可以是任何英文字符串，常用callback。 jsonp: &apos;callback&apos;
+    该参数会产生一个随机字符串
+    前端使用该字符串创建一个函数
+    后端接收该字符串作为返回函数的名称
+</code></pre><p>示例:</p>
+<p>1) 使用jsonp发送跨域请求</p>
+<pre><code>$.ajax({
+    url: &apos;http://www.study.com/test/3.php&apos;,
+    type: &apos;get&apos;,   
+    dataType: &apos;jsonp&apos;,   
+    jsonp: &apos;callback&apos;,  //解决前后端函数名统一的问题   
+    success: function(msg){
+        alert(msg);
+        alert(msg.name);
+    }
+})
+</code></pre><p>2) 后端拼接函数字符串</p>
+<pre><code>&lt;?php 
+// 函数名
+$callback = $_GET[&apos;callback&apos;];
+$str = &quot;$.ajax---&gt;jsonp&quot;;
+echo $callback . &quot;(&apos;$str&apos;)&quot;;
+?&gt;
+</code></pre><p>案例:</p>
+<p><a href="http://www.study.com/ajax_jsonp.html" target="_blank" rel="noopener">www.study.com/ajax_jsonp.html</a> 跨域访问<a href="http://www.demo.com/ajax_jsonp.php文件中的内容" target="_blank" rel="noopener">www.demo.com/ajax_jsonp.php文件中的内容</a></p>
+<p>1)　创建 <a href="http://www.study.com/ajax_jsonp.html" target="_blank" rel="noopener">www.study.com/ajax_jsonp.html</a> 发送ajax请求</p>
+<p><img src="/images/ajax/1535084193300.png" alt="1535084193300"></p>
+<p>2)　创建<a href="http://www.demo.com/ajax_jsonp.php" target="_blank" rel="noopener">www.demo.com/ajax_jsonp.php</a> 返回数据</p>
+<p><img src="/images/ajax/1535084247916.png" alt="1535084247916"></p>
+<h2 id="调用网上接口-—-天气预报"><a href="#调用网上接口-—-天气预报" class="headerlink" title="调用网上接口 — 天气预报"></a>调用网上接口 — 天气预报</h2><p>网站： <a href="http://www.jisuapi.com" target="_blank" rel="noopener">www.jisuapi.com</a></p>
+<p><img src="/images/ajax/1531067693123.png" alt="1531067693123"></p>
+<p>api说明:</p>
+<p><img src="/images/ajax/1531148039369.png" alt="1531148039369"></p>
+<p>注册，购买后可在“我的api”中看到</p>
+<p><img src="/images/ajax/1531148099461.png" alt="1531148099461"></p>
+<p><img src="/images/ajax/1531148202923.png" alt="1531148202923"></p>
+<p>1） 发送ajax请求</p>
+<p>2) 将取得数据筛选后显示到网页上</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-ajax/12-虚拟主机配置" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -964,509 +1551,9 @@
 
 
   
-    <article id="post-ajax/07-文件上传与进度条" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/05/03/ajax/07-文件上传与进度条/" class="article-date">
-      <time datetime="2017-05-03T01:20:35.000Z" itemprop="datePublished">2017-05-03</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/05/03/ajax/07-文件上传与进度条/">07-文件上传与进度条</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="文件上传与进度条"><a href="#文件上传与进度条" class="headerlink" title="文件上传与进度条"></a>文件上传与进度条</h1><p> 1) 完成Ajax文件上传</p>
-<pre><code>核心: Ajax方式上传文件必须使用FormData对象
-
-关键点:  
-
-
-    ① 表单使用提交按钮，一定是button
-    ② 获取文件对象 ---- FormData
-        i.根据id获取form表单对象 ---- DOM
-        ii. 实例化 FormData对象，将表单对象作为参数传入
-    iii. 因为使用了FormData，所以一定要用post方式发送请求，将fd作为参数传入send方法
-</code></pre><p> upload.html</p>
-<pre><code>获取文件数据，发送ajax请求
-</code></pre><p><img src="/images/ajax/1534737676621.png" alt="1534737676621"></p>
-<p>upload.php </p>
-<p><img src="/images/ajax/1534738152106.png" alt="1534738152106"></p>
-<p>2) 调整php配置文件（php.ini），使其支持大文件上传</p>
-<p>① 修改允许上传文件最大的大小</p>
-<p><img src="/images/ajax/1534738492662.png" alt="1534738492662"></p>
-<p>② 修改post表单提交数据的最大大小</p>
-<p><img src="/images/ajax/1534738552491.png" alt="1534738552491"></p>
-<p>重启Apache服务器。</p>
-<p>3) 文件进度条</p>
-<p>① 在页面上设置一个div，用来表示进度条</p>
-<p><img src="/images/ajax/1534738923053.png" alt="1534738923053"></p>
-<p>② 根据实际上传百分比来绘制进度条的宽度</p>
-<pre><code>核心:  xhr对象中有一个子对象（upload），upload对象中有一个事件 onprogress。该事件大约每100ms执行一次，里面有两个重要属性  loaded(已上传大小)    total（总大小）
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ajax/06-XMLHttpRequest2.0新特性" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/05/03/ajax/06-XMLHttpRequest2.0新特性/" class="article-date">
-      <time datetime="2017-05-03T00:50:05.000Z" itemprop="datePublished">2017-05-03</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/05/03/ajax/06-XMLHttpRequest2.0新特性/">06-XMLHttpRequest2.0新特性</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="XMLHttpRequest2-0新特性"><a href="#XMLHttpRequest2-0新特性" class="headerlink" title="XMLHttpRequest2.0新特性"></a>XMLHttpRequest2.0新特性</h1><h2 id="timeout-和-ontimeout"><a href="#timeout-和-ontimeout" class="headerlink" title="timeout 和 ontimeout"></a>timeout 和 ontimeout</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">timeout： 请求超时设置。属性，用来设置等待响应时长，如果超过指定时长，则会触发ontimeout事件</span><br><span class="line"></span><br><span class="line">xhr.timeout = <span class="number">3000</span>;    <span class="comment">// 设置等待时长为3秒</span></span><br><span class="line"></span><br><span class="line">   ontimeout： 事件，用来设置超过等待时长后的动作</span><br><span class="line"></span><br><span class="line">       xhr.ontimeout = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	alert(<span class="string">'请求超时'</span>);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-<p>在创建xhr对象之后，来设置timeout属性；如果设置了timeout属性，那么就建议设置ontimeout事件。</p>
-<p><img src="/images/ajax/1534734176919.png" alt="1534734176919"></p>
-<h2 id="FormData表单对象"><a href="#FormData表单对象" class="headerlink" title="FormData表单对象"></a>FormData表单对象</h2><p>小案例:  点击button按钮时，将用户名和密码值通过ajax发送到后端php页面</p>
-<p>FormData对象优势就是能够一次性将表单中的所有数据全部取出，包括文件域的文件对象。</p>
-<p>1)创建表单  form标签很重要， method和action不重要</p>
-<p>   每个表单域需要设置name值</p>
-<p>2)发送ajax请求</p>
-<p>①将表单数据取出 FormData</p>
-<p>i.获取form表单对象:        var fm = document.getElementById(‘mainForm’);  //DOM对象</p>
-<p>ii.实例化FormData对象:  var fd = new FormData(fm);</p>
-<p>②发送ajax请求</p>
-<p>   使用FormData对象以后，必须使用post方式来发送ajax请求。</p>
-<p>   将FormData对象，作为参数传入 send方法中  xhr.send(fd);</p>
-<p>③ 使用FormData对象提交表单时，不需要设置 setRequestHeader方法</p>
-<p>注意点: </p>
-<p>   ① form标签要给id值，方便获取form标签的DOM对象</p>
-<p>   ② 每个域都要给 name值</p>
-<p>   ③ 提交按钮必须用 button，因为submit有跳转功能</p>
-<p>代码实现:</p>
-<p>1) 使用FormData对象获取所有表单的数据，并发送ajax请求</p>
-<p><img src="/images/ajax/1534736127757.png" alt="1534736127757"></p>
-<p><img src="/images/ajax/1534736169386.png" alt="1534736169386"></p>
-<p>2) 在formdata.php页面，接收数据</p>
-<p><img src="/images/ajax/1534736185571.png" alt="1534736185571"></p>
-<p>访问结果:</p>
-<p><img src="/images/ajax/1534736212331.png" alt="1534736212331"></p>
-<p>FormData的内部构造:  key-value</p>
-<p><img src="/images/ajax/1534736045066.png" alt="1534736045066"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ajax/05-同步和异步" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/05/02/ajax/05-同步和异步/" class="article-date">
-      <time datetime="2017-05-02T07:10:55.000Z" itemprop="datePublished">2017-05-02</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/05/02/ajax/05-同步和异步/">05-同步和异步</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h1><h2 id="同步-异步概念"><a href="#同步-异步概念" class="headerlink" title="同步/异步概念"></a>同步/异步概念</h2><p>同步: <strong>顺序执行</strong> </p>
-<pre><code>第一步---&gt; 第二步 ---&gt; 第三步 ....
-</code></pre><p>异步:  </p>
-<pre><code>甲在完成一系列工作时，自己完成主工作。将一些分支工作交给乙，甲此时一直在完成自己的工作，并等待乙完成的结果。乙完成后将结果返回给甲。
-</code></pre><p> 核心: open方法的参数3</p>
-<pre><code>参数3是一个布尔值， true异步方式（默认）， false是同步方式
-</code></pre><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>同时显示图片和弹出框</p>
-<p>  访问时: 先弹出123，点击“确定”之后，才显示图片 — 同步</p>
-<p> 1) index.html文件</p>
-<p> <img src="/images/ajax/1534733391709.png" alt="1534733391709"></p>
-<p> 2) index.php文件</p>
-<p> <img src="/images/ajax/1534733426227.png" alt="1534733426227"></p>
-<p> 异步执行情况:  先显示图片，1秒后才显示时间戳弹出框</p>
-<p>同步执行情况:  等待1秒后显示时间戳弹出框，再点击确定之后才显示图片</p>
-<p>重点 :  在实际开发中 95% 以上的请求，都使用异步。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ajax/04-GET缓存" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/05/02/ajax/04-GET缓存/" class="article-date">
-      <time datetime="2017-05-02T06:00:12.000Z" itemprop="datePublished">2017-05-02</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/05/02/ajax/04-GET缓存/">04-GET缓存</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="GET缓存"><a href="#GET缓存" class="headerlink" title="GET缓存"></a>GET缓存</h1><h2 id="什么是缓存？"><a href="#什么是缓存？" class="headerlink" title="什么是缓存？"></a>什么是缓存？</h2><p> 浏览器的请求需要从服务器获得许多 css、img、js 等相关的文件，如果每次请求都把相关的资源文件加载一次，对 带宽、服务器资源、用户等待时间 都有严重的损耗。如果浏览器将css、img、js等文件在第一次请求成功后就保存在本机上，以后的每次请求就在本机获得相关的资源文件，那么就可以明显地加快用户的访问速度，同时可以节省各种资源(带宽、服务器资源、用户等待时间)。</p>
-<h2 id="GET缓存测试"><a href="#GET缓存测试" class="headerlink" title="GET缓存测试"></a>GET缓存测试</h2><p> ajax方式，get会有缓存问题。</p>
-<p> 案例:</p>
-<p>   index.html页面中创建一个按钮，点击该按钮时发送ajax请求，得到后端php程序返回的当前时间戳并显示。</p>
-<p>  目标:  点击“获取时间戳”按钮时，触发ajax请求，访问后端的getTime.php文件，得到时间戳并弹出显示</p>
-<ol>
-<li>index.html — 发送请求</li>
-</ol>
-<p><img src="/images/ajax/1534731418356.png" alt="1534731418356"></p>
-<p>index.php — 输出当前时间戳即可。</p>
-<p><img src="/images/ajax/1534731456585.png" alt="1534731456585"></p>
-<p> 在IE下测试:</p>
-<p> <img src="/images/ajax/1534731529792.png" alt="1534731529792"></p>
-<p> 显示的时间戳永远都是这个，说明是缓存问题。</p>
-<p>  解决方法</p>
-<p>  解决方法有两种:</p>
-<p>  1) 前端方案:  在open准备ajax请求时，为请求的地址增加随机后缀。相当于每次请求都是新的地址</p>
-<p>  2) 后端方案:  后端程序设置不允许缓存的头信息，php程序固定使用如下3句即可。</p>
-<pre><code>header(&apos;cache-controller:no-cache&apos;);
-
-header(&apos;Pragam:no-cache&apos;);
-
-header(&apos;Expires:-1&apos;);
-</code></pre><p>1) 前端方案:</p>
-<p><img src="/images/ajax/1534731918647.png" alt="1534731918647"></p>
-<p>2) 后端解决方案:</p>
-<pre><code>header(&apos;cache-controller:no-cache&apos;);
-
-header(&apos;Pragam:no-cache&apos;);
-
-header(&apos;Expires:-1&apos;);
-</code></pre><p><img src="/images/ajax/1534732086860.png" alt="1534732086860"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ajax/03-POST和GET的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/05/02/ajax/03-POST和GET的区别/" class="article-date">
-      <time datetime="2017-05-02T03:05:02.000Z" itemprop="datePublished">2017-05-02</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/05/02/ajax/03-POST和GET的区别/">03-POST和GET的区别</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="POST和GET的区别"><a href="#POST和GET的区别" class="headerlink" title="POST和GET的区别"></a>POST和GET的区别</h1><h2 id="GET方式实现新用户注册—用户名检"><a href="#GET方式实现新用户注册—用户名检" class="headerlink" title="GET方式实现新用户注册—用户名检"></a>GET方式实现新用户注册—用户名检</h2><p><img src="/images/ajax/1534727628005.png" alt="1534727628005"></p>
-<p> 步骤:</p>
-<ol>
-<li><p>get.html</p>
-<pre><code>1) 在用户名文本框上绑定失焦事件(onblur)
-
-2) 失焦事件函数
-
-     ① 获取用户名文本框内已填写的用户名
-
-     ② 发送ajax请求，并将已填写的用户名一起发送给后端php页面
-</code></pre></li>
-<li><p>get.html</p>
-<pre><code>1) 接收后端返回的数据，判断是1还是2。
-
-2) 如果等于1，则提示用户名可用；如果等于2，提示用户名被占用
-</code></pre></li>
-</ol>
-<p>代码实现:</p>
-<ol>
-<li><p>get.html</p>
-<pre><code>1) 在用户名文本框上绑定失焦事件(onblur)
-
-2) 失焦事件函数
-
-        ① 获取用户名文本框内已填写的用户名
-
-        ② 发送ajax请求，并将已填写的用户名一起发送给后端php页面
-</code></pre></li>
-</ol>
-<p><img src="/images/ajax/1534728234170.png" alt="1534728234170"></p>
-<p><img src="/images/ajax/1534728252209.png" alt="1534728252209"></p>
-<p> 先测试一下前后端的连通性:</p>
-<p> <img src="/images/ajax/1534728362391.png" alt="1534728362391"></p>
-<ol start="2">
-<li><p>get.php</p>
-<pre><code>1) 接收前端发送过来的用户名
-2) 模拟用户被占用的情况 
-3) 将结果返回给前端（1用户名可用   2用户名被占用）
-</code></pre></li>
-</ol>
-<p><img src="/images/ajax/1534729661714.png" alt="1534729661714">       </p>
-<ol start="3">
-<li><p>get.html</p>
-<pre><code>1) 接收后端返回的数据，判断是1还是2。
-
-2) 如果等于1，则提示用户名可用；如果等于2，提示用户名被占用
-</code></pre></li>
-</ol>
-<p><img src="/images/ajax/1534729897469.png" alt="1534729897469"></p>
-<p>关键点总结:</p>
-<ol>
-<li><p>用户名文本框绑定失焦事件</p>
-</li>
-<li><p>发送ajax请求基本属于流程化操作<br>1) 实例化XMLHttpRequest对象<br>2) 调用open方法准备请求，<strong>get方式发送将数据拼接在url地址之后即可</strong><br>  xhr.open(‘get’,  ‘get.php?<strong>n=’+name</strong>);<br>3) 调用send方法发送请求，<strong>get方式只需要将 null  作为参数传入即可</strong><br>4) 调用onreadystatechange事件，在readyState=4时使用responseText接收返回值。此步使用alert或者console.log先输出接收的结果即可，<strong>不要着急将结果显示在网页上</strong>。</p>
-</li>
-</ol>
-<ol start="3">
-<li><p>创建后端php程序，接收用户名进行验证<br>核心SQL:  select * from ali_admin where admin_email = ‘$name’;<br>该SQL语句的执行结果只可能是两种： 0条数据    1条数据(因为admin_email字段唯一)<br>  0条数据: 说明没有该用户名 （没有被占用）<br>  1条数据: 说明已存在该用户名 （已被占用）<br>根据SQL执行结果返回1或者2，1代表未被占用，2代表已被占用</p>
-</li>
-<li><p>修改get.html文件，将结果显示在网页上<br>获取用来显示结果的span标签，判断接收的结果为1还是2。如果为1，则将用户名可用写入span标签；反之，则将用户名已被占用写入span标签</p>
-</li>
-</ol>
-<h2 id="POST方式实现新用户注册—用户名检测"><a href="#POST方式实现新用户注册—用户名检测" class="headerlink" title="POST方式实现新用户注册—用户名检测"></a>POST方式实现新用户注册—用户名检测</h2><p>post和get两种方式的整体思路一致，只是细节上有所差别</p>
-<p> 1) 使用open准备请求时，参数1需要设置为post，参数2只需要设置后端程序地址。</p>
-<p> 2) 将需要传递到后端的数据拼接成一个独立的字符串，字符串的格式为</p>
-<pre><code>var str = ‘key=value&amp;key=value&amp;....’;    （内部结构跟get传参时的结构一致）
-</code></pre><p> 3) 调用setRequestHeader方法将数据格式转为 application/x-www-form-urlencoded</p>
-<p> 4) 将拼接好的数据字符串作为参数传入send方法</p>
-<p> 5) 后端的php程序需要使用 $_POST来接收数据</p>
-<p>前端的区别:</p>
-<p><img src="/images/ajax/1534730851993.png" alt="1534730851993"></p>
-<p>后端的区别:</p>
-<p><img src="/images/ajax/1534730967099.png" alt="1534730967099"></p>
-<blockquote>
-<p>关键点总结:</p>
-</blockquote>
-<p> 1) 发送程序时，参数1设置为post，参数2只用设置请求的后端文件路径</p>
-<pre><code>xhr.open(&apos;post&apos;, &apos;post.php&apos;);
-</code></pre><p> 2) 将需要传递到后端的数据拼接成一个独立的字符串</p>
-<p>  var str = ‘name=’+name; </p>
-<p> 3) 调用setRequestHeader方法将数据格式转为 application/x-www-form-urlencoded</p>
-<pre><code>xhr.setRequestHeader(&apos;content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);
-</code></pre><p> 4) 发送请求时，要将之前拼接好的字符串作为参数放入send方法中</p>
-<pre><code>xhr.send(str);
-</code></pre><blockquote>
-<p>补充说明 — 实际验证用户名是否存在的方法</p>
-</blockquote>
-<p>核心：  $sql = “select * from ali_admin where admin_email=’$username’”;</p>
-<p>该SQL语句要么查询出1条数据，要么查询出0条数据</p>
-<p>  1条数据说明: 用户名已被占用</p>
-<p>  0条数据说明: 用户名未被占用 – 用户名可用</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 

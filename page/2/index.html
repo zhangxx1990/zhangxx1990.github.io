@@ -196,7 +196,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.67px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15.56px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.67px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.11px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.67px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 14.44px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.22px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12.22px;">Node</a> <a href="/tags/PHP/" style="font-size: 18.89px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.78px;">jQuery</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 17px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 16px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 17px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 17px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12px;">Node</a> <a href="/tags/PHP/" style="font-size: 19px;">PHP</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/jQuery/" style="font-size: 18px;">jQuery</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -292,6 +292,561 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-node/07-Express" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/27/node/07-Express/" class="article-date">
+      <time datetime="2017-08-27T07:06:06.000Z" itemprop="datePublished">2017-08-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/08/27/node/07-Express/">07-Express</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h1><h2 id="1-Express介绍"><a href="#1-Express介绍" class="headerlink" title="1. Express介绍"></a>1. <a href="http://expressjs.com/" target="_blank" rel="noopener">Express</a>介绍</h2><ul>
+<li>在 Node 中，有很多 Web 开发框架，我们这里以学习 <code>Express</code>为主。 </li>
+<li>精简的、灵活的 Node.js Web 程序框架，为构建Web 程序提供了一系列健壮的功能特性 </li>
+</ul>
+<h2 id="2-起步"><a href="#2-起步" class="headerlink" title="2. 起步"></a>2. 起步</h2><h3 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1. 安装"></a>2.1. 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化 package.json 文件</span></span><br><span class="line">npm init -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 express 到项目中</span></span><br><span class="line">npm i express</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-Hello-World"><a href="#2-2-Hello-World" class="headerlink" title="2.2.  Hello World"></a>2.2.  <code>Hello World</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 加载 Express</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 调用 express() 得到一个 app</span></span><br><span class="line"><span class="comment">//    类似于 http.createServer()</span></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 设置请求对应的处理函数</span></span><br><span class="line"><span class="comment">//    当客户端以 GET 方法请求 / 的时候就会调用第二个参数：请求处理函数</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'hello world'</span>)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 监听端口号，启动 Web 服务</span></span><br><span class="line">app.listen(<span class="number">12345</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">'app listening on port 12345!'</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-发送页面字符串"><a href="#2-3-发送页面字符串" class="headerlink" title="2.3.  发送页面字符串"></a>2.3.  发送页面字符串</h3><p>我们可以发送”hello world”,</p>
+<p>那么也可以通过fs读取文件的方式,发送页面的字符串到客户端</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 加载模块</span></span><br><span class="line"><span class="comment">// 加载express</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="comment">// 加载fs模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 通过express() 得到app实例</span></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 监听某个请求方式和请求标识的请求,实现对应的处理函数</span></span><br><span class="line"><span class="comment">// 请求处理函数中 (req,res)=&gt;&#123;&#125;</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="comment">// res.send('hello---');</span></span><br><span class="line">    <span class="comment">// res.send('&lt;h1&gt;helloWorld&lt;/h1&gt;');</span></span><br><span class="line">    <span class="comment">// 把标签写在字符串中,然后发送响应</span></span><br><span class="line">    <span class="comment">// res.send(`&lt;h1&gt;ABC&lt;/h1&gt;&lt;p&gt;XXX&lt;/p&gt;`);</span></span><br><span class="line">    <span class="comment">// 考虑把标签放在一个html文件中,然后把文件中的数据发送响应</span></span><br><span class="line">    <span class="comment">// 利用fs模块读取index.html文件的内容</span></span><br><span class="line">    fs.readFile(<span class="string">'./index.html'</span>, (err, data) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(err);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// console.log(data);</span></span><br><span class="line">        <span class="comment">// 把二进制数据转换成字符串</span></span><br><span class="line">        <span class="comment">// console.log(data.toString());</span></span><br><span class="line">        <span class="comment">// 发送响应</span></span><br><span class="line">        res.send(data.toString());</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 绑定端口号,启动服务器</span></span><br><span class="line">app.listen(<span class="number">12345</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'please run it at localhost:12345'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意:每次修改这个文件中的代码 都需要在cmd中重新启动这个文件!!</p>
+</blockquote>
+<h3 id="2-4-路由"><a href="#2-4-路由" class="headerlink" title="2.4. 路由"></a>2.4. 路由</h3><ul>
+<li>路由（Routing）是由一个 URI（或者叫路径标识）和一个特定的 HTTP 方法（GET、POST 等）组成的，涉及到应用如何处理和响应客户端请求。</li>
+<li>每一个路由都可以有一个或者多个处理器函数，当匹配到路由时，这些函数将被执行。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app 是 express 实例</span></span><br><span class="line"><span class="comment">// METHOD 是一个 HTTP 请求方法</span></span><br><span class="line"><span class="comment">// PATH 是服务端路径（定位标识）</span></span><br><span class="line"><span class="comment">// HANDLER 是当路由匹配到时需要执行的处理函数</span></span><br><span class="line">app.METHOD(PATH, HANDLER);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 演示路由功能</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. require()加载express包</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 使用express()的实例app</span></span><br><span class="line"><span class="comment">// 相当于http模块中的 http.createServer();</span></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 配置请求路径对应的请求处理函数</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'/'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/one'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'/one'</span>);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/two'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'/two'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/three'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'/three'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 绑定端口号,启动服务器</span></span><br><span class="line">app.listen(<span class="number">12345</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'please run it at localhost:12345'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-node/06-Node导出模块成员" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/27/node/06-Node导出模块成员/" class="article-date">
+      <time datetime="2017-08-27T07:06:06.000Z" itemprop="datePublished">2017-08-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/08/27/node/06-Node导出模块成员/">06-导出模块成员</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="导出模块成员"><a href="#导出模块成员" class="headerlink" title="导出模块成员"></a>导出模块成员</h1><h2 id="1-gt-导出多个成员：写法一"><a href="#1-gt-导出多个成员：写法一" class="headerlink" title="1&gt; 导出多个成员：写法一"></a>1&gt; 导出多个成员：写法一</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 导出多个成员：写法一</span><br><span class="line">module.exports.a = 123;</span><br><span class="line">module.exports.b = 456;</span><br><span class="line">module.exports.c = 789;</span><br></pre></td></tr></table></figure>
+<h2 id="2-gt-导出多个成员：写法二"><a href="#2-gt-导出多个成员：写法二" class="headerlink" title="2&gt; 导出多个成员：写法二"></a>2&gt; 导出多个成员：写法二</h2><p>为了降低开发人员的痛苦，所以为 <code>module.exports</code> 提供了一个别名 <code>exports</code> （下面写法等价于上面的写法）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(exports === module.exports) // =&gt; true</span><br><span class="line">exports.a = 123;</span><br><span class="line">exports.b = 456;</span><br><span class="line">exports.c = 789;</span><br><span class="line">console.log(exports);</span><br><span class="line">// 但是最终导出的依然是module.exports!</span><br></pre></td></tr></table></figure>
+<h3 id="3-gt-导出多个成员：写法三"><a href="#3-gt-导出多个成员：写法三" class="headerlink" title="3&gt; 导出多个成员：写法三"></a>3&gt; 导出多个成员：写法三</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// module.exports = &#123;</span><br><span class="line">//   d: &apos;hello&apos;,</span><br><span class="line">//   e: &apos;world&apos;,</span><br><span class="line">//   fn: function () &#123;</span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // fs.readFile(function () &#123;</span><br><span class="line"></span><br><span class="line">//     // &#125;);</span><br><span class="line">//   &#125;</span><br><span class="line">// &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-gt-导出单个成员"><a href="#4-gt-导出单个成员" class="headerlink" title="4&gt; 导出单个成员"></a>4&gt; 导出单个成员</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 导出单个成员：错误的写法</span><br><span class="line">// 因为每个模块最终导出是 module.exports 而不是 exports 这个别名</span><br><span class="line">// exports = function (x, y) &#123;</span><br><span class="line">//   return x + y;</span><br><span class="line">// &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 导出单个成员：必须这么写</span><br><span class="line">module.exports = function (x, y) &#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：导出单个只能导出一次，下面的情况后者会覆盖前者：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &apos;hello&apos;;</span><br><span class="line"></span><br><span class="line">// 以这个为准，后者会覆盖前者</span><br><span class="line">module.exports = function (x, y) &#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最终导出的依然是module.exports!!!!</p>
+<p>exports是对module.exports的引用</p>
+<p>require导入的是模块的module.exports</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-node/05-ES6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/24/node/05-ES6/" class="article-date">
+      <time datetime="2017-08-24T05:26:01.000Z" itemprop="datePublished">2017-08-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/08/24/node/05-ES6/">05-ES6</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><h2 id="1-1-ES6介绍"><a href="#1-1-ES6介绍" class="headerlink" title="1.1. ES6介绍"></a>1.1. <a href="http://es6.ruanyifeng.com" target="_blank" rel="noopener">ES6</a>介绍</h2><p>ES6 既是一个历史名词，也是一个泛指，含义是 5.1 版以后的 JavaScript 的下一代标准，涵盖了 ES2015、ES2016、ES2017 等等，而 ES2015 则是正式名称，特指该年发布的正式版本的语言标准。一般是指 ES2015 标准，但有时也是泛指“下一代 JavaScript 语言”。 </p>
+<h2 id="1-2-基础语法"><a href="#1-2-基础语法" class="headerlink" title="1.2. 基础语法"></a>1.2. 基础语法</h2><h3 id="1-2-1-变量声明-const、let"><a href="#1-2-1-变量声明-const、let" class="headerlink" title="1.2.1. 变量声明 const、let"></a>1.2.1. 变量声明 const、let</h3><p><code>var</code> </p>
+<ul>
+<li>作用:声明变量</li>
+<li>变量提升</li>
+<li>全局作用域和函数级作用域</li>
+<li>可以重复命名</li>
+<li>无块级作用域</li>
+</ul>
+<p><code>let</code> </p>
+<ul>
+<li>作用:声明变量</li>
+<li><strong>块级作用域</strong></li>
+<li>必须先声明后使用</li>
+<li>在同一个块内不允许重复命名</li>
+<li>没有变量提升</li>
+</ul>
+<p><code>const</code></p>
+<ul>
+<li>作用:声明<strong>常量</strong></li>
+<li><strong>块级作用域</strong></li>
+<li><strong>声明的同时必须赋值</strong> !!!!</li>
+<li>声明的常量不能被重新赋值</li>
+<li>必须先声明后使用</li>
+<li>在同一个块内不允许重复命名</li>
+</ul>
+<h3 id="1-2-2-解构赋值"><a href="#1-2-2-解构赋值" class="headerlink" title="1.2.2 解构赋值"></a>1.2.2 解构赋值</h3><blockquote>
+<p>解构: 从数组和对象中提取值，把值赋值给变量</p>
+</blockquote>
+<ol>
+<li>数组解构赋值</li>
+<li><ul>
+<li>有顺序问题</li>
+<li>可以指定默认值</li>
+<li>被赋值的变量和数组中的元素个数可以不相等</li>
+</ul>
+</li>
+<li><p>对象解构赋值</p>
+<ul>
+<li>无顺序问题</li>
+</ul>
+</li>
+<li><ul>
+<li>可以指定默认值</li>
+</ul>
+</li>
+<li><ul>
+<li>被赋值的变量和对象中的key-value个数可以不相等</li>
+</ul>
+</li>
+<li><ul>
+<li><strong>有两种写法</strong><ul>
+<li>被赋值的变量名和对象中的key名一致</li>
+<li>可以给被赋值的变量<strong>起别名</strong>, {key名:别名}={key:value}</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 练习</span></span><br><span class="line"><span class="keyword">const</span> node = &#123;</span><br><span class="line">  loc: &#123;</span><br><span class="line">    start: &#123;</span><br><span class="line">      line: <span class="number">1</span>,</span><br><span class="line">      column: <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; loc, <span class="attr">loc</span>: &#123; start &#125;, <span class="attr">loc</span>: &#123; <span class="attr">start</span>: &#123; line &#125;&#125; &#125; = node;</span><br><span class="line"><span class="comment">// 输出 </span></span><br><span class="line">line <span class="comment">// </span></span><br><span class="line">loc  <span class="comment">// </span></span><br><span class="line">start <span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-3-模板字符串"><a href="#1-2-3-模板字符串" class="headerlink" title="1.2.3 模板字符串"></a>1.2.3 模板字符串</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 采用模板字符串的做法</span></span><br><span class="line"><span class="comment">// `$&#123;变量&#125;`</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str2 = <span class="string">`</span></span><br><span class="line"><span class="string">你好,我叫<span class="subst">$&#123;person.name&#125;</span>,</span></span><br><span class="line"><span class="string">我今年<span class="subst">$&#123;person.age&#125;</span>岁了,</span></span><br><span class="line"><span class="string">我是<span class="subst">$&#123;person.gender&#125;</span>生</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str2);</span><br><span class="line"><span class="comment">// 使用场景:如果需要拼接字符串或者换行了,那就用模板字符串</span></span><br><span class="line"><span class="comment">// 'abc';</span></span><br><span class="line"><span class="comment">// `abc`;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-4-函数扩展"><a href="#1-2-4-函数扩展" class="headerlink" title="1.2.4 函数扩展"></a>1.2.4 函数扩展</h3><ol>
+<li><p>函数参数的默认值</p>
+<ul>
+<li>函数参数不能同名</li>
+<li>参数默认值不是传值,而是惰性求值</li>
+<li>函数参数默认是声明的,不能在函数体中再次声明</li>
+</ul>
+</li>
+<li><p>函数参数默认值与解构赋值结合</p>
+</li>
+<li><p>rest参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法:在函数参数位置 写: ...参数名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意: 与rest参数搭配使用的形参abc是一个数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 作用: 将多余的参数放在数组中</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 好处:如果使用了rest参数,那么就不需要使用arguments对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 场景:利用rest参数就可以向函数传任意数量的参数啦!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 小细节: ...values后面不能再写其他参数!-&gt;rest参数要写在参数列表的末尾!</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="4-箭头函数"><a href="#4-箭头函数" class="headerlink" title="4.箭头函数"></a>4.箭头函数</h2><ul>
+<li><p>ES6允许使用箭头 =&gt; 去定义函数</p>
+</li>
+<li><p>基本用法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 箭头函数基本用法</span></span><br><span class="line"><span class="comment">// 之前的写法</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 现在的写法</span></span><br><span class="line"><span class="comment">// fNew是函数名</span></span><br><span class="line"><span class="comment">// =&gt;前面的a是形参名</span></span><br><span class="line"><span class="comment">// =&gt; 后面的a是函数体</span></span><br><span class="line"><span class="keyword">var</span> fNew = <span class="function"><span class="params">a</span> =&gt;</span> a;</span><br><span class="line"><span class="comment">// console.log((fNew(10)));</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 考虑函数参数和函数体的不同写法,箭头函数的写法就有了不同的组合</span></span><br><span class="line"><span class="comment">// 1. 函数只有一个参数时,函数体只有一代码并且没有返回值时</span></span><br><span class="line"><span class="keyword">var</span> fn1 = <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x);</span><br><span class="line"><span class="comment">// fn1(20);</span></span><br><span class="line"><span class="comment">// 2. 函数没有参数时,函数体只有一句代码并且有返回值</span></span><br><span class="line"><span class="keyword">var</span> fn2 = <span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="keyword">return</span> <span class="number">10</span>; &#125;;</span><br><span class="line"><span class="comment">// console.log(fn2());</span></span><br><span class="line"><span class="comment">// 3. 函数有多个参数时,函数体只有一句代码并且有返回值</span></span><br><span class="line"><span class="keyword">var</span> fn3 = <span class="function">(<span class="params">x, y</span>) =&gt;</span> &#123; <span class="keyword">return</span> x + y; &#125;;</span><br><span class="line"><span class="comment">// console.log(fn3(10, 20));</span></span><br><span class="line"><span class="comment">// 4. 函数体有多行代码时,函数只有一个参数时</span></span><br><span class="line"><span class="keyword">var</span> fn4 = <span class="function"><span class="params">x</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> y = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> y + x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(fn4(<span class="number">20</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意:</span></span><br><span class="line"><span class="comment">// 1. 参数只有一个时 ()省略不写</span></span><br><span class="line"><span class="comment">// 2. 没有参数时 ()不能省略</span></span><br><span class="line"><span class="comment">// 3. 多个参数时, ()不能省略</span></span><br><span class="line"><span class="comment">// 4. 函数体只有一句代码时并且有返回时 &#123;&#125;不能省略</span></span><br><span class="line"><span class="comment">// 5. 函数体有多行代码时,&#123;&#125;不能省略, 多行代码写在&#123;&#125;里面啊</span></span><br><span class="line"><span class="comment">// 6. 函数体只有一句代码时,并且没返回值,&#123;&#125;可以省略</span></span><br><span class="line"><span class="comment">// 建议: 所有的匿名函数 改成箭头函数的写法</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="箭头函数使用注意及this问题"><a href="#箭头函数使用注意及this问题" class="headerlink" title="箭头函数使用注意及this问题"></a>箭头函数使用注意及this问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> per = &#123;</span><br><span class="line">    name: <span class="string">"TOM"</span>,</span><br><span class="line">    sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">        <span class="comment">// 1. </span></span><br><span class="line">        <span class="comment">// setTimeout(function() &#123;</span></span><br><span class="line">        <span class="comment">//     console.log(this.name);</span></span><br><span class="line">        <span class="comment">// &#125;, 1000);</span></span><br><span class="line">        <span class="comment">// 2.</span></span><br><span class="line">        <span class="comment">// var _this = this;</span></span><br><span class="line">        <span class="comment">// setTimeout(function() &#123;</span></span><br><span class="line">        <span class="comment">//     console.log(_this.name);</span></span><br><span class="line">        <span class="comment">// &#125;, 1000);</span></span><br><span class="line">        <span class="comment">// 3.</span></span><br><span class="line">        <span class="comment">// setTimeout(function() &#123;</span></span><br><span class="line">        <span class="comment">//     console.log(this.name);</span></span><br><span class="line">        <span class="comment">// &#125;.bind(this), 1000);</span></span><br><span class="line">        <span class="comment">// 4.</span></span><br><span class="line">        <span class="comment">// setTimeout(() =&gt; &#123;</span></span><br><span class="line">        <span class="comment">//     console.log(this.name);</span></span><br><span class="line">        <span class="comment">// &#125;, 1000);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">per.sayHi();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意事项:</p>
+</blockquote>
+<ol>
+<li>箭头函数中的this自动绑定外部环境的this</li>
+<li>箭头函数中没有自己的this</li>
+<li>箭头函数不能用于构造函数</li>
+<li>箭头函数中的没有arguments对象,可以用剩余参数…rest代替</li>
+<li>箭头函数通常用于匿名函数</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-node/04-npm包管理器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/23/node/04-npm包管理器/" class="article-date">
+      <time datetime="2017-08-23T02:52:31.000Z" itemprop="datePublished">2017-08-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/08/23/node/04-npm包管理器/">04-npm包管理器</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="npm包管理器"><a href="#npm包管理器" class="headerlink" title="npm包管理器"></a>npm包管理器</h1><h2 id="npm-是什么"><a href="#npm-是什么" class="headerlink" title="npm 是什么"></a><a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a> 是什么</h2><ul>
+<li><p>npm 全称  <code>Node Package Manager</code>，它的诞生是为了解决 Node 中第三方包共享的问题。 和浏览器一样，由于都是 JavaScript，所以前端开发也使用 npm 作为第三方包管理工具。 例如大名鼎鼎的 jQuery、Bootstrap 等都可以通过 npm 来安装。 所以官方把 npm 定义为  <code>JavaScript Package Manager</code>。</p>
+</li>
+<li><blockquote>
+<p>yarn也是包管理器</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="npm-命令行工具"><a href="#npm-命令行工具" class="headerlink" title="npm 命令行工具"></a>npm 命令行工具</h2><ul>
+<li><p>只要你安装了 node 就已经安装了 npm,可以在cmd中进行npm的指令操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 检验npm是否安装成功</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用命令</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 在项目中初始化一个 package.json 文件,凡是使用 npm 来管理的项目都会有这么一个文件</span><br><span class="line">// 只敲一次就可以!</span><br><span class="line">npm init   </span><br><span class="line"></span><br><span class="line">// 跳过向导，快速生成 package.json 文件,简写是npm init -y</span><br><span class="line">npm init --yes</span><br><span class="line"></span><br><span class="line">// 一次性安装 dependencies 中所有的依赖项,简写是 npm i</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">// 安装指定的包，可以简写为 npm i 包名</span><br><span class="line">// npm <span class="number">5</span> 以前只下载，不保存依赖信息，如果需要保存，则需要加上 --save 选项</span><br><span class="line">// npm <span class="number">5</span> 以后就可以省略 --save 选项了</span><br><span class="line">npm install 包名</span><br><span class="line"></span><br><span class="line">// 一次性安装多个指定包</span><br><span class="line">npm install 包名 包名 包名 ...</span><br><span class="line"></span><br><span class="line">// 安装指定版本的包<span class="variable">!!!</span></span><br><span class="line">npm install jquery@版本号</span><br><span class="line">// 如果不指定版本号,默认安装最新稳定版本</span><br><span class="line"></span><br><span class="line">// 卸载指定的包</span><br><span class="line">npm uninstall 包名</span><br><span class="line"></span><br><span class="line">// 查看使用帮助</span><br><span class="line">npm <span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">// 查看某个命令的使用帮助</span><br><span class="line">// 例如我忘记了 uninstall 命令的简写了，这个时候，可以输入 npm uninstall --<span class="built_in">help</span> 来查看使用帮助</span><br><span class="line">npm 命令 --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><ul>
+<li><p>我们的项目会放到云端的仓库中，例如 github ，第三方包没有上传的意义，我们只需要把我们的源码放到云端仓库，<code>node_modules</code> 目录中存储的就是第三方包（不用担心丢失问题），如果没有 <code>package.json</code> 文件则你就找不回来了。</p>
+</li>
+<li><p>建议每一个项目都要有一个  <code>package.json</code>  文件（包描述文件，就像产品的说明书一样），给人踏实的感觉最重要的就是保存这个项目的第三方依赖信息（因为我们不需要提交第三方包到我们的云端仓库，只需要提交我们自己的代码），有了这个文件中的依赖信息结合  <code>npm install</code>  命令我们就可以放心了。</p>
+</li>
+<li><p>这个文件可以通过 <code>npm init</code> 的方式来自动初始化出来。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于咱们目前来讲，最有用的是那个 <code>dependencies</code> 选项，可以用来帮我们保存第三方包的依赖信息。</p>
+</li>
+<li><p>如果你的 <code>node_modules</code> 删除了也不用担心，我们只需要：<code>npm install</code> 就会自动把 <code>package.json</code> 中的 <code>dependencies</code> 中所有的依赖项都下载回来。</p>
+</li>
+<li><p>建议每个项目的根目录下都有一个 <code>package.json</code> 文件</p>
+<ul>
+<li>不同的项目有不同依赖，各自保存各自的</li>
+</ul>
+</li>
+<li><p>执行 npm install 包名的的时候可以加上–save</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--save</span><br></pre></td></tr></table></figure>
+<p>这个选项，目的是用来保存依赖项信息</p>
+<ul>
+<li>npm 5 以前不会自动保存依赖信息到 package.json 文件中，必须手动加 <code>--save</code> 选项才可以</li>
+<li>npm 5 以后不需要加 <code>--save</code> 选项了，因为它会自动保存依赖项</li>
+</ul>
+</li>
+</ul>
+<h2 id="package-lock-json"><a href="#package-lock-json" class="headerlink" title="package-lock.json"></a>package-lock.json</h2><ul>
+<li>npm 5 以前是不会有 <code>package-lock.json</code> 这个文件的。（被开发者诟病，吐槽的问题）。</li>
+<li>当你安装包的时候，npm 都会生成或者更新 <code>package-lock.json</code> 这个文件。</li>
+<li>npm 5 以后的版本安装包不需要加 <code>--save</code> 参数，它会自动保存依赖信息</li>
+<li>当你安装包的时候，会自动创建或者是更新 <code>package-lock.json</code> 这个文件</li>
+<li><code>package-lock.json</code>  这个文件会保存  <code>node_modules</code>  中所有包的信息（版本、下载地址）<ul>
+<li>这样的话重新 <code>npm install</code> 的时候速度就可以提升</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-node/03-Node中的模块系统" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/22/node/03-Node中的模块系统/" class="article-date">
+      <time datetime="2017-08-22T01:01:09.000Z" itemprop="datePublished">2017-08-22</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/08/22/node/03-Node中的模块系统/">03-Node中的模块系统</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Node中的模块系统"><a href="#Node中的模块系统" class="headerlink" title="Node中的模块系统"></a>Node中的模块系统</h1><h2 id="2-1-什么是模块"><a href="#2-1-什么是模块" class="headerlink" title="2.1 什么是模块?"></a>2.1 什么是模块?</h2><ul>
+<li>随着项目的推进、逻辑的复杂,不可能把所有js代码都写在一个文件中</li>
+<li><strong>一个js文件就是一个具有独立功能的模块</strong></li>
+<li>Node中按照模块去划分功能,有一套模块加载机制:<ul>
+<li>module.exports导出模块成员</li>
+<li>require()导入模块成员</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-2-导入模块-require方法"><a href="#2-2-导入模块-require方法" class="headerlink" title="2.2 导入模块(require方法)"></a>2.2 导入模块(require方法)</h2><ul>
+<li><p><strong>作用:</strong>加载并执行模块中的代码!!!!</p>
+</li>
+<li><p><strong>使用</strong>:<code>require()</code> 方法的()中可以写:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. node自带的模块,如fs、http</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="comment">// 2. 通过路径引入的自己的js文件</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./foo.js'</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ol>
+<li><p><code>require()</code> 加载模块是<strong>同步</strong>加载!!</p>
+</li>
+<li><p>引入自己的js文件时,路径中的./或者../<strong>不能省略</strong></p>
+</li>
+<li><p>如果省略,<code>require()</code> 会把它当成是一个node自带的模块</p>
+<p> 报错信息不要害怕!!!一定要去看!!!</p>
+</li>
+<li><p>模块后缀<code>.js</code> <strong>可以省略不写</strong></p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-3-导出模块"><a href="#2-3-导出模块" class="headerlink" title="2.3 导出模块"></a>2.3 导出模块</h2><p>模块中定义的变量是<strong>局部</strong>的, </p>
+<p>那如何在A模块使用B模块中定义好的变量呢?</p>
+<p>这个问题, 就涉及到了模块加载机制</p>
+<ol>
+<li><h5 id="导出模块中的变量"><a href="#导出模块中的变量" class="headerlink" title="导出模块中的变量"></a>导出模块中的变量</h5></li>
+</ol>
+<ul>
+<li>每个模块中都有一个 <code>module</code> 对象</li>
+<li><code>module</code>对象中有一个<code>exports</code>对象</li>
+<li>我们可以把需要导出的成员都挂载到<code>module.exports</code> 对象上</li>
+</ul>
+<p><code>foo.js</code> </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.a = a;</span><br><span class="line"><span class="built_in">module</span>.exports.b = b;</span><br><span class="line"><span class="built_in">module</span>.exports.add = add;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以理解为在模块的末尾有这样一句代码: return module.exports;</span></span><br><span class="line"><span class="comment">// return module.exports;</span></span><br></pre></td></tr></table></figure>
+<p><code>main.js</code> </p>
+<ol start="2">
+<li><h5 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h5></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1 导入模块</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="built_in">require</span>(<span class="string">'./foo.js);</span></span><br><span class="line"><span class="string">// 2 使用模块中的成员                  </span></span><br><span class="line"><span class="string">console.log(foo.add);</span></span><br><span class="line"><span class="string">console.log(foo.a);</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意 :导出模块中的成员有多种方法,我们这里先讲其中一种</p>
+</blockquote>
+<h2 id="2-3-模块分类及第三方模块-包-的使用"><a href="#2-3-模块分类及第三方模块-包-的使用" class="headerlink" title="2.3. 模块分类及第三方模块(包)的使用"></a>2.3. 模块分类及第三方模块(包)的使用</h2><ul>
+<li><p>核心模块</p>
+<ul>
+<li>由 <code>Node</code> 本身提供，例如<code>fs</code> 、<code>http</code> 等</li>
+</ul>
+</li>
+<li><p>自定义(用户)模块</p>
+<ul>
+<li>自己写的.js文件，按照路径来加载，注意 <code>./</code> 或者 <code>../</code> 不能省略</li>
+</ul>
+</li>
+<li><p>第三方模块</p>
+<ol>
+<li>在<a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm网站</a>找包(模块) </li>
+<li>打开cmd, 使用命令 <code>npm install 包名</code> 安装包</li>
+<li>在需要使用的位置, 通过<code>require(&#39;第三方包名&#39;)</code> 加载包</li>
+<li>看文档调用 API</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>这里 我们先体验npm的使用,之后会进行详细讲解</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-node/02-Node起步" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -915,499 +1470,9 @@
 
 
   
-    <article id="post-MWEB/11-rem适配方案" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/24/MWEB/11-rem适配方案/" class="article-date">
-      <time datetime="2017-06-24T05:51:31.000Z" itemprop="datePublished">2017-06-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/24/MWEB/11-rem适配方案/">11-rem适配方案</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="rem适配方案"><a href="#rem适配方案" class="headerlink" title="rem适配方案"></a>rem适配方案</h2><h3 id="rem的适配原理"><a href="#rem的适配原理" class="headerlink" title="rem的适配原理"></a>rem的适配原理</h3><ul>
-<li>rem 是相对于页面根源素html的字体大小的一个尺寸单位</li>
-<li>页面内容可以使用rem为单位，那么html的字体大小就是一个控制尺寸的开关</li>
-<li>当设备改变的时候可以根据设备的宽度和原本设计稿的尺寸比例关系设置html的字体大小</li>
-<li>这样凡是以rem为单位的内容会根据设备做等比适配</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.假设设计稿是750px</span><br><span class="line">2.假设这个时候html字体大小为100px</span><br><span class="line">3.那么在320px设备的时候  字体大小为 100/750*320</span><br><span class="line">4.只要根据这个比例在不同设备设置rem基准值(html字体大小)即可</span><br><span class="line">5.改变rem基准值有两种方式：媒体查询或javascript</span><br></pre></td></tr></table></figure>
-<h3 id="rem-媒体查询"><a href="#rem-媒体查询" class="headerlink" title="rem+媒体查询"></a>rem+媒体查询</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*假设的设备  320px 414px 640px */</span></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">320px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span>&#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">414px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span>&#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">64.6875px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">640px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span>&#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">100px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="rem-flexible-js"><a href="#rem-flexible-js" class="headerlink" title="rem+flexible.js"></a>rem+flexible.js</h3><ul>
-<li>flexible.js 是手机淘宝团队做移动端适配的库</li>
-<li>我们使有它的目的只有一个根据设备设置rem基准值</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"flexible.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="基于less的rem可维护方案"><a href="#基于less的rem可维护方案" class="headerlink" title="基于less的rem可维护方案"></a>基于less的rem可维护方案</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//适配主流设备十几种</span></span><br><span class="line"><span class="variable">@adapterDeviceList:</span><span class="number">750px</span>,<span class="number">720px</span>,<span class="number">640px</span>,<span class="number">540px</span>,<span class="number">480px</span>,<span class="number">424px</span>,<span class="number">414px</span>,<span class="number">400px</span>,<span class="number">384px</span>,<span class="number">375px</span>,<span class="number">360px</span>,<span class="number">320px</span>;</span><br><span class="line"><span class="comment">//设计稿尺寸</span></span><br><span class="line"><span class="variable">@psdWidth:</span><span class="number">750px</span>;</span><br><span class="line"><span class="comment">//预设基准值</span></span><br><span class="line"><span class="variable">@baseFontSize:</span><span class="number">100px</span>;</span><br><span class="line"><span class="comment">//设备的种类</span></span><br><span class="line"><span class="variable">@len:</span>length(<span class="variable">@adapterDeviceList</span>);</span><br><span class="line"><span class="comment">//适配函数</span></span><br><span class="line"><span class="selector-class">.adapterMixin</span>(<span class="variable">@index</span>) <span class="keyword">when</span> ( <span class="variable">@index</span> &gt; <span class="number">0</span>)&#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">min-width</span>: extract(<span class="variable">@adapterDeviceList</span>,<span class="variable">@index</span>))&#123;</span><br><span class="line">    <span class="selector-tag">html</span>&#123;</span><br><span class="line">      <span class="attribute">font-size</span>: <span class="variable">@baseFontSize</span> / <span class="variable">@psdWidth</span> * extract(<span class="variable">@adapterDeviceList</span>,<span class="variable">@index</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.adapterMixin</span>( <span class="variable">@index</span> - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用rem完成页面的适配，注意不一定全部都是rem,大布局的适配还是可以使用流失布局或者伸缩布局。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MWEB/">MWEB</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-MWEB/10-less" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/24/MWEB/10-less/" class="article-date">
-      <time datetime="2017-06-24T02:24:01.000Z" itemprop="datePublished">2017-06-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/24/MWEB/10-less/">10-less</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><h3 id="什么是less"><a href="#什么是less" class="headerlink" title="什么是less"></a>什么是less</h3><p>作为一门标记性语言，CSS 的语法相对简单，对使用者的要求较低，但同时也带来一些问题：CSS需要书写大量看似没有逻辑的代码，不方便维护及扩展，不利于复用，尤其对于非前端开发工程师来讲，往往会因为缺少 CSS 编写经验而很难写出组织良好且易于维护的 CSS 代码，造成这些困难的很大原因源于 CSS 是一门非程序式语言，没有变量、函数、SCOPE（作用域）等概念。LESS 为 Web 开发者带来了福音，它在 CSS 的语法基础之上，引入了变量，Mixin（混入），运算以及函数等功能，大大简化了 CSS 的编写，并且降低了 CSS 的维护成本，就像它的名称所说的那样，LESS 可以让我们用更少的代码做更多的事情。</p>
-<h3 id="less的安装"><a href="#less的安装" class="headerlink" title="less的安装"></a>less的安装</h3><ol>
-<li>安装nodejs <a href="https://nodejs.org/dist/" target="_blank" rel="noopener">https://nodejs.org/dist/</a> 可选择版本(6.0)。</li>
-<li>检查是否安装成功，使用cmd命令 node -v 查看版本即可。</li>
-<li><p>基于nodejs安装less:</p>
-<ul>
-<li><p>在线安装：使用cmd命令 npm install -g less</p>
-</li>
-<li><p>离线安装:<br>a.找到C盘根目录下的用户或User文件夹打开<br>b.找到当前计算机使用的用户文件夹打开<br>c.找到隐藏文件夹AppData打开<br>d.找到Roaming文件夹打开<br>e.找到npm文件夹打开，该文件夹为基于nodejs程序目录<br>f.把npm.zip文件解压到该目录 </p>
-<p>g.可以在命令符中查看版本  lessc  -v</p>
-<p>​</p>
-</li>
-</ul>
-</li>
-<li>基于koala软件也可以编译LESS;</li>
-</ol>
-<h3 id="less编译"><a href="#less编译" class="headerlink" title="less编译"></a>less编译</h3><p>本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。</p>
-<ul>
-<li><strong>如果使用viscode 可下载EASY LESS  插件。</strong>直接创建新文件   xxx.less 即可生成 对应的 xxx.css文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc 目标文件地址 生成文件地址</span><br></pre></td></tr></table></figure>
-<p>在开发过程当中如果要预览less，每次都要执行编译命令，为了方便可以使用部分编辑器中less自动编译功能。</p>
-<ol>
-<li>点击文件打开菜单，选择设置选项</li>
-<li>选择工具当中的文件监听选项</li>
-<li>点击右上角加号按钮，选择less后弹出对话框，点击确定即可。less的语法</li>
-</ol>
-<h3 id="less基本语法"><a href="#less基本语法" class="headerlink" title="less基本语法"></a>less基本语法</h3><ul>
-<li><p>变量</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@mainColor:</span><span class="number">#e92323</span>;</span><br><span class="line"><span class="variable">@className:</span>box;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="variable">@mainColor</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="attribute">a</span>:hover&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">@mainColor</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//变量用于字符拼接使用方法</span></span><br><span class="line"><span class="selector-class">.@&#123;className&#125;</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">@mainColor</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>混入(mixin)</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.borderRadius</span>(<span class="variable">@width</span>:<span class="number">100px</span>)&#123;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="variable">@width</span>;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>:<span class="variable">@width</span>;</span><br><span class="line">  <span class="attribute">-moz-border-radius</span>:<span class="variable">@width</span>;</span><br><span class="line">  <span class="attribute">-o-border-radius</span>:<span class="variable">@width</span>;</span><br><span class="line">  <span class="attribute">-ms-border-radius</span>:<span class="variable">@width</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>嵌套</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wjs_app</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/*需要连接的情况：&amp;*/</span></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="selector-tag">img</span>&#123;</span><br><span class="line">      <span class="attribute">display</span>: block;</span><br><span class="line">      <span class="attribute">position</span>: absolute;</span><br><span class="line">      <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">      <span class="attribute">margin-left</span>:-<span class="number">60px</span>;</span><br><span class="line">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">      <span class="attribute">border-top</span>: none;</span><br><span class="line">      <span class="attribute">top</span>:<span class="number">40px</span>;</span><br><span class="line">      <span class="attribute">z-index</span>: <span class="number">100000</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &gt; <span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>导入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import &quot;variables&quot;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运算&amp;内置函数</p>
-</li>
-</ul>
-<p>api地址：<a href="http://lesscss.cn/functions/#functions-overview" target="_blank" rel="noopener">http://lesscss.cn/functions/#functions-overview</a></p>
-<p>中文：<a href="http://www.css88.com/doc/less/functions/#color-operations" target="_blank" rel="noopener">http://www.css88.com/doc/less/functions/#color-operations</a></p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*运算*/</span></span><br><span class="line"><span class="variable">@num:</span><span class="number">5</span>;</span><br><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>*<span class="variable">@num</span>;</span><br><span class="line">  <span class="selector-tag">li</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>/<span class="variable">@num</span>;</span><br><span class="line">    <span class="attribute">color</span>: red+yellow+blue;</span><br><span class="line">    <span class="attribute">background</span>: gray*<span class="number">0.3</span>;</span><br><span class="line">    <span class="comment">/*内置函数*/</span></span><br><span class="line">    <span class="attribute">border-color</span>: darken(red,<span class="number">20%</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="less预览"><a href="#less预览" class="headerlink" title="less预览"></a>less预览</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/less"</span> <span class="attr">href</span>=<span class="string">"index.less"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"less.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        less.watch();</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--1.在浏览器端直接使用less文件预览 type="text/less" --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--2.浏览器无法直接使用less类型的文件，无法解析--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--3.转换成css,需要js插件支持--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--4.下载插件 https://github.com/less/less.js/tree/master/dist --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--5.less.js会异步加载less文件的内容，再去解析成css,然后追加到style--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--6.必须使用HTTP形式打开页面，不要以file形式打开--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--7.更改完成之后每次要刷新，可以配置less监听，自动刷新页面预览--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--8.需要js配置 less.watch() --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2"</span>&gt;</span>test<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>less是一门预编译脚本语法，使用它用来提高css的可维护性。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MWEB/">MWEB</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-MWEB/09-bootstrapUI框架" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/23/MWEB/09-bootstrapUI框架/" class="article-date">
-      <time datetime="2017-06-23T06:03:02.000Z" itemprop="datePublished">2017-06-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/23/MWEB/09-bootstrapUI框架/">09-bootstrap</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h2><h3 id="什么是UI框架"><a href="#什么是UI框架" class="headerlink" title="什么是UI框架"></a>什么是UI框架</h3><p>user interface 用户界面，指的是有预制样式库，组件，插件，有一套比较完整的网页功能解决方案，称为UI框架</p>
-<h3 id="bootstrap是什么"><a href="#bootstrap是什么" class="headerlink" title="bootstrap是什么"></a>bootstrap是什么</h3><ul>
-<li>简介：  <ul>
-<li>作者：Twitter  公司两位前端工程师（mark otto &amp;&amp; jacob thornton）在2011发起开发完成的。</li>
-<li>特点：组件简洁大方，代码规范精简，界面自定义性强。</li>
-<li>目的：提高web开发效率。  </li>
-</ul>
-</li>
-<li>文档：  <ul>
-<li>中文官网  <a href="http://www.bootcss.com/" target="_blank" rel="noopener">http://www.bootcss.com/</a></li>
-<li>官网 <a href="http://getbootstrap.com/" target="_blank" rel="noopener">http://getbootstrap.com/</a></li>
-<li>学习文档 <a href="http://bootstrap.css88.com/" target="_blank" rel="noopener">http://bootstrap.css88.com/</a>  </li>
-</ul>
-</li>
-<li>优点：  <ul>
-<li>有自己的生态圈，不断的更新迭代。</li>
-<li>提供了一套简洁、直观、强悍的组件。</li>
-<li>标准化的html+css编码规范。</li>
-<li>让开发更简单，提高了开发的效率。</li>
-<li><strong>注意：虽然界面组件样式已经定义好了，但是扩展性相对较强，也就是说我们还可以自定义，修改默认样式。</strong></li>
-</ul>
-</li>
-<li>版本:  <ul>
-<li>2.x.x  停止维护,兼容性好,代码不够简洁，功能不够完善。</li>
-<li>3.x.x  目前使用最多,稳定,但是放弃了IE6-IE7。对IE8支持但是界面效果不好,偏向用于开发响应式布局、移动设备优先的 WEB 项目。</li>
-</ul>
-</li>
-</ul>
-<h3 id="bootstrap基本模板"><a href="#bootstrap基本模板" class="headerlink" title="bootstrap基本模板"></a>bootstrap基本模板</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--h5文档申明--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="comment">&lt;!--文档语言申明  en zh-CN zh-tw --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--文档编码申明--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--要求当前网页使用浏览器最高版本的内核来渲染--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--视口的设置：视口的宽度和设备一致，默认的缩放比例和PC端一致，用户不能自行缩放--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, user-scalable=0"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 优先加载和浏览器解释 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Bootstrap 核心样式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"../lib/bootstrap/css/bootstrap.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- html5shiv 和  respond 分别用来解决IE8版本浏览器不支持 H5标签和媒体查询的  不兼容问题--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- HTML5 shiv and Respond.js for IE8 support of HTML5 elements and media queries --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 警告：不能以file形式打开，本地打开。最好http://打开 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 在 IE 9 一下引入--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src="../lib/html5shiv/html5shiv.min.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src="../lib/respond/respond.min.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">    &lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--TODO--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- bootstrap依赖jquery--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- jQuery (necessary for Bootstrap's JavaScript plugins) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../lib/jquery/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- bootstrap js 核心文件--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Include all compiled plugins (below), or include individual files as needed --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../lib/bootstrap/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="bootstrap常用类"><a href="#bootstrap常用类" class="headerlink" title="bootstrap常用类"></a>bootstrap常用类</h3><ul>
-<li>container</li>
-<li>container-fluid</li>
-<li>row</li>
-<li>col-*-*</li>
-<li>col-*-offset-*</li>
-<li>col-*-pull-*</li>
-<li>col-*-push-*</li>
-<li>pull-left</li>
-<li>pull-right</li>
-<li>text-center</li>
-<li>text-left</li>
-<li>text-right</li>
-</ul>
-<h3 id="怎么使用组件"><a href="#怎么使用组件" class="headerlink" title="怎么使用组件"></a>怎么使用组件</h3><p>查询官方文档</p>
-<ul>
-<li>组件的HTML模板代码结构分析</li>
-<li>写一份和组件一致的样式选择器修改预制样式为产品需求样式</li>
-<li>检查响应式是否符合产品需求，不满足自行修改</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>bootstrap是一个完整的组件库，包含html,css,js的框架，能够快速的搭建响应式站点。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MWEB/">MWEB</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-MWEB/08-响应式布局" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/22/MWEB/08-响应式布局/" class="article-date">
-      <time datetime="2017-06-22T07:11:52.000Z" itemprop="datePublished">2017-06-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/22/MWEB/08-响应式布局/">08-响应式布局</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><h3 id="响应式布局概念"><a href="#响应式布局概念" class="headerlink" title="响应式布局概念"></a>响应式布局概念</h3><ul>
-<li>在移动互联日益成熟的时候，我们在桌面浏览器上开发的网页已经无法满足移动设备的阅读。</li>
-<li>通常的做法是针对移动端单独做一套特定的版本。</li>
-<li>但是如果终端越来越多那么你需要开发的版本就会越来越多（大屏移动设备普及）。</li>
-<li>那么Ethan Marcotte在2010年5月份提出的一个概念，简而言之，<strong>就是一个网站能够兼容多个终端</strong>。</li>
-</ul>
-<h3 id="响应式布局原理"><a href="#响应式布局原理" class="headerlink" title="响应式布局原理"></a>响应式布局原理</h3><p>CSS3中的Media Query（媒体查询）<br><strong>通过查询screen的宽度来指定某个宽度区间的网页布局。</strong></p>
-<table>
-<thead>
-<tr>
-<th>划分设备</th>
-<th>尺寸区间</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>超小屏幕（手机）</td>
-<td>768px以下</td>
-</tr>
-<tr>
-<td>小屏设备</td>
-<td>768px-992px</td>
-</tr>
-<tr>
-<td>中等屏幕</td>
-<td>992px-1200px</td>
-</tr>
-<tr>
-<td>宽屏设备</td>
-<td>1200px以上</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> screen and (max-width: <span class="number">768px</span>)&#123;</span><br><span class="line">  <span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">768px</span>) and (max-width: <span class="number">992px</span>)&#123;</span><br><span class="line">  <span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">750px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">992px</span>) and (max-width: <span class="number">1200px</span>)&#123;</span><br><span class="line">  <span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">970px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">1200px</span>)&#123;</span><br><span class="line">  <span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1170px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="对比针对移动端开发区别"><a href="#对比针对移动端开发区别" class="headerlink" title="对比针对移动端开发区别"></a>对比针对移动端开发区别</h3><table>
-<thead>
-<tr>
-<th>开发方式</th>
-<th>移动web开发+PC开发</th>
-<th>响应式开发</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>应用场景</td>
-<td>一般在已经有PC端的网站，开发移动站的时候，只需单独开发移动端</td>
-<td>针对新建站的一些网站，现在要求适配移动端，所以就一套页面兼容各种终端，灵活</td>
-</tr>
-<tr>
-<td>开发</td>
-<td>针对性强，开发效率高</td>
-<td>兼容各种终端，效率低</td>
-</tr>
-<tr>
-<td>适配</td>
-<td>只适配 移动设备，pad上体验相对较差</td>
-<td>可以适配各种终端</td>
-</tr>
-<tr>
-<td>效率</td>
-<td>代码简洁，加载快</td>
-<td>代码相对复杂，加载慢</td>
-</tr>
-</tbody>
-</table>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>移动web开发和响应式开发都是现在主流的开发模式。<br>使用的都是流式布局，来适配不同设备。<br>由于终端设备的多样化，新建站的站点会优先用响应式来开发。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MWEB/">MWEB</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-MWEB/07-手势事件" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/22/MWEB/07-手势事件/" class="article-date">
-      <time datetime="2017-06-22T01:02:01.000Z" itemprop="datePublished">2017-06-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/22/MWEB/07-手势事件/">07-手势事件</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="手势事件"><a href="#手势事件" class="headerlink" title="手势事件"></a>手势事件</h2><h3 id="轻触事件-tap"><a href="#轻触事件-tap" class="headerlink" title="轻触事件 tap"></a>轻触事件 tap</h3><p>出现的原因：由于早期移动端页面双击可以缩放，为了检测双击操作，延长了click的响应时间，200-300ms。</p>
-<p>第一种解决方案：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*模拟tap事件（tap在移动端库zepto.js有使用）*/</span></span><br><span class="line"><span class="comment">/*1. 响应的速度比click要快   150ms */</span></span><br><span class="line"><span class="comment">/*2. 不能滑动*/</span></span><br><span class="line"><span class="keyword">var</span> bindTapEvent = <span class="function"><span class="keyword">function</span> (<span class="params">dom, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> startTime = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> isMove = <span class="literal">false</span>;</span><br><span class="line">    dom.addEventListener(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        startTime = <span class="built_in">Date</span>.now();</span><br><span class="line">    &#125;);</span><br><span class="line">    dom.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        isMove = <span class="literal">true</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">    dom.addEventListener(<span class="string">'touchend'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ((<span class="built_in">Date</span>.now() - startTime) &lt; <span class="number">150</span> &amp;&amp; !isMove) &#123;</span><br><span class="line">            callback &amp;&amp; callback.call(<span class="keyword">this</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">        startTime = <span class="number">0</span>;</span><br><span class="line">        isMove = <span class="literal">false</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>第二种解决方案：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">1 使用一个叫：fastclick.js 提供移动端click响应速度的</span></span><br><span class="line"><span class="comment">2 下载：https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js</span></span><br><span class="line"><span class="comment">3 使用：</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/fastclick.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">/*当页面的dom元素加载完成 如果使用jquery $(function()&#123;&#125;);*/</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">/*初始化方法*/</span></span></span><br><span class="line"><span class="javascript">        FastClick.attach(<span class="built_in">document</span>.body);</span></span><br><span class="line"><span class="javascript">    &#125;, <span class="literal">false</span>);</span></span><br><span class="line"><span class="javascript">    <span class="comment">/*正常使用click事件就可以了*/</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="滑动手势事件-swipe"><a href="#滑动手势事件-swipe" class="headerlink" title="滑动手势事件 swipe"></a>滑动手势事件 swipe</h3><p>手势事件：滑动，左滑，右滑，上滑，下滑 （swipe在移动端库zepto.js有使）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*1. 理解移动端的手势事件*/</span></span><br><span class="line"><span class="comment">/*2. swipe swipeLeft swipeRight swipeUp swipeDown */</span></span><br><span class="line"><span class="comment">/*3. 左滑和右滑手势怎么实现*/</span></span><br><span class="line"><span class="keyword">var</span> bindSwipeEvent = <span class="function"><span class="keyword">function</span> (<span class="params">dom,leftCallback,rightCallback</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/*手势的条件*/</span></span><br><span class="line">    <span class="comment">/*1.必须滑动过*/</span></span><br><span class="line">    <span class="comment">/*2.滑动的距离50px*/</span></span><br><span class="line">    <span class="keyword">var</span> isMove = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">var</span> startX = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> distanceX = <span class="number">0</span>;</span><br><span class="line">    dom.addEventListener(<span class="string">'touchstart'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        startX = e.touches[<span class="number">0</span>].clientX;</span><br><span class="line">    &#125;);</span><br><span class="line">    dom.addEventListener(<span class="string">'touchmove'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        isMove = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">var</span> moveX = e.touches[<span class="number">0</span>].clientX;</span><br><span class="line">        distanceX = moveX - startX;</span><br><span class="line">    &#125;);</span><br><span class="line">    dom.addEventListener(<span class="string">'touchend'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/*滑动结束*/</span></span><br><span class="line">        <span class="keyword">if</span>(isMove &amp;&amp; <span class="built_in">Math</span>.abs(distanceX) &gt; <span class="number">50</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(distanceX &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                rightCallback &amp;&amp; rightCallback.call(<span class="keyword">this</span>,e);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                leftCallback &amp;&amp; leftCallback.call(<span class="keyword">this</span>,e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*重置参数*/</span></span><br><span class="line">        isMove = <span class="literal">false</span>;</span><br><span class="line">        startX = <span class="number">0</span>;</span><br><span class="line">        distanceX = <span class="number">0</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">bindSwipeEvent(<span class="built_in">document</span>.querySelector(<span class="string">'.box'</span>),<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'左滑手势'</span>);</span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'右滑手势'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>移动端的一些手势事件都是由touch事件封装得来的，在一些移动端框架中会使用。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MWEB/">MWEB</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 

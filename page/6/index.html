@@ -196,7 +196,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.67px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15.56px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.67px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.11px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.67px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 14.44px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.22px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12.22px;">Node</a> <a href="/tags/PHP/" style="font-size: 18.89px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.78px;">jQuery</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 17px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 16px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 17px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 17px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12px;">Node</a> <a href="/tags/PHP/" style="font-size: 19px;">PHP</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/jQuery/" style="font-size: 18px;">jQuery</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -292,6 +292,506 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-ajax/07-文件上传与进度条" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/03/ajax/07-文件上传与进度条/" class="article-date">
+      <time datetime="2017-05-03T01:20:35.000Z" itemprop="datePublished">2017-05-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/03/ajax/07-文件上传与进度条/">07-文件上传与进度条</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="文件上传与进度条"><a href="#文件上传与进度条" class="headerlink" title="文件上传与进度条"></a>文件上传与进度条</h1><p> 1) 完成Ajax文件上传</p>
+<pre><code>核心: Ajax方式上传文件必须使用FormData对象
+
+关键点:  
+
+
+    ① 表单使用提交按钮，一定是button
+    ② 获取文件对象 ---- FormData
+        i.根据id获取form表单对象 ---- DOM
+        ii. 实例化 FormData对象，将表单对象作为参数传入
+    iii. 因为使用了FormData，所以一定要用post方式发送请求，将fd作为参数传入send方法
+</code></pre><p> upload.html</p>
+<pre><code>获取文件数据，发送ajax请求
+</code></pre><p><img src="/images/ajax/1534737676621.png" alt="1534737676621"></p>
+<p>upload.php </p>
+<p><img src="/images/ajax/1534738152106.png" alt="1534738152106"></p>
+<p>2) 调整php配置文件（php.ini），使其支持大文件上传</p>
+<p>① 修改允许上传文件最大的大小</p>
+<p><img src="/images/ajax/1534738492662.png" alt="1534738492662"></p>
+<p>② 修改post表单提交数据的最大大小</p>
+<p><img src="/images/ajax/1534738552491.png" alt="1534738552491"></p>
+<p>重启Apache服务器。</p>
+<p>3) 文件进度条</p>
+<p>① 在页面上设置一个div，用来表示进度条</p>
+<p><img src="/images/ajax/1534738923053.png" alt="1534738923053"></p>
+<p>② 根据实际上传百分比来绘制进度条的宽度</p>
+<pre><code>核心:  xhr对象中有一个子对象（upload），upload对象中有一个事件 onprogress。该事件大约每100ms执行一次，里面有两个重要属性  loaded(已上传大小)    total（总大小）
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ajax/06-XMLHttpRequest2.0新特性" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/03/ajax/06-XMLHttpRequest2.0新特性/" class="article-date">
+      <time datetime="2017-05-03T00:50:05.000Z" itemprop="datePublished">2017-05-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/03/ajax/06-XMLHttpRequest2.0新特性/">06-XMLHttpRequest2.0新特性</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="XMLHttpRequest2-0新特性"><a href="#XMLHttpRequest2-0新特性" class="headerlink" title="XMLHttpRequest2.0新特性"></a>XMLHttpRequest2.0新特性</h1><h2 id="timeout-和-ontimeout"><a href="#timeout-和-ontimeout" class="headerlink" title="timeout 和 ontimeout"></a>timeout 和 ontimeout</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">timeout： 请求超时设置。属性，用来设置等待响应时长，如果超过指定时长，则会触发ontimeout事件</span><br><span class="line"></span><br><span class="line">xhr.timeout = <span class="number">3000</span>;    <span class="comment">// 设置等待时长为3秒</span></span><br><span class="line"></span><br><span class="line">   ontimeout： 事件，用来设置超过等待时长后的动作</span><br><span class="line"></span><br><span class="line">       xhr.ontimeout = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	alert(<span class="string">'请求超时'</span>);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<p>在创建xhr对象之后，来设置timeout属性；如果设置了timeout属性，那么就建议设置ontimeout事件。</p>
+<p><img src="/images/ajax/1534734176919.png" alt="1534734176919"></p>
+<h2 id="FormData表单对象"><a href="#FormData表单对象" class="headerlink" title="FormData表单对象"></a>FormData表单对象</h2><p>小案例:  点击button按钮时，将用户名和密码值通过ajax发送到后端php页面</p>
+<p>FormData对象优势就是能够一次性将表单中的所有数据全部取出，包括文件域的文件对象。</p>
+<p>1)创建表单  form标签很重要， method和action不重要</p>
+<p>   每个表单域需要设置name值</p>
+<p>2)发送ajax请求</p>
+<p>①将表单数据取出 FormData</p>
+<p>i.获取form表单对象:        var fm = document.getElementById(‘mainForm’);  //DOM对象</p>
+<p>ii.实例化FormData对象:  var fd = new FormData(fm);</p>
+<p>②发送ajax请求</p>
+<p>   使用FormData对象以后，必须使用post方式来发送ajax请求。</p>
+<p>   将FormData对象，作为参数传入 send方法中  xhr.send(fd);</p>
+<p>③ 使用FormData对象提交表单时，不需要设置 setRequestHeader方法</p>
+<p>注意点: </p>
+<p>   ① form标签要给id值，方便获取form标签的DOM对象</p>
+<p>   ② 每个域都要给 name值</p>
+<p>   ③ 提交按钮必须用 button，因为submit有跳转功能</p>
+<p>代码实现:</p>
+<p>1) 使用FormData对象获取所有表单的数据，并发送ajax请求</p>
+<p><img src="/images/ajax/1534736127757.png" alt="1534736127757"></p>
+<p><img src="/images/ajax/1534736169386.png" alt="1534736169386"></p>
+<p>2) 在formdata.php页面，接收数据</p>
+<p><img src="/images/ajax/1534736185571.png" alt="1534736185571"></p>
+<p>访问结果:</p>
+<p><img src="/images/ajax/1534736212331.png" alt="1534736212331"></p>
+<p>FormData的内部构造:  key-value</p>
+<p><img src="/images/ajax/1534736045066.png" alt="1534736045066"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ajax/05-同步和异步" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/02/ajax/05-同步和异步/" class="article-date">
+      <time datetime="2017-05-02T07:10:55.000Z" itemprop="datePublished">2017-05-02</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/02/ajax/05-同步和异步/">05-同步和异步</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h1><h2 id="同步-异步概念"><a href="#同步-异步概念" class="headerlink" title="同步/异步概念"></a>同步/异步概念</h2><p>同步: <strong>顺序执行</strong> </p>
+<pre><code>第一步---&gt; 第二步 ---&gt; 第三步 ....
+</code></pre><p>异步:  </p>
+<pre><code>甲在完成一系列工作时，自己完成主工作。将一些分支工作交给乙，甲此时一直在完成自己的工作，并等待乙完成的结果。乙完成后将结果返回给甲。
+</code></pre><p> 核心: open方法的参数3</p>
+<pre><code>参数3是一个布尔值， true异步方式（默认）， false是同步方式
+</code></pre><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>同时显示图片和弹出框</p>
+<p>  访问时: 先弹出123，点击“确定”之后，才显示图片 — 同步</p>
+<p> 1) index.html文件</p>
+<p> <img src="/images/ajax/1534733391709.png" alt="1534733391709"></p>
+<p> 2) index.php文件</p>
+<p> <img src="/images/ajax/1534733426227.png" alt="1534733426227"></p>
+<p> 异步执行情况:  先显示图片，1秒后才显示时间戳弹出框</p>
+<p>同步执行情况:  等待1秒后显示时间戳弹出框，再点击确定之后才显示图片</p>
+<p>重点 :  在实际开发中 95% 以上的请求，都使用异步。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ajax/04-GET缓存" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/02/ajax/04-GET缓存/" class="article-date">
+      <time datetime="2017-05-02T06:00:12.000Z" itemprop="datePublished">2017-05-02</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/02/ajax/04-GET缓存/">04-GET缓存</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="GET缓存"><a href="#GET缓存" class="headerlink" title="GET缓存"></a>GET缓存</h1><h2 id="什么是缓存？"><a href="#什么是缓存？" class="headerlink" title="什么是缓存？"></a>什么是缓存？</h2><p> 浏览器的请求需要从服务器获得许多 css、img、js 等相关的文件，如果每次请求都把相关的资源文件加载一次，对 带宽、服务器资源、用户等待时间 都有严重的损耗。如果浏览器将css、img、js等文件在第一次请求成功后就保存在本机上，以后的每次请求就在本机获得相关的资源文件，那么就可以明显地加快用户的访问速度，同时可以节省各种资源(带宽、服务器资源、用户等待时间)。</p>
+<h2 id="GET缓存测试"><a href="#GET缓存测试" class="headerlink" title="GET缓存测试"></a>GET缓存测试</h2><p> ajax方式，get会有缓存问题。</p>
+<p> 案例:</p>
+<p>   index.html页面中创建一个按钮，点击该按钮时发送ajax请求，得到后端php程序返回的当前时间戳并显示。</p>
+<p>  目标:  点击“获取时间戳”按钮时，触发ajax请求，访问后端的getTime.php文件，得到时间戳并弹出显示</p>
+<ol>
+<li>index.html — 发送请求</li>
+</ol>
+<p><img src="/images/ajax/1534731418356.png" alt="1534731418356"></p>
+<p>index.php — 输出当前时间戳即可。</p>
+<p><img src="/images/ajax/1534731456585.png" alt="1534731456585"></p>
+<p> 在IE下测试:</p>
+<p> <img src="/images/ajax/1534731529792.png" alt="1534731529792"></p>
+<p> 显示的时间戳永远都是这个，说明是缓存问题。</p>
+<p>  解决方法</p>
+<p>  解决方法有两种:</p>
+<p>  1) 前端方案:  在open准备ajax请求时，为请求的地址增加随机后缀。相当于每次请求都是新的地址</p>
+<p>  2) 后端方案:  后端程序设置不允许缓存的头信息，php程序固定使用如下3句即可。</p>
+<pre><code>header(&apos;cache-controller:no-cache&apos;);
+
+header(&apos;Pragam:no-cache&apos;);
+
+header(&apos;Expires:-1&apos;);
+</code></pre><p>1) 前端方案:</p>
+<p><img src="/images/ajax/1534731918647.png" alt="1534731918647"></p>
+<p>2) 后端解决方案:</p>
+<pre><code>header(&apos;cache-controller:no-cache&apos;);
+
+header(&apos;Pragam:no-cache&apos;);
+
+header(&apos;Expires:-1&apos;);
+</code></pre><p><img src="/images/ajax/1534732086860.png" alt="1534732086860"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ajax/03-POST和GET的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/02/ajax/03-POST和GET的区别/" class="article-date">
+      <time datetime="2017-05-02T03:05:02.000Z" itemprop="datePublished">2017-05-02</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/02/ajax/03-POST和GET的区别/">03-POST和GET的区别</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="POST和GET的区别"><a href="#POST和GET的区别" class="headerlink" title="POST和GET的区别"></a>POST和GET的区别</h1><h2 id="GET方式实现新用户注册—用户名检"><a href="#GET方式实现新用户注册—用户名检" class="headerlink" title="GET方式实现新用户注册—用户名检"></a>GET方式实现新用户注册—用户名检</h2><p><img src="/images/ajax/1534727628005.png" alt="1534727628005"></p>
+<p> 步骤:</p>
+<ol>
+<li><p>get.html</p>
+<pre><code>1) 在用户名文本框上绑定失焦事件(onblur)
+
+2) 失焦事件函数
+
+     ① 获取用户名文本框内已填写的用户名
+
+     ② 发送ajax请求，并将已填写的用户名一起发送给后端php页面
+</code></pre></li>
+<li><p>get.html</p>
+<pre><code>1) 接收后端返回的数据，判断是1还是2。
+
+2) 如果等于1，则提示用户名可用；如果等于2，提示用户名被占用
+</code></pre></li>
+</ol>
+<p>代码实现:</p>
+<ol>
+<li><p>get.html</p>
+<pre><code>1) 在用户名文本框上绑定失焦事件(onblur)
+
+2) 失焦事件函数
+
+        ① 获取用户名文本框内已填写的用户名
+
+        ② 发送ajax请求，并将已填写的用户名一起发送给后端php页面
+</code></pre></li>
+</ol>
+<p><img src="/images/ajax/1534728234170.png" alt="1534728234170"></p>
+<p><img src="/images/ajax/1534728252209.png" alt="1534728252209"></p>
+<p> 先测试一下前后端的连通性:</p>
+<p> <img src="/images/ajax/1534728362391.png" alt="1534728362391"></p>
+<ol start="2">
+<li><p>get.php</p>
+<pre><code>1) 接收前端发送过来的用户名
+2) 模拟用户被占用的情况 
+3) 将结果返回给前端（1用户名可用   2用户名被占用）
+</code></pre></li>
+</ol>
+<p><img src="/images/ajax/1534729661714.png" alt="1534729661714">       </p>
+<ol start="3">
+<li><p>get.html</p>
+<pre><code>1) 接收后端返回的数据，判断是1还是2。
+
+2) 如果等于1，则提示用户名可用；如果等于2，提示用户名被占用
+</code></pre></li>
+</ol>
+<p><img src="/images/ajax/1534729897469.png" alt="1534729897469"></p>
+<p>关键点总结:</p>
+<ol>
+<li><p>用户名文本框绑定失焦事件</p>
+</li>
+<li><p>发送ajax请求基本属于流程化操作<br>1) 实例化XMLHttpRequest对象<br>2) 调用open方法准备请求，<strong>get方式发送将数据拼接在url地址之后即可</strong><br>  xhr.open(‘get’,  ‘get.php?<strong>n=’+name</strong>);<br>3) 调用send方法发送请求，<strong>get方式只需要将 null  作为参数传入即可</strong><br>4) 调用onreadystatechange事件，在readyState=4时使用responseText接收返回值。此步使用alert或者console.log先输出接收的结果即可，<strong>不要着急将结果显示在网页上</strong>。</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>创建后端php程序，接收用户名进行验证<br>核心SQL:  select * from ali_admin where admin_email = ‘$name’;<br>该SQL语句的执行结果只可能是两种： 0条数据    1条数据(因为admin_email字段唯一)<br>  0条数据: 说明没有该用户名 （没有被占用）<br>  1条数据: 说明已存在该用户名 （已被占用）<br>根据SQL执行结果返回1或者2，1代表未被占用，2代表已被占用</p>
+</li>
+<li><p>修改get.html文件，将结果显示在网页上<br>获取用来显示结果的span标签，判断接收的结果为1还是2。如果为1，则将用户名可用写入span标签；反之，则将用户名已被占用写入span标签</p>
+</li>
+</ol>
+<h2 id="POST方式实现新用户注册—用户名检测"><a href="#POST方式实现新用户注册—用户名检测" class="headerlink" title="POST方式实现新用户注册—用户名检测"></a>POST方式实现新用户注册—用户名检测</h2><p>post和get两种方式的整体思路一致，只是细节上有所差别</p>
+<p> 1) 使用open准备请求时，参数1需要设置为post，参数2只需要设置后端程序地址。</p>
+<p> 2) 将需要传递到后端的数据拼接成一个独立的字符串，字符串的格式为</p>
+<pre><code>var str = ‘key=value&amp;key=value&amp;....’;    （内部结构跟get传参时的结构一致）
+</code></pre><p> 3) 调用setRequestHeader方法将数据格式转为 application/x-www-form-urlencoded</p>
+<p> 4) 将拼接好的数据字符串作为参数传入send方法</p>
+<p> 5) 后端的php程序需要使用 $_POST来接收数据</p>
+<p>前端的区别:</p>
+<p><img src="/images/ajax/1534730851993.png" alt="1534730851993"></p>
+<p>后端的区别:</p>
+<p><img src="/images/ajax/1534730967099.png" alt="1534730967099"></p>
+<blockquote>
+<p>关键点总结:</p>
+</blockquote>
+<p> 1) 发送程序时，参数1设置为post，参数2只用设置请求的后端文件路径</p>
+<pre><code>xhr.open(&apos;post&apos;, &apos;post.php&apos;);
+</code></pre><p> 2) 将需要传递到后端的数据拼接成一个独立的字符串</p>
+<p>  var str = ‘name=’+name; </p>
+<p> 3) 调用setRequestHeader方法将数据格式转为 application/x-www-form-urlencoded</p>
+<pre><code>xhr.setRequestHeader(&apos;content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);
+</code></pre><p> 4) 发送请求时，要将之前拼接好的字符串作为参数放入send方法中</p>
+<pre><code>xhr.send(str);
+</code></pre><blockquote>
+<p>补充说明 — 实际验证用户名是否存在的方法</p>
+</blockquote>
+<p>核心：  $sql = “select * from ali_admin where admin_email=’$username’”;</p>
+<p>该SQL语句要么查询出1条数据，要么查询出0条数据</p>
+<p>  1条数据说明: 用户名已被占用</p>
+<p>  0条数据说明: 用户名未被占用 – 用户名可用</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-ajax/02-Ajax入门" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -856,493 +1356,9 @@ $_SESSION 超全局变量就能设置和读取session中的内容
 
 
   
-    <article id="post-PHP/25-PHP会话控制" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/27/PHP/25-PHP会话控制/" class="article-date">
-      <time datetime="2017-04-27T02:01:32.000Z" itemprop="datePublished">2017-04-27</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/27/PHP/25-PHP会话控制/">25-PHP会话控制概述</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="会话控制概述"><a href="#会话控制概述" class="headerlink" title="会话控制概述"></a>会话控制概述</h1><p>1) http协议的缺陷</p>
-<pre><code>无状态，就是无记忆，不能让同一浏览器和服务器进行多次数据交换时，产生业务的连续性。
-</code></pre><p>2) 什么是会话控制</p>
-<pre><code>会话控制就是解决http无记忆的缺陷的。能够==将数据持久化的保存在客户端(浏览器)或者服务器端==，从而让浏览器和服务器进行多次数据交换时，产生连续性。
-</code></pre><p>3) 会话控制的分类</p>
-<pre><code>分为两种: cookie（客户端）  和  session（服务器端）
-</code></pre><p>cookie应用实例 — 千人千面（猜你喜欢）</p>
-<p><img src="/images/php/0002.png" alt="1534424615529"></p>
-<p>不同的用户访问优酷服务器所看的视频类型不一样。 服务器会将浏览器观看过的视频的关键词保存到浏览器的cookie中（文件、内存）。当浏览器再次访问优酷服务器时，服务器会从cookie中读取关键词，再根据关键词推荐视频。</p>
-<p>session应用实例 — 支付宝</p>
-<p><img src="/images/php/1534426142105.png" alt="1534426142105"></p>
-<p>每个用户访问支付宝进行登录时，用的是同一套程序。服务器会为每一个浏览器进行编号(sessionid)，当用户登录成功后，服务器会创建一个区域(文件、内存服务器)用来保存用户信息。等浏览器下一次访问服务器时，服务器先拿到浏览器的编号，再和已有的编号进行比较，找到相同的区域（文件、内存服务器）。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/24-修改信息于登录" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/27/PHP/24-修改信息于登录/" class="article-date">
-      <time datetime="2017-04-27T01:21:32.000Z" itemprop="datePublished">2017-04-27</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/27/PHP/24-修改信息于登录/">24-学生信息管理系统</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="修改学生信息"><a href="#修改学生信息" class="headerlink" title="修改学生信息"></a>修改学生信息</h1><p>核心：构造一条修改数据的SQL语句   </p>
-<p>   <strong>update student set sname=’’, sage=’’..  where sno=6</strong></p>
-<p><img src="/images/php/0004.png" alt="1525931034561"></p>
-<p>步骤:</p>
-<p> 1) 在学生列表页(list.php)为每一行都添加一个“编辑”按钮，跳转到编辑表单页(edit.php)，并且要将当前行的sno一起传递到edit.php页面。</p>
-<p> <img src="/images/php/1534470480931.png" alt="1534470480931"></p>
-<p> 2) 创建edit.php页面(和add.html页面结构一样)，接收sno，拼接SQL语句并执行，得到一个一维数组，将该数组的值填充到表单中。</p>
-<p>  ① 接收sno</p>
-<p>  ② 根据sno 查询学生信息</p>
-<p>  ③ 将学生信息显示到表单中  – 将add.html中的表单复制过来，稍作修改即可</p>
-<p>  ④ 保证表单能够提交到modify.php页面即可</p>
-<p><img src="/images/php/1534472770097.png" alt="1534472770097"></p>
-<p><img src="/images/php/1534472786290.png" alt="1534472786290"></p>
-<p>3) 创建一个修改页面(modify.php)，接收edit.php页面表单中的值，拼接一个修改的SQL语句，执行该SQL语句。根据修改结果提示修改成功/修改失败，再跳转</p>
-<p> ① 接收表单提交的数据</p>
-<p> ② 编写修改的SQL语句 — update</p>
-<p> ③ 链接MySQL服务器并执行SQL语句</p>
-<p><img src="/images/php/1534472861491.png" alt="1534472861491"></p>
-<p><img src="/images/php/1534472871239.png" alt="1534472871239"></p>
-<p>关于排错: </p>
-<pre><code>核心思想: 如果一个程序中有SQL语句执行，那么该程序出现错误，第一反应去检查SQL语句。
-
-检查方法:
-
-     1) 在php页面中使用echo 将sql语句进行输出
-
-      2) 在页面上复制SQL语句到navicat中进行测试
-</code></pre><p>   第一步:</p>
-<p><img src="/images/php/1534471889871.png" alt="1534471889871"></p>
-<p><img src="/images/php/1534471933626.png" alt="1534471933626"></p>
-<p><img src="/images/php/1534472010096.png" alt="1534472010096"></p>
-<p>将SQL语句复制到navicat中执行，获取错误信息。</p>
-<p><img src="/images/php/1534472183035.png" alt="1534472183035"></p>
-<h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><p><img src="/images/php/0001.png" alt="1534422493447"></p>
-<p>验证逻辑:</p>
-<p> 1) 根据用户名从ali_admin表中查询数据。如果有结果，则说明用户名正确；反之，说明用户名错误。</p>
-<p> 2) 登录表单提交密码和上一步查询出的密码进行比对，两者相等说明密码正确；反之，密码错误。</p>
-<p>代码实现:</p>
-<p>1) 创建login.html 登录表单页</p>
-<p><img src="/images/php/1534475186781.png" alt="1534475186781"></p>
-<p>2)  创建check.php文件</p>
-<p>  ① 接收表单提交的数据</p>
-<p>  ② 验证用户名是否正确</p>
-<pre><code>核心思路:  根据接收的用户名查询ali_admin表，如果能够查询到数据，说明用户名正确；反之，查询不到数据说明用户名错误。
-
- 核心SQL: ==select * from ali_admin where admin_email=&apos;$email&apos;==
-
- 该SQL语句的执行结果，只能是0条数据 或者 1条数据
-</code></pre><p>  ③ 验证密码是否正确</p>
-<p>   核心思路:  验证从数据表中查询出的数据中的密码和表单提交的密码是否一致。如果一致，则说明密码正确，可以正常登录；反之，说明密码错误，跳转到login.html页面</p>
-<p><img src="/images/php/1534475375825.png" alt="1534475375825"></p>
-<p><img src="/images/php/1534475387591.png" alt="1534475387591"></p>
-<p>测试: 直接访问 list.php页面，依然可以看到页面结果。 因为http协议是无记忆协议，不知道哪个浏览器来过，所以没办法限制是否能够正常访问到哪个页面。</p>
-<p>要实现限制的功能，必须配合 <strong>会话控制</strong>技术</p>
-<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想:"></a>核心思想:</h2><pre><code>1) 登录成功时将用户重要信息写入session
-
-2) 在其他每个页面中都进行session是否存在的验证
-</code></pre><p>1) 登录成功时，设置session</p>
-<p><img src="/images/php/1534555270715.png" alt="1534555270715"></p>
-<p>2) 在其他页面中检测session是否存在</p>
-<p><img src="/images/php/1534555378519.png" alt="1534555378519"></p>
-<p>3) 将检测session 的代码复制到每个页面中，除了 login.html 和 check.php</p>
-<p><img src="/images/php/1534555451516.png" alt="1534555451516"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL-PHP/">MySQL PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/23-信息管理系统" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/26/PHP/23-信息管理系统/" class="article-date">
-      <time datetime="2017-04-26T08:14:32.000Z" itemprop="datePublished">2017-04-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/26/PHP/23-信息管理系统/">23-学生信息管理系统</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="学生信息管理系统"><a href="#学生信息管理系统" class="headerlink" title="学生信息管理系统"></a>学生信息管理系统</h1><p><strong>目标: 通过PHP网页来管理数据库，对数据表的数据进行增删改查</strong></p>
-<p>数据表设计:</p>
-<pre><code>sno： 学号  整型  无符号  主键  自增长
-sname： 姓名  字符串
-sage： 年龄 无符号 微整型
-sgender： 性别 枚举
-semail： 邮箱
-stel： 电话
-
-
-create table student(
-sno int UNSIGNED auto_increment PRIMARY key,
-sname VARCHAR(30) not null,
-sage tinyint UNSIGNED not null,
-sgender enum(&apos;男&apos;, &apos;女&apos;) DEFAULT &apos;男&apos;,
-semail varchar(30),
-stel   char(11)
-) engine=myisam DEFAULT charset=utf8;
-</code></pre><p>测试数据:</p>
-<p>INSERT INTO student VALUES (‘1’, ‘赵老四’, ‘30’, ‘男’, <a href="mailto:&#39;zls@a.com" target="_blank" rel="noopener">&#39;zls@a.com</a>‘, ‘13512345678’);</p>
-<p>INSERT INTO student VALUES (‘2’, ‘王翠花’, ‘28’, ‘女’, <a href="mailto:&#39;wch@b.com" target="_blank" rel="noopener">&#39;wch@b.com</a>‘, ‘13612345678’);</p>
-<p>INSERT INTO student VALUES (‘3’, ‘孙狗剩’, ‘32’, ‘男’, <a href="mailto:&#39;sgs@c.com" target="_blank" rel="noopener">&#39;sgs@c.com</a>‘, ‘13712345678’);</p>
-<h2 id="学生信息列表"><a href="#学生信息列表" class="headerlink" title="学生信息列表"></a>学生信息列表</h2><p>核心SQL:  select  *  from  student</p>
-<p> 将student表的数据以表格形式显示在网页上</p>
-<p><img src="/images/php/01.png" alt="1534258428616"></p>
-<p> 1) 从student表中获取数据</p>
-<p> <img src="/images/php/1534303266774.png" alt="1534303266774"></p>
-<p> 2) 将获取的数据显示表格</p>
-<p> <img src="/images/php/1534303304520.png" alt="1534303304520"></p>
-<p> 3) 释放资源</p>
-<p> <img src="/images/php/1534303325933.png" alt="1534303325933"></p>
-<h2 id="添加学生信息"><a href="#添加学生信息" class="headerlink" title="添加学生信息"></a>添加学生信息</h2><p> 核心SQL:  insert into student values(null, ‘路飞’, 10, ‘男’, <a href="mailto:&#39;lf@dasd.com" target="_blank" rel="noopener">&#39;lf@dasd.com</a>‘, 18012345678);</p>
-<p> <img src="/images/php/4564646546545646.png" alt="1528439313954"></p>
-<p> 代码实现:</p>
-<p>add.html  —-   提供一个可以填写的表单</p>
-<p><img src="/images/php/1534305511046.png" alt="1534305511046"></p>
-<p>add_deal.php</p>
-<p>  1) 接收表单数据</p>
-<p>  2) 拼接SQL语句</p>
-<p>  3) 链接MySQL服务器并执行SQL语句</p>
-<p>  4) 处理SQL执行结果： 判断结果，如果是true说明添加成功，如果是false说明添加失败</p>
-<p>  5) 关闭数据库链接</p>
-<p><img src="/images/php/1534305668178.png" alt="1534305668178"></p>
-<p><img src="/images/php/1534305682999.png" alt="1534305682999"></p>
-<h2 id="删除学生"><a href="#删除学生" class="headerlink" title="删除学生"></a>删除学生</h2><p>核心SQL:  <strong>delete from student where sno=5</strong></p>
-<p><img src="/images/php/03.png" alt="1525930130559"></p>
-<p>步骤: </p>
-<p>   1) 在学生信息列表页(index.php)，为每一行都添加一个删除按钮，删除按钮可以跳转到另一个php(del.php)页面，在跳转时，将当前行的sno一起传递到del.php页面。</p>
-<p><img src="/images/php/1534306751175.png" alt="1534306751175"></p>
-<p>   2) del.php页面，接收sno，拼接删除的sql语句，再执行该SQL。再根据删除结果提示删除成功/删除失败。跳转回学生列表页。</p>
-<p>  ① 接收学号 sno</p>
-<p>  ② 拼接删除的SQL语句</p>
-<p>  ③ 链接MySQL服务器并执行SQL语句</p>
-<p><img src="/images/php/1534306776699.png" alt="1534306776699"></p>
-<p><img src="/images/php/1534306790027.png" alt="1534306790027"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL-PHP/">MySQL PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/22-PHP操作MySQL" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/26/PHP/22-PHP操作MySQL/" class="article-date">
-      <time datetime="2017-04-26T06:34:42.000Z" itemprop="datePublished">2017-04-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/26/PHP/22-PHP操作MySQL/">22-PHP操作MySQL</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="PHP操作MySQL"><a href="#PHP操作MySQL" class="headerlink" title="PHP操作MySQL"></a>PHP操作MySQL</h1><p>PHP当中一共有三组函数可以用来操作MySQL服务器： mysql    mysqli   pdo</p>
-<p>   PHP操作数据库是固定流程，一共6步:</p>
-<p>   1) 链接MySQL服务器  </p>
-<p>   2) 选择要操作的数据库</p>
-<p>   3) 设置字符集 （不设置字符集可能会出现乱码问题）</p>
-<p>   4) 执行SQL语句</p>
-<p>   5) 处理SQL执行结果</p>
-<p>   6) 关闭MySQL链接</p>
-<p>   除了第五步，其他每一步都是固定的，对应一个mysql的函数</p>
-<p> 1) 链接MySQL服务器 — mysql_connect(var1, var2, var3)</p>
-<p>  参数1: MySQL数据库的主机地址</p>
-<p>  参数2: MySQL用户名  （root）</p>
-<p>  参数3: 用户名对应的密码</p>
-<p>  返回值: 数据库链接资源</p>
-<p>  <code>$conn = mysql_connect(&#39;localhost&#39;, &#39;root&#39;, &#39;root&#39;);</code></p>
-<p>  2) 选择要操作的数据库  — mysql_select_db(var)</p>
-<p>  参数1: 数据库名称</p>
-<p> <code>mysql_select_db(&#39;demo&#39;);</code></p>
-<p>   3) 设置字符集 — mysql_query(var);</p>
-<p>  参数1: sql 语句 —-  set names utf8  (设置字符集的sql语句)</p>
-<p>  <code>mysql_query(&#39;set names utf8&#39;);</code></p>
-<p>   4) 执行SQL语句 — mysql_query(var);</p>
-<p>  参数: sql 语句 —-  增删改查SQL语句</p>
-<p>  返回值: 如果是查询，则返回结果集（资源），该资源里面包含了从数据表中取出的数据</p>
-<pre><code>如果是增删改，则返回布尔值，执行成功返回true，失败返回false
-</code></pre><p>  <code>$result = mysql_query($conn, $sql);</code></p>
-<p>5) 处理 <strong>查询结果</strong></p>
-<p> <strong>mysql_fetch_assoc(var);</strong></p>
-<p>  参数: 查询结果集（资源）</p>
-<p>  返回值: 一维数组，下标是数据表字段</p>
-<p>  将当前行的数据取出并返回成一维数组，同时将指针向下移动一行。</p>
-<p>  如果已经无法返回一维数组时，则返回false </p>
-<p>   6) 关闭MySQL链接资源 — mysql_close(var)</p>
-<p>   参数: 数据库链接资源</p>
-<p>案例: 向test库中的student表中，增加一条数据</p>
-<p><img src="/images/php/1534299226350.png" alt="1534299226350"></p>
-<p><img src="/images/php/1534299257926.png" alt="1534299257926"></p>
-<p> 案例: 查询student表，并将数据以表格形式显示在网页上</p>
-<p> <img src="/images/php/1534302509227.png" alt="1534302509227"></p>
-<p> <img src="/images/php/1534302540798.png" alt="1534302540798"></p>
-<p> <img src="/images/php/1534302553169.png" alt="1534302553169"></p>
-<p> 核心: mysql_fetch_assoc的执行原理</p>
-<p> <img src="/images/php/1534302580309.png" alt="1534302580309"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL-PHP/">MySQL PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/21-删除数据" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/26/PHP/21-删除数据/" class="article-date">
-      <time datetime="2017-04-26T04:04:35.000Z" itemprop="datePublished">2017-04-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/26/PHP/21-删除数据/">21-删除数据</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="5-删除数据"><a href="#5-删除数据" class="headerlink" title="5. 删除数据"></a>5. 删除数据</h1><p>格式:  delete from 表名  where 删除条件</p>
-<blockquote>
-<p>案例4: 删除cate_id=5的栏目</p>
-</blockquote>
-<p><img src="/images/php/1534297771122.png" alt="1534297771122"></p>
-<p><img src="/images/php/1534297834108.png" alt="1534297834108"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 

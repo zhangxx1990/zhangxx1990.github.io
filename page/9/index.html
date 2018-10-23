@@ -196,7 +196,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.67px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15.56px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.67px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.11px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.67px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 14.44px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.22px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12.22px;">Node</a> <a href="/tags/PHP/" style="font-size: 18.89px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.78px;">jQuery</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 17px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 16px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 17px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 17px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12px;">Node</a> <a href="/tags/PHP/" style="font-size: 19px;">PHP</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/jQuery/" style="font-size: 18px;">jQuery</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -292,6 +292,557 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-PHP/05-PHP变量、常量、运算符" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/23/PHP/05-PHP变量、常量、运算符/" class="article-date">
+      <time datetime="2017-04-23T05:02:11.000Z" itemprop="datePublished">2017-04-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/23/PHP/05-PHP变量、常量、运算符/">05-PHP变量</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>变量命名规则：</p>
+<ul>
+<li>由字母、数字、下划线组成，必须以字母或者下划线起头</li>
+<li>变量的长度可以是任意的，但不能超过255个字符</li>
+<li>最前面需要加 $</li>
+<li>变量名最好有意义，能够做到见名知意</li>
+<li>当变量名由多单词组成时，最好使用下划线分割或者使用驼峰命名法</li>
+<li>PHP变量区分大小写</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">// 正确的变量名</span></span><br><span class="line">$int = <span class="number">123</span>;</span><br><span class="line">$str = <span class="string">'abc'</span>;</span><br><span class="line">$str1 = <span class="string">"def"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量名区分大小写</span></span><br><span class="line">$INT = <span class="number">234</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $int;</span><br><span class="line"><span class="keyword">echo</span> $INT;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 推荐的变量名</span></span><br><span class="line">$goods_name = <span class="string">"华为 保时捷"</span>;</span><br><span class="line">$goodsPrice = <span class="number">10888</span>;</span><br><span class="line"></span><br><span class="line">$a = <span class="string">'big'</span>;</span><br><span class="line">$big = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">echo</span> $$a;  <span class="comment">//可变变量  echo $big</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>思考：<br>以下变量名哪些是正确的：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$a、  $var、  $_123、  $<span class="number">1</span>b、  $b1c2、  $_<span class="comment">#abc</span></span><br></pre></td></tr></table></figure>
+<h2 id="双引号和单引号的区别"><a href="#双引号和单引号的区别" class="headerlink" title="双引号和单引号的区别"></a>双引号和单引号的区别</h2><p><strong>双引号中的变量会被解释为值</strong></p>
+<p><strong>单引号中的变量会被解释为字符串</strong></p>
+<p>  单引号的执行速度会快于双引号的速度</p>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>保存不会发生改变的数据(如：3.1415， 路径等)时，最好使用常量。</p>
+<p> 常量的使用方法：</p>
+<p>   1) 声明:  define(常量名,  常量值,  大小写区分标志);   </p>
+<pre><code>true（不区分）/false（区分/默认）;
+</code></pre><p>   2) 调用:  echo  常量名;</p>
+<p>   <img src="/images/php/1533698709352.png" alt=""></p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="运算符种类"><a href="#运算符种类" class="headerlink" title="运算符种类"></a>运算符种类</h3><ul>
+<li>算术运算符</li>
+<li>字符串运算符</li>
+<li>赋值运算符</li>
+<li>比较运算符</li>
+<li>逻辑运算符</li>
+<li>其他运算符</li>
+</ul>
+<p>算术运算符：</p>
+<p><img src="/images/php/wpsEA60.tmp.jpg" alt="img"></p>
+<p>特殊案例:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$str = <span class="string">"abc"</span>;</span><br><span class="line">$int = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">echo</span> $str + $int;   <span class="comment">//20</span></span><br><span class="line"></span><br><span class="line">$str = <span class="string">"5"</span>;</span><br><span class="line">$int = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">echo</span> $str + $int;   <span class="comment">//25</span></span><br></pre></td></tr></table></figure></p>
+<p>赋值运算符：</p>
+<p><img src="/images/php/wps7D4D.tmp.jpg" alt="img"></p>
+<p><code>$a += $b   $a = $a + $b</code></p>
+<p>比较运算符：</p>
+<p> <img src="/images/php/wpsCF.tmp.jpg" alt="img"></p>
+<p>逻辑运算符：</p>
+<p><img src="/images/php/wps5CD4.tmp.jpg" alt="img"></p>
+<p>异或: (了解)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">true   xor   true   =  false</span><br><span class="line">true   xor   false  =  true</span><br><span class="line">false  xor   true   =  true</span><br><span class="line">false  xor   false  =  false</span><br></pre></td></tr></table></figure></p>
+<p>其他运算符：</p>
+<p><img src="/images/php/wps3355.tmp.jpg" alt="img"></p>
+<p>三元运算符: 判断表达式？值1：值2</p>
+<p>php默认内置有4种错误： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">notice：         通知错误</span><br><span class="line">Warning error：  警告错误</span><br><span class="line">Parse error：    解析错误</span><br><span class="line">Fatal error：    致命错误</span><br></pre></td></tr></table></figure>
+<p>@不能屏蔽掉所有的错误。 也不建议在实际开发中使用该符号<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">// 语法错误是不能被屏蔽掉的</span></span><br><span class="line">@$books = <span class="string">"JavaScript"</span></span><br><span class="line"><span class="keyword">echo</span> $books;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 大多数其他错误是可以被屏蔽掉的</span></span><br><span class="line">@abc();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="字符串链接运算符"><a href="#字符串链接运算符" class="headerlink" title="字符串链接运算符"></a>字符串链接运算符</h2><ul>
+<li><p>字符串拼接:  （ . ）  </p>
+<pre><code>在php中字符串拼接:   .  
+
+与js中的 + 号 拼接符使用方式一致
+</code></pre><p> 在php中  + 号 是运算符。</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/04-PHP运行原理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/23/PHP/04-PHP运行原理/" class="article-date">
+      <time datetime="2017-04-23T03:42:51.000Z" itemprop="datePublished">2017-04-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/23/PHP/04-PHP运行原理/">04-PHP运行原理</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="PHP运行原理"><a href="#PHP运行原理" class="headerlink" title="PHP运行原理"></a>PHP运行原理</h1><p>##HTML运行原理</p>
+<p><img src="/images/php/1525248413592.png" alt=""></p>
+<p>1) 在浏览器的URL地址栏中输入 <a href="http://www.baidu.com/index.html" target="_blank" rel="noopener">www.baidu.com/index.html</a> 地址，点回车。请求就发送给百度服务器。</p>
+<p>2) 百度服务器找到index.html文件，并将文件的内容返回给浏览器</p>
+<p>3) 浏览器接收到index.html中的内容，渲染到页面上。</p>
+<p>同理: localhost/a.html ,  则会返回 本机web服务器根目录下 a.html文件的内容。浏览器拿到内容后进行渲染。</p>
+<h2 id="PHP运行原理-1"><a href="#PHP运行原理-1" class="headerlink" title="PHP运行原理"></a>PHP运行原理</h2><p> <strong>apache不认识php</strong></p>
+<p> <strong>浏览器也不认识php</strong></p>
+<p> <img src="/images/php/1525248877964.png" alt=""></p>
+<p> 1) 在浏览器地址栏中输入 localhost/index.php ,点回车之后。将请求发送给apache服务器。</p>
+<p> 2) 服务器找到 index.php文件之后，转发给php解释器</p>
+<p> 3) php解释器将index.php文件中的php代码全部转为html，再返回给apache</p>
+<p> 4) apache将处理好的html返回给浏览器，浏览器渲染后就可以看到页面</p>
+<h2 id="PHP的数据类型"><a href="#PHP的数据类型" class="headerlink" title="PHP的数据类型"></a>PHP的数据类型</h2><p>  <strong>PHP数据类型一共有8种:</strong></p>
+<ul>
+<li><p>基本类型(标量):</p>
+<pre><code>整型: 整数， 例如: 10, 234, -20, -35 
+浮点型:  小数,  例如: 3.1415, 2.13, 35.123
+布尔值:  true/false
+字符串:  使用单引号/双引号包含的内容, 例如: ‘abc’, “王者荣耀”
+</code></pre></li>
+<li><p>复合类型:</p>
+<pre><code>数组
+
+对象
+</code></pre></li>
+<li><p>特殊类型:</p>
+<pre><code>资源 
+null (空)
+</code></pre></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/03-PHP初识" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/23/PHP/03-PHP初识/" class="article-date">
+      <time datetime="2017-04-23T02:30:16.000Z" itemprop="datePublished">2017-04-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/23/PHP/03-PHP初识/">03-PHP介绍</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="初识PHP"><a href="#初识PHP" class="headerlink" title="初识PHP"></a>初识PHP</h1><h2 id="第一个程序-—-Hello-World"><a href="#第一个程序-—-Hello-World" class="headerlink" title="第一个程序 — Hello World"></a>第一个程序 — Hello World</h2><p>1) 在WWW目录下创建如下目录结构： php1/code/</p>
+<p>2) 在code目录下创建  hello.php 文件</p>
+<p>3) 使用sublime（或其他编辑器）打开hello.php，编写如下代码</p>
+<p>4) 访问测试 </p>
+<pre><code>在浏览器中输入：localhost/php1/code/hello.php
+</code></pre><p><img src="/images/php/1533694176851.png" alt=""></p>
+<h2 id="程序解析"><a href="#程序解析" class="headerlink" title="程序解析"></a>程序解析</h2><p>1) <strong>php文件不能使用中文进行命名， 浏览器地址栏不允许出现中文</strong>———在实际开发中摒弃中文</p>
+<p>2) <strong>在浏览器中查看任何文件（不管是html还是php）都必须使用localhost</strong></p>
+<p>3) PHP程序可以和HTML进行混编，可以写在HTML中的任何位置，head、body，任何标签，任何属性均可</p>
+<p>4) php语言的标记<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  php代码  <span class="meta">?&gt;</span>   标准标记</span><br><span class="line"><span class="meta">&lt;?</span>     php代码  <span class="meta">?&gt;</span>   短标记（需要修改php.ini文件打开）</span><br></pre></td></tr></table></figure></p>
+<p>5) 指令分隔符：<strong>必须使用</strong>（不然会报错）<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHP语句使用 ‘;’  结束</span><br></pre></td></tr></table></figure></p>
+<p>6) echo相当于js的 document.write 能够在页面上输出内容，包括输出标签、css样式代码等</p>
+<p>7) php文件中可以编写html、css、js代码，但是html文件中不能编写php代码。也就是说<strong>后缀是php的文件才能编写php代码</strong></p>
+<h2 id="URL解析"><a href="#URL解析" class="headerlink" title="URL解析"></a>URL解析</h2><h3 id="URL地址说明"><a href="#URL地址说明" class="headerlink" title="URL地址说明"></a>URL地址说明</h3><p>URL: uniform resource locator  统一资源定位器</p>
+<pre><code>localhost  &lt;==&gt;  http://localhost:80/index.html （全URL）
+</code></pre><ul>
+<li>http: 超文本传输协议</li>
+<li>localhost: 域名。（一般域名：<a href="http://www.taobao.com，www.sina.com.cn）" target="_blank" rel="noopener">www.taobao.com，www.sina.com.cn）</a> localhost是特殊域名，每一台电脑都有，并且指向当前使用的电脑</li>
+<li>80: 端口号。 apache的默认端口号为80，所以可以省略不写  (tips:很多web服务器默认端口都是80 Nginx IIS)</li>
+<li>index.html: 访问的文件的路径 (localhost指向了 d:/phpstudy/WWW)，所以该url地址访问的是  d:/phpstudy/WWW/index.html文件</li>
+<li>如果没有指定访问的文件，则默认会访问index.html文件；如果没有index.html文件，则会以列表形式显示当前目录下的所有文件夹和文件<br>localhost:  D:\phpStudy\WWW</li>
+</ul>
+<h3 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h3><p>IP: Internet Protocol  互联网协议，是为计算机网络相互连接进行通信而设计的协议。</p>
+<pre><code>处于网络（互联网、局域网）上的任何一台计算机都有一个独立的ip地址。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip地址由4段3位长度的数字组成， 3位数字的取值范围 0-255。如： 102.15.201.10</span><br></pre></td></tr></table></figure>
+<p>特殊ip:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 : 回环地址，每一台电脑都有该ip，指向当前使用的电脑</span><br><span class="line">192.168.**.* *: 该网段是专门用于做==局域网==的ip段。</span><br></pre></td></tr></table></figure></p>
+<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>域名（Domain Name）： 每个网站都有一个自己的域名。人们可以在浏览器中输入域名来访问对应的网站。</p>
+<pre><code>淘宝: www.taobao.com
+
+百度: www.baidu.com
+</code></pre><p>特殊域名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost: 本地主机。在浏览器中输入localhost就会访问当前操作的这台电脑的web服务器。</span><br></pre></td></tr></table></figure></p>
+<h3 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h3><p>  DNS: Domain Name System  域名系统。在DNS服务器中保存了域名和IP的映射关系。主要工作是将域名转换为IP地址，因为我们通过浏览器访问网站时，实际上是去找对应的IP地址。</p>
+<p>   域名: 网站的名称，就相当于人名。</p>
+<p>   IP: 网站在网络上的实际地址，就相当于人的住址。</p>
+<pre><code>一般访问网站时都是输入域名的(例如： www.tmall.com  www.163.com)，但是在实际访问时域名会被DNS转换为IP地址。
+</code></pre><p>   DNS工作机制图:<br>   <img src="/images/php/1533537911304.png" alt=""></p>
+<p>hosts文件可以手动设置域名和IP的映射关系</p>
+<p>dns缓存可以保存曾经访问过的域名和IP的映射关系</p>
+<p>工作步骤:</p>
+<p>1)  在浏览器中输入  <a href="http://www.taobao.com，按下回车" target="_blank" rel="noopener">www.taobao.com，按下回车</a></p>
+<p>2)  浏览器首先在本机中的 hosts文件和dns缓存中查询，<a href="http://www.taobao.com的IP地址。如果有，则获取该IP地址，然后去访问淘宝服务器。" target="_blank" rel="noopener">www.taobao.com的IP地址。如果有，则获取该IP地址，然后去访问淘宝服务器。</a> 如果没有，则向dns服务器发送解析请求。</p>
+<p>3) dns服务器获取到浏览器请求信息之后， 将域名转换为IP地址，再将IP地址返回给浏览器。</p>
+<p>4) 浏览器获取到IP地址，然后通过IP地址访问淘宝服务器。 </p>
+<p> windows下查看dns缓存:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">windows下查看dns缓存:</span><br></pre></td></tr></table></figure>
+<p>思考：IP地址和域名是不是一一对应的？</p>
+<p>  有域名没有IP； 有IP没有域名；一个IP可以对应多个域名。</p>
+<h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p> 端口是英文port的意译。端口可以理解为区分服务器上服务的标号。</p>
+<p>   已被占用的著名端口号：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">80:   Web端口号， Apache、Nginx、IIS</span><br><span class="line">21:   FTP端口号， FTP软件</span><br><span class="line">22:   SSH端口号</span><br><span class="line">25:   sendmail端口号</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>因为Web服务的默认端口号是80，所以在地址栏可以不输入，但是如果将端口号改为其他的（如：8088），那就必须输入端口号，才能正常访问。</p>
+<p><img src="/images/php/1527767769377.png" alt=""></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/02-PHP安装环境" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/23/PHP/02-PHP安装环境/" class="article-date">
+      <time datetime="2017-04-23T01:00:26.000Z" itemprop="datePublished">2017-04-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/23/PHP/02-PHP安装环境/">02-PHP安装环境 （phpstudy）</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="安装环境-（phpstudy）"><a href="#安装环境-（phpstudy）" class="headerlink" title="安装环境 （phpstudy）"></a>安装环境 （phpstudy）</h1><blockquote>
+<p> phpstudy是一个集成环境，集成了Apache（IIS和nginx）、PHP、MySQL。 安装该软件后，PHP开发的程序就能运行了。</p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>解压phpstudy包<br><img src="/images/php/1523379032499.png" alt=""></p>
+<p>解压后:</p>
+<p><img src="/images/php/1523379104282.png" alt=""></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>双击安装文件即开始安装</p>
+<p>   特别注意: <strong>phpstudy</strong>的安装路径中<strong>不允许出现中文</strong>，今后安装所有开发相关的软件时也都安装在英文路径下</p>
+<p><img src="/images/php/1523379251895.png" alt=""></p>
+<p>此处选择“是”</p>
+<p>(也许会在这之前弹出一个空白的网页，不要管他，关闭就会出现下面的情况)<br><img src="/images/php/1523379346800.png" alt=""></p>
+<p>设置防火墙允许访问， <strong>Apache和MySQL</strong>都要允许</p>
+<p><img src="/images/php/1523379425748.png" alt=""></p>
+<p>开启Apache和MySQL服务： <strong>绿色圆圈表示启动， 红色方块表示停止</strong></p>
+<p><img src="/images/php/1523379454261.png" alt=""></p>
+<p>打开浏览器输入</p>
+<p>测试:  开启任意浏览器，输入下列地址</p>
+<p>  127.0.0.1  、  127.0.0.1:80</p>
+<p>  localhost  、  localhost:80</p>
+<p><img src="/images/php/1523379608850.png" alt=""></p>
+<p>看到上图说明已经安装成功</p>
+<h2 id="phpstudy目录结构"><a href="#phpstudy目录结构" class="headerlink" title="phpstudy目录结构"></a>phpstudy目录结构</h2><p><img src="/images/php/1523380423065.png" alt=""></p>
+<p>phpstudy集成了 Apache、IIS、nginx三种最常见的web服务器软件和多个版本的PHP，并且通过图形化控制面板（phpstudy.exe）可以自由切换</p>
+<p>切换服务器和php版本：  默认使用的是  <strong>Apache + php-5.4.45</strong></p>
+<p><img src="/images/php/1523380821032.png" alt=""></p>
+<h2 id="Apache目录结构"><a href="#Apache目录结构" class="headerlink" title="Apache目录结构"></a>Apache目录结构</h2><p><img src="/images/php/1523380676384.png" alt=""><br><img src="/images/php/1523380739318.png" alt=""><br>配置文件中带 # 的都是注释项，不带的是有效的配置项<br><img src="/images/php/1523381071356.png" alt=""></p>
+<p>主要配置项：<br><img src="/images/php/1523381009030.png" alt=""></p>
+<p>重点:</p>
+<p>  <strong>Listen: 如果报80端口被占用可以修改为其他值，例如：8088</strong><br><img src="/images/php/1523381364324.png" alt=""></p>
+<p>DocumentRoot: 配置html、css、js、php等文件保存的路径。</p>
+<p>浏览器中输入localhost或者127.0.0.1，系统就会去DocumentRoot指定的目录去寻找对应的文件。<br><img src="/images/php/1525313932857.png" alt=""></p>
+<p>DirectoryIndex:  默认访问文件配置<br><img src="/images/php/1525314000860.png" alt=""></p>
+<p>localhost =&gt;  localhost/index.html</p>
+<p>localhost : 首先在www目录下找 index.html；如果没有index.html，找index.php；如果没有Index.php找index.htm；没有则找 l.php。  如果连 l.php都没有，则会将 www 目录下的所有文件和文件夹以列表形式显示出来</p>
+<h2 id="PHP目录结构"><a href="#PHP目录结构" class="headerlink" title="PHP目录结构"></a>PHP目录结构</h2><p><img src="/images/php/1523380928859.png" alt=""></p>
+<p>php.ini: php配置文件。  进入到 php-5.4.45目录<br><img src="/images/php/1525314434763.png" alt=""><br>带 ； 是注释，不带的是有效配置项</p>
+<h3 id="WWW目录"><a href="#WWW目录" class="headerlink" title="WWW目录"></a>WWW目录</h3><p>我们今后编写的所有网页文件（html、css、js、php）和网页所需要的资源文件（图片、音频、视频） 都需要保存在该目录下。<br><img src="/images/php/1525244224450.png" alt=""></p>
+<p>当我们通过浏览器访问任意页面时，都需要在浏览器的url地址栏输入类似地址来进行访问，不论是php文件还是html文件。</p>
+<p>例如：</p>
+<p>localhost/index.html       localhost/admin/showlist.php</p>
+<p>localhost会找  d:/phpstudy/www 目录下的文件</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/01-PHP介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/22/PHP/01-PHP介绍/" class="article-date">
+      <time datetime="2017-04-22T07:13:12.000Z" itemprop="datePublished">2017-04-22</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/22/PHP/01-PHP介绍/">01-PHP介绍</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="PHP介绍"><a href="#PHP介绍" class="headerlink" title="PHP介绍"></a>PHP介绍</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h2><blockquote>
+<p>PHP是现在非常流行的一种后端开发语言，常见的语言还有：JSP、ASP.NET、 Ruby等。相对于其他的语言来讲，PHP更容易上手，并且开发速度快、功能强大。</p>
+</blockquote>
+<h2 id="web服务器"><a href="#web服务器" class="headerlink" title="web服务器"></a>web服务器</h2><h3 id="什么是服务器？"><a href="#什么是服务器？" class="headerlink" title="什么是服务器？"></a>什么是服务器？</h3><blockquote>
+<p>服务器可以从硬件、软件(系统软件、应用软件)两个角度描述。</p>
+</blockquote>
+<blockquote>
+<p>按硬件描述： 服务器就是一台超级计算机。</p>
+</blockquote>
+<blockquote>
+<p>按系统划分： 在硬件上安装了什么操作系统，就可以称为该系统的服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如:  linux服务器、windows服务器、unix服务器等。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>按软件划分： 在操作系统中安装了什么软件，就可以称作该软件的服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如:  ==web服务器、数据库服务器==、邮件服务器等。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h3><blockquote>
+<p>Web服务器就是安装了Web服务软件，能够提供网站服务的服务器。淘宝、京东、新浪等等</p>
+<ul>
+<li>常见的Web软件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Apache、Nginx、IIS、Tomcat、Node等。</span><br><span class="line">Apache服务器、Nginx服务器、IIS服务器、Tomcat服务器、Node服务器</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Apache是世界使用排名第一的Web服务器软件。我们将编写好的html、css、js等文件存入apache，就能够通过网络来访问这些文件了。</p>
+</blockquote>
+<p>PS: web服务器又叫做http/httpd服务器<br><img src="/images/php/1527767382808.png" alt=""></p>
+<h2 id="PHP概述"><a href="#PHP概述" class="headerlink" title="PHP概述"></a>PHP概述</h2><h3 id="PHP简介"><a href="#PHP简介" class="headerlink" title="PHP简介"></a>PHP简介</h3><blockquote>
+<p>  PHP（外文名:PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一种通用开源脚本语言。主要适用于<strong>Web领域的开发</strong>，能够完成<strong>动态网页</strong>的制作。</p>
+</blockquote>
+<ul>
+<li>例如：淘宝的搜索功能，不同的关键词能够动态产生不同的网页。<br><img src="/images/php/1533535903794.png" alt=""></li>
+</ul>
+<h3 id="PHP特点"><a href="#PHP特点" class="headerlink" title="PHP特点"></a>PHP特点</h3><ul>
+<li>PHP是目前最流行的网站开发语言（B/S结构）之一。</li>
+<li>PHP是一种在服务器端执行的嵌入HTML文档的脚本语言。</li>
+<li>PHP 独特的语法混合了 C、Java、Perl 以及 PHP 自创新的语法。</li>
+<li><strong>PHP是一种解释型弱类型语言 （弱类型  解释执行 / 强类型  编译执行）</strong></li>
+<li>支持几乎所有流行的数据库以及操作系统。</li>
+<li>源码开放、免费（free）  zend</li>
+</ul>
+<h3 id="B-S结构和C-S结构"><a href="#B-S结构和C-S结构" class="headerlink" title="B/S结构和C/S结构"></a>B/S结构和C/S结构</h3><ul>
+<li>C/S软件体系结构，即Client/Server (客户机/服务器)结构。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">核心特点：要下载一个客户端，例如：QQ、微信、LOL、王者荣耀、绝地求生等。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>C/S结构的软件，服务器主要做<strong>数据转发</strong>工作。以QQ聊天为例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">任何两个人聊天的内容都会发送到QQ服务器上，然后再由QQ服务器进行转发</span><br></pre></td></tr></table></figure></p>
+<p> 例：王小贱和小仙女聊天<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">王小贱发送一句话，这句话会先发送到QQ服务器，再由QQ服务器转发到小仙女的客户端。</span><br></pre></td></tr></table></figure></p>
+<p> <img src="/images/php/1525243346757.png" alt=""></p>
+<ul>
+<li><p>B/S软件体系结构，即Browser/Server （浏览器/服务器）结构。</p>
+<p>B/S结构软件，服务器承担了所有业务，浏览器只是用来显示最终内容的。</p>
+</li>
+</ul>
+<p><img src="/images/php/1525243588778.png" alt=""></p>
+<blockquote>
+<p>思考问题： B/S的优势和劣势， C/S的优势和劣势。</p>
+</blockquote>
+<blockquote>
+<p><strong>B/S的优势: 部署方便，容易维护。用户使用方便（一个浏览器即可）。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>B/S的劣势: 客户端功能简单</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>C/S的优势: 功能强大</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>C/S的劣势: 必须下载客户端非常麻烦，升级维护麻烦</strong></p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-jQuery/16-jQuery操作DOM节点" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -694,457 +1245,9 @@
 
 
   
-    <article id="post-jQuery/11-jQuery链式编程与隐式迭代" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/03/24/jQuery/11-jQuery链式编程与隐式迭代/" class="article-date">
-      <time datetime="2017-03-24T03:08:33.000Z" itemprop="datePublished">2017-03-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/03/24/jQuery/11-jQuery链式编程与隐式迭代/">11-jQuery链式编程与隐式迭代</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="链式编程"><a href="#链式编程" class="headerlink" title="链式编程"></a>链式编程</h1><ul>
-<li><p>链式编程原理：return this;<br>通常情况下，只有设置操作才能把链式编程延续下去。因为获取操作的时候，会返回获取到的相应的值，无法返回 this。</p>
-</li>
-<li><p>end(); // 筛选选择器会改变jQuery对象的DOM对象，想要回复到上一次的状态，并且返回匹配元素之前的状态。</p>
-</li>
-</ul>
-<h1 id="隐式迭代"><a href="#隐式迭代" class="headerlink" title="隐式迭代"></a>隐式迭代</h1><ul>
-<li>隐式迭代的意思是：在方法的内部会为匹配到的所有元素进行循环遍历，执行相应的方法；而不用我们再进行循环，简化我们的操作，方便我们调用。<br>如果获取的是多元素的值，大部分情况下返回的是第一个元素的值。<br>设置性操作的时候：设置的是所有的元素<br>获取性操作：获取的是第一个元素。</li>
-</ul>
-<h1 id="each方法"><a href="#each方法" class="headerlink" title="each方法"></a>each方法</h1><ul>
-<li>有了隐式迭代，为什么还要使用each函数遍历？</li>
-</ul>
-<p>大部分情况下是不需要使用each方法的，因为jQuery的隐式迭代特性。<br>如果要对每个元素做不同的处理，这时候就用到了each方法</p>
-<p> 作用：遍历jQuery对象集合，为每个匹配的元素执行一个函数</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数一表示当前元素在所有匹配元素中的索引号</span></span><br><span class="line"><span class="comment">// 参数二表示当前元素（DOM对象）</span></span><br><span class="line">$(selector).each(<span class="function"><span class="keyword">function</span>(<span class="params">index,element</span>)</span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery/10-jQuery事件对象" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/03/24/jQuery/10-jQuery事件对象/" class="article-date">
-      <time datetime="2017-03-24T02:11:15.000Z" itemprop="datePublished">2017-03-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/03/24/jQuery/10-jQuery事件对象/">10-jQuery事件对象（）</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="jQuery事件对象（）"><a href="#jQuery事件对象（）" class="headerlink" title="jQuery事件对象（）"></a>jQuery事件对象（）</h1><table>
-<thead>
-<tr>
-<th><strong>对象属性</strong></th>
-<th><strong>解释</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>event.type</strong></td>
-<td>事件类型</td>
-</tr>
-<tr>
-<td><strong>event.data</strong></td>
-<td>存储绑定事件时传递的附加数据</td>
-</tr>
-<tr>
-<td><strong>event.target</strong></td>
-<td>点了谁就是谁</td>
-</tr>
-<tr>
-<td><strong>event.currentTarget</strong></td>
-<td>当前DOM元素，等同于this</td>
-</tr>
-<tr>
-<td><strong>event.delegateTarget</strong></td>
-<td>代理对象</td>
-</tr>
-<tr>
-<td><strong>screenX和screenY</strong></td>
-<td>对应屏幕最左上角的值</td>
-</tr>
-<tr>
-<td><strong>offsetX和offsetY</strong></td>
-<td>点击的位置距离元素的左上角的位置</td>
-</tr>
-<tr>
-<td><strong>clientX和clientY</strong></td>
-<td>距离页面左上角的位置（忽视滚动条）</td>
-</tr>
-<tr>
-<td><strong>ageX和pageY</strong></td>
-<td>距离页面最顶部的左上角的位置（会计算滚动条的距离）</td>
-</tr>
-<tr>
-<td><strong>event.witch</strong></td>
-<td>鼠标按键类型，1=鼠标左键 2=鼠标中键 3=鼠标右键”</td>
-</tr>
-<tr>
-<td><strong>event.keyCode</strong></td>
-<td>按下的键盘代码,</td>
-</tr>
-<tr>
-<td><strong>event.stopPropagation()</strong></td>
-<td>阻止事件冒泡行为</td>
-</tr>
-<tr>
-<td><strong>event.preventDefault()</strong></td>
-<td>阻止浏览器默认行为</td>
-</tr>
-<tr>
-<td><strong>return false；</strong></td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery/09-jQuery的on事件绑定与解绑" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/03/24/jQuery/09-jQuery的on事件绑定与解绑/" class="article-date">
-      <time datetime="2017-03-24T01:31:59.000Z" itemprop="datePublished">2017-03-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/03/24/jQuery/09-jQuery的on事件绑定与解绑/">09-jQuery的on事件绑定与解绑</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="on事件绑定"><a href="#on事件绑定" class="headerlink" title="on事件绑定"></a>on事件绑定</h1><p>优势：最现代的方式，兼容zepto(移动端类似jQuery的一个库)，强烈建议使用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一个参数：events，绑定事件的名称可以是由空格分隔的多个事件（标准事件或者自定义事件）</span></span><br><span class="line"><span class="comment">// 第二个参数：selector, 执行事件的后代元素（可选），如果没有后代元素，那么事件将有自己执行。</span></span><br><span class="line"><span class="comment">// 第三个参数：data，传递给处理函数的数据，事件触发的时候通过event.data来使用（不常使用）</span></span><br><span class="line"><span class="comment">// 第四个参数：handler，事件处理函数</span></span><br><span class="line">$(selector).on(events[,selector][,data],handler);</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line"><span class="comment">// 表示给$(selector)绑定代理事件，当必须是它的内部元素span才能触发这个事件，支持动态绑定</span></span><br><span class="line">$(selector).on( <span class="string">"click"</span>,<span class="string">"span"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;);</span><br><span class="line"><span class="comment">// 表示给$(selector)绑定事件，并且由自己触发，不支持动态绑定（不使用代理）。</span></span><br><span class="line">$(selector).on( <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;);</span><br></pre></td></tr></table></figure></p>
-<h2 id="事件解绑"><a href="#事件解绑" class="headerlink" title="事件解绑"></a>事件解绑</h2><h3 id="unbind-方式（不用）"><a href="#unbind-方式（不用）" class="headerlink" title="unbind()方式（不用）"></a>unbind()方式（不用）</h3><p>作用：解绑事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(selector).unbind(); <span class="comment">//解绑所有的事件</span></span><br><span class="line">$(selector).unbind(<span class="string">"click"</span>); <span class="comment">//解绑指定的事件</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="undelegate-方式（不用）"><a href="#undelegate-方式（不用）" class="headerlink" title="undelegate() 方式（不用）"></a>undelegate() 方式（不用）</h3><p>作用：解绑事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$( selector ).undelegate(); <span class="comment">//解绑所有的delegate事件</span></span><br><span class="line">$( selector).undelegate( <span class="string">"click"</span> ); <span class="comment">//解绑所有的click事件</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="off方式（重点）"><a href="#off方式（重点）" class="headerlink" title="off方式（重点）"></a>off方式（重点）</h3><p>作用：解绑事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 解绑匹配元素的所有事件</span></span><br><span class="line">    $(selector).off();</span><br><span class="line">    <span class="comment">// 解绑匹配元素的所有click事件</span></span><br><span class="line">    $(selector).off(<span class="string">"click"</span>);</span><br><span class="line">    <span class="comment">// 解绑所有代理的click事件，元素本身的事件不会被解绑 </span></span><br><span class="line">    $(selector).off( <span class="string">"click"</span>, <span class="string">"**"</span> );</span><br></pre></td></tr></table></figure></p>
-<h2 id="事件触发"><a href="#事件触发" class="headerlink" title="事件触发"></a>事件触发</h2><ul>
-<li><p>简单事件触发</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).click(); <span class="comment">//触发 click事件</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>trigger方法触发事件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).trigger(<span class="string">"click"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>triggerHandler触发 事件响应方法，不触发浏览器行为</p>
-</li>
-</ul>
-<p>比如:文本框获得焦点的默认行为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).triggerHandler(<span class="string">"focus"</span>);</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery/08-jQuery事件机制" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/03/23/jQuery/08-jQuery事件机制/" class="article-date">
-      <time datetime="2017-03-23T07:11:30.000Z" itemprop="datePublished">2017-03-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/03/23/jQuery/08-jQuery事件机制/">08-jQuery事件机制</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="jQuery事件机制"><a href="#jQuery事件机制" class="headerlink" title="jQuery事件机制"></a>jQuery事件机制</h1><blockquote>
-<p>JavaScript中已经学习过了事件，但是jQuery对JavaScript事件进行了封装，增加并扩展了事件处理机制。jQuery不仅提供了更加优雅的事件处理语法，而且极大的增强了事件的处理能力。</p>
-</blockquote>
-<h2 id="jQuery事件的发展历程"><a href="#jQuery事件的发展历程" class="headerlink" title="jQuery事件的发展历程"></a>jQuery事件的发展历程</h2><ul>
-<li>简单事件绑定&gt;&gt;bind事件绑定&gt;&gt;delegate事件绑定&gt;&gt;on事件绑定(推荐)</li>
-</ul>
-<h2 id="简单事件绑定"><a href="#简单事件绑定" class="headerlink" title="简单事件绑定"></a>简单事件绑定</h2><blockquote>
-<p>click(handler)            单击事件</p>
-<p>mouseenter(handler)        鼠标进入事件</p>
-<p>mouseleave(handler)        鼠标离开事件</p>
-<p>scroll(handler)            滚动事件</p>
-<p>缺点：一次只能绑定一个事件</p>
-</blockquote>
-<h2 id="bind事件绑定"><a href="#bind事件绑定" class="headerlink" title="bind事件绑定"></a>bind事件绑定</h2><ul>
-<li><p>不推荐使用，jQuery1.7版本后被on取代</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//绑定多个事件</span></span><br><span class="line"><span class="comment">//第一个参数：事件类型</span></span><br><span class="line"><span class="comment">//第二个参数：事件处理程序</span></span><br><span class="line">$(<span class="string">"p"</span>).bind(<span class="string">"click mouseenter"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//事件响应方法</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>缺点：不支持动态创建出来的元素绑定事件。</p>
-</li>
-<li><p>delegate事件绑定</p>
-<ul>
-<li>支持动态绑定事件<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一个参数：selector，要绑定事件的元素</span></span><br><span class="line"><span class="comment">// 第二个参数：事件类型</span></span><br><span class="line"><span class="comment">// 第三个参数：事件处理函数</span></span><br><span class="line">$(<span class="string">".parentBox"</span>).delegate(<span class="string">"p"</span>, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//为 .parentBox下面的所有的p标签绑定事件</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>理解：为什么delegate支持动态绑定事件？原因是事件冒泡机制。因为事件时绑定到父元素上的，由子元素触发。</p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery/07-jQuery操作坐标值" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/03/23/jQuery/07-jQuery操作坐标值/" class="article-date">
-      <time datetime="2017-03-23T05:03:19.000Z" itemprop="datePublished">2017-03-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/03/23/jQuery/07-jQuery操作坐标值/">07-jQuery操作坐标值</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="jQuery操作坐标值"><a href="#jQuery操作坐标值" class="headerlink" title="jQuery操作坐标值"></a>jQuery操作坐标值</h1><h2 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h2><ul>
-<li><p>设置或者获取元素相对于文档document的位置。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置位置</span></span><br><span class="line">$(selector).offset(&#123;<span class="attr">left</span>:<span class="number">100</span>, <span class="attr">top</span>: <span class="number">150</span>&#125;);</span><br><span class="line"><span class="comment">//获取位置</span></span><br><span class="line">$(selector).offset();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注意：使用offset操作，如果元素没有设置定位(默认position:static)，则会把position修改为relative.会修改left、top</p>
-</li>
-</ul>
-<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><ul>
-<li>获取相对于其最近的有定位的父元素的位置。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取，返回值为对象：&#123;left:num, top:num&#125;</span></span><br><span class="line">$(selector).position();</span><br></pre></td></tr></table></figure>
-<ul>
-<li>注意：position方法只能获取，不能设置<br><img src="/images/jquery/8.png" alt=""></li>
-</ul>
-<h2 id="scrollTop"><a href="#scrollTop" class="headerlink" title="scrollTop"></a>scrollTop</h2><ul>
-<li>设置或者获取垂直滚动条的位置<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 有参数表示设置偏移，参数为数值类型</span></span><br><span class="line">$(selector).scrollTop(<span class="number">100</span>);</span><br><span class="line"><span class="comment">// 无参数表示获取偏移</span></span><br><span class="line">$(selector).scrollTop();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="scrollLeft"><a href="#scrollLeft" class="headerlink" title="scrollLeft"></a>scrollLeft</h2><ul>
-<li>设置或者获取水平滚动条的位置<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 有参数表示设置偏移，参数为数值类型</span></span><br><span class="line">$(selector).scrollLeft(<span class="number">100</span>);</span><br><span class="line"><span class="comment">// 无参数表示获取偏移</span></span><br><span class="line">$(selector).scrollLeft();</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 
