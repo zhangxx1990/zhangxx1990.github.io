@@ -196,7 +196,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12.5px;">Node</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 16.67px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15.56px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.67px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.11px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.67px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 14.44px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.22px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12.22px;">Node</a> <a href="/tags/PHP/" style="font-size: 18.89px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.78px;">jQuery</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -292,6 +292,783 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-PHP/20-修改数据" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/26/PHP/20-修改数据/" class="article-date">
+      <time datetime="2017-04-26T03:11:45.000Z" itemprop="datePublished">2017-04-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/26/PHP/20-修改数据/">20-修改数据</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="4-修改数据"><a href="#4-修改数据" class="headerlink" title="4. 修改数据"></a>4. 修改数据</h1><p>格式:  </p>
+<p>  update  表名   set   字段1=值1, 字段2=值2,…  where  修改条件</p>
+<p>  修改表中的哪一条（几条）数据的 字段1=值1…</p>
+<blockquote>
+<p>案例2: 将id为6的管理员昵称改为凯子</p>
+</blockquote>
+<p><img src="/images/php/1534297306985.png" alt="1534297306985"></p>
+<blockquote>
+<p>案例3: 将所有男性管理员的年龄都+1</p>
+</blockquote>
+<p>表: ali_admin</p>
+<p>字段: admin_age</p>
+<p>修改条件: admin_gender=’男’</p>
+<p><img src="/images/php/1534297543190.png" alt="1534297543190"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/19-添加数据" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/26/PHP/19-添加数据/" class="article-date">
+      <time datetime="2017-04-26T02:23:06.000Z" itemprop="datePublished">2017-04-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/26/PHP/19-添加数据/">19-添加数据</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="3-添加数据"><a href="#3-添加数据" class="headerlink" title="3. 添加数据"></a>3. 添加数据</h1><p>格式： insert  into  表名(字段1，字段2，…)  values(值1，值2，…);</p>
+<p>关键点:</p>
+<p>   1) 字段和值需要一一对应，如果不对应会造成添加失败或者数据错误</p>
+<p>   2) 如果每个字段都有数据，则不需要在表名后设置字段列表</p>
+<p>   3) 带有auto_increment属性的字段可以使用null来设置，MySQL会自动填充数据</p>
+<blockquote>
+<p>案例1: 向student表添加一条数据</p>
+</blockquote>
+<p>方式一:</p>
+<p><img src="/images/php/1534295770586.png" alt="1534295770586"></p>
+<p>方式二:</p>
+<p><img src="/images/php/1534295979697.png" alt="1534295979697"></p>
+<p>方式三: </p>
+<p><img src="/images/php/1534296150393.png" alt="1534296150393"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/18-数据查询" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/26/PHP/18-数据查询/" class="article-date">
+      <time datetime="2017-04-26T01:03:34.000Z" itemprop="datePublished">2017-04-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/26/PHP/18-数据查询/">18-数据查询</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="2-数据查询"><a href="#2-数据查询" class="headerlink" title="2. 数据查询"></a>2. 数据查询</h1><p>语法格式: </p>
+<p>  SELECT  字段名1, 字段名2, ……</p>
+<p>  FROM 表名    </p>
+<pre><code>[ WHERE &lt;条件表达式&gt; ]
+
+[ ORDER BY &lt;字段名&gt; [ ASC|DESC ]]
+
+[ LIMIT  START, LENGTH]
+</code></pre><h2 id="2-1-基本查询"><a href="#2-1-基本查询" class="headerlink" title="2.1 基本查询"></a>2.1 基本查询</h2><p>格式:  select  字段名1, 字段名2,….  from  表名 </p>
+<blockquote>
+<p>案例1: 查询所有栏目的id和名称</p>
+</blockquote>
+<pre><code>表:  ali_cate
+
+字段:  cate_id、cate_name
+</code></pre><p><img src="/images/php/1534213675206.png" alt="1534213675206"></p>
+<blockquote>
+<p>案例2: 查询管理员信息 (全部字段信息)</p>
+</blockquote>
+<pre><code>表: ali_admin
+
+字段: 所有字段
+</code></pre><p>方式一:  在select和from之间，列出所有字段</p>
+<p><img src="/images/php/1534213763761.png" alt="1534213763761"></p>
+<p>方式二: 使用 * 来代表所有字段</p>
+<p><img src="/images/php/1534213822095.png" alt="1534213822095"></p>
+<h2 id="2-2-带where子句的查询"><a href="#2-2-带where子句的查询" class="headerlink" title="2.2 带where子句的查询"></a>2.2 带where子句的查询</h2><p>select  field1, field2… from 表名  查询表中的所有数据</p>
+<p>  where 可以使用条件来筛选查询出的结果</p>
+<p><img src="/images/php/01.jpg" alt="img"> </p>
+<blockquote>
+<p>案例3: 查询id值为2的栏目的所有信息</p>
+</blockquote>
+<pre><code>表: ali_cate
+
+字段:  *
+
+筛选条件:  cate_id = 2
+</code></pre><p><img src="/images/php/1534214952123.png" alt="1534214952123"></p>
+<blockquote>
+<p>案例4: 查询年龄大于等于25的管理员的邮箱和昵称</p>
+</blockquote>
+<pre><code>表: ali_admin
+
+字段:  admin_email、 admin_nickname
+
+筛选条件:  admin_age &gt;= 25
+</code></pre><p><img src="/images/php/1534215147258.png" alt="1534215147258"></p>
+<blockquote>
+<p>案例5: 查询年龄在23-28之间的管理员的所有信息</p>
+</blockquote>
+<pre><code>表: ali_admin
+
+字段: *
+
+筛选条件： admin_age&gt;=23  and  admin_age&lt;=28
+</code></pre><p>方法一:</p>
+<p><img src="/images/php/1534215257922.png" alt="1534215257922"></p>
+<p>方式二:</p>
+<p><img src="/images/php/1534215324315.png" alt="1534215324315"></p>
+<blockquote>
+<p>案例6: 查询年龄不在23-28之间的管理员的所有信息</p>
+</blockquote>
+<pre><code>表: ali_admin
+
+字段: *
+
+筛选条件： `admin_age&lt;23  or  admin_age&gt;28`
+</code></pre><p>方法一:</p>
+<p><img src="/images/php/1534215426973.png" alt="1534215426973"></p>
+<p>方法二：</p>
+<p><img src="/images/php/1534215454171.png" alt="1534215454171"></p>
+<blockquote>
+<p>案例7: 查询年龄大于25的男性管理员信息</p>
+</blockquote>
+<pre><code>表: ali_admin
+
+字段:  *
+
+筛选条件:  admin_age&gt;=25 and admin_gender=&apos;男&apos;
+</code></pre><p><img src="/images/php/1534215590016.png" alt="1534215590016"></p>
+<h2 id="2-3-in关键词"><a href="#2-3-in关键词" class="headerlink" title="2.3 in关键词"></a>2.3 in关键词</h2><p>集合:  一组相同类型的数据，使用()来包含，括号内使用 ， 分隔开</p>
+<p>(1, 2, 3, 4, 5)  (‘潮科技’, ‘会生活’, ‘奇趣事’, ‘美奇迹’)  </p>
+<blockquote>
+<p>案例8: 查询年龄为20、28的女性管理员信息</p>
+</blockquote>
+<pre><code>表： ali_admin
+
+字段： *
+
+筛选条件： admin_gender=&apos;女&apos;  and  （admin_age=20 or admin_age=28）
+</code></pre><p>方式一:</p>
+<p><img src="/images/php/1534215841500.png" alt="1534215841500"></p>
+<p>方式二：</p>
+<p><img src="/images/php/1534215898938.png" alt="1534215898938"></p>
+<h2 id="2-4-模糊查询"><a href="#2-4-模糊查询" class="headerlink" title="2.4 模糊查询"></a>2.4 模糊查询</h2><p>通配符:</p>
+<p>  %: 代表任意长度(包括0)的任意字符</p>
+<p>  _:  代表1位长度的任意字符</p>
+<p>​    a%b :  ab  abb  a对萨达b<br>    a_b: acb  atb  a的b<br>    a_b%:  acb  a&amp;baaad</p>
+<p>like: 在执行模糊查询时，必须使用like来作为匹配条件</p>
+<blockquote>
+<p>案例9: 查询邮箱地址中包含字符h的管理员信息</p>
+</blockquote>
+<pre><code>表： ali_admin
+
+字段： *
+
+筛选条件： admin_email like &apos;%h%&apos;
+</code></pre><p><img src="/images/php/1534216354094.png" alt="1534216354094"></p>
+<blockquote>
+<p>案例10: 查询包含“科技”关键词的文章信息</p>
+</blockquote>
+<pre><code>表： ali_article
+
+字段： *
+
+筛选条件：admin_title like ‘%科技%’
+</code></pre><p><img src="/images/php/1534216526440.png" alt="1534216526440"></p>
+<blockquote>
+<p>案例11: 查询邮箱以a字符开头并且包含n的管理员信息</p>
+</blockquote>
+<pre><code>表： ali_admin
+
+字段： *
+
+筛选条件： admin_email like ‘a%n%’
+</code></pre><p><img src="/images/php/1534216625722.png" alt="1534216625722"></p>
+<h2 id="2-5-order-by-排序"><a href="#2-5-order-by-排序" class="headerlink" title="2.5 order by 排序"></a>2.5 order by 排序</h2><p>order by 可以对查询结果按某个字段的升降进行排序</p>
+<p>  升序 asc （默认值） ，  降序 desc </p>
+<p>可进行排序的字段通常是  整型  英文字符串型  日期型  (中文字符串也行,但一般不用)</p>
+<blockquote>
+<p>案例12: 查询所有的栏目信息，并按别名的降序排列</p>
+</blockquote>
+<pre><code>表： ali_cate
+
+字段：*
+
+排序条件： cate_slug  desc
+</code></pre><p><img src="/images/php/1534216794928.png" alt="1534216794928"></p>
+<blockquote>
+<p>案例13: 查询所有栏目信息，并按发布时间升序排列</p>
+</blockquote>
+<pre><code>表：ali_cate
+
+字段： *
+
+排序条件：cate_addtime asc
+</code></pre><p><img src="/images/php/1534216877104.png" alt="1534216877104"></p>
+<blockquote>
+<p>案例14: 查询所有男性的管理员信息，并按照创建时间降序排列</p>
+</blockquote>
+<pre><code>表： ali_admin
+
+字段：*
+
+筛选条件： admin_gender=&apos;男&apos;
+
+排序：admin_addtime desc
+</code></pre><p><img src="/images/php/1534217036912.png" alt="1534217036912"></p>
+<h2 id="2-6-limit-限制"><a href="#2-6-limit-限制" class="headerlink" title="2.6 limit 限制"></a>2.6 limit 限制</h2><p>limit用来限制查询结果的起始点和长度</p>
+<p> 格式:  </p>
+<pre><code>limit  var1, var2
+</code></pre><p> var1: 起始点。 查询结果的索引，从0开始。 0代表第一条数据</p>
+<p> var2: 长度</p>
+<blockquote>
+<p>案例15: 查询年龄最大的3名男性管理员的信息</p>
+</blockquote>
+<pre><code>表： ali_admin
+
+字段： *
+
+筛选： admin_gender=&apos;男&apos;
+
+排序：order by admin_age desc
+
+限制：limit 0,3
+</code></pre><p><img src="/images/php/1534218129029.png" alt="1534218129029"></p>
+<blockquote>
+<p>案例16: 将文章按发布时间逆序排列，并取出第三条到第五条</p>
+</blockquote>
+<pre><code>表： ali_article
+
+字段：*
+
+排序： article_addtime desc
+
+限制：limit 2,3
+</code></pre><p><img src="/images/php/1534218422235.png" alt="1534218422235"></p>
+<p>将 *  解释成对应的字段需要 0.0001秒，但是人多了之后就会变慢。</p>
+<h2 id="2-7-多表查询"><a href="#2-7-多表查询" class="headerlink" title="2.7 多表查询"></a>2.7 多表查询</h2><p>关键词: </p>
+<pre><code>join   on
+</code></pre><p>格式:  </p>
+<pre><code>select  *  from  表1
+
+join 表2  on  链接条件
+</code></pre><p>链接条件一定是   表1的某个字段 =  表2的某个字段</p>
+<blockquote>
+<p>案例: 查询学生的全部信息，系别需要使用系名来进行显示</p>
+</blockquote>
+<pre><code>表： student     dept
+
+字段: student.*   dept.dept_name
+</code></pre><p><img src="/images/php/1534219437090.png" alt="1534219437090"></p>
+<p>原理:</p>
+<p><img src="/images/php/1534219689703.png" alt="1534219689703"></p>
+<blockquote>
+<p>案例17: 查询所有文章信息，作者使用昵称显示</p>
+</blockquote>
+<p>表： ali_article   ali_admin</p>
+<p>字段： ali_article.*   ali_admin.admin_nickname</p>
+<p><img src="/images/php/1534220115051.png" alt="1534220115051"></p>
+<blockquote>
+<p>案例18: 查询大牛发布的所有文章信息，作者使用昵称显示</p>
+</blockquote>
+<p>表： ali_article   ali_admin</p>
+<p>筛选： admin_nickname=’大牛’</p>
+<p><img src="/images/php/1534220239981.png" alt="1534220239981"></p>
+<blockquote>
+<p>案例19: 查询属于潮科技和奇趣事的所有文章</p>
+</blockquote>
+<p>表：ali_cate   ali_article</p>
+<p>筛选条件： cate_name in (‘潮科技’, ‘奇趣事’)</p>
+<p><img src="/images/php/1534220507814.png" alt="1534220507814"></p>
+<blockquote>
+<p>案例20: 查询所有文章信息，作者使用昵称显示，栏目使用栏目名显示</p>
+</blockquote>
+<p>表： ali_article    ali_admin   ali_cate</p>
+<p><img src="/images/php/1534220828795.png" alt="1534220828795"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/17-关系型数据库介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/25/PHP/17-关系型数据库介绍/" class="article-date">
+      <time datetime="2017-04-25T07:23:21.000Z" itemprop="datePublished">2017-04-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/25/PHP/17-关系型数据库介绍/">17-创建数据表</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="1-关系型数据库"><a href="#1-关系型数据库" class="headerlink" title="1. 关系型数据库"></a>1. 关系型数据库</h1><h2 id="1-1-关系型数据库简介"><a href="#1-1-关系型数据库简介" class="headerlink" title="1.1 关系型数据库简介"></a>1.1 关系型数据库简介</h2><blockquote>
+<p>案例: 创建一个数据表，能够保存学生的基本信息(学号、姓名、年龄等)和学生每一科的考试成绩</p>
+</blockquote>
+<p>1)  一张表的形式</p>
+<p><img src="/images/php/03.jpg" alt="img"> </p>
+<p>缺点: 重复数据太多（数据冗余）</p>
+<p>2) 关系型数据库:</p>
+<p><img src="/images/php/02.png" alt="1528187325051"></p>
+<p>缺点: 表多<br>优点:<br>   数据耦合性低<br>   每个数据表都能够独立管理</p>
+<h2 id="1-2-student-和-dept表"><a href="#1-2-student-和-dept表" class="headerlink" title="1.2 student 和 dept表"></a>1.2 student 和 dept表</h2><p> 目标: 创建student和dept表用来存储学生的基本信息、学院基本信息和学生所属的学院信息</p>
+<p><img src="/images/php/04.png" alt="1534172874473"></p>
+<p>   student：学生表，所需字段  学号、姓名、性别、年龄、系别</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table student(</span><br><span class="line">  sno int UNSIGNED auto_increment primary key,</span><br><span class="line">  sname varchar(<span class="number">20</span>) not <span class="keyword">null</span>,</span><br><span class="line">  sage tinyint UNSIGNED not <span class="keyword">null</span>,</span><br><span class="line">  sgender enum(<span class="string">'男'</span>,<span class="string">'女'</span>) not <span class="keyword">null</span>,</span><br><span class="line">  sdept tinyint UNSIGNED not <span class="keyword">null</span></span><br><span class="line">)engine=myisam <span class="keyword">default</span> charset=utf8;</span><br></pre></td></tr></table></figure>
+<p>   dept：系别表，所需字段  系号  系名</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table dept(</span><br><span class="line">  dept_id tinyint UNSIGNED auto_increment primary key,</span><br><span class="line">  dept_name varchar(<span class="number">20</span>) unique not <span class="keyword">null</span></span><br><span class="line">)engine=myisam <span class="keyword">default</span> charset=utf8;</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-ali-admin、ali-cate和ali-article的关系"><a href="#1-3-ali-admin、ali-cate和ali-article的关系" class="headerlink" title="1.3 ali_admin、ali_cate和ali_article的关系"></a>1.3 ali_admin、ali_cate和ali_article的关系</h2><p>   目标: 创建 ali_cate表和ali_article表，用来保存栏目基本信息、文章信息 以及 作者、栏目、文章的关系</p>
+<p><img src="/images/php/05.png" alt="05"></p>
+<p>ali_cate表（栏目表）： 栏目id (主键)、 栏目名、栏目别名、栏目创建时间</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table ali_cate(</span><br><span class="line">  cate_id tinyint UNSIGNED auto_increment primary key,</span><br><span class="line">  cate_name varchar(<span class="number">10</span>) unique not <span class="keyword">null</span>,</span><br><span class="line">  cate_slug varchar(<span class="number">30</span>) UNIQUE not <span class="keyword">null</span>,</span><br><span class="line">  cate_addtime date not <span class="keyword">null</span></span><br><span class="line">)engine=myisam <span class="keyword">default</span> charset=utf8;</span><br></pre></td></tr></table></figure>
+<p>ali_article（文章表）： 文章id（主键）、文章标题、文章内容、文章作者、所属栏目、发布时间、文章状态（草稿、已发布）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create table ali_article(</span><br><span class="line">  article_id int UNSIGNED auto_increment primary key,</span><br><span class="line">  article_title varchar(<span class="number">30</span>) UNIQUE not <span class="keyword">null</span>,</span><br><span class="line">  article_content text not <span class="keyword">null</span>,</span><br><span class="line">  article_adminid int UNSIGNED not <span class="keyword">null</span>,</span><br><span class="line">	article_cateid tinyint UNSIGNED not <span class="keyword">null</span>,</span><br><span class="line">  article_addtime int not <span class="keyword">null</span>,</span><br><span class="line">  article_state enum(<span class="string">'草稿'</span>,<span class="string">'已发布'</span>)</span><br><span class="line">)engine=myisam <span class="keyword">default</span> charset=utf8;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/16-创建数据表" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/25/PHP/16-创建数据表/" class="article-date">
+      <time datetime="2017-04-25T05:55:46.000Z" itemprop="datePublished">2017-04-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/25/PHP/16-创建数据表/">16-创建数据表</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h1><h2 id="创建表的基本格式"><a href="#创建表的基本格式" class="headerlink" title="创建表的基本格式"></a>创建表的基本格式</h2><p>语句格式:</p>
+<p>CREATE TABLE 表名 (</p>
+<pre><code>列名     数据类型(长度)    完整性约束条件,
+
+列名     数据类型(长度)    完整性约束条件,
+......
+</code></pre><p>) engine=myisam default charset=utf8</p>
+<p><strong>注意事项:</strong></p>
+<p>   <strong>列名、数据类型、长度是必有的； 完整性约束条件可以没有</strong></p>
+<p>   <strong>最后的 utf8 没有 -</strong></p>
+<h2 id="创建用户表-–-users"><a href="#创建用户表-–-users" class="headerlink" title="创建用户表 – users"></a>创建用户表 – users</h2><hr>
+<p>案例:  在cms数据库中，创建一张users数据表，该表中只保存用户id和用户名两个字段</p>
+<p><strong>一定要先选中 cms 库，再去打开查询编辑器</strong></p>
+<p><img src="/images/php/1534046076681.png" alt=""></p>
+<p><img src="/images/php/1534046277367.png" alt=""></p>
+<p>uid   int (5) :  uid字段是整型的，长度是5 (0–99999)</p>
+<p>uname varchar(20): uname字段是字符串类型，长度是20 </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/15-创建、删除数据库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/25/PHP/15-创建、删除数据库/" class="article-date">
+      <time datetime="2017-04-25T03:25:26.000Z" itemprop="datePublished">2017-04-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/25/PHP/15-创建、删除数据库/">15-创建/删除数据库</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="创建-删除数据库"><a href="#创建-删除数据库" class="headerlink" title="创建/删除数据库"></a>创建/删除数据库</h1><p>操作数据库需要使用SQL语句（结构化查询语言）</p>
+<p>1) 创建数据库</p>
+<p> 语法格式: create database 库名;</p>
+<pre><code>示例:
+        create database study;   创建一个名为 study的数据库
+
+        create database cms:     创建一个名为 cms 的数据库
+</code></pre><p><img src="/images/php/1534045491228.png" alt=""></p>
+<p><img src="/images/php/1534045569648.png" alt=""></p>
+<p><img src="/images/php/1534045609713.png" alt=""></p>
+<p>2) 删除数据库:</p>
+<p>  语法格式:  drop database 库名;</p>
+<p>  示例:   </p>
+<pre><code>drop database school;  删除school库
+
+drop database cms;      删除cms库
+</code></pre><p><img src="/images/php/1534045702681.png" alt=""></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PHP/14-MySQL数据库服务器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/25/PHP/14-MySQL数据库服务器/" class="article-date">
+      <time datetime="2017-04-25T02:16:02.000Z" itemprop="datePublished">2017-04-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/25/PHP/14-MySQL数据库服务器/">14-MySQL数据库服务器</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="MySQL数据库服务器"><a href="#MySQL数据库服务器" class="headerlink" title="MySQL数据库服务器"></a>MySQL数据库服务器</h1><h2 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h2><p>存储数据的仓库。</p>
+<p>常见的数据库: MySQL、 Oracle、 Sqlserver、 DB2等。</p>
+<h2 id="MySQL简介"><a href="#MySQL简介" class="headerlink" title="MySQL简介"></a>MySQL简介</h2><p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品 </p>
+<p>MySQL结构</p>
+<p><img src="/images/php/wps459D.tmp.jpg" alt="img"></p>
+<p>在一个MySQL服务器中有多个数据库，每个数据库又有多个数据表。 数据是存储在数据表当中的。</p>
+<p>数据表的结构和excel一模一样</p>
+<p><img src="/images/php/wps459E.tmp.jpg" alt="img"></p>
+<p>表结构:  </p>
+<p>   和excel表的结构是一样的。</p>
+<pre><code>每一列都是一类数据 --- 字段
+
+每一行代表一条数据 --- 记录
+</code></pre><h2 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a>安装客户端</h2><pre><code>MySQL是一款C/S结构的软件。
+
+MySQL本身是服务器端。
+</code></pre><p>常见的客户端: CMD 、 Navicat、 Sqlyog、 phpmyadmin等等</p>
+<p>安装 Navicat</p>
+<p>1.解压</p>
+<p><img src="/images/php/wps45C1.tmp.jpg" alt="img"></p>
+<p>2.选择安装版本</p>
+<p><img src="/images/php/wps45C2.tmp.jpg" alt="img"></p>
+<p>3.选择安装路径</p>
+<p><img src="/images/php/1528170859377.png" alt=""></p>
+<p>继续下一步…</p>
+<p>4.链接服务器</p>
+<p><img src="/images/php/wps45C4.tmp.jpg" alt="img"></p>
+<p> ① 点击“链接”按钮 —  选择要链接的数据库种类</p>
+<p><img src="/images/php/wps45C5.tmp.jpg" alt="img"></p>
+<p>  ② 配置链接信息</p>
+<pre><code>用户名： root       该用户是MySQL服务器系统的最高用户，拥有该系统的所有权限
+
+密码：  root             phpstudy中MySQL系统root用户的默认密码
+</code></pre><p><img src="/images/php/wps45C6.tmp.jpg" alt="img"></p>
+<p>  ③ 点击“localhost”结果</p>
+<p><img src="/images/php/wps45C7.tmp.jpg" alt="img"></p>
+<p>  左侧的localhost下的内容都是数据库名称。</p>
+<p>  information_schema、mysql、performance_schema 这三个是系统数据库。</p>
+<p>  其他的都是自建数据库</p>
+<p>看到上图，说明已经使用navicat 客户端正常链接到了 MySQL服务器了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-PHP/13-Http协议" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -646,692 +1423,6 @@ header(&apos;refresh:2;url=页面地址&apos;);
 <h2 id="变量函数"><a href="#变量函数" class="headerlink" title="变量函数"></a>变量函数</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bool <span class="keyword">empty</span>($var): 判断变量是否为空。如果为空返回 <span class="keyword">true</span>；反之，则返回<span class="keyword">false</span></span><br><span class="line">bool <span class="keyword">isset</span>($var): 判断一个变量是否被设置。 如果已设置返回<span class="keyword">true</span>，反之，返回<span class="keyword">false</span></span><br><span class="line">void <span class="keyword">unset</span>($var): 删除变量，无返回值</span><br></pre></td></tr></table></figure>
 <h2 id="数组函数"><a href="#数组函数" class="headerlink" title="数组函数"></a>数组函数</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bool in_array(mixed, arr):  检查一个值是否存在于一个数组当中</span><br><span class="line"><span class="keyword">array</span> explode(delimiter, str): 使用一个字符串将另一个字符串分割为数组</span><br><span class="line">string implode(str, arr):  使用一个字符串将一个数组链接为字符串</span><br></pre></td></tr></table></figure>
 <h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int strlen(str):  获取字符串长度</span><br><span class="line">int strpos/strrpos($str, $char): 查询$char字符串在$str字符串中的第一次/最后一次出现的下标</span><br><span class="line">string substr（str, start[, length]）:  字符串截取</span><br><span class="line">string str_replace（search, replace, str）:  字符串替换</span><br><span class="line">string trim（str）:  删除字符串左右两边的空格</span><br><span class="line">void <span class="keyword">die</span>/<span class="keyword">exit</span>([str]): 结束当前脚本</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/10-PHP函数" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/24/PHP/10-PHP函数/" class="article-date">
-      <time datetime="2017-04-24T03:03:41.000Z" itemprop="datePublished">2017-04-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/24/PHP/10-PHP函数/">10-PHP函数</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="什么是函数"><a href="#什么是函数" class="headerlink" title="什么是函数"></a>什么是函数</h2><p>函数(function) 是一段完成指定任务的已经命名的代码块。</p>
-<p>PHP函数包括内置函数（系统函数）和自定义函数两类</p>
-<h2 id="函数的格式"><a href="#函数的格式" class="headerlink" title="函数的格式"></a>函数的格式</h2><p>PHP声明函数的方式和Javascript一致。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">    function  函数名称（[参数1 [,参数2 [,…]]]）</span><br><span class="line">    &#123;</span><br><span class="line">        函数体;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//如需函数有返回值时使用</span></span><br><span class="line">        [<span class="keyword">return</span> 返回值;]</span><br><span class="line">    &#125; </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 变量的作用域</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 核心概念: 在函数体外定义的变量，在函数体内无效</span><br><span class="line"></span><br><span class="line"> 	  	   在函数体内定义的变量，在函数体外无效</span><br><span class="line"></span><br><span class="line">![](/images/php/<span class="number">1533949815695.</span>png)</span><br><span class="line"></span><br><span class="line">- 全局变量 和 局部变量:</span><br><span class="line">    - 局部变量:  函数体内的变量，该变量只在函数范围内有效。</span><br><span class="line">    - 全局变量:  函数体外的变量，在整个php文件中都有效（除了函数）。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 文件包含</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件包含一共有<span class="number">4</span>个函数:   <span class="keyword">include</span>、<span class="keyword">include_once</span>、<span class="keyword">require</span>、<span class="keyword">require_once</span></span><br><span class="line"></span><br><span class="line">  **文件A中包含文件B，那么文件B就相当于文件A的一部分。**</span><br><span class="line"></span><br><span class="line">  注意事项: </span><br><span class="line">```php</span><br><span class="line">    如果文件A和文件B定义了相同的变量，则会发生覆盖。</span><br><span class="line">    如果文件A和文件B定义了相同的函数，则会发生致命错误。</span><br></pre></td></tr></table></figure></p>
-<pre><code>include        require
-
-include_once   require_once
-</code></pre><p>四个语句的区别：</p>
-<p>1) include在包含一个不存在的文件时，会产生一个Warning错误，程序不会中断继续执行；而require会产生Fatal错误，中断执行。</p>
-<p>2) include_once和require_once的区别：include_once只会加载一次相同的文件，而inlcude会加载多次。</p>
-<p>3) 在实际开发中基本使用 include_once或者require_once</p>
-<h2 id="static静态变量"><a href="#static静态变量" class="headerlink" title="static静态变量"></a>static静态变量</h2><p>   当一个变量使用static进行修饰时，该变量在整个php页面运行过程中只有一份。</p>
-<p>  <img src="/images/php/1533888584603.png" alt=""></p>
-<pre><code>  每次调用 aaa() 函数时，都会去静态内存区寻找是否有 $i。如果没有，则创建$i并进行赋值；如果有，则直接使用，跳过赋值过程。
-
-static在递归操作中非常有用。
-</code></pre><h2 id="global全局变量"><a href="#global全局变量" class="headerlink" title="global全局变量"></a>global全局变量</h2><p> 如果在一个函数体内想强行使用函数体外定义的变量，可以使用global关键词来声明。</p>
-<p> <img src="/images/php/1533952559547.png" alt=""></p>
-<pre><code>$GLOBALS的功能和global差不多，都不推荐使用。
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/09-PHP文件上传" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/24/PHP/09-PHP文件上传/" class="article-date">
-      <time datetime="2017-04-24T02:05:37.000Z" itemprop="datePublished">2017-04-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/24/PHP/09-PHP文件上传/">09-PHP文件上传</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p> 文件上传属于一种特殊的表单提交，也需要两个页面 —  表单页  和   数据处理页。<br><img src="/images/php/1525424869723.png" alt=""></p>
-<p>upload.html表单页</p>
-<p><img src="/images/php/1533787848965.png" alt=""></p>
-<p>upload.php 上传文件处理页</p>
-<p><img src="/images/php/1533788030706.png" alt=""></p>
-<p>文件上传核心点总结:</p>
-<h2 id="核心点一：表单设计"><a href="#核心点一：表单设计" class="headerlink" title="核心点一：表单设计"></a>核心点一：表单设计</h2><pre><code>表单标签form中必须额外增加 enctype属性，必须使用post提交表单
-
-文件域必须有name属性和值
-</code></pre><h2 id="核心点二-—-FILES"><a href="#核心点二-—-FILES" class="headerlink" title="核心点二  —  $_FILES"></a>核心点二  —  $_FILES</h2><p>$_FILES是一个二维数组，保存了上传文件的相关信息：</p>
-<p> 第一维下标是 文件域的name值</p>
-<p> 第二维有5个固定单元</p>
-<p>   name: 上传的文件名</p>
-<p>   type: 上传的文件类型</p>
-<p>   tmp_name: 上传文件在服务器临时存储的路径</p>
-<p>   error:  错误码，错误码有0-4  5个值。 等于0时，代表文件正常上传</p>
-<pre><code>0：代表正常上传，没有错误
-
-1：代表上传文件大小超过了 php.ini中 upload_max_filesize 定义的大小
-
-2：代表上传文件大小超过了 php.ini中 post_max_size 定义的表单最大值
-
-3：文件只有部分被上传 
-
-4：没有文件被上传 
-</code></pre><p>   size: 上传文件的大小  bit</p>
-<p><img src="/images/php/1533545384816.png" alt=""></p>
-<h2 id="核心点三-—-move-uploaded-file"><a href="#核心点三-—-move-uploaded-file" class="headerlink" title="核心点三  —  move_uploaded_file**"></a>核心点三  —  move_uploaded_file**</h2><p>从$_FILES中我们可以知道，文件已经正常上传到服务器了。</p>
-<p>所以，接下来就需要将文件从临时保存路径，移动到我们希望保存的路径中。</p>
-<p>move_uploaded_file (参数1， 参数2)；</p>
-<p> 参数1: 临时路径  —&gt;  $_FILES[‘pic’][‘tmp_name’]</p>
-<p> 参数2: 目标路径  —&gt;  使用相对路径移动到当前目录下   ./ </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/08-PHP超全局变量" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/24/PHP/08-PHP超全局变量/" class="article-date">
-      <time datetime="2017-04-24T01:08:07.000Z" itemprop="datePublished">2017-04-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/24/PHP/08-PHP超全局变量/">08-PHP超全局变量</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="超全局变量-预定义数组"><a href="#超全局变量-预定义数组" class="headerlink" title="超全局变量(预定义数组)"></a>超全局变量(预定义数组)</h1><h2 id="什么是超全局变量"><a href="#什么是超全局变量" class="headerlink" title="什么是超全局变量"></a>什么是超全局变量</h2><pre><code>超全局变量是PHP内置的变量，在每一个php文件中都可以直接使用。
-
-特点: 
-在每个页面都能直接使用
-内部都是**关联数组**结构
-</code></pre><blockquote>
-<p>非常重要: $_GET、$_POST、$_SESSION、$_COOKIE、$_FILES<br>知道: $_SERVER、$_REQUEST、$GLOBALS</p>
-</blockquote>
-<h2 id="SERVER"><a href="#SERVER" class="headerlink" title="$_SERVER"></a>$_SERVER</h2><p>$_SERVER记录了服务器和客户端的主要信息，和当前页面的信息<br><img src="/images/php/1533782283446.png" alt=""></p>
-<p>重点记住的内容:</p>
-<p>  REQURES_URI ： 访问的文件地址</p>
-<p>  SCRIPT_NAME： 脚本名称（路径）</p>
-<p>  PHP_SELF： 自身文件名</p>
-<p>  访问的文件的绝对路径。 此处的绝对路径是和域名绝对</p>
-<p>   /php2/code/server.php –&gt;  localhost/php2/code/server.php</p>
-<h2 id="get-post方式接收表单数据"><a href="#get-post方式接收表单数据" class="headerlink" title="get/post方式接收表单数据"></a>get/post方式接收表单数据</h2><pre><code>表单处理通常需要两个页面：
-
-  1)  form.html，表单页，用户可以在表单页上填写相关数据
-
-  2)  form.php ,  数据接收处理页， 接收用户在表单填写的数据，然后做进一步处理
-</code></pre><p><img src="/images/php/1525418662232.png" alt=""></p>
-<p>代码实现：</p>
-<p>form.html</p>
-<p><img src="/images/php/1533783297322.png" alt=""></p>
-<p>form.php<br><img src="/images/php/1533783312171.png" alt=""><br>注意:  表单中每个域的name值，会作为$_POST的下标</p>
-<p>表单提交关键点总结:</p>
-<p>  表单页: form.html</p>
-<pre><code>1) 必须有form表单标签，form必须有action 和 method 两个属性
-</code></pre><ul>
-<li>action: 指定表单数据提交的位置 —  php/jsp/asp文件的路径</li>
-<li><p>method: 表单提交的方式， post 、get(默认)</p>
-<p>  2) 每个表单域都要有name属性    input   select   textarea</p>
-<p>  3) 必须有submit类型的按钮</p>
-</li>
-</ul>
-<p>   数据接收处理页： form.php</p>
-<pre><code>1) method=post时，使用$_POST接收数据    
-
-2) method=get时，使用$_GET接收数据
-
-3) 不管是$_POST还是$_GET，都是一个关联数组，数组的下标就是表单域中 name 属性的值
-</code></pre><h2 id="每种域和类型的提交方式"><a href="#每种域和类型的提交方式" class="headerlink" title="每种域和类型的提交方式"></a>每种域和类型的提交方式</h2><p> 表单标签： form 、 <strong>input 、 select 、 textarea</strong></p>
-<p>  <strong>表单提交的实际上是每个域的value值</strong></p>
-<p>  1) input  type= text/password/hidden/email  提交的就是value属性中的值</p>
-<p>  2) input  type=radio  提交的是选中项的value值。<strong>value必须设置，否则后端会接收 on</strong></p>
-<p>  3) input  type=checkbox  <strong>在name的值后增加[] 转换成数组结构</strong>，后端才能接收到所有的已勾选项</p>
-<p>  4) select  name值需要定义在select标签中； value定义在option中，每条option都有自己的value</p>
-<pre><code>如果不定义option中的value，则会将option中间的内容发送到后端页面中
-</code></pre><p>  5) textarea  name值定义在textarea标签中，value没有显式的表示出来，就是开始标签和结束标签之间的内容</p>
-<p><img src="/images/php/1533784655977.png" alt=""></p>
-<h1 id="post和get的区别-非常重要"><a href="#post和get的区别-非常重要" class="headerlink" title="post和get的区别 (非常重要)"></a>post和get的区别 (非常重要)</h1><h2 id="通过URL地址栏来区分post和get"><a href="#通过URL地址栏来区分post和get" class="headerlink" title="通过URL地址栏来区分post和get"></a>通过URL地址栏来区分post和get</h2><p>get将提交数据拼接成字符串显示在URL地址栏中<br><img src="/images/php/1525423939656.png" alt=""><br>post不显示<br><img src="/images/php/1525423862000.png" alt=""></p>
-<p>1) 提交方式</p>
-<ul>
-<li><p>get会将数据显式的拼接到url地址栏中  (字符串)<br>例如： form.php?id=10001&amp;username=heiheihei&amp;passwd=123456&amp;key=value….<br>key=value方式传参，多个参数之间使用&amp;符号隔开</p>
-<pre><code>id、username、passwd等等（键/key）都是表单域的name值
-
-1、heiheihei、123456等等（值/value）都是表单域的value值
-</code></pre></li>
-<li><p>post不会显示出来</p>
-</li>
-</ul>
-<p>2) 传递数据量大小</p>
-<ul>
-<li>post最小值是2M，默认8M，可以通过修改php配置(php.ini)文件来修改大小，理论上没有上限的。</li>
-<li>get会受到浏览器的地址栏的限制。有的是2k，有的是8K(chrome)</li>
-</ul>
-<p>3) 应用范围不一样</p>
-<ul>
-<li>post在绝大多数情况下都使用在表单提交中。</li>
-<li>get的应用范围比较广。在a标签的href中，location.href中等都能使用get方式。<br><img src="/images/php/1533786580917.png" alt=""></li>
-</ul>
-<h2 id="REQUEST"><a href="#REQUEST" class="headerlink" title="$_REQUEST"></a>$_REQUEST</h2><p>   $_REQUEST 即可以接收get方式提交的表单，也能接收post方式提交的表单。但是因为速度比较慢，所以现在被弃用。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/07-PHP数组" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/23/PHP/07-PHP数组/" class="article-date">
-      <time datetime="2017-04-23T08:18:17.000Z" itemprop="datePublished">2017-04-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/23/PHP/07-PHP数组/">07-PHP数组</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  arr = [<span class="number">123</span>, <span class="string">'abc'</span>, <span class="number">234</span>];   </span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
-<p>   PHP的数组分为索引数组和关联数组两类:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">索引数组: **下标是数字**的数组就是索引数组</span><br><span class="line">关联数组: **下标是字符串**的数组就是关联数组 (重点)</span><br></pre></td></tr></table></figure>
-<p>格式：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$arr = <span class="keyword">array</span>();</span><br><span class="line">$arr = [];</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明索引数组</span></span><br><span class="line"><span class="comment">//               0         1         2</span></span><br><span class="line">$arr1 = <span class="keyword">array</span>(<span class="string">'福禄娃'</span>, <span class="string">'海绵宝宝'</span>, <span class="string">'猪猪侠'</span>);</span><br><span class="line">$arr2 = <span class="keyword">array</span>(<span class="number">3</span>=&gt;<span class="string">'蜘蛛侠'</span>, <span class="number">6</span>=&gt;<span class="string">'钢铁侠'</span>, <span class="number">10</span>=&gt;<span class="string">'煎饼侠'</span>);</span><br><span class="line">$arr3 = [<span class="string">'张无忌'</span>, <span class="string">'赵敏'</span>, <span class="string">'灭绝师太'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//声明关联数组 -- 下标是字符串</span></span><br><span class="line">$info = [<span class="string">'name'</span>=&gt;<span class="string">'张二狗'</span>, <span class="string">'age'</span>=&gt;<span class="number">20</span>, <span class="string">'gender'</span>=&gt;<span class="string">'男'</span>];</span><br><span class="line">$goods_info = [<span class="string">'goods_name'</span>=&gt;<span class="string">'小米 8'</span>, <span class="string">'goods_price'</span>=&gt;<span class="number">1999</span>];</span><br></pre></td></tr></table></figure>
-<h2 id="数组读写"><a href="#数组读写" class="headerlink" title="数组读写"></a>数组读写</h2><p>   不管是索引还是关联数组，都是通过下标来进行读写控制的。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> $arr2[<span class="number">6</span>];</span><br><span class="line"><span class="comment">//下标是字符串，一定要加引号</span></span><br><span class="line"><span class="comment">// 如果不加引号就会变为常量</span></span><br><span class="line"><span class="keyword">echo</span> $info[<span class="string">'name'</span>];</span><br><span class="line"></span><br><span class="line">$goods_info[<span class="string">'goods_name'</span>] = <span class="string">'小米 note 3'</span>;</span><br></pre></td></tr></table></figure></p>
-<h2 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h2><p>foreach 语句结构，用来遍历数组(关联数组和索引数组均可)。</p>
-<p>格式: </p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span>($arr <span class="keyword">as</span> $key=&gt;$value)&#123;程序体&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($arr <span class="keyword">as</span> $value)&#123;程序体&#125;</span><br></pre></td></tr></table></figure>
-<p>$arr : 要遍历的数组   </p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$key: 单元的下标，可以是任意变量名</span><br><span class="line">$value: 单元的值，可以是任意变量名</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$arr = [<span class="string">'张无忌'</span>, <span class="string">'赵敏'</span>, <span class="string">'灭绝师太'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//第一次循环，将第一个单元取出</span></span><br><span class="line"><span class="comment">//将单元的下标，赋值给$key</span></span><br><span class="line"><span class="comment">//将单元的值， 赋值给$value</span></span><br><span class="line"><span class="comment">//第二次循环，将第二个单元取出，赋值步骤同上</span></span><br><span class="line"><span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $key=&gt;$value) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $key . <span class="string">"-"</span> . $value . <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$goods_info = [<span class="string">'goods_name'</span>=&gt;<span class="string">'小米 8'</span>, <span class="string">'goods_price'</span>=&gt;<span class="number">1999</span>];</span><br><span class="line"><span class="keyword">foreach</span> ($goods_info <span class="keyword">as</span> $k=&gt;$v) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $k . <span class="string">'-'</span> . $v . <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果as后面只有一个变量，该变量就是数组的单元值</span></span><br><span class="line"><span class="keyword">foreach</span> ($goods_info <span class="keyword">as</span> $value) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="二维数组和多维数组"><a href="#二维数组和多维数组" class="headerlink" title="二维数组和多维数组"></a>二维数组和多维数组</h2><ul>
-<li>一维数组的单元中，保存了一个数组，那么该数组就是二维数组</li>
-<li>二维数组可以想象成一个表格</li>
-<li>二维数组同样也用下标来进行控制</li>
-<li>二维数组常用来存储一组相似/相关的数据</li>
-<li>二维数组的每个单元都保存一个一维数组，就是三维数组；三维数组的每个单元都保存一个数组就是四维数组； 依次类推，可以到n维。在一般开发中，最常用的是一维和二维数组，三维极少使用。</li>
-</ul>
-<p><img src="/images/php/1533544335589.png" alt=""><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同质数据</span></span><br><span class="line">$list = [</span><br><span class="line"><span class="number">0</span>=&gt;[<span class="string">'name'</span>=&gt;<span class="string">'zs'</span>, <span class="string">'age'</span>=&gt;<span class="number">20</span>, <span class="string">'gender'</span>=&gt;<span class="string">'男'</span>],</span><br><span class="line"><span class="number">1</span>=&gt;[<span class="string">'name'</span>=&gt;<span class="string">'ls'</span>, <span class="string">'age'</span>=&gt;<span class="number">21</span>, <span class="string">'gender'</span>=&gt;<span class="string">'女'</span>],</span><br><span class="line"><span class="number">2</span>=&gt;[<span class="string">'name'</span>=&gt;<span class="string">'ww'</span>, <span class="string">'age'</span>=&gt;<span class="number">19</span>, <span class="string">'gender'</span>=&gt;<span class="string">'女'</span>],</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
-<h2 id="遍历二维数组"><a href="#遍历二维数组" class="headerlink" title="遍历二维数组"></a>遍历二维数组</h2><pre><code>核心思想： 使用foreach取出第一维的数据（数组），第二层通过下标输出
-</code></pre><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$list = [</span><br><span class="line"><span class="number">0</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">1</span>, <span class="string">'name'</span>=&gt;<span class="string">'zs'</span>, <span class="string">'age'</span>=&gt;<span class="number">20</span>, <span class="string">'gender'</span>=&gt;<span class="string">'男'</span>],</span><br><span class="line"><span class="number">1</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">2</span>, <span class="string">'name'</span>=&gt;<span class="string">'ls'</span>, <span class="string">'age'</span>=&gt;<span class="number">21</span>, <span class="string">'gender'</span>=&gt;<span class="string">'女'</span>],</span><br><span class="line"><span class="number">2</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">3</span>, <span class="string">'name'</span>=&gt;<span class="string">'ww'</span>, <span class="string">'age'</span>=&gt;<span class="number">19</span>, <span class="string">'gender'</span>=&gt;<span class="string">'女'</span>],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">//通常在实际开发当中，都只用一层foreach;</span></span><br><span class="line"><span class="comment">//第二层数据的显示，使用$value[下标]</span></span><br><span class="line"><span class="comment">//$value是一位数组</span></span><br><span class="line"><span class="comment">//第一次循环: $value = ['id'=&gt;1, 'name'=&gt;'zs', 'age'=&gt;20, 'gender'=&gt;'男'];</span></span><br><span class="line"><span class="comment">//第二次循环: $value = ['id'=&gt;2, 'name'=&gt;'ls', 'age'=&gt;21, 'gender'=&gt;'女'];</span></span><br><span class="line"><span class="comment">//第三次循环: $value = ['id'=&gt;3, 'name'=&gt;'ww', 'age'=&gt;19, 'gender'=&gt;'女']</span></span><br><span class="line"><span class="keyword">foreach</span> ($list <span class="keyword">as</span> $key=&gt;$value) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $value[<span class="string">'id'</span>] . <span class="string">' '</span>;</span><br><span class="line">    <span class="keyword">echo</span> $value[<span class="string">'name'</span>]. <span class="string">' '</span>;</span><br><span class="line">    <span class="keyword">echo</span> $value[<span class="string">'age'</span>]. <span class="string">' '</span>;</span><br><span class="line">    <span class="keyword">echo</span> $value[<span class="string">'gender'</span>];</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="将数组输出成一个表格"><a href="#将数组输出成一个表格" class="headerlink" title="将数组输出成一个表格"></a>将数组输出成一个表格</h2><p>方式一 : 使用echo来输出整体的表格结构，再用foreach来循环输出tbody中的结构和数据<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$list = [</span><br><span class="line"><span class="number">0</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">1</span>, <span class="string">'name'</span>=&gt;<span class="string">'zs'</span>, <span class="string">'age'</span>=&gt;<span class="number">20</span>, <span class="string">'gender'</span>=&gt;<span class="string">'男'</span>],</span><br><span class="line"><span class="number">1</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">2</span>, <span class="string">'name'</span>=&gt;<span class="string">'ls'</span>, <span class="string">'age'</span>=&gt;<span class="number">21</span>, <span class="string">'gender'</span>=&gt;<span class="string">'女'</span>],</span><br><span class="line"><span class="number">2</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">3</span>, <span class="string">'name'</span>=&gt;<span class="string">'ww'</span>, <span class="string">'age'</span>=&gt;<span class="number">19</span>, <span class="string">'gender'</span>=&gt;<span class="string">'女'</span>],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;table border='1' width='600'&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;thead&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;tr&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;th&gt;编号&lt;/th&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;年龄&lt;/th&gt;&lt;th&gt;性别&lt;/th&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;/tr&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;/thead&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;tbody&gt;"</span>;</span><br><span class="line"><span class="comment">//以第一次循环为例</span></span><br><span class="line"><span class="comment">//$value = ['id'=&gt;1, 'name'=&gt;'zs', 'age'=&gt;20, 'gender'=&gt;'男'];</span></span><br><span class="line"><span class="keyword">foreach</span> ($list <span class="keyword">as</span> $value) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;tr&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;td&gt;"</span>.$value[<span class="string">'id'</span>].<span class="string">"&lt;/td&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;td&gt;"</span>.$value[<span class="string">'name'</span>].<span class="string">"&lt;/td&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;td&gt;"</span>.$value[<span class="string">'age'</span>].<span class="string">"&lt;/td&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;td&gt;"</span>.$value[<span class="string">'gender'</span>].<span class="string">"&lt;/td&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;/tr&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;/tbody&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;/table&gt;"</span>;</span><br></pre></td></tr></table></figure></p>
-<p>方式二: 提前定义好表格结果，只循环tbody中的内容</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">//同质数据</span></span><br><span class="line">$list = [</span><br><span class="line"><span class="number">0</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">1</span>, <span class="string">'name'</span>=&gt;<span class="string">'zs'</span>, <span class="string">'age'</span>=&gt;<span class="number">20</span>, <span class="string">'gender'</span>=&gt;<span class="string">'男'</span>],</span><br><span class="line"><span class="number">1</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">2</span>, <span class="string">'name'</span>=&gt;<span class="string">'ls'</span>, <span class="string">'age'</span>=&gt;<span class="number">21</span>, <span class="string">'gender'</span>=&gt;<span class="string">'女'</span>],</span><br><span class="line"><span class="number">2</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">3</span>, <span class="string">'name'</span>=&gt;<span class="string">'ww'</span>, <span class="string">'age'</span>=&gt;<span class="number">19</span>, <span class="string">'gender'</span>=&gt;<span class="string">'女'</span>],</span><br><span class="line">];</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;table border="1" width="600" class="a"&gt;</span><br><span class="line">    &lt;thead class="b" style="color:red"&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th&gt;编号&lt;/th&gt;</span><br><span class="line">            &lt;th&gt;姓名&lt;/th&gt;</span><br><span class="line">            &lt;th&gt;年龄&lt;/th&gt;</span><br><span class="line">            &lt;th&gt;性别&lt;/th&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">        <span class="meta">&lt;?php</span> <span class="keyword">foreach</span> ($list <span class="keyword">as</span> $value) &#123; <span class="meta">?&gt;</span></span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $value[<span class="string">'id'</span>]; <span class="meta">?&gt;</span>&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $value[<span class="string">'name'</span>]; <span class="meta">?&gt;</span>&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $value[<span class="string">'age'</span>]; <span class="meta">?&gt;</span>&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $value[<span class="string">'gender'</span>]; <span class="meta">?&gt;</span>&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        <span class="meta">&lt;?php</span> &#125; <span class="meta">?&gt;</span></span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="print-r函数"><a href="#print-r函数" class="headerlink" title="print_r函数"></a>print_r函数</h2><p>   该函数不但能够输出基本类型，还能够输出数组，在项目开发时经常使用该函数查看数组中的所有数据。</p>
-<p>   debug的核心思想就是跟踪变量，一段程序中所有变量中保存的是自己需要的数据，程序才在自己的掌控之下。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$info = [<span class="string">'id'</span>=&gt;<span class="number">10001</span>, <span class="string">'name'</span>=&gt;<span class="string">'张飞'</span>, <span class="string">'age'</span>=&gt;<span class="number">21</span>, <span class="string">'gender'</span>=&gt;<span class="string">'男'</span>];</span><br><span class="line">print_r($info);</span><br></pre></td></tr></table></figure>
-<p><img src="/images/php/1533781004203.png" alt=""></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$list = [</span><br><span class="line"><span class="number">0</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">1</span>, <span class="string">'name'</span>=&gt;<span class="string">'zs'</span>, <span class="string">'age'</span>=&gt;<span class="number">20</span>, <span class="string">'gender'</span>=&gt;<span class="string">'男'</span>],</span><br><span class="line"><span class="number">1</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">2</span>, <span class="string">'name'</span>=&gt;<span class="string">'ls'</span>, <span class="string">'age'</span>=&gt;<span class="number">21</span>, <span class="string">'gender'</span>=&gt;<span class="string">'女'</span>],</span><br><span class="line"><span class="number">2</span>=&gt;[<span class="string">'id'</span>=&gt;<span class="number">3</span>, <span class="string">'name'</span>=&gt;<span class="string">'ww'</span>, <span class="string">'age'</span>=&gt;<span class="number">19</span>, <span class="string">'gender'</span>=&gt;<span class="string">'女'</span>],</span><br><span class="line">];</span><br><span class="line">print_r($list);</span><br></pre></td></tr></table></figure>
-<p><img src="/images/php/1533781034981.png" alt=""></p>
-<p>使用 echo  来输出数组，则会得到以下错误</p>
-<p><img src="/images/php/1533781096919.png" alt=""></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/06-PHP流程控制" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/23/PHP/06-PHP流程控制/" class="article-date">
-      <time datetime="2017-04-23T06:09:57.000Z" itemprop="datePublished">2017-04-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/23/PHP/06-PHP流程控制/">06-PHP流程控制</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="选择结构-if…else"><a href="#选择结构-if…else" class="headerlink" title="选择结构  (if…else)"></a>选择结构  (if…else)</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(判断表达式)&#123;</span><br><span class="line">    程序块<span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    程序块<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(判断表达式)&#123;</span><br><span class="line">    程序块;</span><br><span class="line">&#125; <span class="keyword">elseif</span>(判断表达式) &#123;</span><br><span class="line">    程序块;</span><br><span class="line">&#125; ...&#123;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    程序块;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>小练习：判断三个变量中的最大值</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">'content-type:text/html;charset=utf-8'</span>);</span><br><span class="line">$a = <span class="number">40</span>;</span><br><span class="line">$b = <span class="number">50</span>;</span><br><span class="line">$c = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ($a &gt; $b) &#123;</span><br><span class="line">    <span class="keyword">if</span> ($a &gt; $c) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'最大值是：$a'</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'最大值是：$c'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> ($b &gt; $c) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'最大值是：$b'</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'最大值是：$c'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>小练习：判断时间，提示不同的问候语</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">'content-type:text/html;charset=utf-8'</span>);</span><br><span class="line">$time = <span class="number">10</span>; <span class="comment">//此处应该动态获取当前时间（小时）。因为没有学过动态获取时间，先固定成某个值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ($time &gt;= <span class="number">0</span> &amp;&amp; $time &lt; <span class="number">6</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"凌晨好"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ($time &gt;= <span class="number">6</span> &amp;&amp; $time &lt; <span class="number">12</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"上午好"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ($time &gt;= <span class="number">12</span> &amp;&amp; $time &lt; <span class="number">18</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"下午好"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ($time &gt;= <span class="number">18</span> &amp;&amp; $time &lt; <span class="number">24</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"晚上好"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"时间有误"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#不允许这么写。没有这种语法 6 &lt;=  $time  &lt; 12</span></span><br></pre></td></tr></table></figure>
-<h2 id="循环结构-while-for-do…while"><a href="#循环结构-while-for-do…while" class="headerlink" title="循环结构  (while / for / do…while)"></a>循环结构  (while / for / do…while)</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(判断表达式)&#123;</span><br><span class="line">    程序块;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(赋值表达式; 判断表达式; 步进表达式)&#123;</span><br><span class="line">    程序块;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    程序块</span><br><span class="line">&#125; <span class="keyword">while</span>(判断表达式)</span><br><span class="line"></span><br><span class="line">下面循环执行几次?</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">1</span>; i == <span class="number">1</span>; $i++)&#123;&#125;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">1</span>; i = <span class="number">1</span>; $i++)&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>小练习：输出1-100之间的偶数</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt;= <span class="number">100</span>; $i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> ($i % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">echo</span> $i . <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>小练习：输出九九乘法口诀表</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt;= <span class="number">9</span>; $i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> ($j = <span class="number">1</span>; $j &lt;= $i; $j++) &#123;</span><br><span class="line">        <span class="keyword">echo</span> $i * $j . <span class="string">"&amp;nbsp;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="分支结构-switch"><a href="#分支结构-switch" class="headerlink" title="分支结构  (switch)"></a>分支结构  (switch)</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(变量)&#123;</span><br><span class="line">    <span class="keyword">case</span> 值<span class="number">1</span>:</span><br><span class="line">        程序块<span class="number">1</span>；</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> 值<span class="number">2</span>:</span><br><span class="line">        程序块<span class="number">2</span>；</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        程序块</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量一般使用 : 整型  字符  字符串</span></span><br></pre></td></tr></table></figure>
-<p>小练习：不同语言的”我爱你”<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">'content-type:text/html;charset=utf-8'</span>);</span><br><span class="line">$lang = <span class="string">'dasdsad'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> ($lang) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'zh-cn'</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"我爱你"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'en-us'</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"I love you"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'de-de'</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"Ich liebe dich"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'ja-jp'</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"あなたのことが好きです"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'fr-fr'</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"Je t'aime!"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"语种错误"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="特殊语句-continue、-break"><a href="#特殊语句-continue、-break" class="headerlink" title="特殊语句  (continue、 break)"></a>特殊语句  (continue、 break)</h2><ul>
-<li><p>contiune: 结束当前循环，直接跳入下一次循环</p>
-</li>
-<li><p>break: 结束整个循环</p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/05-PHP变量、常量、运算符" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/23/PHP/05-PHP变量、常量、运算符/" class="article-date">
-      <time datetime="2017-04-23T05:02:11.000Z" itemprop="datePublished">2017-04-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/23/PHP/05-PHP变量、常量、运算符/">05-PHP变量</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>变量命名规则：</p>
-<ul>
-<li>由字母、数字、下划线组成，必须以字母或者下划线起头</li>
-<li>变量的长度可以是任意的，但不能超过255个字符</li>
-<li>最前面需要加 $</li>
-<li>变量名最好有意义，能够做到见名知意</li>
-<li>当变量名由多单词组成时，最好使用下划线分割或者使用驼峰命名法</li>
-<li>PHP变量区分大小写</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">// 正确的变量名</span></span><br><span class="line">$int = <span class="number">123</span>;</span><br><span class="line">$str = <span class="string">'abc'</span>;</span><br><span class="line">$str1 = <span class="string">"def"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量名区分大小写</span></span><br><span class="line">$INT = <span class="number">234</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $int;</span><br><span class="line"><span class="keyword">echo</span> $INT;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 推荐的变量名</span></span><br><span class="line">$goods_name = <span class="string">"华为 保时捷"</span>;</span><br><span class="line">$goodsPrice = <span class="number">10888</span>;</span><br><span class="line"></span><br><span class="line">$a = <span class="string">'big'</span>;</span><br><span class="line">$big = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">echo</span> $$a;  <span class="comment">//可变变量  echo $big</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>思考：<br>以下变量名哪些是正确的：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$a、  $var、  $_123、  $<span class="number">1</span>b、  $b1c2、  $_<span class="comment">#abc</span></span><br></pre></td></tr></table></figure>
-<h2 id="双引号和单引号的区别"><a href="#双引号和单引号的区别" class="headerlink" title="双引号和单引号的区别"></a>双引号和单引号的区别</h2><p><strong>双引号中的变量会被解释为值</strong></p>
-<p><strong>单引号中的变量会被解释为字符串</strong></p>
-<p>  单引号的执行速度会快于双引号的速度</p>
-<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>保存不会发生改变的数据(如：3.1415， 路径等)时，最好使用常量。</p>
-<p> 常量的使用方法：</p>
-<p>   1) 声明:  define(常量名,  常量值,  大小写区分标志);   </p>
-<pre><code>true（不区分）/false（区分/默认）;
-</code></pre><p>   2) 调用:  echo  常量名;</p>
-<p>   <img src="/images/php/1533698709352.png" alt=""></p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="运算符种类"><a href="#运算符种类" class="headerlink" title="运算符种类"></a>运算符种类</h3><ul>
-<li>算术运算符</li>
-<li>字符串运算符</li>
-<li>赋值运算符</li>
-<li>比较运算符</li>
-<li>逻辑运算符</li>
-<li>其他运算符</li>
-</ul>
-<p>算术运算符：</p>
-<p><img src="/images/php/wpsEA60.tmp.jpg" alt="img"></p>
-<p>特殊案例:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$str = <span class="string">"abc"</span>;</span><br><span class="line">$int = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">echo</span> $str + $int;   <span class="comment">//20</span></span><br><span class="line"></span><br><span class="line">$str = <span class="string">"5"</span>;</span><br><span class="line">$int = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">echo</span> $str + $int;   <span class="comment">//25</span></span><br></pre></td></tr></table></figure></p>
-<p>赋值运算符：</p>
-<p><img src="/images/php/wps7D4D.tmp.jpg" alt="img"></p>
-<p><code>$a += $b   $a = $a + $b</code></p>
-<p>比较运算符：</p>
-<p> <img src="/images/php/wpsCF.tmp.jpg" alt="img"></p>
-<p>逻辑运算符：</p>
-<p><img src="/images/php/wps5CD4.tmp.jpg" alt="img"></p>
-<p>异或: (了解)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">true   xor   true   =  false</span><br><span class="line">true   xor   false  =  true</span><br><span class="line">false  xor   true   =  true</span><br><span class="line">false  xor   false  =  false</span><br></pre></td></tr></table></figure></p>
-<p>其他运算符：</p>
-<p><img src="/images/php/wps3355.tmp.jpg" alt="img"></p>
-<p>三元运算符: 判断表达式？值1：值2</p>
-<p>php默认内置有4种错误： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">notice：         通知错误</span><br><span class="line">Warning error：  警告错误</span><br><span class="line">Parse error：    解析错误</span><br><span class="line">Fatal error：    致命错误</span><br></pre></td></tr></table></figure>
-<p>@不能屏蔽掉所有的错误。 也不建议在实际开发中使用该符号<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">// 语法错误是不能被屏蔽掉的</span></span><br><span class="line">@$books = <span class="string">"JavaScript"</span></span><br><span class="line"><span class="keyword">echo</span> $books;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 大多数其他错误是可以被屏蔽掉的</span></span><br><span class="line">@abc();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="字符串链接运算符"><a href="#字符串链接运算符" class="headerlink" title="字符串链接运算符"></a>字符串链接运算符</h2><ul>
-<li><p>字符串拼接:  （ . ）  </p>
-<pre><code>在php中字符串拼接:   .  
-
-与js中的 + 号 拼接符使用方式一致
-</code></pre><p> 在php中  + 号 是运算符。</p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/04-PHP运行原理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/23/PHP/04-PHP运行原理/" class="article-date">
-      <time datetime="2017-04-23T03:42:51.000Z" itemprop="datePublished">2017-04-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/23/PHP/04-PHP运行原理/">04-PHP运行原理</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="PHP运行原理"><a href="#PHP运行原理" class="headerlink" title="PHP运行原理"></a>PHP运行原理</h1><p>##HTML运行原理</p>
-<p><img src="/images/php/1525248413592.png" alt=""></p>
-<p>1) 在浏览器的URL地址栏中输入 <a href="http://www.baidu.com/index.html" target="_blank" rel="noopener">www.baidu.com/index.html</a> 地址，点回车。请求就发送给百度服务器。</p>
-<p>2) 百度服务器找到index.html文件，并将文件的内容返回给浏览器</p>
-<p>3) 浏览器接收到index.html中的内容，渲染到页面上。</p>
-<p>同理: localhost/a.html ,  则会返回 本机web服务器根目录下 a.html文件的内容。浏览器拿到内容后进行渲染。</p>
-<h2 id="PHP运行原理-1"><a href="#PHP运行原理-1" class="headerlink" title="PHP运行原理"></a>PHP运行原理</h2><p> <strong>apache不认识php</strong></p>
-<p> <strong>浏览器也不认识php</strong></p>
-<p> <img src="/images/php/1525248877964.png" alt=""></p>
-<p> 1) 在浏览器地址栏中输入 localhost/index.php ,点回车之后。将请求发送给apache服务器。</p>
-<p> 2) 服务器找到 index.php文件之后，转发给php解释器</p>
-<p> 3) php解释器将index.php文件中的php代码全部转为html，再返回给apache</p>
-<p> 4) apache将处理好的html返回给浏览器，浏览器渲染后就可以看到页面</p>
-<h2 id="PHP的数据类型"><a href="#PHP的数据类型" class="headerlink" title="PHP的数据类型"></a>PHP的数据类型</h2><p>  <strong>PHP数据类型一共有8种:</strong></p>
-<ul>
-<li><p>基本类型(标量):</p>
-<pre><code>整型: 整数， 例如: 10, 234, -20, -35 
-浮点型:  小数,  例如: 3.1415, 2.13, 35.123
-布尔值:  true/false
-字符串:  使用单引号/双引号包含的内容, 例如: ‘abc’, “王者荣耀”
-</code></pre></li>
-<li><p>复合类型:</p>
-<pre><code>数组
-
-对象
-</code></pre></li>
-<li><p>特殊类型:</p>
-<pre><code>资源 
-null (空)
-</code></pre></li>
-</ul>
-
       
     </div>
     

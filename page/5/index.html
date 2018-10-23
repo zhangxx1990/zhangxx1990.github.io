@@ -196,7 +196,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Ajax/" style="font-size: 16.25px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.25px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.25px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.5px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12.5px;">Node</a> <a href="/tags/PHP/" style="font-size: 18.75px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
+                        <a href="/tags/Ajax/" style="font-size: 16.67px;">Ajax</a> <a href="/tags/CSS/" style="font-size: 15.56px;">CSS</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/H5C3/" style="font-size: 16.67px;">H5C3</a> <a href="/tags/HTML/" style="font-size: 11.11px;">HTML</a> <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MWEB/" style="font-size: 16.67px;">MWEB</a> <a href="/tags/MySQL/" style="font-size: 14.44px;">MySQL</a> <a href="/tags/MySQL-PHP/" style="font-size: 12.22px;">MySQL PHP</a> <a href="/tags/Node/" style="font-size: 12.22px;">Node</a> <a href="/tags/PHP/" style="font-size: 18.89px;">PHP</a> <a href="/tags/jQuery/" style="font-size: 17.78px;">jQuery</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a>
                     </div>
                 </section>
                 
@@ -292,6 +292,855 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-ajax/12-虚拟主机配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/04/ajax/12-虚拟主机配置/" class="article-date">
+      <time datetime="2017-05-04T02:05:53.000Z" itemprop="datePublished">2017-05-04</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/04/ajax/12-虚拟主机配置/">12-虚拟主机配置</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="虚拟主机配置"><a href="#虚拟主机配置" class="headerlink" title="虚拟主机配置"></a>虚拟主机配置</h1><h2 id="什么是虚拟主机"><a href="#什么是虚拟主机" class="headerlink" title="什么是虚拟主机"></a>什么是虚拟主机</h2><p>虚拟主机，也叫“网站空间”，就是把一台运行在互联网上的物理服务器划分成多个“虚拟”服务器，每一个虚拟服务器都能独立运行一个网站</p>
+<p><img src="/images/ajax/1524039623401.png" alt="1524039623401"></p>
+<h2 id="虚拟主机配置3步骤"><a href="#虚拟主机配置3步骤" class="headerlink" title="虚拟主机配置3步骤"></a>虚拟主机配置3步骤</h2><p>目标: 将我们的apache做成虚拟主机，同时支持多个网站。  还可以为每个虚拟主机自定义域名</p>
+<p><a href="http://www.study.com" target="_blank" rel="noopener">www.study.com</a></p>
+<p>案例: 配置 <a href="http://www.study.com" target="_blank" rel="noopener">www.study.com</a>  虚拟主机</p>
+<p>1) 修改apache配置文件(httpd.conf)，引入apache的虚拟主机配置文件(httpd-vhost.conf)</p>
+<pre><code>去掉该句前的 # 号
+</code></pre><p><img src="/images/ajax/1524039679721.png" alt="1524039679721"></p>
+<p>2) 修改虚拟主机配置文件</p>
+<p>d:\phpstudy\Apache\conf\extra\httpd-vhosts.conf</p>
+<p><img src="/images/ajax/1528962401243.png" alt="1528962401243"></p>
+<p>3) 修改hosts文件 (使用管理员权限修改)</p>
+<p>c:/windows/system32/drivers/etc/hosts</p>
+<p><img src="/images/ajax/1528962577565.png" alt="1528962577565"></p>
+<p>在浏览器中输入 <a href="http://www.study.com" target="_blank" rel="noopener">www.study.com</a> 就会访问本机的apache服务器</p>
+<p><strong>重启Apche服务器</strong></p>
+<p>注意：  <a href="http://www.study.com" target="_blank" rel="noopener">www.study.com</a> 指向  d:/phpstudy/WWW/study 目录</p>
+<p> 配置两个域名：  <a href="http://www.study.com" target="_blank" rel="noopener">www.study.com</a>   <a href="http://www.demo.com" target="_blank" rel="noopener">www.demo.com</a></p>
+<h2 id="需要调整default不影响打开localhost"><a href="#需要调整default不影响打开localhost" class="headerlink" title="需要调整default不影响打开localhost"></a>需要调整<em>default</em>不影响打开localhost</h2><p><img src="/images/ajax/localhost.png" alt=""></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ajax/11-模板引擎" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/04/ajax/11-模板引擎/" class="article-date">
+      <time datetime="2017-05-04T01:10:09.000Z" itemprop="datePublished">2017-05-04</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/04/ajax/11-模板引擎/">11-ArtTemplate模板引擎</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h1><h2 id="为什么要使用模板引擎"><a href="#为什么要使用模板引擎" class="headerlink" title="为什么要使用模板引擎"></a>为什么要使用模板引擎</h2><p>通过搜索用户名案例我们发现，要渲染到网页上的数据是使用js循环拼接字符串，再将拼接好的字符串填入tbody标签中的。</p>
+<p>   这种方式可读性差，出错不容易查找。</p>
+<p>   模板引擎技术就是为了解决字符串拼接问题的。 ==模板引擎技术本质就是拼接字符串。==</p>
+<p>   传统模式有两种拼接显示字符串的方式:</p>
+<ul>
+<li>在后端程序中拼接好，然后以字符串形式返回</li>
+<li>后端程序返回json字符串，前端程序接收了之后，解析json进行拼接</li>
+</ul>
+<p>模板引擎方式：</p>
+<p>模板引擎属于前端程序拼接字符串<br>提前定义好要显示格式，所有数据位置以特殊标记表示出来。模板引擎会自动分析，并将数据填写到对应的位置。</p>
+<p>我叫<strong> , 今年</strong> 岁了</p>
+<h2 id="常见模板引擎"><a href="#常见模板引擎" class="headerlink" title="常见模板引擎"></a>常见模板引擎</h2><p>ArtTemplate：<a href="https://github.com/aui/artTemplate" target="_blank" rel="noopener">https://github.com/aui/artTemplate</a></p>
+<p>velocity.js：<a href="https://github.com/shepherdwind/velocity.js" target="_blank" rel="noopener">https://github.com/shepherdwind/velocity.js</a></p>
+<p>Handlebars：<a href="http://handlebarsjs.com" target="_blank" rel="noopener">http://handlebarsjs.com</a></p>
+<h2 id="artTemplate快速上手"><a href="#artTemplate快速上手" class="headerlink" title="artTemplate快速上手"></a>artTemplate快速上手</h2><p>基本使用步骤:</p>
+<p>  1) 使用script标签引入arttemplate库文件 (template-web.js)</p>
+<p>  2) 定义标签，用来显示最终解析好的模板信息</p>
+<p>  3) 定义模板和模板中所需数据。</p>
+<pre><code>① 定义要显示在模板中的数据，必须是 json 对象
+② 使用script标签定义模板，type=&quot;text/template&quot;  id=&quot;tpl&quot;，并且使用 {{}}  将所有数据位置标记出来
+</code></pre><p>  4) 调用template函数，解析模板，将数据和模板组装到一起</p>
+<p>  5) 将解析好的模板字符串填充到事先定义好的标签中(显示到网页上)</p>
+<p>简单案例：拼接模板字符串 “我叫张三，今年20岁”，并输出在网页的div中</p>
+<p>模板:   我叫<strong> , 今年</strong> 岁了</p>
+<p>var json = {“name”:”zs”, “age”:20};</p>
+<p>① 引入 template-web.js库文件</p>
+<p>② 定义标签，用来显示最终解析好的模板信息</p>
+<p>③ 定义数据和模板</p>
+<p>④ 调用template函数将数据和模板揉到一起</p>
+<p>⑤ 将解析好的字符串写入定义好的标签中</p>
+<p><img src="/images/ajax/1534997889904.png" alt="1534997889904"></p>
+<p>关键点：</p>
+<p>1) 在定义模板时使用 script 标签， type=”text/==template==”  id=”tpl”</p>
+<p>2) 定义json对象，json对象中的key一定要和模板中的 一致</p>
+<p>3) 调用template函数进行解析</p>
+<pre><code>参数1: 模板的id值
+参数2: json对象
+</code></pre><h2 id="循环结构-each"><a href="#循环结构-each" class="headerlink" title="循环结构  each"></a>循环结构  each</h2><p>关键点: </p>
+<p>1) template函数需要的参数是一个json对象，所以需要声明json对象，里面是数组</p>
+<p>2) 在定义模板时使用each进行循环</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> each结构: </span><br><span class="line"></span><br><span class="line">  &#123;&#123;each data <span class="keyword">as</span> value&#125;&#125;</span><br><span class="line">  </span><br><span class="line">输出内容</span><br><span class="line"></span><br><span class="line"> &#123;&#123;/each&#125;&#125;</span><br><span class="line"></span><br><span class="line"> data: 要循环的数组</span><br><span class="line"></span><br><span class="line"> value: 循环取出的单元值</span><br><span class="line"></span><br><span class="line"> 注意: 使用 &#123;&#123;/each&#125;&#125; 结束循环</span><br></pre></td></tr></table></figure>
+<p>① 使用script标签引入arttemplate库文件 (template-web.js)</p>
+<p>② 定义标签，显示最终结果的标签</p>
+<p>③ 定义数据和模板</p>
+<p>④ 调用template函数，将数组和模板进行解析</p>
+<p>⑤ 将解析好的字符串显示到div中</p>
+<p><img src="/images/ajax/1534998872701.png" alt="1534998872701"></p>
+<p><img src="/images/ajax/1534998883342.png" alt="1534998883342"></p>
+<p><img src="/images/ajax/1534998890382.png" alt="1534998890382"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  arr= [</span><br><span class="line"></span><br><span class="line">	&#123;<span class="string">"name"</span>:<span class="string">"zs"</span>, <span class="string">"age"</span>:<span class="number">20</span>&#125;,</span><br><span class="line"></span><br><span class="line">	&#123;<span class="string">"name"</span>:<span class="string">"ls"</span>, <span class="string">"age"</span>:<span class="number">20</span>&#125;,</span><br><span class="line"></span><br><span class="line">	&#123;<span class="string">"name"</span>:<span class="string">"ww"</span>, <span class="string">"age"</span>:<span class="number">20</span>&#125;,</span><br><span class="line"></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line"></span><br><span class="line">	&#123;<span class="string">"sno"</span>:<span class="number">1</span>, <span class="string">"sname"</span>:<span class="string">"aaa"</span>, <span class="string">"sage"</span>:<span class="number">20</span>, <span class="string">"sgender"</span>:<span class="string">"nv"</span>, <span class="string">"semail"</span>:<span class="string">"dasdsad@d.acom"</span>, <span class="string">"stel"</span>:<span class="string">"12134333"</span>&#125;,</span><br><span class="line"></span><br><span class="line">	&#123;<span class="string">"sno"</span>:<span class="number">2</span>, <span class="string">"sname"</span>:<span class="string">"aaa"</span>, <span class="string">"sage"</span>:<span class="number">20</span>, <span class="string">"sgender"</span>:<span class="string">"nv"</span>, <span class="string">"semail"</span>:<span class="string">"dasdsad@d.acom"</span>, <span class="string">"stel"</span>:<span class="string">"12134333"</span>&#125;,</span><br><span class="line"></span><br><span class="line">	&#123;<span class="string">"sno"</span>:<span class="number">3</span>, <span class="string">"sname"</span>:<span class="string">"aaa"</span>, <span class="string">"sage"</span>:<span class="number">20</span>, <span class="string">"sgender"</span>:<span class="string">"nv"</span>, <span class="string">"semail"</span>:<span class="string">"dasdsad@d.acom"</span>, <span class="string">"stel"</span>:<span class="string">"12134333"</span>&#125;,</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="选择结构-—-if-else"><a href="#选择结构-—-if-else" class="headerlink" title="选择结构 — if else"></a>选择结构 — if else</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">关键点: 定义模板时使用 </span><br><span class="line"></span><br><span class="line">  &#123;&#123;<span class="keyword">if</span>  判断条件&#125;&#125;</span><br><span class="line"></span><br><span class="line">	程序块<span class="number">1</span></span><br><span class="line"></span><br><span class="line">  &#123;&#123;<span class="keyword">else</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line">	程序块<span class="number">2</span></span><br><span class="line"></span><br><span class="line">  &#123;&#123;/<span class="keyword">if</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/ajax/1535073931982.png" alt="1535073931982"></p>
+<p>定义数据和模板</p>
+<p><img src="/images/ajax/1535073949659.png" alt="1535073949659"></p>
+<p><img src="/images/ajax/1535073977980.png" alt="1535073977980"></p>
+<h2 id="使用模板引擎改造搜索用户案例"><a href="#使用模板引擎改造搜索用户案例" class="headerlink" title="使用模板引擎改造搜索用户案例"></a>使用模板引擎改造搜索用户案例</h2><p>目标: 使用模板引擎来代替原来的字符串拼接</p>
+<p>① 引入库文件</p>
+<p>② 定义标签，显示最终结果的标签</p>
+<p>③ 定义数据和模板</p>
+<p>④ 调用template函数</p>
+<p>⑤ 将解析好的字符串渲染到tbody中</p>
+<p>1) 发送ajax请求</p>
+<p><img src="/images/ajax/1535075681764.png" alt="1535075681764"></p>
+<p>2) 后端php接收关键词，查询，再将结果返回给前端</p>
+<p>3) 前端显示数据 — 模板引擎</p>
+<p>   ① 引入 template-web.js 文件</p>
+<p>   ② 定义显示最终结果的标签 – tbody</p>
+<p>   ③ 定义数据和模板</p>
+<pre><code>   数据后端返回的 ---  数组，内部是json
+
+   需要包装成json
+
+   定义模板： each循环json中的数组，还可以增加if判断
+
+④ 调用template函数组装数据和模板
+
+⑤ 将结果显示到 tbody中
+</code></pre><p>定义模板:</p>
+<p><img src="/images/ajax/1535075924682.png" alt="1535075924682"></p>
+<p>定义数据：</p>
+<p><img src="/images/ajax/1535075908069.png" alt="1535075908069"></p>
+<h2 id="模板引擎原理简介"><a href="#模板引擎原理简介" class="headerlink" title="模板引擎原理简介"></a>模板引擎原理简介</h2><p> 核心原理: 使用正则替换模板引擎中的标记</p>
+<p> 例如: 我叫，今年岁</p>
+<p>  使用正则表达式找到模板字符串中的和,再用真实的数据进行替换。</p>
+<p> 核心方法:  </p>
+<p>  ① reg.exec(str);</p>
+<p>  reg: 正则表达式</p>
+<p>  str:  字符串</p>
+<p>  函数作用: 从str字符串中找到复合reg正则表达式的对象，如果没有则返回null</p>
+<p>  ② str.replace(str1, str2);</p>
+<p>  函数作用: 在str字符串中找到str1字符串，然后用str2字符串进行替换</p>
+<p>  例如:</p>
+<p>  str = “abcdefg”;</p>
+<p>  str1 = “bc”;</p>
+<p>  str2 = “zs”;</p>
+<p>  console.log(str.replace(str1, str2)); //  azsdefg</p>
+<p>  掌控每一步中变量的内容。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ajax/10-封装方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/03/ajax/10-封装方法/" class="article-date">
+      <time datetime="2017-05-03T07:40:39.000Z" itemprop="datePublished">2017-05-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/03/ajax/10-封装方法/">10-封装方法</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="封装方法"><a href="#封装方法" class="headerlink" title="封装方法"></a>封装方法</h1><p>从一般到通用。</p>
+<p>从一个具体的案例，完善成一个兼容相同功能函数</p>
+<p>  1) 编写一个具体案例</p>
+<p>  2) 分析其中的缺陷</p>
+<p>  3) 完善缺陷</p>
+<h2 id="封装-get方法"><a href="#封装-get方法" class="headerlink" title="封装 $.get方法"></a>封装 $.get方法</h2><p>1) 编写一个具体的案例</p>
+<p>   具体案例:  封装一个get方法，能够发送ajax请求，请求1.php文件，并且能接收到1.php的返回数据</p>
+<p>  ① 使用原生js完成整个ajax请求过程</p>
+<p>  ② 定义$对象，再定义get成员方法</p>
+<p><img src="/images/ajax/1534992419884.png" alt="1534992419884"></p>
+<p><strong>分析具体案例存在的问题，一步一步将存在问题修正，就能够形成一个通用的函数了。</strong></p>
+<p>具体案例存在的问题:</p>
+<p>① 在创建XMLHttpRequest对象时，没有处理浏览器兼容性</p>
+<p>② 只能访问1.php程序</p>
+<p>③ 无法灵活向后台的1.php程序发送参数</p>
+<p>④ 前端无法灵活接收后端返回的数据</p>
+<p>⑤ 返回值类型单一，只能使用字符串</p>
+<p>2) 处理创建XMLHttpRequest对象时的兼容性问题</p>
+<p><img src="/images/ajax/1534992805274.png" alt="1534992805274"></p>
+<p>3) 处理只能访问1.php文件的文件的问题。</p>
+<p>  思路: 定义get函数时设置形参，调用函数时传递实参</p>
+<p>① 修改get方法，设置参数1 — 请求的url地址</p>
+<p><img src="/images/ajax/1534992911599.png" alt="1534992911599"></p>
+<p>② $调用get方法时，需要传递实参</p>
+<p><img src="/images/ajax/1534992931301.png" alt="1534992931301"></p>
+<p>4) 处理请求后台文件时无法发送数据 </p>
+<p>  思路: 将js对象组装为字符串，拼接在请求的url地址之后</p>
+<p> $.get(‘1.php’, {“id”:1, “name”:”zs”} , ….)  –&gt; 1.php?id=1&amp;name=zs</p>
+<p> 本质: {“id”:1, “name”:”zs”} —&gt; id=1&amp;name=zs</p>
+<p>① 封装params方法，将js对象转为字符串</p>
+<p> i. 创建了一个test.html页面，用来测试js对象转字符串的方法</p>
+<p><img src="/images/ajax/1534994041554.png" alt="1534994041554"></p>
+<p> ii. 将封装好的函数加入到 $ 对象中</p>
+<p><img src="/images/ajax/1534994077331.png" alt="1534994077331"></p>
+<p>② 在get方法中定义参数2， 并在get方法中调用params方法，将参数2的js对象转为字符串，将字符串参数拼接到url地址当中</p>
+<p><img src="/images/ajax/1534994154741.png" alt="1534994154741"></p>
+<p>5) 处理readyState==4时的回调函数</p>
+<p>① 在$.get方法中设置参数3，在方法体中使用函数形式调用，就相当于执行了一个函数</p>
+<p><img src="/images/ajax/1534994442757.png" alt="1534994442757"></p>
+<p>② 在调用$.get方法时，以回调函数形式传入参数3</p>
+<p><img src="/images/ajax/1534994457054.png" alt="1534994457054"></p>
+<p>6) 处理能够接收不同类型的返回值</p>
+<p>① 在$.get方法声明时，设置参数4，判断参数4的值，如果是json则进行额外处理</p>
+<p><img src="/images/ajax/1534994665861.png" alt="1534994665861"></p>
+<p>② 在调用$.get方法时，传入参数4</p>
+<p><img src="/images/ajax/1534994682446.png" alt="1534994682446"></p>
+<h2 id="封装-post方法"><a href="#封装-post方法" class="headerlink" title="封装 $.post方法"></a>封装 $.post方法</h2><p> 1) 创建post方法，能够发送ajax请求</p>
+<p> 2) 处理向后台发送的数据</p>
+<p> 3) 处理回调函数和返回值类型</p>
+<pre><code>1) 封装普通的方法
+
+2) 处理xhr的浏览器兼容性问题
+
+3) 请求地址参数问题
+
+4) 让请求能够发送数据
+
+5) 回调函数
+
+6) 设置返回值类型
+</code></pre><p><img src="/images/ajax/1534996012580.png" alt="1534996012580"></p>
+<h2 id="封装-ajax方法"><a href="#封装-ajax方法" class="headerlink" title="封装 $.ajax方法"></a>封装 $.ajax方法</h2><p>核心思想:</p>
+<p>1) 将发送请求的地址、方式、数据、返回值类型、回调函数都封装到js对象中，然后作为参数传入$.ajax方法中。</p>
+<p>2) 在$.ajax方法中区分post和get方式，分别调用get方法和post方法。</p>
+<p><img src="/images/ajax/1534996412903.png" alt="1534996412903"></p>
+<p><img src="/images/ajax/1534996419610.png" alt="1534996419610"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ajax/09-jQuery提供的Ajax方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/03/ajax/09-jQuery提供的Ajax方法/" class="article-date">
+      <time datetime="2017-05-03T05:05:35.000Z" itemprop="datePublished">2017-05-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/03/ajax/09-jQuery提供的Ajax方法/">09-jQuery提供的Ajax方法</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="jQuery提供的Ajax方法"><a href="#jQuery提供的Ajax方法" class="headerlink" title="jQuery提供的Ajax方法"></a>jQuery提供的Ajax方法</h1><p> jQuery提供了4个ajax方法:  $.get()  $.post()  $.ajax()  $.getJSON()</p>
+<p> 前三个常用</p>
+<h2 id="get"><a href="#get" class="headerlink" title="$.get"></a>$.get</h2><p>$.get(var1, var2, var3, var4);</p>
+<p>  参数1: 请求的后端程序的地址</p>
+<p>  参数2: 要发送到后端程序的数据，json对象/js对象（推荐）或者 字符串</p>
+<p>  参数3: 当readyState==4时的触发函数，该函数中有一个参数，就是后端程序返回的数据</p>
+<p>  参数4: 设置返回数据的类型:  text(默认)  json     xml</p>
+<p>案例: 在get.html文件中发送一个ajax请求，去请求后端的get.php页面，同时将id=1数据发送给后端</p>
+<p>示例: </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.get(<span class="string">'get.php'</span>, &#123;<span class="string">"goods_id"</span>:<span class="number">10101</span>, <span class="string">"_"</span>:Math.random()&#125;, <span class="function"><span class="keyword">function</span><span class="params">(msg)</span></span>&#123;</span><br><span class="line">    alert(msg);</span><br><span class="line">&#125;, <span class="string">'json'</span>);</span><br></pre></td></tr></table></figure>
+<p>解析:   上面的代码等价于原生js的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">        msg = xhr.responseText;</span><br><span class="line">        msg = JSON.parse(msg);</span><br><span class="line">        alert(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'getData.php?goods_id=10101&amp;_='</span>+Math.random());</span><br><span class="line">xhr.send(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<p>使用jquery提供的ajax方法，就是为了简化开发。</p>
+<p>使用 $.get 改造 1.5的搜索案例</p>
+<p>1) 表格和文本框一样</p>
+<p><img src="/images/ajax/1534823217314.png" alt="1534823217314"></p>
+<p>2) $.get发送请求</p>
+<p><img src="/images/ajax/1534823247683.png" alt="1534823247683"></p>
+<h2 id="post"><a href="#post" class="headerlink" title="$.post"></a>$.post</h2><p>$.post函数的用法和$.get一模一样，只是发送请求方式变为post</p>
+<p> $.post(var1, var2, var3 , var4);    //最标准的写法</p>
+<p>  参数1: 请求的后台程序的地址</p>
+<p>  参数2: 要发送到后台程序的数据，json对象/js对象（推荐） 或者 字符串</p>
+<p>  参数3: 当readyState=4时的触发函数，该函数中有一个参数，就是后台程序返回的数据</p>
+<p>  参数4: 设置返回数据的类型:  text(默认)  json     xml</p>
+<p>示例: </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.post(<span class="string">'getData.php'</span>, &#123;<span class="string">"goods_id"</span>:<span class="number">10101</span>&#125;, <span class="function"><span class="keyword">function</span><span class="params">(msg)</span></span>&#123;</span><br><span class="line">    alert(msg);</span><br><span class="line">&#125;, <span class="string">'json'</span>);</span><br></pre></td></tr></table></figure>
+<p>解析:   上面的代码等价于原生js的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">        msg = xhr.responseText;</span><br><span class="line">        msg = JSON.parse(msg);</span><br><span class="line">        alert(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.open(<span class="string">'post'</span>, <span class="string">'getData.php'</span>);</span><br><span class="line"><span class="keyword">var</span> param = <span class="string">'goods_id=10101'</span>;</span><br><span class="line">xhr.setRequestHeader(<span class="string">'content-type'</span>, <span class="string">'application/x-www-form-urlencoded'</span>);</span><br><span class="line">xhr.send(param);</span><br></pre></td></tr></table></figure>
+<h2 id="案例-—-搜索框下拉列表"><a href="#案例-—-搜索框下拉列表" class="headerlink" title="案例 — 搜索框下拉列表"></a>案例 — 搜索框下拉列表</h2><p><img src="/images/ajax/1524120186289.png" alt="1524120186289"></p>
+<p>数据表设计:</p>
+<p><img src="/images/ajax/1524127782691.png" alt="1524127782691"></p>
+<p>key_id: 主键</p>
+<p>key_name: 关键词</p>
+<p> 思路分析:</p>
+<ol>
+<li><p>index.html  —  在搜索框上绑定keyup事件，获取搜索框内容并发送ajax请求<br>1) 在搜索文本框上绑定键盘弹起事件<br>2) 事件函数<br>   ① 获取搜索框内容<br>   ② 发送ajax请求，等待结果</p>
+</li>
+<li><p>getKeys.php —  接收关键词，并根据关键词从数据表中查出相关的其他关键词，返回给前端<br>1) 接收关键词<br>2) 编写SQL语句，查询和接收关键词相关的所有关键词<br>3) 将查询结果返回给前端</p>
+</li>
+<li><p>index.html — 将接收到关键词循环显示到下拉列表（tips）中<br>接收后端返回结果并显示<br>1) 制作下拉列表<br>2) 将后端返回的每条关键词都填充到下拉列表中<br>3) 完善下拉列表<br>   ① 每次循环取出关键词时都先创建div，并将关键词放在div中<br>   ② 为div绑定鼠标悬浮事件（高亮显示）和鼠标移出事件（取消高亮显示）<br>   ③ 为div绑定点击事件，将选中的关键词放入搜索框<br>   ④ 将每个div都放入tips<br>   ⑤ 将tips显示出来<br>   ⑥ 每次向tips中填充数据时，都要先清空tips</p>
+</li>
+</ol>
+<p>代码实现:</p>
+<p>index.html  —  在搜索框上绑定keyup事件，获取搜索框内容并发送ajax请求</p>
+<p>1) 在搜索文本框上绑定键盘弹起事件</p>
+<p>2) 事件函数</p>
+<p>   ① 获取搜索框内容</p>
+<p>   ② 发送ajax请求，等待结果</p>
+<p><img src="/images/ajax/1534824918237.png" alt="1534824918237"></p>
+<p>getKeys.php —  接收关键词，并根据关键词从数据表中查出相关的其他关键词，返回给前端</p>
+<p>1) 接收关键词</p>
+<p>2) 编写SQL语句，查询和接收关键词相关的所有关键词</p>
+<p>3) 将查询结果返回给前端</p>
+<p><img src="/images/ajax/1534825243027.png" alt="1534825243027"></p>
+<p>下拉列表</p>
+<p><img src="/images/ajax/1534825758739.png" alt="1534825758739"></p>
+<p>index.html 将结果显示到下拉菜单中</p>
+<p><img src="/images/ajax/1534826892534.png" alt="1534826892534"></p>
+<p><img src="/images/ajax/1534826904482.png" alt="1534826904482"></p>
+<p><img src="/images/ajax/1534826917378.png" alt="1534826917378"></p>
+<p>关键点总结:</p>
+<p>1) 使用键盘弹起事件来触发ajax请求</p>
+<p>   ① 获取搜索框中的内容</p>
+<p>   ② 发送ajax请求，并将搜索框中的内容一起发送给后端</p>
+<p>2) 接收到的数据需要循环显示在下拉菜单中</p>
+<p>   ① 将返回的字符串转为数组（内部是json对象）</p>
+<p>   ② 循环数组，取出每一个相似关键词</p>
+<p>   ③ 在循环中创建div对象，将关键词加入div对象</p>
+<p>   ④ 在div上绑定鼠标悬浮事件，修改背景和字体颜色</p>
+<p>   ⑤ 在div上绑定鼠标移出事件，修改背景和字体颜色为初始颜色</p>
+<p>   ⑥ 在div上绑定点击事件，将内容写在搜索框中，并隐藏下拉列表</p>
+<p>   ⑦ 将div追加到下拉列表中，然后再将下拉列表显示出来</p>
+<p>   ⑧  在循环显示下拉列表之前先清空下拉列表中已有内容</p>
+<h2 id="ajax方法"><a href="#ajax方法" class="headerlink" title="$.ajax方法"></a>$.ajax方法</h2><p>$.ajax使用JS对象来配置ajax请求  —  $.ajax(obj);</p>
+<p> 必须配置项：</p>
+<blockquote>
+<p>url:         要请求的后台程序地址</p>
+</blockquote>
+<blockquote>
+<p>data:      要发送到后台程序的数据 (建议使用json/js对象格式，也可以使用字符串，也可以是FormData)</p>
+</blockquote>
+<blockquote>
+<p>type:      请求类型  post和get 两种  (put、delete)</p>
+</blockquote>
+<blockquote>
+<p>dataType:  返回值类型  text(默认) 、 json 、xml 、 jsonp(跨域使用) </p>
+</blockquote>
+<blockquote>
+<p>success:   成功完成ajax触发的事件，回调函数，其参数是后端程序的返回数据</p>
+</blockquote>
+<p>简单案例:</p>
+<p>1) 发送ajax请求</p>
+<p><img src="/images/ajax/1534987626513.png" alt="1534987626513"></p>
+<p>2) 后端返回数据</p>
+<p> <img src="/images/ajax/1534987638554.png" alt="1534987638554"></p>
+<p> 其他配置项：</p>
+<blockquote>
+<p>cache: 是否进行缓存(true/fasle)，如果设置type为get，一般设置该项为false(不缓存)。</p>
+</blockquote>
+<blockquote>
+<p>async: 同步/异步设置，true(异步、默认) false(同步)。</p>
+</blockquote>
+<blockquote>
+<p>timeout: 超时设置，多少ms之后扔未接收到后端返回数据，则结束本次请求。— 进入error方法中</p>
+</blockquote>
+<blockquote>
+<p>error: 请求失败时的回调函数，该函数有三个参数。参数1是xhr对象，参数2是错误信息（错误信息通常是 “null”, “timeout”, “error”, “not modified” 和 “parsererror”），参数3是异常对象（可选）。</p>
+</blockquote>
+<blockquote>
+<p>complete: Ajax完成时的回调函数。不论请求成功还是失败都会执行该方法</p>
+</blockquote>
+<blockquote>
+<p>beforeSend: 发送Ajax之前执行的回调函数。</p>
+</blockquote>
+<blockquote>
+<p>beforeSend()  —&gt;  success/error()  —&gt; complete()</p>
+</blockquote>
+<blockquote>
+<p>contentType:  头信息设置，使用FormData对象时设置该值为false，其他情况会自动设置，不需要手动设置。</p>
+</blockquote>
+<blockquote>
+<p>processData:  处理数据方式，使用FormData对象时设置该值为false，其他情况会自动设置，不需要手动设置。</p>
+</blockquote>
+<p>  注意: <strong>contentType和processData只有在使用FormData对象时，设置为false，其余情况均不用设置</strong></p>
+<h2 id="案例-—-添加新管理员"><a href="#案例-—-添加新管理员" class="headerlink" title="案例 —  添加新管理员"></a>案例 —  添加新管理员</h2><p><img src="/images/ajax/1526375360112.png" alt="1526375360112"></p>
+<p>如果发送的数据是FormData，那么就只能使用原生js 或者 $.ajax</p>
+<p>  $.ajax发送请求时，如果发送的数据是FormData时，必须设置 contentType和processData为false</p>
+<p>  1) 表单页(index.html)</p>
+<pre><code>提交按钮上，绑定点击事件，获取表单数据，发送ajax请求
+</code></pre><p>  2) php页面接收表单数据，拼接SQL语句并执行 </p>
+<p>  3) 前端接收结果，进行提示</p>
+<p>代码实现:</p>
+<p>1) 表单页(index.html)</p>
+<pre><code>提交按钮上，绑定点击事件，获取表单数据，发送ajax请求
+
+ 因为用到FormData来获取表单数据，所以必须用$.ajax，发送请求时要额外配置contentType和processData
+</code></pre><p><img src="/images/ajax/1534991115290.png" alt="1534991115290"></p>
+<p><img src="/images/ajax/1534991126414.png" alt="1534991126414"></p>
+<p><img src="/images/ajax/1534991137939.png" alt="1534991137939"></p>
+<p>2) php页面接收表单数据，拼接SQL语句并执行  （自己完成）</p>
+<p>3) 前端接收结果，进行提示</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ajax/08-JSON" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/03/ajax/08-JSON/" class="article-date">
+      <time datetime="2017-05-03T04:15:35.000Z" itemprop="datePublished">2017-05-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/03/ajax/08-JSON/">08-JSON</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h2 id="什么是JSON？"><a href="#什么是JSON？" class="headerlink" title="什么是JSON？"></a>什么是JSON？</h2><p>JSON:  JavaScript Object Notation 是一种轻量级数据交互格式。</p>
+<p>数据交互: 每一种语言的编码都不一样，它们之间互不认识。但是现在的情况是不同的语言开发出的系统也需要进行数据交互，这时候就需要一种大家都认识的语言或者技术来实现。</p>
+<p><code>xml: 扩展标记语言</code></p>
+<h2 id="JSON数据的声明和使用"><a href="#JSON数据的声明和使用" class="headerlink" title="JSON数据的声明和使用"></a>JSON数据的声明和使用</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">声明:  <span class="keyword">var</span> json_obj = &#123;<span class="string">"key1"</span>:<span class="string">"value1"</span>, <span class="string">"key2"</span>:<span class="string">"value2"</span>, ...&#125;;</span><br><span class="line"></span><br><span class="line">key: 双引号包含的字符串</span><br><span class="line"></span><br><span class="line">value: 数据→数值型、字符串、数组、json对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//key：必须用双引号</span></span><br><span class="line"><span class="keyword">var</span> json1 = &#123;<span class="string">"a"</span>:<span class="string">"Hello"</span>, <span class="string">"b"</span>:<span class="string">"world"</span>&#125;;</span><br><span class="line">alert(json1.a);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> json2 = &#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"郭德纲"</span>,</span><br><span class="line">    <span class="string">"age"</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="string">"tudi"</span>: [<span class="string">'岳云鹏'</span>, <span class="string">'烧饼'</span>, <span class="string">'张云雷'</span>],</span><br><span class="line">    <span class="string">"son"</span>: &#123;<span class="string">"name"</span>:<span class="string">"郭麒麟"</span>, <span class="string">"age"</span>:<span class="number">20</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line">alert(json2.name);</span><br><span class="line">alert(json2.tudi[<span class="number">1</span>]);</span><br><span class="line">alert(json2.son.name);</span><br><span class="line"></span><br><span class="line"><span class="comment">//数组，内部的每个单元都是一个json</span></span><br><span class="line"><span class="keyword">var</span> json3 = [</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"赵四"</span>,   <span class="string">"age"</span>:<span class="number">50</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"小沈阳"</span>, <span class="string">"age"</span>:<span class="number">46</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"刘能"</span>,   <span class="string">"age"</span>:<span class="number">50</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"name"</span>:<span class="string">"宋小宝"</span>, <span class="string">"age"</span>:<span class="number">52</span>&#125;,</span><br><span class="line">];</span><br><span class="line">alert(json3[<span class="number">2</span>].name);</span><br></pre></td></tr></table></figure>
+<p>JSON的本质:  JSON 是 JS 对象的字符串表示法，它使用文本表示一个 JS 对象的信息，本质是一个字符串。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;a:<span class="string">"hello"</span>, b:<span class="string">"world"</span>&#125;;       <span class="comment">// js对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="string">"a"</span>:<span class="string">"hello"</span>, <span class="string">"b"</span>:<span class="string">"world"</span>&#125;;    <span class="comment">// json格式的js对象，也可以叫json对象 (JSON才是真正的JSON对象)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'&#123;"a":"hello", "b":"world"&#125;'</span>;    <span class="comment">// json，也叫json格式的字符串 必须外层单引号，内存双引号</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"&#123;'a':'Hello', 'b':'world'&#125;"</span>;  <span class="comment">//错误，不能这样写，会影响到其他程序的执行</span></span><br></pre></td></tr></table></figure>
+<h2 id="PHP数组转JSON格式的字符串"><a href="#PHP数组转JSON格式的字符串" class="headerlink" title="PHP数组转JSON格式的字符串"></a>PHP数组转JSON格式的字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">php提供了函数：  json_str  json_encode($arr);</span><br><span class="line"></span><br><span class="line">案例1: 索引数组转JSON      数组</span><br><span class="line"></span><br><span class="line">案例2: 关联数组转 JSON     json对象</span><br><span class="line"></span><br><span class="line">案例3: 二维数组转JSON      一维数组，每个单元都是一个json对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//索引数组</span></span><br><span class="line">$arr = [<span class="string">'zs'</span>, <span class="string">'ls'</span>, <span class="string">'ww'</span>];</span><br><span class="line"><span class="comment">// 一个索引数组被json_encode之后仍然是一个数组，</span></span><br><span class="line"><span class="comment">// 但是是一个字符串形式数组</span></span><br><span class="line"><span class="keyword">echo</span> json_encode($arr); <span class="comment">// '["zs", "ls", "ww"]'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//关联数组</span></span><br><span class="line">$info = [<span class="string">'id'</span>=&gt;<span class="number">1001</span>, <span class="string">'name'</span>=&gt;<span class="string">'王小明'</span>, <span class="string">'age'</span>=&gt;<span class="number">8</span>];</span><br><span class="line"><span class="comment">// 一维关联数组被json_encode之后是一个json字符串</span></span><br><span class="line"><span class="keyword">echo</span> json_encode($info); <span class="comment">// '&#123;"id":1001, "name":"王小明", "age":8&#125;'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二维数组</span></span><br><span class="line">$list = [</span><br><span class="line">    [<span class="string">'id'</span>=&gt;<span class="number">1001</span>, <span class="string">'name'</span>=&gt;<span class="string">'王小明'</span>, <span class="string">'age'</span>=&gt;<span class="number">8</span>],</span><br><span class="line">    [<span class="string">'id'</span>=&gt;<span class="number">1002</span>, <span class="string">'name'</span>=&gt;<span class="string">'韩梅梅'</span>, <span class="string">'age'</span>=&gt;<span class="number">10</span>],</span><br><span class="line">    [<span class="string">'id'</span>=&gt;<span class="number">1003</span>, <span class="string">'name'</span>=&gt;<span class="string">'李雷'</span>, <span class="string">'age'</span>=&gt;<span class="number">9</span>]</span><br><span class="line">];</span><br><span class="line"><span class="comment">// 二维数组，会转为数组，内部的每个单元都是json</span></span><br><span class="line"><span class="keyword">echo</span> json_encode($list);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">'[</span></span><br><span class="line"><span class="comment">    &#123;"id":1001,"name":"王小明","age":8&#125;,</span></span><br><span class="line"><span class="comment">    &#123;"id":1002,"name":"韩梅梅","age":10&#125;,</span></span><br><span class="line"><span class="comment">    &#123;"id":1003,"name":"李雷","age":9&#125;,</span></span><br><span class="line"><span class="comment">]'</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>执行结果:</p>
+<p><img src="/images/ajax/1534815890487.png" alt="1534815890487"></p>
+<h2 id="JSON字符串转JSON对象-javascript代码"><a href="#JSON字符串转JSON对象-javascript代码" class="headerlink" title="JSON字符串转JSON对象 javascript代码"></a>JSON字符串转JSON对象 javascript代码</h2><p>前端的ajax请求，最后接收到的都是字符串  responseText，以字符串形式接收后端返回的数据<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">'[&#123;"id":10001,"name":"zs","age":20&#125;,&#123;"id":10002,"name":"ls","age":21&#125;,&#123;"id":10003,"name":"ww","age":19&#125;]'</span></span><br></pre></td></tr></table></figure></p>
+<pre><code>json格式的字符串转为json对象:  JSON.parse(json_str); 
+
+参数: json格式的字符串
+</code></pre><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'&#123;"id":1001,"name":"王小明","age":8&#125;'</span>;</span><br><span class="line">alert(s.name);</span><br><span class="line"></span><br><span class="line"><span class="comment">//将json格式字符串转为json</span></span><br><span class="line"><span class="keyword">var</span> json = JSON.parse(s);</span><br><span class="line">alert(json.name);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="string">'[&#123;"id":1001,"name":"\u738b\u5c0f\u660e","age":8&#125;,&#123;"id":1002,"name":"\u97e9\u6885\u6885","age":10&#125;,&#123;"id":1003,"name":"\u674e\u96f7","age":9&#125;]'</span>;</span><br><span class="line">alert(arr[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr1 = JSON.parse(arr);</span><br><span class="line">console.log(arr1[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
+<h2 id="案例-搜索用户名，显示用户列表信息"><a href="#案例-搜索用户名，显示用户列表信息" class="headerlink" title="案例 搜索用户名，显示用户列表信息"></a>案例 搜索用户名，显示用户列表信息</h2><p><img src="/images/ajax/1534817413691.png" alt="1534817413691"></p>
+<pre><code>思路:
+
+1) 创建一个搜索页面，定义好搜索框，表头。在搜索按钮上绑定点击事件。
+
+2) 点击事件能够发送ajax请求，并将用户名文本框中的内容一起发送到后端php程序
+
+3) 后端php程序接收用户名，链接MySQL进行模糊查询，再将数组返回给前端
+
+4) 前端接收到后端php返回值之后，循环显示出来
+
+
+代码实现 : 
+
+1) 创建一个搜索页面，定义好搜索框，表头。在搜索按钮上绑定点击事件。
+
+页面布局 :
+</code></pre><p><img src="/images/ajax/1534818204798.png" alt="1534818204798"> </p>
+<pre><code>2) 点击事件能够发送ajax请求，并将用户名文本框中的内容一起发送到后端php程序,在搜索按钮上绑定点击事件  获取文本框中的用户名，发送ajax请求。
+</code></pre><p><img src="/images/ajax/1534818226839.png" alt="1534818226839"></p>
+<pre><code>3) 后端php程序接收用户名，链接mysql进行模糊查询，在将数组返回给前端。
+</code></pre><p>核心操作:</p>
+<pre><code>将资源转为二维数组，再将二维数组转为json字符串，再返回给前端 --&gt;
+</code></pre><p><img src="/images/ajax/1534819468793.png" alt="1534819468793"></p>
+<p><img src="/images/ajax/1534819480657.png" alt="1534819480657"></p>
+<pre><code>4) 前端接收到后端php返回值之后，循环显示出来 
+</code></pre><p><img src="/images/ajax/1534820413728.png" alt="1534820413728"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ajax/07-文件上传与进度条" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/03/ajax/07-文件上传与进度条/" class="article-date">
+      <time datetime="2017-05-03T01:20:35.000Z" itemprop="datePublished">2017-05-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/03/ajax/07-文件上传与进度条/">07-文件上传与进度条</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="文件上传与进度条"><a href="#文件上传与进度条" class="headerlink" title="文件上传与进度条"></a>文件上传与进度条</h1><p> 1) 完成Ajax文件上传</p>
+<pre><code>核心: Ajax方式上传文件必须使用FormData对象
+
+关键点:  
+
+
+    ① 表单使用提交按钮，一定是button
+    ② 获取文件对象 ---- FormData
+        i.根据id获取form表单对象 ---- DOM
+        ii. 实例化 FormData对象，将表单对象作为参数传入
+    iii. 因为使用了FormData，所以一定要用post方式发送请求，将fd作为参数传入send方法
+</code></pre><p> upload.html</p>
+<pre><code>获取文件数据，发送ajax请求
+</code></pre><p><img src="/images/ajax/1534737676621.png" alt="1534737676621"></p>
+<p>upload.php </p>
+<p><img src="/images/ajax/1534738152106.png" alt="1534738152106"></p>
+<p>2) 调整php配置文件（php.ini），使其支持大文件上传</p>
+<p>① 修改允许上传文件最大的大小</p>
+<p><img src="/images/ajax/1534738492662.png" alt="1534738492662"></p>
+<p>② 修改post表单提交数据的最大大小</p>
+<p><img src="/images/ajax/1534738552491.png" alt="1534738552491"></p>
+<p>重启Apache服务器。</p>
+<p>3) 文件进度条</p>
+<p>① 在页面上设置一个div，用来表示进度条</p>
+<p><img src="/images/ajax/1534738923053.png" alt="1534738923053"></p>
+<p>② 根据实际上传百分比来绘制进度条的宽度</p>
+<pre><code>核心:  xhr对象中有一个子对象（upload），upload对象中有一个事件 onprogress。该事件大约每100ms执行一次，里面有两个重要属性  loaded(已上传大小)    total（总大小）
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ajax/06-XMLHttpRequest2.0新特性" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/05/03/ajax/06-XMLHttpRequest2.0新特性/" class="article-date">
+      <time datetime="2017-05-03T00:50:05.000Z" itemprop="datePublished">2017-05-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/05/03/ajax/06-XMLHttpRequest2.0新特性/">06-XMLHttpRequest2.0新特性</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="XMLHttpRequest2-0新特性"><a href="#XMLHttpRequest2-0新特性" class="headerlink" title="XMLHttpRequest2.0新特性"></a>XMLHttpRequest2.0新特性</h1><h2 id="timeout-和-ontimeout"><a href="#timeout-和-ontimeout" class="headerlink" title="timeout 和 ontimeout"></a>timeout 和 ontimeout</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">timeout： 请求超时设置。属性，用来设置等待响应时长，如果超过指定时长，则会触发ontimeout事件</span><br><span class="line"></span><br><span class="line">xhr.timeout = <span class="number">3000</span>;    <span class="comment">// 设置等待时长为3秒</span></span><br><span class="line"></span><br><span class="line">   ontimeout： 事件，用来设置超过等待时长后的动作</span><br><span class="line"></span><br><span class="line">       xhr.ontimeout = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	alert(<span class="string">'请求超时'</span>);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<p>在创建xhr对象之后，来设置timeout属性；如果设置了timeout属性，那么就建议设置ontimeout事件。</p>
+<p><img src="/images/ajax/1534734176919.png" alt="1534734176919"></p>
+<h2 id="FormData表单对象"><a href="#FormData表单对象" class="headerlink" title="FormData表单对象"></a>FormData表单对象</h2><p>小案例:  点击button按钮时，将用户名和密码值通过ajax发送到后端php页面</p>
+<p>FormData对象优势就是能够一次性将表单中的所有数据全部取出，包括文件域的文件对象。</p>
+<p>1)创建表单  form标签很重要， method和action不重要</p>
+<p>   每个表单域需要设置name值</p>
+<p>2)发送ajax请求</p>
+<p>①将表单数据取出 FormData</p>
+<p>i.获取form表单对象:        var fm = document.getElementById(‘mainForm’);  //DOM对象</p>
+<p>ii.实例化FormData对象:  var fd = new FormData(fm);</p>
+<p>②发送ajax请求</p>
+<p>   使用FormData对象以后，必须使用post方式来发送ajax请求。</p>
+<p>   将FormData对象，作为参数传入 send方法中  xhr.send(fd);</p>
+<p>③ 使用FormData对象提交表单时，不需要设置 setRequestHeader方法</p>
+<p>注意点: </p>
+<p>   ① form标签要给id值，方便获取form标签的DOM对象</p>
+<p>   ② 每个域都要给 name值</p>
+<p>   ③ 提交按钮必须用 button，因为submit有跳转功能</p>
+<p>代码实现:</p>
+<p>1) 使用FormData对象获取所有表单的数据，并发送ajax请求</p>
+<p><img src="/images/ajax/1534736127757.png" alt="1534736127757"></p>
+<p><img src="/images/ajax/1534736169386.png" alt="1534736169386"></p>
+<p>2) 在formdata.php页面，接收数据</p>
+<p><img src="/images/ajax/1534736185571.png" alt="1534736185571"></p>
+<p>访问结果:</p>
+<p><img src="/images/ajax/1534736212331.png" alt="1534736212331"></p>
+<p>FormData的内部构造:  key-value</p>
+<p><img src="/images/ajax/1534736045066.png" alt="1534736045066"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-ajax/05-同步和异步" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -594,766 +1443,6 @@ header(&apos;Expires:-1&apos;);
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ajax/02-Ajax入门" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/05/02/ajax/02-Ajax入门/" class="article-date">
-      <time datetime="2017-05-02T02:35:20.000Z" itemprop="datePublished">2017-05-02</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/05/02/ajax/02-Ajax入门/">02-Ajax入门</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Ajax入门"><a href="#Ajax入门" class="headerlink" title="Ajax入门"></a>Ajax入门</h1><h2 id="（Ajax-开发）概述"><a href="#（Ajax-开发）概述" class="headerlink" title="（Ajax 开发）概述"></a>（Ajax 开发）概述</h2><p>Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术。</p>
-<p>Ajax = 异步 JavaScript 和 XML（标准通用标记语言的子集）。</p>
-<p>Ajax 是一种用于创建快速动态网页的技术。</p>
-<p>Ajax 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。</p>
-<p>通过在后台与服务器进行少量数据交换，Ajax 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。<br>传统的网页（不使用 Ajax）如果需要更新内容，必须重载整个网页页面。</p>
-<p>  历史：</p>
-<p>1999年诞生，微软在IE5中集成了XMLHttpRequest对象，但是并没有受到人们重视。</p>
-<p>2005年，google在gtalk即时聊天工具中使用了该对象，从此之后Ajax技术开始受到人们的重视。</p>
-<h2 id="发送Ajax请求"><a href="#发送Ajax请求" class="headerlink" title="发送Ajax请求"></a>发送Ajax请求</h2><h3 id="ajax核心对象-—-XMLHttpRequest对象"><a href="#ajax核心对象-—-XMLHttpRequest对象" class="headerlink" title="ajax核心对象 — XMLHttpRequest对象"></a>ajax核心对象 — XMLHttpRequest对象</h3><p>创建XMLHTTPRequest对象要分为(低版本) IE和==非IE两种方式(主流)==：</p>
-<p>   IE浏览器（IE7之前） :  </p>
-<pre><code>var xhr = new ActiveXObject(&apos;Msxml2.XMLHTTP&apos;);
-</code></pre><p>   非IE浏览器（chrome、firefox、safair、搜狗等，包括IE7+之后） (主流浏览器):</p>
-<pre><code>var xhr = new XMLHttpRequest();
-</code></pre><p>案例：创建XMLhttpRequest对象，兼容IE7之前和主流浏览器</p>
-<pre><code>//创建XMLHttpRequest对象，兼容低版本IE和非IE浏览器
-function getXhr () {
-    var xmlhttp;
-
-    if (window.XMLHttpRequest) {
-        //IE7+ 和 非IE 中都有 XMLHttpRequest对象
-        xmlhttp = new XMLHttpRequest();
-    } else {
-        xmlhttp = new ActiveXObject(&apos;Msxml2.XMLHTTP&apos;);
-    }
-
-    return xmlhttp;
-}
-
-alert(getXhr());
-</code></pre><p>chrome访问结果:</p>
-<p><img src="/images/ajax/1534562204874.png" alt="1534562204874"></p>
-<p>IE访问结果:</p>
-<p><img src="/images/ajax/1534562252947.png" alt="1534562252947"></p>
-<h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p>XMLHttpRequest对象有了，可以发送Ajax请求了。发送请求需要两个方法:</p>
-<p>open(var1, var2, var3): 准备Ajax请求</p>
-<pre><code>var1: 请求方式  get/post
-var2: 请求的后端程序地址
-var3: 异步(true)/同步(false)，可选参数，默认为true
-</code></pre><p>  示例: xhr.open(‘get’, ‘index.php’);   //准备以get方式请求后端的index.php文件</p>
-<p>   send(var): 发送Ajax请求</p>
-<pre><code>var: 分为两种情况。 如果是get请求，则填写null。 如果是post请求，则填写要发送到后端的数据。
-</code></pre><p> var: 分为两种情况。 如果是get请求，则填写null。 如果是post请求，则填写要发送到后端的数据。</p>
-<pre><code>示例: xhr.send(null); 
-</code></pre><h2 id="发送请求案例"><a href="#发送请求案例" class="headerlink" title="发送请求案例"></a>发送请求案例</h2><p> 在index.html页面上创建按钮，点击该按钮时使用get方式请求后端的index.php页面</p>
-<p> 发送Ajax请求流程:</p>
-<p>   1) 创建XMLHttpRequest对象</p>
-<p>   2) 调用open方法准备ajax请求</p>
-<p>   3) 调用send方法发送ajax请求</p>
-<p>代码实现</p>
-<p>   1) 创建按钮，绑定点击事件</p>
-<p>   2) 创建XMLHttpRequest对象</p>
-<p>   3) 调用open方法准备ajax请求</p>
-<p>   4) 调用send方法发送ajax请求</p>
-<p><img src="/images/ajax/1534563208094.png" alt="1534563208094"></p>
-<p><img src="/images/ajax/1534563224252.png" alt="1534563224252"></p>
-<p> 访问结果: — 通过newwork来确定请求是否发出</p>
-<p>点击”btn”时，又发送了请求，请求了 index.php文件，并且正常接收到结果</p>
-<p><img src="/images/ajax/1534563287777.png" alt="1534563287777"></p>
-<h2 id="接收后端响应结果"><a href="#接收后端响应结果" class="headerlink" title="接收后端响应结果"></a>接收后端响应结果</h2><h3 id="核心属性-—-readyState"><a href="#核心属性-—-readyState" class="headerlink" title="核心属性 — readyState"></a>核心属性 — readyState</h3><p>Ajax的整个过程有5个状态，对应readyState的5个值：0-4</p>
-<pre><code>《Pragmatic Ajax A Web 2.0 Primer 》 中对readyStae状态的介绍 
-</code></pre><p>   0: (Uninitialized) the send( ) method has not yet been invoked.  </p>
-<p>   1: (Loading) the send( ) method has been invoked, request in progress.  </p>
-<p>   2: (Loaded) the send( ) method has completed, entire response received. </p>
-<p>   3: (Interactive) the response is being parsed. </p>
-<p>   4: (Completed) the response has been parsed, is ready for harvesting.  </p>
-<p>   0 － （未初始化）还没有调用send()方法 </p>
-<p>   1 － （载入）已调用send()方法，正在发送请求 </p>
-<p>   2 － （载入完成）send()方法执行完成，已经接收到全部响应内容 </p>
-<p>   3 － （交互）正在解析响应内容 </p>
-<p>   4 － （完成）响应内容解析完成，可以在客户端调用了 </p>
-<p>百度百科: </p>
-<p>  0 （未初始化）     对象已建立，但是尚未初始化（尚未调用open方法）               </p>
-<p>  1 （初始化）      已调用send()方法，正在发送请求                      </p>
-<p>  2 （发送数据）     send方法调用完成，但是当前的状态及http头未知              </p>
-<p>  3 （数据传送中）  已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误，</p>
-<p>  4 （完成）       数据接收完毕，此时可以通过通过responseBody和responseText获取完整的回应数据</p>
-<ul>
-<li><strong>最核心的重点：   4 ,  后端返回的数据已经可以在浏览器中使用了。</strong></li>
-</ul>
-<h2 id="核心事件-—-onreadystatechange"><a href="#核心事件-—-onreadystatechange" class="headerlink" title="核心事件 — onreadystatechange"></a>核心事件 — onreadystatechange</h2><p> onreadystatechange事件:  readyState的值每次发生变化都会触发该事件。</p>
-<pre><code>0--&gt;1    1--&gt;2    2--&gt;3    3--&gt;4 总共触发4次
-</code></pre><h3 id="其他重要属性"><a href="#其他重要属性" class="headerlink" title="其他重要属性"></a>其他重要属性</h3><p> responseText：以字符串形式接收后端程序的返回值。</p>
-<pre><code>    以PHP为例: PHP程序最终会被解释程序一段字符串，responseText接收的就是这段字符串
-
-responseXML：以XML格式接收后端程序返回值
-</code></pre><h3 id="响应案例-—-index-php"><a href="#响应案例-—-index-php" class="headerlink" title="响应案例 — index.php"></a>响应案例 — index.php</h3><p>index.php：返回字符串“Hello Ajax”给前端 — 就是  echo “Hello Ajax”</p>
-<pre><code>index.html： 将Hello Wrold 显示在页面的div中
-</code></pre><p>1) index.php 返回一个字符串（Hello Ajax！！）</p>
-<p><img src="/images/ajax/1534564764184.png" alt="1534564764184"></p>
-<p>2) 在index.html中检测readyState的状态，当readyState状态等于4的时候，使用responseText来接收后端返回的数据</p>
-<p><img src="/images/ajax/1534564786499.png" alt="1534564786499"></p>
-<p>responseText本质是接收后端返回的字符串。</p>
-<p>Ajax程序总结</p>
-<p>一般我们编写Ajax程序时需要两个页面，三大步骤:</p>
-<p><img src="/images/ajax/12.png" alt="1525944330962"></p>
-<p>  两个页面:</p>
-<p>   前端静态html页面 (php页面也行)，用来发送ajax请求，将结果渲染到页面上</p>
-<p>   后端php页面 (jsp、asp也行)，用来接收前端请求，处理数据，并将结果返回给前端页面</p>
-<p>  三大步骤:</p>
-<p>  1) 前端静态页面发送ajax请求。</p>
-<p>  ① 创建 XMLHttpRequest 对象</p>
-<pre><code>② 调用open方法准备ajax请求
-
-③ 调用send方法发送ajax请求
-
-④ 调用onreadystatechange事件，判断readyState=4时，使用responseText接收后端返回数据
-
- 2) 后端php页面，处理请求并返回结果
-
- 3) 前端页面接收结果，显示在网页指定位置
-</code></pre><h3 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h3><p>点击按钮，从student表中随机取出一条学生信息，显示在网页上。</p>
-<p> 思路分析:</p>
-<p> 1) 两个页面</p>
-<p>   前端静态页面: student/index.html</p>
-<p>   后端php页面: student/index.php</p>
-<p><img src="/images/ajax/13.png" alt="1524658135608"></p>
-<p> 2) 三大步骤</p>
-<p>  ① index.html 页面设置一个按钮，用来触发ajax请求</p>
-<p>  ② index.php 随机取出一条学生数据，并返回给index.html页面</p>
-<pre><code>$sql = &quot;select * from student order by rand() limit 0,1&quot;;
-</code></pre><p>  ③ index.html 接收到后显示在页面上</p>
-<p>   代码实现:</p>
-<p>第一步骤:  index.html页面发送ajax请求</p>
-<p><img src="/images/ajax/1534566337714.png" alt="1534566337714"></p>
-<p>第二步骤: 后端php页面</p>
-<p><img src="/images/ajax/1534566429341.png" alt="1534566429341"></p>
-<p>第三步骤： index.html – 将接收到的数据渲染到页面</p>
-<p><img src="/images/ajax/1534566508821.png" alt="1534566508821"></p>
-<p> 关键点总结:</p>
-<p>1) index.html 通过点击事件发送ajax请求</p>
-<p> ① 创建XMLHttpRequest对象</p>
-<p> ② 调用open方法准备ajax请求</p>
-<p> ③ 调用send方法发送ajax请求</p>
-<p><strong>此时不要着急将数据渲染到网页上</strong></p>
-<p> 2) index.php 随机取出一条学生数据，并返回给index.html页面</p>
-<p>  ① mysqli操作MySQL服务器的6步骤</p>
-<p>  ② 核心SQL:  select * from student order by rand() limit 0,1 </p>
-<p>  ③ 将结果拼接成字符串再输出，因为前端是以字符串形式接收的</p>
-<p> 3) index.html接收到后显示在页面上</p>
-<p>  ① 创建一个div标签，用来显示接收到数据</p>
-<p>  ② 获取div对象，再将数据显示到该标签中</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ajax/01-Ajax技术" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/05/02/ajax/01-Ajax技术/" class="article-date">
-      <time datetime="2017-05-02T01:11:39.000Z" itemprop="datePublished">2017-05-02</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/05/02/ajax/01-Ajax技术/">01-Ajax 技术</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Ajax-技术"><a href="#Ajax-技术" class="headerlink" title="Ajax 技术"></a>Ajax 技术</h1><h2 id="案例—新用户注册时用户名冲突问题"><a href="#案例—新用户注册时用户名冲突问题" class="headerlink" title="案例—新用户注册时用户名冲突问题"></a>案例—新用户注册时用户名冲突问题</h2><h2 id="传统模式解决方案"><a href="#传统模式解决方案" class="headerlink" title="传统模式解决方案"></a>传统模式解决方案</h2><p>1) 在注册页面中输入用户名和密码，点击“注册”时，要将表单数据提交给后台</p>
-<p><img src="/images/ajax/05.png" alt="1523691565801"></p>
-<p>2) 后台PHP页面，接收用户名和密码之后，要去验证用户名是否存在，如果存在则提示用户名存在，再跳转回注册页面，重新输入。</p>
-<p>  当用户名存在时，提示用户名已被占用，再跳转回登录页</p>
-<p><img src="/images/ajax/06.png" alt="1523691637131"></p>
-<p><img src="/images/ajax/07.png" alt="1523691696235"></p>
-<h2 id="ajax解决方案"><a href="#ajax解决方案" class="headerlink" title="ajax解决方案"></a>ajax解决方案</h2><p>当光标离开用户名文本框时，就已经验证了用户名是否存在，并给予提示了。</p>
-<p>  用户名被占用： </p>
-<p><img src="/images/ajax/08.png" alt="1523691892998"></p>
-<p>用户名可用 :</p>
-<p><img src="/images/ajax/09.png" alt="1523691866761"></p>
-<blockquote>
-<p>两种模式对比</p>
-</blockquote>
-<p>传统模式： </p>
-<p>  两个页面 —  前端注册表单页（index.html）  和  后端数据验证页（index.php）</p>
-<p><img src="/images/ajax/10.png" alt="1524655686232"></p>
-<p>Ajax模式 :</p>
-<p>  两个页面 — 前端注册表单页（index.html）  和  后端数据验证页（index.php）</p>
-<p><img src="/images/ajax/11.png" alt="1524656343611"></p>
-<p>Ajax的优势：没有页面跳转，刷新页面内容，用户体验提升。</p>
-<p>ajax就是在页面没有刷新或者没有跳转的情况下还能更新页面的某一部分数据</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/28-cookie和session的联系" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/27/PHP/28-cookie和session的联系/" class="article-date">
-      <time datetime="2017-04-27T08:04:36.000Z" itemprop="datePublished">2017-04-27</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/27/PHP/28-cookie和session的联系/">28-session和cookie的联系</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="session和cookie的联系"><a href="#session和cookie的联系" class="headerlink" title="session和cookie的联系"></a>session和cookie的联系</h1><h2 id="session原理"><a href="#session原理" class="headerlink" title="session原理"></a>session原理</h2><pre><code>session默认是保存在服务器的文件当中的。
-
-    windows默认存放在 c:/windows/temp目录下， phpstudy存放在 phpstudy/tmp/tmp目录下
-</code></pre><p><img src="/images/php/1534557997292.png" alt="1534557997292"></p>
-<h2 id="cookie和session的联系"><a href="#cookie和session的联系" class="headerlink" title="cookie和session的联系"></a>cookie和session的联系</h2><p>当浏览器访问一个设置session的页面时，服务器会随机自动生成一个session_id（字符串）。通过响应头的set-cookie返回给浏览器，并保存在浏览器的cookie当中，同时服务器中也会生成一个以该session_id为名称的文件，用来记录信息。</p>
-<pre><code>浏览器之后每次访问该网站时，都会携带cookie中的session_id，来和服务器中的session文件名进行比对。当文件名和cookie中的session_id一致时，则说明使用的是该session文件，可以从该session文件中读取数据。
-</code></pre><p>案例: 访问 sets.php文件 和  gets.php</p>
-<p>sets.php</p>
-<p><img src="/images/php/1534558764734.png" alt="1534558764734"></p>
-<p>gets.php</p>
-<p><img src="/images/php/1534558776347.png" alt="1534558776347"></p>
-<p>访问 sets.php文件时，完成两件事情</p>
-<p>1) 将session_id随着响应头返回给浏览器，并保存在浏览器中</p>
-<p><img src="/images/php/1534558189499.png" alt="1534558189499"></p>
-<p>2) 在服务器端创建一个session文件   sess_958ur7nh1djufrs9aqkia40im1， 将$_SESSION中已保存的数据，存储到该文件中。</p>
-<p><img src="/images/php/1534558225267.png" alt="1534558225267"></p>
-<p>gets.php文件</p>
-<p><img src="/images/php/1534558307932.png" alt="1534558307932"></p>
-<p>服务器在tmp目录下找到 sess_958ur7nh1djufrs9aqkia40im1 文件，并将文件中的数据取出，返回给浏览器</p>
-<h1 id="session和cookie总结"><a href="#session和cookie总结" class="headerlink" title="session和cookie总结"></a>session和cookie总结</h1><h2 id="cookie小结"><a href="#cookie小结" class="headerlink" title="cookie小结:"></a>cookie小结:</h2><p>  1） 将数据保存在客户端，安全性不好，但是可以保存的数据量较大。</p>
-<pre><code>一个网站能向一个浏览器写 20 个cookie
-
-一个浏览器最多保存300个cookie，每个cookie最大4kb
-</code></pre><p>  2） 设置cookie使用  setcookie(var1, var2, var3)；</p>
-<pre><code>var1： cookie名称
-var2： 名称对应的值
-var3： 有效期。 可选参数，如果不设置该值或者设置为-1，浏览器关闭则cookie消失
-</code></pre><p>  3） 使用$_COOKIE 预定义数组来读取cookie</p>
-<p>  4） cookie的有效范围： 当前目录及子目录；上级目录无效</p>
-<p>  5） 删除cookie:  setcookie(‘name’, null);</p>
-<h2 id="session小结"><a href="#session小结" class="headerlink" title="session小结:"></a>session小结:</h2><p>  1) 将数据保存在服务器端，安全性高，但是不能保存大量的数据。一般来讲session当中保存的都是用户信息。</p>
-<p>  2) 使用session时，首先要使用 session_start函数开启session</p>
-<p>  3) 设置和读取session时，都是用$_SESSION[‘name’] = ‘zs’;  $_SESSION[‘name’];</p>
-<p>  4) session的有效范围，在一个域名下设置session，在整个域名范围内都有效</p>
-<p>  5) 删除session</p>
-<pre><code>unset($_SESSION[‘name’]);    //删除单个session
-session_destroy();                   //删除所有session
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/27-session技术" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/27/PHP/27-session技术/" class="article-date">
-      <time datetime="2017-04-27T06:34:16.000Z" itemprop="datePublished">2017-04-27</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/27/PHP/27-session技术/">27-session技术</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="session技术"><a href="#session技术" class="headerlink" title="session技术"></a>session技术</h1><h2 id="session介绍"><a href="#session介绍" class="headerlink" title="session介绍"></a>session介绍</h2><p>因为cookie是保存在客户端的数据，不够安全，所以出现了session。</p>
-<p>session会将数据保存到服务器端（保存在 <strong>文件</strong>、内存服务器或数据表中），安全性就可以得到保证。</p>
-<h2 id="设置-读取session"><a href="#设置-读取session" class="headerlink" title="设置/读取session"></a>设置/读取session</h2><p>重点:</p>
-<pre><code>php使用session时，首先要使用session_start()函数来开启session。
-$_SESSION 超全局变量就能设置和读取session中的内容
-</code></pre><p>1) 设置session</p>
-<p>   将session作为数组操作就可以。</p>
-<p><img src="/images/php/1534479772737.png" alt="1534479772737"></p>
-<p>2) 读取session</p>
-<p><img src="/images/php/1534479789250.png" alt="1534479789250"></p>
-<h2 id="session作用范围"><a href="#session作用范围" class="headerlink" title="session作用范围"></a>session作用范围</h2><p>   在当前网站的任何一个页面设置过session，则该网站的所有页面都能得到该session的数据</p>
-<p>   例如: 在 <a href="http://www.jd.com" target="_blank" rel="noopener">www.jd.com</a> 的某个页面中设置session，那么在jd网站的任何一个页面都能找到该session</p>
-<p>   同理，在localhost的某个页面中设置session，那么在localhost的任何一个php页面都能找到</p>
-<p><img src="/images/php/1534480032772.png" alt="1534480032772"></p>
-<h2 id="session的有效期"><a href="#session的有效期" class="headerlink" title="session的有效期"></a>session的有效期</h2><pre><code>浏览器关闭时，session消失
-</code></pre><h2 id="删除session"><a href="#删除session" class="headerlink" title="删除session"></a>删除session</h2><p> unset($_SESSION[‘name’]);    //删除单个session</p>
-<p>   session_destroy();                   //删除所有session</p>
-<p><img src="/images/php/1534480227294.png" alt="1534480227294"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/26-cookie技术" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/27/PHP/26-cookie技术/" class="article-date">
-      <time datetime="2017-04-27T05:20:09.000Z" itemprop="datePublished">2017-04-27</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/27/PHP/26-cookie技术/">26-cookie技术</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="cookie技术"><a href="#cookie技术" class="headerlink" title="cookie技术"></a>cookie技术</h1><h2 id="什么是cookie？"><a href="#什么是cookie？" class="headerlink" title="什么是cookie？"></a>什么是cookie？</h2><p>  cookie是将数据持久化存储到客户端的一种技术。</p>
-<p>   网站可以将数据写到浏览器中， 一个网站最多能在一个浏览器写20个cookie。</p>
-<p>   一个浏览器能够设置的总cookie数最多为300个，每个不能超过4kb。</p>
-<p>   cookie既能保存在文件中，也能保存在内存中。</p>
-<h2 id="设置-读取cookie"><a href="#设置-读取cookie" class="headerlink" title="设置/读取cookie"></a>设置/读取cookie</h2><p>1) 设置cookie</p>
-<p>   setcookie(var1 , var2, var3);</p>
-<p>   var1: cookie的名称</p>
-<p>   var2: 名称对应的值， 可选参数</p>
-<p>   var3: cookie的有效期， 可选参数</p>
-<p>   <img src="/images/php/1534478105079.png" alt="1534478105079"></p>
-<p>2) 读取cookie信息</p>
-<p>   使用php的超全局变量 $_COOKIE进行读取</p>
-<p>   <img src="/images/php/1534478123739.png" alt="1534478123739"></p>
-<p>   通过浏览器查看cookie信息:</p>
-<p>   <img src="/images/php/1534478176053.png" alt="1534478176053"></p>
-<p>   <img src="/images/php/1534478276084.png" alt="1534478276084"></p>
-<h2 id="cookie有效期"><a href="#cookie有效期" class="headerlink" title="cookie有效期"></a>cookie有效期</h2><p>  setcookie函数的参数3可以控制cookie有效期</p>
-<pre><code>参数3设置为-1 或者 不设置，关闭浏览器即失效
-参数3设置为 time()+秒数，则在当前时间点的多少秒之后失效
-</code></pre><p>  设置cookie时，如果设置了有效期，则cookie会保存在文件中；如果没有设置有效期，则cookie保存在内存中。</p>
-<h2 id="cookie的有效范围"><a href="#cookie的有效范围" class="headerlink" title="cookie的有效范围"></a>cookie的有效范围</h2><p>  <strong>setcookie函数还有参数4、5，可以用来控制cookie的有效访问，但是一般不用。</strong></p>
-<p>只需要记住下面的情况即可：   </p>
-<pre><code>在不使用参数4和5的情况下，cookie在当前目录及子目录中有效，在上层目录中无效。
-</code></pre><p><img src="/images/php/1534478631803.png" alt="1534478631803"></p>
-<h2 id="cookie删除"><a href="#cookie删除" class="headerlink" title="cookie删除"></a>cookie删除</h2><p> setcookie函数第二个参数设置为null，就可以删除cookie</p>
-<pre><code>setcookie(&apos;name&apos;, null);
-</code></pre><p><img src="/images/php/1534478730006.png" alt="1534478730006"></p>
-<h2 id="js控制cookie"><a href="#js控制cookie" class="headerlink" title="js控制cookie"></a>js控制cookie</h2><p> cookie是将数据保存在客户端的，所以可以使用javascript来读取/设置cookie。 </p>
-<p>   设置cookie:   document.cookie = “名称=值;expires=时间”</p>
-<p>   读取cookie:   document.cookie</p>
-<p>读取cookie:</p>
-<p><img src="/images/php/1534479056017.png" alt="1534479056017"></p>
-<p><img src="/images/php/1534479028505.png" alt="1534479028505"></p>
-<p>设置cookie:</p>
-<p>  expires: 用来指定cookie有效期的</p>
-<p><img src="/images/php/1534479410042.png" alt="1534479410042"></p>
-<h2 id="cookie原理"><a href="#cookie原理" class="headerlink" title="cookie原理"></a>cookie原理</h2><p>当浏览器访问一个带cookie的页面时，cookie会随着响应头返回给浏览器。</p>
-<p>  当再次访问该网站的页面时，cookie会随着请求头一起发送给服务器。</p>
-<p><img src="/images/php/1534556304079.png" alt="1534556304079"></p>
-<p><img src="/images/php/1534556836082.png" alt="1534556836082"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/25-PHP会话控制" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/27/PHP/25-PHP会话控制/" class="article-date">
-      <time datetime="2017-04-27T02:01:32.000Z" itemprop="datePublished">2017-04-27</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/27/PHP/25-PHP会话控制/">25-PHP会话控制概述</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="会话控制概述"><a href="#会话控制概述" class="headerlink" title="会话控制概述"></a>会话控制概述</h1><p>1) http协议的缺陷</p>
-<pre><code>无状态，就是无记忆，不能让同一浏览器和服务器进行多次数据交换时，产生业务的连续性。
-</code></pre><p>2) 什么是会话控制</p>
-<pre><code>会话控制就是解决http无记忆的缺陷的。能够==将数据持久化的保存在客户端(浏览器)或者服务器端==，从而让浏览器和服务器进行多次数据交换时，产生连续性。
-</code></pre><p>3) 会话控制的分类</p>
-<pre><code>分为两种: cookie（客户端）  和  session（服务器端）
-</code></pre><p>cookie应用实例 — 千人千面（猜你喜欢）</p>
-<p><img src="/images/php/0002.png" alt="1534424615529"></p>
-<p>不同的用户访问优酷服务器所看的视频类型不一样。 服务器会将浏览器观看过的视频的关键词保存到浏览器的cookie中（文件、内存）。当浏览器再次访问优酷服务器时，服务器会从cookie中读取关键词，再根据关键词推荐视频。</p>
-<p>session应用实例 — 支付宝</p>
-<p><img src="/images/php/1534426142105.png" alt="1534426142105"></p>
-<p>每个用户访问支付宝进行登录时，用的是同一套程序。服务器会为每一个浏览器进行编号(sessionid)，当用户登录成功后，服务器会创建一个区域(文件、内存服务器)用来保存用户信息。等浏览器下一次访问服务器时，服务器先拿到浏览器的编号，再和已有的编号进行比较，找到相同的区域（文件、内存服务器）。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP/24-修改信息于登录" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/04/27/PHP/24-修改信息于登录/" class="article-date">
-      <time datetime="2017-04-27T01:21:32.000Z" itemprop="datePublished">2017-04-27</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/04/27/PHP/24-修改信息于登录/">24-学生信息管理系统</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="修改学生信息"><a href="#修改学生信息" class="headerlink" title="修改学生信息"></a>修改学生信息</h1><p>核心：构造一条修改数据的SQL语句   </p>
-<p>   <strong>update student set sname=’’, sage=’’..  where sno=6</strong></p>
-<p><img src="/images/php/0004.png" alt="1525931034561"></p>
-<p>步骤:</p>
-<p> 1) 在学生列表页(list.php)为每一行都添加一个“编辑”按钮，跳转到编辑表单页(edit.php)，并且要将当前行的sno一起传递到edit.php页面。</p>
-<p> <img src="/images/php/1534470480931.png" alt="1534470480931"></p>
-<p> 2) 创建edit.php页面(和add.html页面结构一样)，接收sno，拼接SQL语句并执行，得到一个一维数组，将该数组的值填充到表单中。</p>
-<p>  ① 接收sno</p>
-<p>  ② 根据sno 查询学生信息</p>
-<p>  ③ 将学生信息显示到表单中  – 将add.html中的表单复制过来，稍作修改即可</p>
-<p>  ④ 保证表单能够提交到modify.php页面即可</p>
-<p><img src="/images/php/1534472770097.png" alt="1534472770097"></p>
-<p><img src="/images/php/1534472786290.png" alt="1534472786290"></p>
-<p>3) 创建一个修改页面(modify.php)，接收edit.php页面表单中的值，拼接一个修改的SQL语句，执行该SQL语句。根据修改结果提示修改成功/修改失败，再跳转</p>
-<p> ① 接收表单提交的数据</p>
-<p> ② 编写修改的SQL语句 — update</p>
-<p> ③ 链接MySQL服务器并执行SQL语句</p>
-<p><img src="/images/php/1534472861491.png" alt="1534472861491"></p>
-<p><img src="/images/php/1534472871239.png" alt="1534472871239"></p>
-<p>关于排错: </p>
-<pre><code>核心思想: 如果一个程序中有SQL语句执行，那么该程序出现错误，第一反应去检查SQL语句。
-
-检查方法:
-
-     1) 在php页面中使用echo 将sql语句进行输出
-
-      2) 在页面上复制SQL语句到navicat中进行测试
-</code></pre><p>   第一步:</p>
-<p><img src="/images/php/1534471889871.png" alt="1534471889871"></p>
-<p><img src="/images/php/1534471933626.png" alt="1534471933626"></p>
-<p><img src="/images/php/1534472010096.png" alt="1534472010096"></p>
-<p>将SQL语句复制到navicat中执行，获取错误信息。</p>
-<p><img src="/images/php/1534472183035.png" alt="1534472183035"></p>
-<h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><p><img src="/images/php/0001.png" alt="1534422493447"></p>
-<p>验证逻辑:</p>
-<p> 1) 根据用户名从ali_admin表中查询数据。如果有结果，则说明用户名正确；反之，说明用户名错误。</p>
-<p> 2) 登录表单提交密码和上一步查询出的密码进行比对，两者相等说明密码正确；反之，密码错误。</p>
-<p>代码实现:</p>
-<p>1) 创建login.html 登录表单页</p>
-<p><img src="/images/php/1534475186781.png" alt="1534475186781"></p>
-<p>2)  创建check.php文件</p>
-<p>  ① 接收表单提交的数据</p>
-<p>  ② 验证用户名是否正确</p>
-<pre><code>核心思路:  根据接收的用户名查询ali_admin表，如果能够查询到数据，说明用户名正确；反之，查询不到数据说明用户名错误。
-
- 核心SQL: ==select * from ali_admin where admin_email=&apos;$email&apos;==
-
- 该SQL语句的执行结果，只能是0条数据 或者 1条数据
-</code></pre><p>  ③ 验证密码是否正确</p>
-<p>   核心思路:  验证从数据表中查询出的数据中的密码和表单提交的密码是否一致。如果一致，则说明密码正确，可以正常登录；反之，说明密码错误，跳转到login.html页面</p>
-<p><img src="/images/php/1534475375825.png" alt="1534475375825"></p>
-<p><img src="/images/php/1534475387591.png" alt="1534475387591"></p>
-<p>测试: 直接访问 list.php页面，依然可以看到页面结果。 因为http协议是无记忆协议，不知道哪个浏览器来过，所以没办法限制是否能够正常访问到哪个页面。</p>
-<p>要实现限制的功能，必须配合 <strong>会话控制</strong>技术</p>
-<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想:"></a>核心思想:</h2><pre><code>1) 登录成功时将用户重要信息写入session
-
-2) 在其他每个页面中都进行session是否存在的验证
-</code></pre><p>1) 登录成功时，设置session</p>
-<p><img src="/images/php/1534555270715.png" alt="1534555270715"></p>
-<p>2) 在其他页面中检测session是否存在</p>
-<p><img src="/images/php/1534555378519.png" alt="1534555378519"></p>
-<p>3) 将检测session 的代码复制到每个页面中，除了 login.html 和 check.php</p>
-<p><img src="/images/php/1534555451516.png" alt="1534555451516"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL-PHP/">MySQL PHP</a></li></ul>
     </div>
 
       
