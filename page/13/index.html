@@ -697,10 +697,10 @@ box.innerHTML+=&apos;这是新内容&apos;;
 
 
   
-    <article id="post-JS/12-Date类型对象" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JS/14-String类型对象" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/02/24/JS/12-Date类型对象/" class="article-date">
+      <a  href="/2017/02/24/JS/14-String类型对象/" class="article-date">
       <time datetime="2017-02-24T03:15:13.000Z" itemprop="datePublished">2017-02-24</time>
 </a>
 
@@ -715,7 +715,7 @@ box.innerHTML+=&apos;这是新内容&apos;;
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2017/02/24/JS/12-Date类型对象/">12-Date类型对象</a>
+      <a  class="article-title" href="/2017/02/24/JS/14-String类型对象/">14-String类型对象</a>
     </h1>
   
 
@@ -726,88 +726,30 @@ box.innerHTML+=&apos;这是新内容&apos;;
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Date类型对象"><a href="#Date类型对象" class="headerlink" title="Date类型对象"></a>Date类型对象</h1><h2 id="Date类型对象介绍"><a href="#Date类型对象介绍" class="headerlink" title="Date类型对象介绍"></a>Date类型对象介绍</h2><ul>
-<li>Date类型对象是JavaScript提供的日期和时间的操作接口。它可以表示的时间范围是，1970年1月1日00:00:00前后的各1亿天（单位为毫秒）。</li>
-<li>Date  是系统内置的构造函数，若想要操作时间，必须创建Date类型对象。</li>
+        <h1 id="String字符串对象"><a href="#String字符串对象" class="headerlink" title="String字符串对象"></a>String字符串对象</h1><h2 id="字符串的不可变性"><a href="#字符串的不可变性" class="headerlink" title="字符串的不可变性"></a>字符串的不可变性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line">str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="comment">// 当重新给str赋值的时候，数据'abc'不会被修改，依然在内存中</span></span><br><span class="line"><span class="comment">// 重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变</span></span><br><span class="line"><span class="comment">// 由于字符串的不可变，在大量拼接字符串的时候会有效率问题</span></span><br></pre></td></tr></table></figure>
+<h3 id="基本包装对象"><a href="#基本包装对象" class="headerlink" title="基本包装对象"></a>基本包装对象</h3><ul>
+<li><p>思考：为什么基本数据类型字符串，可以像对象一样使用？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通字符串</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;   <span class="comment">// 普通字符串不是对象</span></span><br><span class="line"><span class="keyword">var</span> len = str.length; <span class="comment">// 但是为什么可以像对象一样使用点出东西？</span></span><br><span class="line">alert(len); <span class="comment">//3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//把字符串包装成对象 → 基本包装类型</span></span><br><span class="line"><span class="keyword">var</span> strObj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>);  <span class="comment">// 把字符串包装成对象</span></span><br><span class="line"><span class="keyword">var</span> len = strObj.length;  <span class="comment">// 因为是对象，所以可以点出东西。</span></span><br><span class="line">alert(len); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="创建Date类型对象"><a href="#创建Date类型对象" class="headerlink" title="创建Date类型对象"></a>创建Date类型对象</h2><ul>
-<li><p>方式1：【常用】</p>
+<h2 id="字符串对象常用的方法"><a href="#字符串对象常用的方法" class="headerlink" title="字符串对象常用的方法"></a>字符串对象常用的方法</h2><ul>
+<li><p>字符串所有的方法，都 不会修改字符串本身(字符串是不可变的)，操作完成会 返回一个新的字符串</p>
 <ul>
-<li>语法<blockquote>
-<p><code>var 变量名 = new Date();</code> // 创建当前时间对象<br>代码</p>
-<p><code>var date = new Date();</code></p>
-<p><code>console.log(date);</code></p>
-</blockquote>
-</li>
+<li>以下方法，可以自己尝试查手册或文档使用</li>
 </ul>
 </li>
-<li><p>方式2：【常用】</p>
-<ul>
-<li><p>语法</p>
-<blockquote>
-<p><code>var 变量名 = new Date(stringdate);</code> // 创建指定的时间对象</p>
-<p>// 参数 stringdate, 字符串格式→ ‘year-month-date hh:mm:ss’   或  ‘year/month/date hh:mm:ss’</p>
-</blockquote>
-<blockquote>
-<p>代码</p>
-</blockquote>
-<blockquote>
-<p><code>var date = new Date(&#39;2018/10/16 12:12:12&#39;);</code></p>
-<p><code>var date2 = new Date(&#39;2018-10-16 12:12:12&#39;);</code></p>
-<p><code>console.log(date);</code></p>
-<p><code>console.log(date2);</code></p>
-</blockquote>
+<li><p>获取字符串中的单个字符</p>
 </li>
 </ul>
-</li>
-<li><p>方式3：</p>
-<ul>
-<li><p>语法</p>
-<blockquote>
-<p>`var 变量名 = new Date(value);  // 创建1970年开始value毫秒后的时间对象</p>
-<p><code>// 参数 value, 数字，指的是毫秒数`</code></p>
-</blockquote>
-<blockquote>
-<p>代码</p>
-</blockquote>
-<blockquote>
-<p><code>var date = new Date(99999999999);</code></p>
-<p><code>console.log(date);</code></p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>方式4：</p>
-<ul>
-<li><p>语法 </p>
-<blockquote>
-<p>var 变量名 = new Date(year, month[, day[, hour[, minutes[, seconds[, milliseconds]]]]]);</p>
-<p><code>// 参数 year、month、day、hour、minutes、seconds、milliseconds 都是数字，分别指的是年、月、日、时、分、秒、毫秒</code></p>
-<p><code>// 特别注意： month的范围是 [0-11]</code></p>
-</blockquote>
-<blockquote>
-<p>代码</p>
-</blockquote>
-<blockquote>
-<p><code>var date = new Date(2018,9,16,12,12,12,12);</code></p>
-<p><code>console.log(date);</code></p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="常用的Date类型对象方法"><a href="#常用的Date类型对象方法" class="headerlink" title="常用的Date类型对象方法"></a>常用的Date类型对象方法</h2><h3 id="获取-和-设置-年月日"><a href="#获取-和-设置-年月日" class="headerlink" title="获取 和 设置 年月日"></a>获取 和 设置 年月日</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">日期对象.getFullYear() / 日期对象.setFullYear(数字) <span class="comment">// 年</span></span><br><span class="line"></span><br><span class="line">日期对象.getMonth() / 日期对象.setMonth(数字)   <span class="comment">// 月</span></span><br><span class="line">注意：获取月份是从<span class="number">0</span>开始的</span><br><span class="line"></span><br><span class="line">日期对象.getDate() / 日期对象.setDate(数字)  <span class="comment">//日</span></span><br></pre></td></tr></table></figure>
-<h3 id="获取-和-设置-时分秒"><a href="#获取-和-设置-时分秒" class="headerlink" title="获取 和 设置 时分秒"></a>获取 和 设置 时分秒</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">日期对象.getHours()  /  日期对象.setHours(数字)  <span class="comment">// 时</span></span><br><span class="line"></span><br><span class="line">日期对象.getMinutes()  /  日期对象.setMinutes(数字) <span class="comment">// 分</span></span><br><span class="line"></span><br><span class="line">日期对象.getSeconds()  /  日期对象.setMinutes(数字) <span class="comment">// 秒</span></span><br><span class="line"></span><br><span class="line">对象. getMilliseconds()  / 对象.setMilliseconds(数字) <span class="comment">// 毫秒</span></span><br></pre></td></tr></table></figure>
-<h3 id="获取-星期数"><a href="#获取-星期数" class="headerlink" title="获取 星期数"></a>获取 星期数</h3><blockquote>
-<p>日期对象.getDay();   // 0-6（周日0到周六6） 不能够设置，原因是周天是由今天的日期决定的。</p>
-</blockquote>
-<ul>
-<li>获取1970年至指定时间的 总毫秒数</li>
-</ul>
-<blockquote>
-<p>日期对象.getTime()  /  日期对象.setTime(数字); </p>
-</blockquote>
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.charAt(index);</span><br><span class="line">字符串[index];      <span class="comment">// 推荐使用</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符串的拼接concat-和-截取slice"><a href="#字符串的拼接concat-和-截取slice" class="headerlink" title="字符串的拼接concat 和 截取slice"></a>字符串的拼接concat 和 截取slice</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拼接</span></span><br><span class="line">字符串.concat(str1,str2,str3...);</span><br><span class="line">拼接符 +     <span class="comment">//推荐使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 截取</span></span><br><span class="line">字符串.slice(star,end);</span><br></pre></td></tr></table></figure>
+<h3 id="查询字符是否在字符串中存在"><a href="#查询字符是否在字符串中存在" class="headerlink" title="查询字符是否在字符串中存在"></a>查询字符是否在字符串中存在</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.indexOf(); </span><br><span class="line">字符串.lastIndexOf();</span><br></pre></td></tr></table></figure>
+<h3 id="去除空白符trim"><a href="#去除空白符trim" class="headerlink" title="去除空白符trim"></a>去除空白符trim</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.trim();  <span class="comment">// 去除字符串两边的空格</span></span><br></pre></td></tr></table></figure>
+<h3 id="字母字符大小写转换toUpperCase-toLowerCase"><a href="#字母字符大小写转换toUpperCase-toLowerCase" class="headerlink" title="字母字符大小写转换toUpperCase/toLowerCase"></a>字母字符大小写转换toUpperCase/toLowerCase</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.toUpperCase(); 	<span class="comment">// 转换大写 重点</span></span><br><span class="line">字符串.toLowerCase(); 	<span class="comment">// 转换小写 重点</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符串替换replace"><a href="#字符串替换replace" class="headerlink" title="字符串替换replace"></a>字符串替换replace</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.replace(newStr,oldStr);</span><br></pre></td></tr></table></figure>
+<h3 id="字符串分割split"><a href="#字符串分割split" class="headerlink" title="字符串分割split"></a>字符串分割split</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.split(sp);  <span class="comment">// 把一个字符串分割成字符串数组。</span></span><br></pre></td></tr></table></figure>
+<h3 id="还有很多方法"><a href="#还有很多方法" class="headerlink" title="还有很多方法"></a>还有很多方法</h3><pre><code>- 查用MDN文档 或 离线手册 学习内置对象的属性 或 方法。
+</code></pre>
       
     </div>
     
@@ -926,10 +868,10 @@ box.innerHTML+=&apos;这是新内容&apos;;
 
 
   
-    <article id="post-JS/14-String类型对象" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JS/12-Date类型对象" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/02/24/JS/14-String类型对象/" class="article-date">
+      <a  href="/2017/02/24/JS/12-Date类型对象/" class="article-date">
       <time datetime="2017-02-24T03:15:13.000Z" itemprop="datePublished">2017-02-24</time>
 </a>
 
@@ -944,7 +886,7 @@ box.innerHTML+=&apos;这是新内容&apos;;
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2017/02/24/JS/14-String类型对象/">14-String类型对象</a>
+      <a  class="article-title" href="/2017/02/24/JS/12-Date类型对象/">12-Date类型对象</a>
     </h1>
   
 
@@ -955,30 +897,88 @@ box.innerHTML+=&apos;这是新内容&apos;;
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="String字符串对象"><a href="#String字符串对象" class="headerlink" title="String字符串对象"></a>String字符串对象</h1><h2 id="字符串的不可变性"><a href="#字符串的不可变性" class="headerlink" title="字符串的不可变性"></a>字符串的不可变性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line">str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="comment">// 当重新给str赋值的时候，数据'abc'不会被修改，依然在内存中</span></span><br><span class="line"><span class="comment">// 重新给字符串赋值，会重新在内存中开辟空间，这个特点就是字符串的不可变</span></span><br><span class="line"><span class="comment">// 由于字符串的不可变，在大量拼接字符串的时候会有效率问题</span></span><br></pre></td></tr></table></figure>
-<h3 id="基本包装对象"><a href="#基本包装对象" class="headerlink" title="基本包装对象"></a>基本包装对象</h3><ul>
-<li><p>思考：为什么基本数据类型字符串，可以像对象一样使用？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通字符串</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;   <span class="comment">// 普通字符串不是对象</span></span><br><span class="line"><span class="keyword">var</span> len = str.length; <span class="comment">// 但是为什么可以像对象一样使用点出东西？</span></span><br><span class="line">alert(len); <span class="comment">//3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//把字符串包装成对象 → 基本包装类型</span></span><br><span class="line"><span class="keyword">var</span> strObj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>);  <span class="comment">// 把字符串包装成对象</span></span><br><span class="line"><span class="keyword">var</span> len = strObj.length;  <span class="comment">// 因为是对象，所以可以点出东西。</span></span><br><span class="line">alert(len); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
-</li>
+        <h1 id="Date类型对象"><a href="#Date类型对象" class="headerlink" title="Date类型对象"></a>Date类型对象</h1><h2 id="Date类型对象介绍"><a href="#Date类型对象介绍" class="headerlink" title="Date类型对象介绍"></a>Date类型对象介绍</h2><ul>
+<li>Date类型对象是JavaScript提供的日期和时间的操作接口。它可以表示的时间范围是，1970年1月1日00:00:00前后的各1亿天（单位为毫秒）。</li>
+<li>Date  是系统内置的构造函数，若想要操作时间，必须创建Date类型对象。</li>
 </ul>
-<h2 id="字符串对象常用的方法"><a href="#字符串对象常用的方法" class="headerlink" title="字符串对象常用的方法"></a>字符串对象常用的方法</h2><ul>
-<li><p>字符串所有的方法，都 不会修改字符串本身(字符串是不可变的)，操作完成会 返回一个新的字符串</p>
+<h2 id="创建Date类型对象"><a href="#创建Date类型对象" class="headerlink" title="创建Date类型对象"></a>创建Date类型对象</h2><ul>
+<li><p>方式1：【常用】</p>
 <ul>
-<li>以下方法，可以自己尝试查手册或文档使用</li>
+<li>语法<blockquote>
+<p><code>var 变量名 = new Date();</code> // 创建当前时间对象<br>代码</p>
+<p><code>var date = new Date();</code></p>
+<p><code>console.log(date);</code></p>
+</blockquote>
+</li>
 </ul>
 </li>
-<li><p>获取字符串中的单个字符</p>
+<li><p>方式2：【常用】</p>
+<ul>
+<li><p>语法</p>
+<blockquote>
+<p><code>var 变量名 = new Date(stringdate);</code> // 创建指定的时间对象</p>
+<p>// 参数 stringdate, 字符串格式→ ‘year-month-date hh:mm:ss’   或  ‘year/month/date hh:mm:ss’</p>
+</blockquote>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<blockquote>
+<p><code>var date = new Date(&#39;2018/10/16 12:12:12&#39;);</code></p>
+<p><code>var date2 = new Date(&#39;2018-10-16 12:12:12&#39;);</code></p>
+<p><code>console.log(date);</code></p>
+<p><code>console.log(date2);</code></p>
+</blockquote>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.charAt(index);</span><br><span class="line">字符串[index];      <span class="comment">// 推荐使用</span></span><br></pre></td></tr></table></figure>
-<h3 id="字符串的拼接concat-和-截取slice"><a href="#字符串的拼接concat-和-截取slice" class="headerlink" title="字符串的拼接concat 和 截取slice"></a>字符串的拼接concat 和 截取slice</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拼接</span></span><br><span class="line">字符串.concat(str1,str2,str3...);</span><br><span class="line">拼接符 +     <span class="comment">//推荐使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 截取</span></span><br><span class="line">字符串.slice(star,end);</span><br></pre></td></tr></table></figure>
-<h3 id="查询字符是否在字符串中存在"><a href="#查询字符是否在字符串中存在" class="headerlink" title="查询字符是否在字符串中存在"></a>查询字符是否在字符串中存在</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.indexOf(); </span><br><span class="line">字符串.lastIndexOf();</span><br></pre></td></tr></table></figure>
-<h3 id="去除空白符trim"><a href="#去除空白符trim" class="headerlink" title="去除空白符trim"></a>去除空白符trim</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.trim();  <span class="comment">// 去除字符串两边的空格</span></span><br></pre></td></tr></table></figure>
-<h3 id="字母字符大小写转换toUpperCase-toLowerCase"><a href="#字母字符大小写转换toUpperCase-toLowerCase" class="headerlink" title="字母字符大小写转换toUpperCase/toLowerCase"></a>字母字符大小写转换toUpperCase/toLowerCase</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字符串.toUpperCase(); 	<span class="comment">// 转换大写 重点</span></span><br><span class="line">字符串.toLowerCase(); 	<span class="comment">// 转换小写 重点</span></span><br></pre></td></tr></table></figure>
-<h3 id="字符串替换replace"><a href="#字符串替换replace" class="headerlink" title="字符串替换replace"></a>字符串替换replace</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.replace(newStr,oldStr);</span><br></pre></td></tr></table></figure>
-<h3 id="字符串分割split"><a href="#字符串分割split" class="headerlink" title="字符串分割split"></a>字符串分割split</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串.split(sp);  <span class="comment">// 把一个字符串分割成字符串数组。</span></span><br></pre></td></tr></table></figure>
-<h3 id="还有很多方法"><a href="#还有很多方法" class="headerlink" title="还有很多方法"></a>还有很多方法</h3><pre><code>- 查用MDN文档 或 离线手册 学习内置对象的属性 或 方法。
-</code></pre>
+</li>
+<li><p>方式3：</p>
+<ul>
+<li><p>语法</p>
+<blockquote>
+<p>`var 变量名 = new Date(value);  // 创建1970年开始value毫秒后的时间对象</p>
+<p><code>// 参数 value, 数字，指的是毫秒数`</code></p>
+</blockquote>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<blockquote>
+<p><code>var date = new Date(99999999999);</code></p>
+<p><code>console.log(date);</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>方式4：</p>
+<ul>
+<li><p>语法 </p>
+<blockquote>
+<p>var 变量名 = new Date(year, month[, day[, hour[, minutes[, seconds[, milliseconds]]]]]);</p>
+<p><code>// 参数 year、month、day、hour、minutes、seconds、milliseconds 都是数字，分别指的是年、月、日、时、分、秒、毫秒</code></p>
+<p><code>// 特别注意： month的范围是 [0-11]</code></p>
+</blockquote>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<blockquote>
+<p><code>var date = new Date(2018,9,16,12,12,12,12);</code></p>
+<p><code>console.log(date);</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="常用的Date类型对象方法"><a href="#常用的Date类型对象方法" class="headerlink" title="常用的Date类型对象方法"></a>常用的Date类型对象方法</h2><h3 id="获取-和-设置-年月日"><a href="#获取-和-设置-年月日" class="headerlink" title="获取 和 设置 年月日"></a>获取 和 设置 年月日</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">日期对象.getFullYear() / 日期对象.setFullYear(数字) <span class="comment">// 年</span></span><br><span class="line"></span><br><span class="line">日期对象.getMonth() / 日期对象.setMonth(数字)   <span class="comment">// 月</span></span><br><span class="line">注意：获取月份是从<span class="number">0</span>开始的</span><br><span class="line"></span><br><span class="line">日期对象.getDate() / 日期对象.setDate(数字)  <span class="comment">//日</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取-和-设置-时分秒"><a href="#获取-和-设置-时分秒" class="headerlink" title="获取 和 设置 时分秒"></a>获取 和 设置 时分秒</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">日期对象.getHours()  /  日期对象.setHours(数字)  <span class="comment">// 时</span></span><br><span class="line"></span><br><span class="line">日期对象.getMinutes()  /  日期对象.setMinutes(数字) <span class="comment">// 分</span></span><br><span class="line"></span><br><span class="line">日期对象.getSeconds()  /  日期对象.setMinutes(数字) <span class="comment">// 秒</span></span><br><span class="line"></span><br><span class="line">对象. getMilliseconds()  / 对象.setMilliseconds(数字) <span class="comment">// 毫秒</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取-星期数"><a href="#获取-星期数" class="headerlink" title="获取 星期数"></a>获取 星期数</h3><blockquote>
+<p>日期对象.getDay();   // 0-6（周日0到周六6） 不能够设置，原因是周天是由今天的日期决定的。</p>
+</blockquote>
+<ul>
+<li>获取1970年至指定时间的 总毫秒数</li>
+</ul>
+<blockquote>
+<p>日期对象.getTime()  /  日期对象.setTime(数字); </p>
+</blockquote>
+
       
     </div>
     

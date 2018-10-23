@@ -329,7 +329,7 @@
 <li>平台：<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">Node.js</a> + <a href="http://expressjs.com/zh-cn/" target="_blank" rel="noopener">Express</a></li>
 <li>数据库：<code>MySQL</code></li>
 </ol>
-<h3 id="1-2-项目演示-amp-开发规划"><a href="#1-2-项目演示-amp-开发规划" class="headerlink" title="1.2 项目演示 &amp; 开发规划"></a>1.2 项目演示 &amp; 开发规划</h3><p><img src="./assets/QQ%E6%88%AA%E5%9B%BE20180725202147.png" alt="QQ截图20180725202147"> </p>
+<h3 id="1-2-项目演示-amp-开发规划"><a href="#1-2-项目演示-amp-开发规划" class="headerlink" title="1.2 项目演示 &amp; 开发规划"></a>1.2 项目演示 &amp; 开发规划</h3><p><img src="/images/node/QQ%E6%88%AA%E5%9B%BE20180725202147.png" alt="QQ截图20180725202147"> </p>
 <h2 id="2-项目准备"><a href="#2-项目准备" class="headerlink" title="2. 项目准备"></a>2. 项目准备</h2><blockquote>
 <p>目标：项目环境准备，安装 <code>Express</code> 并将代码提交至 <code>Github</code> 代码仓库。</p>
 </blockquote>
@@ -372,7 +372,7 @@
 </blockquote>
 <ul>
 <li><p>结构示意图如下：</p>
-<p><img src="../%E6%95%99%E5%AD%A6%E8%B5%84%E6%BA%90/assets/image-20180710005736145.png" alt="image-20180710005736145"></p>
+<p><img src="/images/node/image-20180710005736145.png" alt="image-20180710005736145"></p>
 </li>
 <li><p><code>app.js</code> 代码如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 导包</span></span><br><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 使用 express 实例化 app 对象</span></span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 让 app 监听请求</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'单一 app.js 返回的数据'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 监听端口启动服务器</span></span><br><span class="line">app.listen(<span class="number">12345</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'start at http://127.0.0.1/12345'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -386,7 +386,7 @@
 </blockquote>
 <ul>
 <li><p>结构示意图如下：</p>
-<p><img src="../%E6%95%99%E5%AD%A6%E8%B5%84%E6%BA%90/assets/image-20180710005701557.png" alt="image-20180710005701557"></p>
+<p><img src="/images/node/image-20180710005701557.png" alt="image-20180710005701557"></p>
 </li>
 <li><p><code>router.js</code> 代码如下：   </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 导入 express</span></span><br><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 使用 express.Router 实例化 Router 对象</span></span><br><span class="line"><span class="keyword">var</span> router = express.Router();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 让 router 监听请求</span></span><br><span class="line">router.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'路由返回的数据'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 导出路由对象</span></span><br><span class="line"><span class="built_in">module</span>.exports = router;</span><br></pre></td></tr></table></figure>
@@ -403,7 +403,7 @@
 </blockquote>
 <ul>
 <li><p>结构示意图如下：</p>
-<p><img src="../%E6%95%99%E5%AD%A6%E8%B5%84%E6%BA%90/assets/image-20180710094012351.png" alt="image-20180710094012351"></p>
+<p><img src="/images/node/image-20180710094012351.png" alt="image-20180710094012351"></p>
 </li>
 <li><p><code>controller/user.js</code> 代码如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 导出显示用户登录处理函数</span></span><br><span class="line">exports.showSignin = <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.send(<span class="string">'显示用户登录页面处理函数'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -876,7 +876,7 @@
 <h1 id="中间件笔记"><a href="#中间件笔记" class="headerlink" title="中间件笔记"></a>中间件笔记</h1><h3 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a><a href="http://www.expressjs.com.cn/guide/using-middleware.html" target="_blank" rel="noopener">中间件</a></h3><h4 id="1-1-中间件基本概念"><a href="#1-1-中间件基本概念" class="headerlink" title="1.1 中间件基本概念"></a>1.1 中间件基本概念</h4><p>Express 的最大特色，也是最重要的一个设计，就是中间件。</p>
 <p>一个 Express 应用，就是由许许多多的中间件来完成的。</p>
 <p>为了理解中间件，我们先来看一下我们现实生活中的自来水厂的净水流程–</p>
-<p><img src="../%E6%95%99%E5%AD%A6%E8%B5%84%E6%BA%90/assets/water-middleware.jpeg" alt="water-middleware"></p>
+<p><img src="/images/node/water-middleware.jpeg" alt="water-middleware"></p>
 <p>自来水厂从获取水源到净化处理交给用户，中间经历了一系列的处理环节，</p>
 <p>我们称其中的每一个处理环节就是一个中间件。</p>
 <p><code>一个简单的中间件例子：打印日志</code></p>
@@ -1320,10 +1320,8 @@
 <p>如何解决这个问题呢?  任何请求都要通过配置路由的方式去处理</p>
 </blockquote>
 <p><code>index.html</code> </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- link的href会发送请求 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"../public/main.css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><code>报错</code> </p>
-<p><img src="./assets/浏览器报错-无法找到main.css.png" alt="浏览器报错-无法找到main.css"></p>
-<p><code>app.js</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- link的href会发送请求 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"../public/main.css"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">![浏览器报错-无法找到main.css](/images/node/浏览器报错-无法找到main.css.png)</span><br></pre></td></tr></table></figure>
+<p><code>报错</code><br><code>app.js</code></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 处理public下的资源请求</span></span><br><span class="line">app.get(<span class="string">'/public/main.css'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    fs.readFile(<span class="string">'./public/main.css'</span>, (err, data) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="keyword">throw</span> err;</span><br><span class="line">        &#125;</span><br><span class="line">        res.send(data.toString());</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>然后在浏览器中通过请求localhost:12345/public/main.css发现可以获取到main.css中的样式代码</p>
@@ -1412,81 +1410,6 @@
 
 
   
-    <article id="post-node/06-Node导出模块成员" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/08/27/node/06-Node导出模块成员/" class="article-date">
-      <time datetime="2017-08-27T07:06:06.000Z" itemprop="datePublished">2017-08-27</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/08/27/node/06-Node导出模块成员/">06-导出模块成员</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="导出模块成员"><a href="#导出模块成员" class="headerlink" title="导出模块成员"></a>导出模块成员</h1><h2 id="1-gt-导出多个成员：写法一"><a href="#1-gt-导出多个成员：写法一" class="headerlink" title="1&gt; 导出多个成员：写法一"></a>1&gt; 导出多个成员：写法一</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 导出多个成员：写法一</span><br><span class="line">module.exports.a = 123;</span><br><span class="line">module.exports.b = 456;</span><br><span class="line">module.exports.c = 789;</span><br></pre></td></tr></table></figure>
-<h2 id="2-gt-导出多个成员：写法二"><a href="#2-gt-导出多个成员：写法二" class="headerlink" title="2&gt; 导出多个成员：写法二"></a>2&gt; 导出多个成员：写法二</h2><p>为了降低开发人员的痛苦，所以为 <code>module.exports</code> 提供了一个别名 <code>exports</code> （下面写法等价于上面的写法）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(exports === module.exports) // =&gt; true</span><br><span class="line">exports.a = 123;</span><br><span class="line">exports.b = 456;</span><br><span class="line">exports.c = 789;</span><br><span class="line">console.log(exports);</span><br><span class="line">// 但是最终导出的依然是module.exports!</span><br></pre></td></tr></table></figure>
-<h3 id="3-gt-导出多个成员：写法三"><a href="#3-gt-导出多个成员：写法三" class="headerlink" title="3&gt; 导出多个成员：写法三"></a>3&gt; 导出多个成员：写法三</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// module.exports = &#123;</span><br><span class="line">//   d: &apos;hello&apos;,</span><br><span class="line">//   e: &apos;world&apos;,</span><br><span class="line">//   fn: function () &#123;</span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // fs.readFile(function () &#123;</span><br><span class="line"></span><br><span class="line">//     // &#125;);</span><br><span class="line">//   &#125;</span><br><span class="line">// &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-gt-导出单个成员"><a href="#4-gt-导出单个成员" class="headerlink" title="4&gt; 导出单个成员"></a>4&gt; 导出单个成员</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 导出单个成员：错误的写法</span><br><span class="line">// 因为每个模块最终导出是 module.exports 而不是 exports 这个别名</span><br><span class="line">// exports = function (x, y) &#123;</span><br><span class="line">//   return x + y;</span><br><span class="line">// &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 导出单个成员：必须这么写</span><br><span class="line">module.exports = function (x, y) &#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：导出单个只能导出一次，下面的情况后者会覆盖前者：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &apos;hello&apos;;</span><br><span class="line"></span><br><span class="line">// 以这个为准，后者会覆盖前者</span><br><span class="line">module.exports = function (x, y) &#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>最终导出的依然是module.exports!!!!</p>
-<p>exports是对module.exports的引用</p>
-<p>require导入的是模块的module.exports</p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-node/07-Express" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1533,6 +1456,81 @@
 <li>每一个路由都可以有一个或者多个处理器函数，当匹配到路由时，这些函数将被执行。</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app 是 express 实例</span></span><br><span class="line"><span class="comment">// METHOD 是一个 HTTP 请求方法</span></span><br><span class="line"><span class="comment">// PATH 是服务端路径（定位标识）</span></span><br><span class="line"><span class="comment">// HANDLER 是当路由匹配到时需要执行的处理函数</span></span><br><span class="line">app.METHOD(PATH, HANDLER);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 演示路由功能</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. require()加载express包</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 使用express()的实例app</span></span><br><span class="line"><span class="comment">// 相当于http模块中的 http.createServer();</span></span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 配置请求路径对应的请求处理函数</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'/'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/one'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'/one'</span>);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/two'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'/two'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/three'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'/three'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 绑定端口号,启动服务器</span></span><br><span class="line">app.listen(<span class="number">12345</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'please run it at localhost:12345'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-node/06-Node导出模块成员" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/27/node/06-Node导出模块成员/" class="article-date">
+      <time datetime="2017-08-27T07:06:06.000Z" itemprop="datePublished">2017-08-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/08/27/node/06-Node导出模块成员/">06-导出模块成员</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="导出模块成员"><a href="#导出模块成员" class="headerlink" title="导出模块成员"></a>导出模块成员</h1><h2 id="1-gt-导出多个成员：写法一"><a href="#1-gt-导出多个成员：写法一" class="headerlink" title="1&gt; 导出多个成员：写法一"></a>1&gt; 导出多个成员：写法一</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 导出多个成员：写法一</span><br><span class="line">module.exports.a = 123;</span><br><span class="line">module.exports.b = 456;</span><br><span class="line">module.exports.c = 789;</span><br></pre></td></tr></table></figure>
+<h2 id="2-gt-导出多个成员：写法二"><a href="#2-gt-导出多个成员：写法二" class="headerlink" title="2&gt; 导出多个成员：写法二"></a>2&gt; 导出多个成员：写法二</h2><p>为了降低开发人员的痛苦，所以为 <code>module.exports</code> 提供了一个别名 <code>exports</code> （下面写法等价于上面的写法）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(exports === module.exports) // =&gt; true</span><br><span class="line">exports.a = 123;</span><br><span class="line">exports.b = 456;</span><br><span class="line">exports.c = 789;</span><br><span class="line">console.log(exports);</span><br><span class="line">// 但是最终导出的依然是module.exports!</span><br></pre></td></tr></table></figure>
+<h3 id="3-gt-导出多个成员：写法三"><a href="#3-gt-导出多个成员：写法三" class="headerlink" title="3&gt; 导出多个成员：写法三"></a>3&gt; 导出多个成员：写法三</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// module.exports = &#123;</span><br><span class="line">//   d: &apos;hello&apos;,</span><br><span class="line">//   e: &apos;world&apos;,</span><br><span class="line">//   fn: function () &#123;</span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // </span><br><span class="line">//     // fs.readFile(function () &#123;</span><br><span class="line"></span><br><span class="line">//     // &#125;);</span><br><span class="line">//   &#125;</span><br><span class="line">// &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-gt-导出单个成员"><a href="#4-gt-导出单个成员" class="headerlink" title="4&gt; 导出单个成员"></a>4&gt; 导出单个成员</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 导出单个成员：错误的写法</span><br><span class="line">// 因为每个模块最终导出是 module.exports 而不是 exports 这个别名</span><br><span class="line">// exports = function (x, y) &#123;</span><br><span class="line">//   return x + y;</span><br><span class="line">// &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 导出单个成员：必须这么写</span><br><span class="line">module.exports = function (x, y) &#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：导出单个只能导出一次，下面的情况后者会覆盖前者：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &apos;hello&apos;;</span><br><span class="line"></span><br><span class="line">// 以这个为准，后者会覆盖前者</span><br><span class="line">module.exports = function (x, y) &#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最终导出的依然是module.exports!!!!</p>
+<p>exports是对module.exports的引用</p>
+<p>require导入的是模块的module.exports</p>
+</blockquote>
 
       
     </div>
